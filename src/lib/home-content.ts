@@ -8,7 +8,19 @@ export type SelectedQuestion = {
   question: string
   project: string
   tag: string
+  slug: string
   href: string
+}
+
+export type WorkProject = {
+  name: string
+  role: string
+  year: string
+}
+
+export type WorkProjectGroup = {
+  category: string
+  projects: WorkProject[]
 }
 
 export type BehindItem = {
@@ -35,11 +47,18 @@ export type ContactLink = {
   href: string
 }
 
+export const contactEmail = "pkk062300@naver.com"
+export const contactHref = `mailto:${contactEmail}`
+export const phoneDisplay = "요청 시 공유"
+export const githubUrl = "https://github.com/Power-xc"
+export const linkedinUrl =
+  "https://www.linkedin.com/in/%EA%B0%95%EA%B7%BC-%EB%B0%95-b9a97238a/"
+
 export const navItems: NavItem[] = [
-  { label: "Work", href: "#work" },
-  { label: "Approach", href: "#approach" },
-  { label: "AI Workflow", href: "#ai-workflow" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "AI Workflow", href: "/#ai-workflow" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 export const selectedQuestions: SelectedQuestion[] = [
@@ -48,28 +67,86 @@ export const selectedQuestions: SelectedQuestion[] = [
     question: "AI가 추천해도,\n점주는 왜 바로 주문하지 못했을까?",
     project: "SPC Dunkin AI Smart POS / Mobile",
     tag: "AI Decision UX",
-    href: "#work",
+    slug: "spc-dunkin-ai-smart-pos",
+    href: "/work/spc-dunkin-ai-smart-pos",
   },
   {
     number: "02",
     question: "메뉴는 충분했는데,\n왜 사용자는 계속 길을 잃었을까?",
     project: "STEP 평생교육원",
     tag: "IA Redesign",
-    href: "#work",
+    slug: "step-lifelong-education-platform",
+    href: "/work/step-lifelong-education-platform",
   },
   {
     number: "03",
     question: "AI의 답은 나왔는데,\n사용자는 무엇을 근거로 믿어야 할까?",
     project: "SAPIE DeepQ",
     tag: "Explainable AI UX",
-    href: "#work",
+    slug: "sapie-deepq",
+    href: "/work/sapie-deepq",
   },
   {
     number: "04",
     question: "AI 도구를 허용할수록,\n조직은 무엇을 감시하고 통제해야 할까?",
     project: "SAPIE / Guardian",
     tag: "AI Security UX",
-    href: "#work",
+    slug: "sapie-guardian",
+    href: "/work/sapie-guardian",
+  },
+]
+
+export function getCaseStudyBySlug(slug: string) {
+  return selectedQuestions.find((caseStudy) => caseStudy.slug === slug) ?? null
+}
+
+export const workProjectGroups: WorkProjectGroup[] = [
+  {
+    category: "AI Products",
+    projects: [
+      { name: "SPC 던킨 AI 스마트 POS", role: "프로덕트 UX 리드", year: "2026" },
+      { name: "SAPIE Guardian", role: "AI 보안 모니터링 UX/UI", year: "2026" },
+      { name: "SAPIE DeepQ", role: "AI 에이전트 UX/UI", year: "2025" },
+      { name: "SAPIE SQL Agent", role: "AI 데이터 질의 UX/UI", year: "2025" },
+      { name: "LG U+ Simple Agent", role: "UI/UX 개선", year: "2025" },
+      { name: "SAPIE AI 챗봇", role: "AI 서비스 UX/UI", year: "2024" },
+    ],
+  },
+  {
+    category: "Internal",
+    projects: [
+      { name: "솔트웨어 관리자 포털", role: "관리자 시스템 UX/UI", year: "2024" },
+      { name: "솔트웨어 홈페이지 리뉴얼", role: "웹사이트 UX/UI", year: "2024" },
+      { name: "솔트웨어 영문 트랜스레이터", role: "AI 번역 서비스 UX/UI", year: "2024" },
+    ],
+  },
+  {
+    category: "Enterprise",
+    projects: [
+      { name: "STEP 평생교육원", role: "학습 플랫폼 IA 재설계", year: "2026" },
+      { name: "재외동포청", role: "UI/UX 설계 · 마크업", year: "2024" },
+      { name: "국민연금", role: "UI/UX 설계 · 마크업", year: "2023" },
+      { name: "펑션베이", role: "UI/UX 설계 · 마크업", year: "2021" },
+      { name: "경인교육대학교", role: "UI/UX 설계 · 마크업", year: "2020" },
+      { name: "경북대학교", role: "UI/UX 설계 · 마크업", year: "2020" },
+      { name: "전주비전대학교", role: "UI/UX 설계 · 마크업", year: "2020" },
+      { name: "금융감독원", role: "UI/UX 설계 · 마크업", year: "2020" },
+      { name: "광양만권경제자유구역", role: "UI/UX 설계 · 마크업", year: "2020" },
+      { name: "한국체육대학교", role: "UI/UX 설계 · 마크업", year: "2019" },
+      { name: "롯데정보통신", role: "내부업무시스템 고도화", year: "2019" },
+      { name: "인하공업전문대학교", role: "UI/UX 설계 · 마크업", year: "2019" },
+      { name: "한서대학교", role: "UI/UX 설계 · 마크업", year: "2019" },
+      { name: "경기도 수사정보시스템", role: "UI/UX 설계 · 마크업", year: "2019" },
+      { name: "인천항만공사", role: "그룹웨어 UI/UX 설계 · 마크업", year: "2018" },
+      { name: "서울대학교", role: "UI/UX 설계 · 마크업", year: "2018" },
+      { name: "서울시 민생사법경찰단", role: "UI/UX 설계 · 마크업", year: "2018" },
+      { name: "UST 과학기술연합대학원대학교", role: "UI/UX 설계 · 마크업", year: "2018" },
+      { name: "한전KPS", role: "UI/UX 설계 · 마크업", year: "2018" },
+      { name: "성신여자대학교", role: "UI/UX 설계 · 마크업", year: "2018" },
+      { name: "한국교원대학교", role: "UI/UX 설계 · 마크업", year: "2017" },
+      { name: "중소기업중앙회", role: "UI/UX 설계 · 마크업", year: "2017" },
+      { name: "한국국학진흥원", role: "UI/UX 설계 · 마크업", year: "2017" },
+    ],
   },
 ]
 
@@ -155,9 +232,7 @@ export const workflowFlow = [
 export const tools = ["LLM", "Figma Make", "Claude", "Codex", "GitHub"] as const
 
 export const contactLinks: ContactLink[] = [
-  { label: "Email", href: "mailto:your.email@example.com" },
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "Resume PDF", href: "#" },
-  { label: "Design Log", href: "#" },
+  { label: "Email", href: contactHref },
+  { label: "GitHub", href: githubUrl },
+  { label: "LinkedIn", href: linkedinUrl },
 ]

@@ -28,7 +28,7 @@ export function AIWorkflow() {
           {workflowCards.map((card) => (
             <article
               key={card.title}
-              className="rounded-[1.5rem] border border-white/10 bg-white/[0.018] p-5 md:p-6"
+              className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6"
             >
               <h3 className="text-xl font-normal text-white">{card.title}</h3>
               <p className="mt-4 break-keep text-sm font-normal leading-7 text-white/55">
@@ -37,7 +37,7 @@ export function AIWorkflow() {
             </article>
           ))}
         </div>
-        <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-background/70 p-4 md:mt-8 md:rounded-[1.75rem] md:p-6">
+        <div className="mt-6 rounded-lg border border-white/10 bg-background/70 p-4 md:mt-8 md:p-6">
           <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
             {workflowFlow.map((item, index) => (
               <div key={item} className="flex items-center gap-3">

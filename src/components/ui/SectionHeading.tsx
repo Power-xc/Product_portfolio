@@ -16,7 +16,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-white md:text-[clamp(2.55rem,4vw,3.35rem)]">
+      <h2 className="break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-white md:text-[48px]">
         {title}
       </h2>
       {description ? (

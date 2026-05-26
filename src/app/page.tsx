@@ -2,7 +2,6 @@ import { AIWorkflow } from "@/components/home/AIWorkflow"
 import { BehindTheOneOne } from "@/components/home/BehindTheOneOne"
 import { ContactSection } from "@/components/home/ContactSection"
 import { Hero } from "@/components/home/Hero"
-import { Manifesto } from "@/components/home/Manifesto"
 import { Process } from "@/components/home/Process"
 import { SelectedQuestions } from "@/components/home/SelectedQuestions"
 import { Footer } from "@/components/layout/Footer"
@@ -14,7 +13,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Manifesto />
         <SelectedQuestions />
         <BehindTheOneOne />
         <Process />

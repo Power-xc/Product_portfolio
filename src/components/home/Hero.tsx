@@ -7,7 +7,7 @@ export function Hero() {
         <p className="text-[15px] font-normal leading-7 text-[#999] md:text-[20px]">
           Product 1.1 for the AX Era
         </p>
-        <h1 className="mt-7 break-keep text-[clamp(2.45rem,9.6vw,5rem)] font-normal leading-[1.13] text-white">
+        <h1 className="mt-7 break-keep text-[clamp(2.45rem,9.6vw,71px)] font-normal leading-[1.13] text-white">
           <span>AX </span>
           <span className="text-[#999]">시대,</span>
           <br />
@@ -42,9 +42,9 @@ export function Hero() {
           <p>Seoul, South Korea</p>
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="#work">View Work</ButtonLink>
-          <ButtonLink href="#approach" variant="secondary">
-            See Approach
+          <ButtonLink href="/work">View Work</ButtonLink>
+          <ButtonLink href="/about" variant="secondary">
+            About
           </ButtonLink>
         </div>
       </div>

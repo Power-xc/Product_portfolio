@@ -6,7 +6,7 @@ export function Process() {
     <section id="approach" className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
       <div>
         <SectionHeading title="저는 화면을 그리기 전에, 사용자가 멈추는 구조를 먼저 찾습니다." />
-        <div className="mt-10 grid gap-px overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/10 md:mt-14 md:grid-cols-2 md:rounded-[1.75rem] lg:grid-cols-5">
+        <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:mt-14 md:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step) => (
             <article
               key={step.number}

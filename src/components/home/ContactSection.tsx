@@ -1,6 +1,6 @@
 import { ButtonLink } from "@/components/ui/ButtonLink"
 import { SectionHeading } from "@/components/ui/SectionHeading"
-import { contactLinks } from "@/lib/home-content"
+import { contactHref, contactLinks } from "@/lib/home-content"
 
 export function ContactSection() {
   return (
@@ -19,7 +19,7 @@ export function ContactSection() {
             </p>
           </div>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="mailto:your.email@example.com">Contact Me</ButtonLink>
+            <ButtonLink href={contactHref}>Contact Me</ButtonLink>
             <button
               type="button"
               disabled
@@ -29,7 +29,7 @@ export function ContactSection() {
             </button>
           </div>
         </div>
-        <aside className="rounded-[1.5rem] border border-white/10 bg-white/[0.018] p-5 md:p-6">
+        <aside className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6">
           <dl className="space-y-6">
             <div>
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
@@ -58,6 +58,8 @@ export function ContactSection() {
                   <a
                     key={link.label}
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                     className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/60 transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     {link.label}

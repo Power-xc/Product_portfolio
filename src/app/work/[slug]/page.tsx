@@ -4,7 +4,6 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
-import { getCaseStudyBySlug, selectedQuestions } from "@/lib/home-content"
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -87,6 +86,20 @@ type TradeOff = {
 
 const dunkinSlug = "spc-dunkin-ai-smart-pos"
 const imageBase = "/images/dunkin"
+
+const caseStudies = [
+  {
+    slug: dunkinSlug,
+    number: "01",
+    tag: "AI Decision UX",
+    question: "AI가 추천해도,\n점주는 왜 바로 주문하지 못했을까?",
+    project: "SPC Dunkin AI Smart POS / Mobile",
+  },
+] as const
+
+function getCaseStudyBySlug(slug: string) {
+  return caseStudies.find((caseStudy) => caseStudy.slug === slug) ?? null
+}
 
 const structureMetrics: Metric[] = [
   {
@@ -439,7 +452,7 @@ const reflectionColumns: TradeOff[] = [
 ]
 
 export function generateStaticParams() {
-  return selectedQuestions.map((caseStudy) => ({
+  return caseStudies.map((caseStudy) => ({
     slug: caseStudy.slug,
   }))
 }
