@@ -49,6 +49,11 @@ type Principle = {
   design: string
 }
 
+type ResearchPattern = {
+  title: string
+  body: string
+}
+
 type RequirementRow = {
   requirement: string
   problem: string
@@ -108,17 +113,17 @@ const structureMetrics: Metric[] = [
     context: "Structure Change",
   },
   {
-    value: "30+ -> 4",
+    value: "30+ → 4",
     label: "메뉴 그룹 재구성",
     context: "Design Outcome",
   },
   {
-    value: "6 -> 1",
+    value: "6 → 1",
     label: "핵심 정보 탐색 뎁스",
     context: "Structure Change",
   },
   {
-    value: "20 -> 3",
+    value: "20 → 3",
     label: "POS 주문·결제 플로우 단순화",
     context: "Design Outcome",
   },
@@ -141,7 +146,7 @@ const interviewQuotes: QuoteItem[] = [
     store: "양천구청센트럴",
     meta: "점주 인터뷰",
     quote:
-      "데이터가 완벽하지 않아도 가이드라인만 줘도 충분해요. AI가 제안하는 수치가 장사의 기준점이 되어주길 기대합니다.",
+      "데이터가 100% 완벽하지 않더라도, 우리가 참고할 수 있는 가이드라인만 제대로 주어진다면 장사하는 입장에선 충분히 유의미하죠.",
   },
   {
     store: "아현뉴타운",
@@ -153,13 +158,13 @@ const interviewQuotes: QuoteItem[] = [
     store: "동탄하나로",
     meta: "점주협의체 회장",
     quote:
-      "감에 의존하던 걸 AI가 근거를 주고, 그게 맞기 시작하면 점주들은 신뢰하게 됩니다.",
+      "감에 의존하던 내용들을 AI가 근거를 제공해 주고, 그게 맞기 시작하면 점주들은 신뢰하게 되거든요.",
   },
   {
     store: "약수역",
     meta: "13년차",
     quote:
-      "웹포스는 정보가 너무 많아서 뭘 봐야 할지 모르겠고, 모바일은 정작 볼 게 없어요.",
+      "웹포스는 정보가 너무 많아서 뭘 봐야 할지 모르겠고, 모바일은 정작 볼 게 없어요. 숫자가 나열된 데이터보다 매장의 흐름을 한눈에 보고 싶습니다.",
   },
 ]
 
@@ -178,6 +183,21 @@ const patterns: Principle[] = [
     insight: "Control Retention",
     principle: "통제 가능한 실수 설계",
     design: "AI 추천 후 수량 조정 · 최종 확인 · Undo · 이상 주문 경고",
+  },
+]
+
+const researchPatterns: ResearchPattern[] = [
+  {
+    title: "AI Distrust",
+    body: "AI를 믿을 근거가 없다",
+  },
+  {
+    title: "Decision Paralysis",
+    body: "숫자는 있는데 판단이 안 된다",
+  },
+  {
+    title: "Control Retention",
+    body: "결정은 내가 해야 한다",
   },
 ]
 
@@ -283,30 +303,6 @@ const depthRows: DepthRow[] = [
   { task: "재고 부족 대응", asIs: "5", toBe: "0", change: "알림에서 즉시 조치" },
 ]
 
-const posScreens: ScreenItem[] = [
-  {
-    title: "종합현황 대시보드",
-    description: "매출, 기회손실, 추천 행동을 한 화면에 묶어 아침 판단의 시작점을 만들었다.",
-    src: `${imageBase}/pos-dashboard-overview.png`,
-    alt: "POS 종합현황 대시보드 디자인",
-    type: "desktop",
-  },
-  {
-    title: "생산관리",
-    description: "소진 예상과 생산 지시를 같은 흐름에 놓아 즉시 조치 여부를 판단하게 했다.",
-    src: `${imageBase}/pos-production-management.png`,
-    alt: "POS 생산관리 화면 디자인",
-    type: "desktop",
-  },
-  {
-    title: "AI 실시간 현황",
-    description: "에이전트별 상태와 추천 근거를 보여줘 AI 판단을 추적 가능하게 했다.",
-    src: `${imageBase}/pos-ai-realtime-status.png`,
-    alt: "POS AI 실시간 현황 화면 디자인",
-    type: "desktop",
-  },
-]
-
 const orderStepScreens: ScreenItem[] = [
   {
     title: "1. AI 추천 발주",
@@ -361,6 +357,21 @@ const mobileScreens: ScreenItem[] = [
     type: "mobile",
   },
 ]
+
+const crossPlatformFlows = [
+  {
+    from: "모바일 AI 발주 승인",
+    to: "POS 재고 자동 반영",
+  },
+  {
+    from: "POS 실시간 판매",
+    to: "모바일 신선도 타이머 반영",
+  },
+  {
+    from: "POS 프로모션 실적",
+    to: "모바일 P&L 시뮬레이터 반영",
+  },
+] as const
 
 const tradeOffs: TradeOff[] = [
   {
@@ -619,7 +630,11 @@ function BusinessContextSection() {
       title="왜 이 문제가 중요했는가"
       description="SPC 던킨 매장은 이미 본사 데이터, 주문 데이터, 생산 데이터, 매출 데이터를 갖고 있었다. 문제는 데이터의 존재가 아니라, 점주가 매장 운영 중 그 데이터를 판단 가능한 형태로 받아보지 못한다는 점이었다."
     >
-      <TwoColumn>
+      <DiagramCard
+        title="이해관계자 구조"
+        nodes={["본사 HQ", "SV 슈퍼바이저", "점주", "알바 크루"]}
+      />
+      <TwoColumn className="mt-6">
         <Card title="기존 커뮤니케이션 문제">
           <p className="break-keep text-sm leading-7 text-white/55">
             영업담당자가 매장을 직접 방문해 출력물을 보여주며 설명하는 구조.
@@ -636,11 +651,7 @@ function BusinessContextSection() {
           </div>
         </Card>
       </TwoColumn>
-      <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <DiagramCard
-          title="이해관계자 구조"
-          nodes={["본사 HQ", "SV 슈퍼바이저", "점주", "알바 크루"]}
-        />
+      <div className="mt-6">
         <DiagramCard
           title="에이전트 아키텍처"
           nodes={["생산관리", "주문관리", "매출분석", "PIP AI 통합", "점주 판단"]}
@@ -661,7 +672,7 @@ function ProblemSection() {
     <CaseSection
       number="02"
       title="기존 가설이 왜 틀렸는가"
-      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리해야 했다. 핵심 문제는 AI 기능 구현이 아니라, 점주가 AI 추천을 믿고 판단할 수 있는 구조에 있었다."
+      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리해야 했다. 현장 리서치와 분석을 통해 핵심 문제를 점주가 AI 추천을 믿고 판단할 수 있는 구조로 재정의했다."
     >
       <SimpleTable
         headers={["기존 가설", "실제 문제"]}
@@ -693,9 +704,9 @@ function ResearchSection() {
         ))}
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {patterns.map((pattern) => (
-          <Card key={pattern.insight} title={pattern.insight}>
-            <p className="text-sm leading-7 text-white/55">{pattern.principle}</p>
+        {researchPatterns.map((pattern) => (
+          <Card key={pattern.title} title={pattern.title}>
+            <p className="text-sm leading-7 text-white/55">{pattern.body}</p>
           </Card>
         ))}
       </div>
@@ -757,13 +768,13 @@ function PrincipleSection() {
     <CaseSection
       number="05"
       title="인사이트를 설계 원칙으로 바꾸다"
-      description="AI가 결정을 대신하는 것이 아니라, 점주가 더 나은 결정을 할 수 있도록 판단 기준과 복구 장치를 설계했다."
+      description="리서치에서 확인한 문제를 화면의 판단 기준, 근거 표시, 복구 장치로 연결했다."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {patterns.map((pattern) => (
           <div
             key={pattern.insight}
-            className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6"
+            className="rounded-lg border border-white/10 bg-white/[0.035] p-6"
           >
             <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">
               {pattern.insight}
@@ -775,6 +786,10 @@ function PrincipleSection() {
           </div>
         ))}
       </div>
+      <ClosingText>
+        AI가 결정을 대신하는 것이 아니라, 점주가 더 나은 결정을 할 수 있도록
+        판단 기준과 복구 장치를 설계했다.
+      </ClosingText>
     </CaseSection>
   )
 }
@@ -1000,17 +1015,21 @@ function UxDesignSection() {
           />
         </div>
         <div className="mt-6">
-          <DiagramCard
-            title="크로스 플랫폼 데이터 흐름"
-            nodes={[
-              "모바일 AI 발주 승인",
-              "POS 재고 자동 반영",
-              "POS 실시간 판매",
-              "모바일 신선도 타이머 반영",
-              "POS 프로모션 실적",
-              "모바일 P&L 시뮬레이터 반영",
-            ]}
-          />
+          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+            <h3 className="text-xl font-normal text-white">크로스 플랫폼 데이터 흐름</h3>
+            <div className="mt-6 grid gap-3 lg:grid-cols-3">
+              {crossPlatformFlows.map((flow) => (
+                <div
+                  key={flow.from}
+                  className="grid gap-3 rounded-lg border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/62"
+                >
+                  <span>{flow.from}</span>
+                  <span className="text-white/25">→</span>
+                  <span>{flow.to}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-[0.7fr_1fr]">
           <ScreenFigure
@@ -1050,15 +1069,12 @@ function KeyScreensSection() {
           caption="디자인 파일 이미지 — 당일 매출, 추천 행동, 손실 가능성을 같은 판단 화면으로 묶었다."
           wide
         />
-        <div className="grid gap-4 lg:grid-cols-3">
-          {posScreens.slice(1).map((screen) => (
-            <ScreenFigure
-              key={screen.title}
-              src={screen.src}
-              alt={screen.alt}
-              caption={`디자인 파일 이미지 — ${screen.description}`}
-            />
-          ))}
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ScreenFigure
+            src={`${imageBase}/pos-production-management.png`}
+            alt="POS 생산관리 화면"
+            caption="디자인 파일 이미지 — 소진 예상과 생산 지시를 같은 흐름에 놓아 즉시 조치 여부를 판단하게 했다."
+          />
           <ScreenFigure
             src={`${imageBase}/pos-order-management-overview.png`}
             alt="POS 발주관리 화면"
@@ -1075,6 +1091,12 @@ function KeyScreensSection() {
             />
           ))}
         </div>
+        <ScreenFigure
+          src={`${imageBase}/pos-ai-realtime-status.png`}
+          alt="POS AI 실시간 현황 화면"
+          caption="디자인 파일 이미지 — 에이전트별 상태와 추천 근거를 통해 AI 판단을 추적하게 했다."
+          wide
+        />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {mobileScreens.map((screen) => (
             <ScreenFigure
@@ -1096,9 +1118,9 @@ function TradeOffSection() {
     <CaseSection
       number="10"
       title="무엇을 보여주지 않기로 했는가"
-      description="모든 데이터를 보여주지 않기로 결정했다. 바쁜 아침에 점주가 바로 판단해야 하는 정보만 전면에 배치했다."
+      description="모든 데이터를 보여주지 않기로 결정했다. 고급 커스터마이징과 일부 상세 분석을 줄이고, 바쁜 아침에 점주가 바로 판단해야 하는 정보만 전면에 배치했다."
     >
-      <div className="rounded-[32px] border border-white/10 bg-white/[0.035] p-6 md:p-8">
+      <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
         <p className="max-w-2xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-white">
           더 많은 정보보다, 더 빠른 판단이 우선이었다.
         </p>
@@ -1117,7 +1139,7 @@ function SpeedWorkflowSection() {
     <CaseSection
       number="11"
       title="어떻게 빠르게 만들었나"
-      description="AI를 결과물 대체가 아니라 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용해 병렬 협업 속도를 높였다."
+      description="프로젝트는 제한된 일정과 적은 인원 안에서 진행됐다. AI를 결과물 대체가 아니라 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용했다."
     >
       <TwoColumn>
         <NumberedList title="아이디에이션 프로세스" items={ideationSteps} />
@@ -1211,7 +1233,7 @@ function MetricGrid({ metrics }: { metrics: Metric[] }) {
       {metrics.map((metric) => (
         <div
           key={metric.label}
-          className="rounded-[26px] border border-white/10 bg-white/[0.035] p-6"
+          className="rounded-lg border border-white/10 bg-white/[0.035] p-6"
         >
           <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">
             {metric.context}
@@ -1236,7 +1258,7 @@ function TagText({ children }: { children: string }) {
 
 function Card({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="rounded-[26px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="break-keep text-xl font-normal leading-7 text-white">{title}</h3>
       <div className="mt-4">{children}</div>
     </div>
@@ -1245,7 +1267,7 @@ function Card({ title, children }: { title: string; children: ReactNode }) {
 
 function DefinitionCard({ title, body }: { title: string; body: string }) {
   return (
-    <div className="rounded-[22px] border border-white/10 bg-black/20 p-5">
+    <div className="rounded-lg border border-white/10 bg-black/20 p-5">
       <p className="text-[15px] font-normal leading-6 text-white">{title}</p>
       <p className="mt-3 break-keep text-sm leading-6 text-white/52">{body}</p>
     </div>
@@ -1254,7 +1276,7 @@ function DefinitionCard({ title, body }: { title: string; body: string }) {
 
 function DiagramCard({ title, nodes }: { title: string; nodes: string[] }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="text-xl font-normal text-white">{title}</h3>
       <div className="mt-6 flex flex-wrap items-center gap-3">
         {nodes.map((node, index) => (
@@ -1307,7 +1329,7 @@ function SimpleTable({ headers, rows }: { headers: string[]; rows: string[][] })
 
 function ResponsiveTable({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-x-auto rounded-[26px] border border-white/10 bg-white/[0.035]">
+    <div className="overflow-x-auto rounded-lg border border-white/10 bg-white/[0.035]">
       <table className="min-w-[760px] w-full border-collapse text-left">{children}</table>
     </div>
   )
@@ -1351,7 +1373,7 @@ function ClosingText({ children }: { children: ReactNode }) {
 
 function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-[26px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <p className="break-keep text-xl font-normal leading-7 text-white">{value}</p>
       <p className="mt-4 text-sm leading-6 text-white/45">{label}</p>
     </div>
@@ -1360,7 +1382,7 @@ function StatCard({ value, label }: { value: string; label: string }) {
 
 function QuoteCard({ item }: { item: QuoteItem }) {
   return (
-    <figure className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6">
+    <figure className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <figcaption className="text-sm leading-6 text-white/45">
         {item.store} — {item.meta}
       </figcaption>
@@ -1375,7 +1397,7 @@ function QuoteCard({ item }: { item: QuoteItem }) {
 
 function BeforeAfterCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="text-2xl font-normal text-white">{title}</h3>
       <ul className="mt-6 space-y-3">
         {items.map((item) => (
@@ -1403,7 +1425,7 @@ function DesignBlock({
 }) {
   return (
     <section
-      className={`rounded-[32px] border border-white/10 bg-white/[0.035] p-6 md:p-8 ${
+      className={`rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8 ${
         compact ? "" : "mb-8"
       }`}
     >
@@ -1421,7 +1443,7 @@ function DesignBlock({
 
 function FormulaCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-[22px] border border-white/10 bg-black/25 p-5">
+    <div className="rounded-lg border border-white/10 bg-black/25 p-5">
       <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">{label}</p>
       <p className="mt-4 break-keep text-sm leading-7 text-white/66">{value}</p>
     </div>
@@ -1443,7 +1465,7 @@ function ScreenFigure({
 }) {
   return (
     <figure
-      className={`overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.035] ${
+      className={`overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] ${
         wide ? "shadow-card" : ""
       }`}
     >
@@ -1457,12 +1479,12 @@ function ScreenFigure({
             src={src}
             alt={alt}
             loading="lazy"
-            className={`h-auto w-full rounded-[18px] object-contain ${
+            className={`h-auto w-full rounded-md object-contain ${
               mobile ? "max-h-[720px] max-w-[260px]" : "max-h-[760px]"
             }`}
           />
         ) : (
-          <div className="flex min-h-[280px] w-full items-center justify-center rounded-[18px] border border-white/10 bg-white/[0.025] text-sm text-white/35">
+          <div className="flex min-h-[280px] w-full items-center justify-center rounded-md border border-white/10 bg-white/[0.025] text-sm text-white/35">
             Image placeholder
           </div>
         )}
@@ -1484,7 +1506,7 @@ function ListCard({
   intro?: string
 }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="break-keep text-xl font-normal text-white">{title}</h3>
       {intro ? <p className="mt-4 text-sm leading-7 text-white/45">{intro}</p> : null}
       <ul className="mt-5 space-y-3">
@@ -1500,7 +1522,7 @@ function ListCard({
 
 function NumberedList({ title, items }: { title: string; items: readonly string[] }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6">
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="text-xl font-normal text-white">{title}</h3>
       <ol className="mt-6 space-y-4">
         {items.map((item, index) => (
