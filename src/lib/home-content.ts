@@ -89,8 +89,8 @@ export const selectedQuestions: SelectedQuestion[] = [
   {
     number: "04",
     question: "AI 도구를 허용할수록,\n조직은 무엇을 감시하고 통제해야 할까?",
-    project: "SAPIE / Guardian",
-    tag: "AI Security UX",
+    project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
+    tag: "Enterprise AI Security",
     slug: "sapie-guardian",
     href: "/work/sapie-guardian",
   },
@@ -105,7 +105,7 @@ export const workProjectGroups: WorkProjectGroup[] = [
     category: "AI Products",
     projects: [
       { name: "SPC 던킨 AI 스마트 POS", role: "프로덕트 UX 리드", year: "2026" },
-      { name: "SAPIE Guardian", role: "AI 보안 모니터링 UX/UI", year: "2026" },
+      { name: "SAPIE Guardian", role: "Enterprise AI Security Platform UX", year: "2026" },
       { name: "SAPIE DeepQ", role: "AI 에이전트 UX/UI", year: "2025" },
       { name: "SAPIE SQL Agent", role: "AI 데이터 질의 UX/UI", year: "2025" },
       { name: "LG U+ Simple Agent", role: "UI/UX 개선", year: "2025" },
