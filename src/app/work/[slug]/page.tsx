@@ -92,6 +92,8 @@ type TradeOff = {
 const dunkinSlug = "spc-dunkin-ai-smart-pos"
 const imageBase = "/images/dunkin"
 const captureBase = `${imageBase}/captures`
+const deepqSlug = "sapie-deepq"
+const deepqImageBase = "/images/deepq"
 const guardianSlug = "sapie-guardian"
 const guardianImageBase = "/images/guardian"
 
@@ -102,6 +104,13 @@ const caseStudies = [
     tag: "AI Decision UX",
     question: "AI가 추천해도,\n점주는 왜 바로 주문하지 못했을까?",
     project: "SPC Dunkin AI Decision UX / Product Structure",
+  },
+  {
+    slug: deepqSlug,
+    number: "03",
+    tag: "Explainable AI Data Analysis UX",
+    question: "AI가 답을 말해도,\n사용자는 무엇을 보고 신뢰할 수 있을까?",
+    project: "SAPIE DeepQ / Enterprise Intelligence Platform",
   },
   {
     slug: guardianSlug,
@@ -925,6 +934,26 @@ const guardianReflectionColumns: TradeOff[] = [
   },
 ]
 
+const deepqScreens = {
+  login: `${deepqImageBase}/deepq-login.png`,
+  intro: `${deepqImageBase}/deepq-intro.png`,
+  dataStructure: `${deepqImageBase}/deepq-data-structure.png`,
+  firstQuestion: `${deepqImageBase}/deepq-first-question.png`,
+  workspace: `${deepqImageBase}/deepq-workspace.png`,
+  userMenu: `${deepqImageBase}/deepq-user-menu.png`,
+  usage: `${deepqImageBase}/deepq-usage.png`,
+  resultChart: `${deepqImageBase}/deepq-result-chart.png`,
+  processPanel: `${deepqImageBase}/deepq-process-panel.png`,
+  viewSql: `${deepqImageBase}/deepq-view-sql.png`,
+  adminDashboard: `${deepqImageBase}/deepq-admin-dashboard.png`,
+  userManagement: `${deepqImageBase}/deepq-user-management.png`,
+  userEdit: `${deepqImageBase}/deepq-user-edit.png`,
+  passwordReset: `${deepqImageBase}/deepq-password-reset.png`,
+  userAdd: `${deepqImageBase}/deepq-user-add.png`,
+  conversationMonitoring: `${deepqImageBase}/deepq-conversation-monitoring.png`,
+  responseDetail: `${deepqImageBase}/deepq-response-detail.png`,
+} as const
+
 export function generateStaticParams() {
   return caseStudies.map((caseStudy) => ({
     slug: caseStudy.slug,
@@ -948,6 +977,14 @@ export async function generateMetadata({
       title: "SPC Dunkin AI Decision UX · Kangkeun Park",
       description:
         "AI 추천을 점주가 검토하고 조정한 뒤 최종 판단할 수 있게 재설계한 Product UX 케이스스터디.",
+    }
+  }
+
+  if (slug === deepqSlug) {
+    return {
+      title: "SAPIE DeepQ Explainable AI Data Analysis UX · Kangkeun Park",
+      description:
+        "AI 답변을 질문, SQL, 결과, 설명, 운영 이력까지 검토 가능한 분석 기록으로 연결한 Enterprise Intelligence Platform 케이스스터디.",
     }
   }
 
@@ -975,6 +1012,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   if (slug === dunkinSlug) {
     return <DunkinCaseStudy />
+  }
+
+  if (slug === deepqSlug) {
+    return <DeepQCaseStudy />
   }
 
   if (slug === guardianSlug) {
@@ -1062,6 +1103,818 @@ function GuardianCaseStudy() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+function DeepQCaseStudy() {
+  return (
+    <div className="min-h-screen bg-background text-white">
+      <Header />
+      <main>
+        <DeepQHeroSection />
+        <DeepQWhySection />
+        <DeepQContextSection />
+        <DeepQDiscoverySection />
+        <DeepQProblemSection />
+        <DeepQThesisSection />
+        <DeepQWorkflowSection />
+        <DeepQProductStructureSection />
+        <DeepQTrustLadderSection />
+        <DeepQFirstEntrySection />
+        <DeepQQuestionWorkspaceSection />
+        <DeepQTransparencySection />
+        <DeepQEvidenceLayerSection />
+        <DeepQAdminLoopSection />
+        <DeepQTradeOffSection />
+        <DeepQSystemCoverageSection />
+        <DeepQOutcomeSection />
+        <DeepQReflectionSection />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+function DeepQHeroSection() {
+  const cards = [
+    {
+      title: "Natural Language Query",
+      body: "SQL 없이 업무 질문에서 분석을 시작",
+    },
+    {
+      title: "Analysis Receipt",
+      body: "질문, SQL, 결과, 설명을 하나의 분석 기록으로 연결",
+    },
+    {
+      title: "Process Visibility",
+      body: "AI 답변 준비 과정을 단계별로 시각화",
+    },
+    {
+      title: "Evidence Layer",
+      body: "테이블, 차트, SQL, 설명으로 근거 검토",
+    },
+    {
+      title: "Admin Observability",
+      body: "질문, SQL, 비용, 응답 이력을 운영자가 추적",
+    },
+  ]
+
+  return (
+    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+      <Link
+        href="/work"
+        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+      >
+        ← Back to Work
+      </Link>
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+        03 / Explainable AI Data Analysis UX
+      </p>
+      <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.55fr] lg:items-end">
+        <div>
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+            AI가 답을 말해도, 사용자는 무엇을 보고 신뢰할 수 있을까?
+          </h1>
+          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-[18px]">
+            SAPIE DeepQ — Designing an explainable data analysis experience for
+            enterprise users
+          </p>
+        </div>
+        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">
+            Product Frame
+          </p>
+          <p className="mt-4 break-keep text-sm leading-7 text-white/58">
+            B2B · AI Data Analysis · Explainable AI UX · Enterprise Intelligence
+            Platform · Admin UX · Data Workflow
+          </p>
+        </div>
+      </div>
+      <div className="mt-12 max-w-4xl space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+        <p className="break-keep">
+          DeepQ는 SQL이나 데이터 구조를 모르는 현업 사용자가 자연어로 데이터에
+          질문하고, AI가 어떤 데이터와 로직으로 답을 만들었는지 확인하며, 업무
+          판단까지 이어갈 수 있도록 설계한 Enterprise Intelligence Platform입니다.
+        </p>
+        <p className="break-keep">
+          기존에는 데이터나 문서 분석을 위해 전산/IT 조직에 요청하고 기다려야 했던
+          업무를, 사용자가 직접 질문하고 검토할 수 있는 분석 경험으로 전환했습니다.
+        </p>
+      </div>
+      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {cards.map((card) => (
+          <DefinitionCard key={card.title} title={card.title} body={card.body} />
+        ))}
+      </div>
+      <DeepQHeroVisual />
+    </section>
+  )
+}
+
+function DeepQWhySection() {
+  return (
+    <CaseSection
+      number="01 / Why This Case"
+      title="왜 이 케이스를 깊게 보여주는가"
+      description="이 포트폴리오는 많은 프로젝트를 나열하기보다, 복잡한 제품 문제를 깊게 파고드는 방식을 보여주기 위해 4개의 케이스스터디만 선별했습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        DeepQ는 그중 Explainable AI UX와 Enterprise Data Product 설계를 보여주는
+        케이스입니다. 중요한 것은 AI가 답을 생성하는 화면 자체가 아니라, 사용자가
+        그 답을 어떤 근거로 이해하고, 검토하고, 다음 판단으로 이어갈 수 있는가였습니다.
+      </p>
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <DefinitionCard
+          title="Problem Definition"
+          body="데이터는 있지만 현업 사용자가 직접 분석하기 어려운 구조"
+        />
+        <DefinitionCard
+          title="Context Sensing"
+          body="사용자는 SQL을 쓰고 싶은 것이 아니라 업무 질문에 대한 판단 근거가 필요함"
+        />
+        <DefinitionCard
+          title="Rationale"
+          body="AI 답변은 검토 가능한 근거 레이어와 함께 제공되어야 함"
+        />
+        <DefinitionCard
+          title="Craft"
+          body="질문 입력, 답변 과정, 결과 검토, 관리자 모니터링을 하나의 제품 구조로 연결"
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQContextSection() {
+  return (
+    <CaseSection
+      number="02 / Context"
+      title="데이터는 있어도, 누구나 분석할 수 있는 것은 아니었다"
+      description="많은 조직에서 데이터는 이미 존재합니다. 하지만 현업 사용자가 원하는 질문을 직접 분석하려면 SQL, DB 구조, BI 도구, 데이터 요청 프로세스를 이해해야 합니다."
+    >
+      <div className="space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+        <p className="break-keep">
+          기존 방식에서는 사용자가 전산/IT 조직에 분석을 요청하고, 결과를 기다린 뒤
+          다시 추가 질문을 하는 흐름이 반복될 수밖에 없었습니다.
+        </p>
+        <p className="break-keep">
+          DeepQ는 이 흐름을 자연어 기반 분석 경험으로 바꾸는 제품입니다. 사용자는
+          질문을 입력하고, AI는 연결된 데이터 구조를 바탕으로 SQL을 생성하고 실행한
+          뒤, 결과와 해석을 제공합니다.
+        </p>
+      </div>
+      <TwoColumn className="mt-8">
+        <DeepQFlowCard
+          title="Before"
+          nodes={[
+            "Business Question",
+            "IT / Data Team Request",
+            "Waiting / Clarification",
+            "SQL / Analysis",
+            "Result Delivery",
+            "Follow-up Request",
+          ]}
+        />
+        <DeepQFlowCard
+          title="After"
+          nodes={[
+            "Business Question",
+            "Natural Language Query",
+            "Schema Understanding",
+            "SQL Generation",
+            "Result / Chart / Explanation",
+            "Follow-up Exploration",
+          ]}
+        />
+      </TwoColumn>
+    </CaseSection>
+  )
+}
+
+function DeepQDiscoverySection() {
+  return (
+    <CaseSection
+      number="03 / Discovery & Structuring"
+      title="화면을 만들기 전에, 질문 경험과 운영 경험을 분리했다"
+      description="DeepQ는 로그인, 인트로, 질문 입력, 답변 결과, SQL 확인, 추천 질문, 관리자 대시보드, 사용자 관리, 대화 이력, 응답 상세 정보가 모두 포함된 화면 수가 많은 제품입니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        처음부터 화면을 나열하면 제품이 복잡한 질의 도구처럼 보일 수 있었습니다.
+        그래서 화면과 기능을 사용자의 업무 목적 기준으로 재분류했습니다.
+      </p>
+      <DeepQSortingMap />
+      <ClosingText>
+        화면을 기능 단위로 나열하지 않고, 사용자가 질문을 시작하고, AI가 답을 만들고,
+        사용자가 검토하고, 관리자가 운영하는 흐름으로 재구성했습니다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function DeepQProblemSection() {
+  return (
+    <CaseSection
+      number="04 / Problem Definition"
+      title="문제는 답변 생성이 아니라, 답변을 신뢰할 수 있는 구조의 부재였다"
+      description="AI가 자연어 질문에 답하는 것 자체는 어렵지 않아 보일 수 있습니다. 하지만 Enterprise 데이터 분석 환경에서는 답변 하나만으로는 충분하지 않습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤
+        SQL을 생성했는지, 결과가 어떤 기준으로 요약됐는지 확인할 수 있어야 합니다.
+      </p>
+      <div className="mt-8">
+        <SimpleTable
+          headers={["기존 접근", "실제 UX 문제"]}
+          rows={[
+            ["AI가 답변을 생성한다", "사용자는 왜 그 답이 나왔는지 알 수 없다"],
+            [
+              "자연어 질문을 받는다",
+              "질문이 어떤 데이터 구조로 해석됐는지 보이지 않는다",
+            ],
+            [
+              "SQL을 자동 생성한다",
+              "SQL이 숨겨지면 데이터 신뢰성이 떨어진다",
+            ],
+            [
+              "차트를 보여준다",
+              "차트만으로는 계산 기준과 데이터 출처를 알 수 없다",
+            ],
+            [
+              "관리자가 사용자를 관리한다",
+              "대화 이력, SQL, 비용, 오류를 함께 추적하지 못하면 운영이 어렵다",
+            ],
+          ]}
+        />
+      </div>
+      <ClosingText>
+        질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 모니터링을 하나의 제품
+        흐름으로 연결했다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function DeepQThesisSection() {
+  return (
+    <CaseSection
+      number="05 / UX Thesis"
+      title="AI 답변을 검토 가능한 업무 자산으로 바꾸는 경험"
+      description="DeepQ의 핵심 설계 방향은 AI가 답을 대신 말하게 하는 것이 아니라, 사용자가 그 답을 이해하고 검토하고 다음 판단으로 이어갈 수 있게 만드는 것이었습니다."
+    >
+      <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
+        <p className="text-[12px] uppercase tracking-[0.18em] text-white/35">
+          Core UX Idea
+        </p>
+        <h3 className="mt-4 text-[clamp(1.8rem,5vw,3rem)] font-normal text-white">
+          Analysis Receipt
+        </h3>
+        <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+          질문 하나가 단순 메시지로 끝나지 않고, 의도 해석, 데이터 구조, 생성 SQL,
+          실행 결과, 차트, 설명, 추천 질문, 관리자 로그로 이어지는 검토 가능한 분석
+          기록이 되도록 설계했습니다.
+        </p>
+        <div className="mt-8">
+          <DeepQFlowLine
+            nodes={[
+              "Question",
+              "Intent Understanding",
+              "Schema Mapping",
+              "SQL Generation",
+              "SQL Execution",
+              "Result / Chart",
+              "Explanation",
+              "Follow-up Questions",
+              "Admin Monitoring",
+            ]}
+          />
+        </div>
+      </div>
+      <ClosingText>
+        AI가 답을 생성하는 경험에서, 사용자가 답을 검토하고 조직이 추적할 수 있는
+        경험으로 전환했습니다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function DeepQWorkflowSection() {
+  return (
+    <CaseSection
+      number="06 / User & Workflow Analysis"
+      title="사용자는 답만 원하는 것이 아니라, 판단 가능한 근거가 필요했다"
+      description="DeepQ의 핵심 사용자는 데이터 전문가가 아니라, 업무 판단을 위해 데이터를 확인해야 하는 현업 사용자입니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        이 사용자는 SQL을 직접 작성하고 싶은 것이 아니라, 내 질문이 어떤 데이터로
+        해석됐는지, 결과가 어떤 계산과 조건에서 나왔는지, 다음에 어떤 질문을 이어가야
+        하는지 알고 싶어합니다.
+      </p>
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <ListCard
+          title="Business User"
+          items={[
+            "자연어로 질문하고 빠르게 방향성을 확인",
+            "테이블과 차트로 결과를 이해",
+            "추천 질문으로 추가 탐색",
+          ]}
+        />
+        <ListCard
+          title="Data / IT Admin"
+          items={[
+            "DB 연결과 권한 관리",
+            "생성된 SQL과 응답 이력 확인",
+            "오류와 비용, 사용량 모니터링",
+          ]}
+        />
+        <ListCard
+          title="Organization Admin"
+          items={[
+            "사용자 권한 관리",
+            "사용량과 비용 관리",
+            "대화 이력과 응답 상세 추적",
+          ]}
+        />
+      </div>
+      <div className="mt-8">
+        <DiagramCard
+          title="Workflow"
+          nodes={["Ask", "Interpret", "Generate SQL", "Execute", "Explain", "Explore", "Monitor"]}
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQProductStructureSection() {
+  return (
+    <CaseSection
+      number="07 / Product Structure"
+      title="사용자 분석 경험과 관리자 운영 경험을 함께 설계했다"
+      description="DeepQ는 하나의 질문 화면이 아니라, 사용자가 질문하고 결과를 검토하는 분석 경험과 관리자가 서비스 사용을 운영하는 콘솔이 연결된 제품입니다."
+    >
+      <DeepQProductStructureVisual />
+      <TwoColumn className="mt-8">
+        <ListCard
+          title="사용자 제품 구조"
+          items={[
+            "Intro — 제품 목적과 사용 방식 이해",
+            "Question Input — 자연어 기반 첫 질문",
+            "Analysis Workspace — 질문과 답변을 이어가는 분석 공간",
+            "Answer Process — AI가 답변을 준비하는 단계 시각화",
+            "Result View — 테이블, 차트, SQL, 설명, 추천 질문",
+          ]}
+        />
+        <ListCard
+          title="관리자 제품 구조"
+          items={[
+            "Admin Dashboard — 사용량, 응답 시간, 오류, 비용 현황",
+            "User Management — 사용자, 권한, DB 연결 계정 관리",
+            "Conversation Monitoring — 질문 내용, 응답 생성 시간, Trace, 비용 확인",
+            "Response Detail — Generated SQL, DB 실행 결과, Final NL Answer 확인",
+          ]}
+        />
+      </TwoColumn>
+    </CaseSection>
+  )
+}
+
+function DeepQTrustLadderSection() {
+  return (
+    <CaseSection
+      number="08 / Trust Ladder"
+      title="AI 신뢰는 결과가 아니라 과정에서 만들어진다"
+      description="DeepQ의 신뢰는 “AI가 정확하다”고 말하는 방식이 아니라, 사용자가 AI의 처리 과정과 근거를 단계적으로 확인할 수 있게 하는 방식으로 설계했습니다."
+    >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          ["Step 1. Understand", "Intro에서 DeepQ가 무엇을 하는 제품인지 먼저 이해한다."],
+          ["Step 2. Ask", "SQL 없이 자연어로 질문한다."],
+          [
+            "Step 3. See the Process",
+            "스키마 검색, 유사 쿼리 검색, 메타데이터 로드, SQL 생성, SQL 실행, 결과 분석을 거치는 과정을 확인한다.",
+          ],
+          [
+            "Step 4. Review Evidence",
+            "테이블, 차트, View SQL, 요약 설명으로 답변 근거를 검토한다.",
+          ],
+          [
+            "Step 5. Continue Thinking",
+            "추천 질문으로 다음 탐색 방향을 이어간다.",
+          ],
+          [
+            "Step 6. Monitor",
+            "관리자는 질문, SQL, 응답 상세, Trace, 비용/토큰, 오류 이력을 추적한다.",
+          ],
+        ].map(([title, body]) => (
+          <DefinitionCard key={title} title={title} body={body} />
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQFirstEntrySection() {
+  return (
+    <CaseSection
+      number="09 / Key UX Decision 1"
+      title="첫 진입에서 기능보다 사용 맥락을 먼저 설명했다"
+      description="DeepQ는 첫 진입에서 바로 질문 입력창만 보여주기보다, 제품이 무엇을 할 수 있고 어떤 방식으로 데이터를 분석하는지 먼저 이해시키는 구조를 선택했습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        신규 사용자는 Intro를 통해 자연어 질문, 실시간 분석, 데이터 구조 이해,
+        보안/관리 맥락을 이해하고, 반복 사용자는 “다시 보지 않기” 옵션으로 불필요한
+        단계를 건너뛸 수 있습니다.
+      </p>
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
+        <DeepQCompactFigure
+          src={deepqScreens.login}
+          alt="DeepQ 로그인 화면"
+          caption="마스킹 처리 이미지 — 엔터프라이즈 계정으로 분석 환경에 진입하는 화면"
+        />
+        <DeepQCompactFigure
+          src={deepqScreens.intro}
+          alt="DeepQ Intro 화면"
+          caption="마스킹 처리 이미지 — 첫 사용자가 제품 목적과 검토 흐름을 이해하는 화면"
+        />
+        <DeepQCompactFigure
+          src={deepqScreens.dataStructure}
+          alt="DeepQ 데이터 구조 이해 화면"
+          caption="마스킹 처리 이미지 — 연결된 데이터 구조와 읽기 전용 실행 원칙을 먼저 확인"
+        />
+      </div>
+      <div className="mt-8">
+        <ListCard
+          title="설계 판단"
+          items={[
+            "신규 사용자에게는 제품 목적을 먼저 설명한다",
+            "반복 사용자에게는 진입 단계를 줄인다",
+            "첫 릴리즈 단계에서는 기능보다 신뢰와 사용 맥락이 중요하다",
+            "Enterprise AI 제품은 무엇을 할 수 있는지와 안전하게 쓸 수 있는지를 먼저 전달해야 한다",
+          ]}
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQQuestionWorkspaceSection() {
+  return (
+    <CaseSection
+      number="10 / Key UX Decision 2"
+      title="분석의 시작점을 메뉴가 아니라 질문으로 바꿨다"
+      description="DeepQ의 핵심 행동은 메뉴 탐색이 아니라 질문입니다. 따라서 첫 화면의 중심은 대시보드나 리포트 목록이 아니라 사용자의 질문 입력입니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        최근 대화와 추천 질문은 보조 요소로 두고, 사용자가 가장 먼저 지금 궁금한 업무
+        질문을 입력하도록 구조화했습니다.
+      </p>
+      <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
+        <ScreenFigure
+          src={deepqScreens.firstQuestion}
+          alt="DeepQ 첫 질문 입력 화면"
+          caption="마스킹 처리 이미지 — BI 메뉴 탐색이 아니라 자연어 질문에서 분석을 시작하도록 한 구조"
+        />
+        <ScreenFigure
+          src={deepqScreens.workspace}
+          alt="DeepQ 질문 중심 분석 공간"
+          caption="마스킹 처리 이미지 — 최근 대화는 보조로 두고 현재 질문 입력을 화면의 중심에 배치"
+        />
+      </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <DeepQCompactFigure
+          src={deepqScreens.userMenu}
+          alt="DeepQ 사용자 메뉴 화면"
+          caption="마스킹 처리 이미지 — 사용량과 설정은 보조 패널로 분리해 분석 흐름을 방해하지 않음"
+        />
+        <DeepQCompactFigure
+          src={deepqScreens.usage}
+          alt="DeepQ 사용량 팝업"
+          caption="마스킹 처리 이미지 — 비용과 쿼리 사용량은 운영 지표로 분리해 확인"
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQTransparencySection() {
+  return (
+    <CaseSection
+      number="11 / Key UX Decision 3"
+      title="로딩 상태를 AI 사고 과정으로 번역했다"
+      description="AI 분석은 사용자가 입력한 뒤 바로 결과가 나오기까지 짧은 지연이 발생합니다. 이때 단순 로딩만 보여주면 사용자는 시스템이 무엇을 하고 있는지 알 수 없습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        DeepQ는 스키마 검색, 유사 쿼리 검색, 메타데이터 로드, SQL 생성, SQL 실행,
+        결과 분석, 추천 질문 생성 과정을 단계별로 보여줍니다. 이 구조는 대기 시간을
+        단순 로딩이 아니라, AI가 어떤 근거를 준비하고 있는지 확인하는 시간으로 바꿉니다.
+      </p>
+      <div className="mt-8 grid gap-5 lg:grid-cols-[0.72fr_1.28fr]">
+        <ScreenFigure
+          src={deepqScreens.processPanel}
+          alt="DeepQ 답변 준비 과정 패널"
+          caption="마스킹 처리 이미지 — AI의 대기 시간을 분석 과정의 투명성으로 전환한 패널"
+          mobile
+        />
+        <ScreenFigure
+          src={deepqScreens.resultChart}
+          alt="DeepQ 답변 결과와 준비 과정 화면"
+          caption="마스킹 처리 이미지 — 결과와 준비 과정이 같은 분석 맥락 안에서 이어지는 화면"
+        />
+      </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <NumberedList
+          title="프로세스 단계"
+          items={[
+            "스키마 검색",
+            "유사 쿼리 검색",
+            "메타데이터 로드",
+            "SQL 생성",
+            "SQL 실행",
+            "결과 분석",
+            "추천 질문 생성",
+          ]}
+        />
+        <ListCard
+          title="설계 판단"
+          items={[
+            "대기 중인 사용자의 불안을 줄인다",
+            "AI가 임의로 답하는 것이 아니라 데이터 구조를 탐색하고 있음을 보여준다",
+            "분석 단계가 실패했을 때 어느 지점에서 문제가 생겼는지 파악 가능하게 한다",
+            "설명 가능성을 답변 이후가 아니라 생성 과정부터 제공한다",
+          ]}
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQEvidenceLayerSection() {
+  return (
+    <CaseSection
+      number="12 / Key UX Decision 4"
+      title="답변을 하나의 문장이 아니라 검토 가능한 레이어로 나눴다"
+      description="DeepQ는 AI의 최종 답변만 보여주지 않습니다. 같은 결과를 테이블, 차트, SQL, 자연어 설명, 추천 질문으로 나눠 제공합니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        현업 사용자는 요약과 차트로 빠르게 이해하고, 데이터에 익숙한 사용자는 SQL과
+        테이블을 확인해 답변의 근거를 검토할 수 있습니다.
+      </p>
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <ScreenFigure
+          src={deepqScreens.resultChart}
+          alt="DeepQ 결과 테이블과 차트 화면"
+          caption="마스킹 처리 이미지 — 하나의 질문 결과를 표와 차트로 나눠 확인하는 Evidence Layer"
+        />
+        <ScreenFigure
+          src={deepqScreens.viewSql}
+          alt="DeepQ View SQL 화면"
+          caption="마스킹 처리 이미지 — AI 답변의 근거를 사용자가 직접 검토할 수 있게 한 SQL 레이어"
+        />
+      </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <ListCard
+          title="Surface Layer"
+          items={["자연어 질문", "자연어 답변", "테이블", "차트"]}
+        />
+        <ListCard
+          title="Evidence Layer"
+          items={["View SQL", "요약 설명", "주요 근거", "추천 질문"]}
+        />
+        <ListCard
+          title="Operation Layer"
+          items={[
+            "대화 이력",
+            "응답 상세",
+            "Generated SQL",
+            "DB 실행 결과",
+            "Trace",
+            "LLM Cost",
+            "사용자/권한 관리",
+          ]}
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQAdminLoopSection() {
+  return (
+    <CaseSection
+      number="13 / Key UX Decision 5"
+      title="Enterprise AI 제품은 운영자가 추적할 수 있어야 한다"
+      description="DeepQ는 사용자 질문 화면만으로 완성되는 제품이 아닙니다. 기업 환경에서는 누가 어떤 데이터에 질문했는지, 어떤 SQL이 생성됐는지, 어떤 답변이 제공됐는지, 비용과 오류가 어떻게 발생했는지 추적할 수 있어야 합니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        관리자 콘솔은 이 정보를 운영자가 확인하고, 권한·DB 연결·품질·비용을 관리할
+        수 있게 하는 Enterprise AI 운영 구조입니다.
+      </p>
+      <div className="mt-8">
+        <DeepQFlowLine
+          nodes={[
+            "User Question",
+            "Generated SQL",
+            "Result",
+            "Final Answer",
+            "Trace",
+            "Cost / Token",
+            "Error / Latency",
+            "Admin Review",
+            "Product / Prompt / Permission Improvement",
+          ]}
+        />
+      </div>
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <ScreenFigure
+          src={deepqScreens.adminDashboard}
+          alt="DeepQ 관리자 대시보드"
+          caption="마스킹 처리 이미지 — 사용량, 오류, 비용, 사용자 흐름을 운영자가 함께 보는 구조"
+        />
+        <ScreenFigure
+          src={deepqScreens.conversationMonitoring}
+          alt="DeepQ 대화 이력 모니터링 화면"
+          caption="마스킹 처리 이미지 — 질문 내용, 생성 시간, Trace, 비용을 운영 이력으로 추적"
+        />
+      </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <DeepQCompactFigure
+          src={deepqScreens.userManagement}
+          alt="DeepQ 사용자 관리 화면"
+          caption="마스킹 처리 이미지 — 사용자와 권한, DB 연결 계정을 운영 단위로 관리"
+        />
+        <DeepQCompactFigure
+          src={deepqScreens.responseDetail}
+          alt="DeepQ 응답 상세 정보 패널"
+          caption="마스킹 처리 이미지 — Generated SQL, 실행 결과, 최종 답변을 추적할 수 있는 운영 구조"
+          fit="contain"
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQTradeOffSection() {
+  return (
+    <CaseSection
+      number="14 / Trade-off"
+      title="쉬운 질문 경험과 검증 가능한 분석 구조 사이의 균형을 잡았다"
+      description="DeepQ는 사용자가 쉽게 질문할 수 있어야 하지만, 너무 단순하면 AI 답변을 신뢰하기 어렵습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        반대로 SQL, 데이터 구조, 실행 과정, 메타데이터를 모두 전면에 노출하면 현업
+        사용자에게는 다시 어려운 분석 도구가 됩니다. 그래서 기본 경험은 질문과 답변
+        중심으로 단순화하고, 검증이 필요한 사용자를 위해 SQL, 데이터 샘플, 설명, 추천
+        질문을 확장 가능한 레이어로 제공했습니다.
+      </p>
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <ListCard
+          title="Too Simple"
+          items={[
+            "빠르게 질문 가능",
+            "하지만 답변 근거가 부족함",
+            "AI hallucination 리스크 증가",
+          ]}
+        />
+        <ListCard
+          title="Too Technical"
+          items={[
+            "SQL과 데이터 구조를 모두 확인 가능",
+            "하지만 현업 사용자의 진입 장벽 증가",
+            "BI/DB 도구처럼 복잡해짐",
+          ]}
+        />
+        <ListCard
+          title="Chosen Direction"
+          items={[
+            "질문 중심의 단순한 기본 경험",
+            "필요할 때 확인 가능한 SQL/테이블/차트/설명 레이어",
+            "관리자 콘솔에서 운영 이력 추적",
+          ]}
+        />
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQSystemCoverageSection() {
+  const screens = [
+    ["Login", deepqScreens.login],
+    ["Intro", deepqScreens.intro],
+    ["Database Understanding", deepqScreens.dataStructure],
+    ["First Question", deepqScreens.firstQuestion],
+    ["Analysis Workspace", deepqScreens.workspace],
+    ["Answer Process", deepqScreens.processPanel],
+    ["Result Table", deepqScreens.resultChart],
+    ["Chart", deepqScreens.resultChart],
+    ["View SQL", deepqScreens.viewSql],
+    ["Summary Explanation", deepqScreens.viewSql],
+    ["Suggested Questions", deepqScreens.viewSql],
+    ["Admin Dashboard", deepqScreens.adminDashboard],
+    ["User Management", deepqScreens.userManagement],
+    ["Token Usage", deepqScreens.usage],
+    ["Conversation Monitoring", deepqScreens.conversationMonitoring],
+    ["Response Detail", deepqScreens.responseDetail],
+  ] as const
+
+  return (
+    <CaseSection
+      number="15 / System Coverage"
+      title="질문 경험부터 운영 관리까지 하나의 제품으로 설계했다"
+      description="DeepQ는 질문 입력 화면 하나가 아니라, AI 데이터 분석 서비스가 실제 조직 안에서 운영되기 위해 필요한 화면 범위를 함께 설계했습니다."
+    >
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {screens.map(([title, src]) => (
+          <DeepQCompactFigure
+            key={`${title}-${src}`}
+            src={src}
+            alt={`DeepQ ${title} 화면`}
+            caption={`마스킹 처리 이미지 — ${title}`}
+            fit={src === deepqScreens.processPanel || src === deepqScreens.responseDetail ? "contain" : "cover"}
+          />
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function DeepQOutcomeSection() {
+  return (
+    <CaseSection
+      number="16 / Product Outcome & Next Metrics"
+      title="제품 구조로 무엇을 만들었는가"
+      description="정식 운영 성과 수치를 주장하기보다, 제품 구조상 어떤 분석 흐름과 운영 흐름을 가능하게 했는지 중심으로 정리합니다."
+    >
+      <TwoColumn>
+        <ListCard
+          title="Product Outcome"
+          items={[
+            "SQL 지식 없이 자연어로 데이터 질문을 시작할 수 있는 분석 경험 설계",
+            "AI 답변 생성 과정을 단계적으로 보여주는 Process Visibility 구조 설계",
+            "테이블, 차트, SQL, 자연어 설명, 추천 질문으로 답변 근거를 분리한 Evidence Layer 구성",
+            "질문, SQL, 결과, 설명, 추천 질문, 관리자 로그를 하나의 Analysis Receipt 구조로 연결",
+            "사용자 질문 경험과 관리자 운영 콘솔을 하나의 Enterprise Intelligence Platform 구조로 연결",
+            "대화 이력, 응답 상세, Generated SQL, DB 실행 결과를 추적할 수 있는 관리자 모니터링 구조 설계",
+            "첫 사용자와 반복 사용자의 진입 흐름을 분리한 Intro UX 설계",
+          ]}
+        />
+        <ListCard
+          title="Next Metrics"
+          intro="정식 운영 시 추적할 수 있는 지표로만 표현합니다."
+          items={[
+            "첫 질문 입력까지 걸리는 시간",
+            "답변 생성 완료까지 걸리는 시간",
+            "SQL 실행 성공률",
+            "사용자가 View SQL 또는 설명 영역을 확인하는 비율",
+            "추천 질문 클릭률",
+            "후속 질문 전환율",
+            "관리자 응답 상세 확인 빈도",
+            "오류 발생률",
+            "비용/토큰 사용량 추이",
+            "사용자가 AI 답변을 신뢰한다고 판단할 수 있는 정성 피드백",
+          ]}
+        />
+      </TwoColumn>
+    </CaseSection>
+  )
+}
+
+function DeepQReflectionSection() {
+  return (
+    <CaseSection
+      number="17 / Reflection"
+      title="AI 답변보다 중요한 것은 사용자가 검토할 수 있는 구조였다"
+      description="DeepQ를 설계하면서 가장 중요하게 본 것은 AI가 얼마나 많은 답을 생성하는지가 아니었습니다. 사용자가 그 답을 업무에 활용해도 되는지 판단할 수 있는 구조가 필요했습니다."
+    >
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        그래서 질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 로그를 연결해
+        AI 답변을 일회성 메시지가 아니라 검토 가능한 분석 기록으로 다루는 방향을
+        선택했습니다.
+      </p>
+      <TwoColumn className="mt-8">
+        <ListCard
+          title="잘한 것"
+          items={[
+            "자연어 질문 경험을 단순 답변 UI가 아니라 데이터 분석 제품 구조로 확장",
+            "답변 준비 과정을 시각화해 AI의 불투명성을 줄임",
+            "SQL, 테이블, 차트, 설명, 추천 질문을 분리해 사용자별 검토 깊이를 조절할 수 있게 함",
+            "관리자 대시보드와 대화이력 모니터링까지 설계해 Enterprise 운영 가능성을 확보",
+            "화면과 기능을 업무 목적 기준으로 재분류해 Start, Ask, Understand, Review, Continue, Operate 흐름으로 구조화",
+          ]}
+        />
+        <ListCard
+          title="더 고도화할 것"
+          items={[
+            "데이터 출처와 컬럼 설명을 더 명확히 보여주는 Source Trace UX",
+            "AI 답변 신뢰도 또는 검토 상태 표시",
+            "SQL 오류 발생 시 복구 플로우",
+            "권한별 접근 가능한 DB/테이블 범위 표시",
+            "질문 추천의 개인화",
+            "반복 질문 패턴 기반 템플릿화",
+            "관리자용 비용/품질 모니터링 고도화",
+            "현업 사용자에게 SQL을 노출하지 않고도 신뢰를 줄 수 있는 쉬운 설명 레이어",
+          ]}
+        />
+      </TwoColumn>
+    </CaseSection>
   )
 }
 
@@ -2519,6 +3372,9 @@ function ScreenFigure({
   wide?: boolean
   mobile?: boolean
 }) {
+  const isDeepQImage = src?.startsWith(deepqImageBase)
+  const imageLoading = isDeepQImage ? "eager" : "lazy"
+
   return (
     <figure
       className={`overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] ${
@@ -2535,7 +3391,7 @@ function ScreenFigure({
             <img
               src={src}
               alt={alt}
-              loading="lazy"
+              loading={imageLoading}
               decoding="async"
               draggable={false}
               className="h-auto w-full rounded-[20px]"
@@ -2545,7 +3401,7 @@ function ScreenFigure({
           <img
             src={src}
             alt={alt}
-            loading="lazy"
+            loading={imageLoading}
             decoding="async"
             draggable={false}
             className="h-auto w-full rounded-md object-contain"
@@ -2557,6 +3413,209 @@ function ScreenFigure({
         )}
       </div>
       <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        {caption}
+      </figcaption>
+    </figure>
+  )
+}
+
+function DeepQHeroVisual() {
+  return (
+    <figure className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
+      <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-[#111]">
+          <img
+            src={deepqScreens.workspace}
+            alt="DeepQ 질문 중심 분석 공간"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            className="h-full max-h-[720px] w-full object-cover object-top"
+          />
+        </div>
+        <div className="grid min-w-0 gap-3 md:grid-cols-2 lg:grid-cols-1">
+          <div className="overflow-hidden rounded-md border border-white/10 bg-[#111]">
+            <img
+              src={deepqScreens.resultChart}
+              alt="DeepQ 결과 검토 화면"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              className="h-full max-h-[352px] w-full object-cover object-top"
+            />
+          </div>
+          <div className="overflow-hidden rounded-md border border-white/10 bg-[#111]">
+            <img
+              src={deepqScreens.viewSql}
+              alt="DeepQ View SQL 근거 확인 화면"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              className="h-full max-h-[352px] w-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        마스킹 처리 이미지 — 질문 입력, 결과 검토, SQL 확인을 하나의 분석 흐름으로 배치
+      </figcaption>
+    </figure>
+  )
+}
+
+function DeepQFlowCard({ title, nodes }: { title: string; nodes: string[] }) {
+  return (
+    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+      <h3 className="text-xl font-normal text-white">{title}</h3>
+      <ol className="mt-6 space-y-3">
+        {nodes.map((node, index) => (
+          <li key={node} className="grid grid-cols-[34px_1fr] gap-3 text-sm leading-6">
+            <span className="text-white/30">{String(index + 1).padStart(2, "0")}</span>
+            <span className="break-keep text-white/62">{node}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
+function DeepQFlowLine({ nodes }: { nodes: string[] }) {
+  return (
+    <div className="rounded-lg border border-white/10 bg-black/25 p-4">
+      <div className="flex flex-wrap items-center gap-3">
+        {nodes.map((node, index) => (
+          <div key={`${node}-${index}`} className="flex items-center gap-3">
+            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs leading-5 text-white/64 md:text-sm">
+              {node}
+            </span>
+            {index < nodes.length - 1 ? <span className="text-white/25">→</span> : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function DeepQSortingMap() {
+  const groups = [
+    {
+      title: "Start",
+      items: ["Login", "Intro", "Database Understanding"],
+    },
+    {
+      title: "Ask",
+      items: ["First Question", "Analysis Workspace", "Recent Conversations"],
+    },
+    {
+      title: "Understand",
+      items: ["Answer Preparation Panel", "Schema Search", "Similar Query Search", "Metadata Loading"],
+    },
+    {
+      title: "Review",
+      items: ["Result Table", "Chart", "View SQL", "Summary Explanation"],
+    },
+    {
+      title: "Continue",
+      items: ["Suggested Questions", "Follow-up Input"],
+    },
+    {
+      title: "Operate",
+      items: [
+        "Admin Dashboard",
+        "User Management",
+        "Conversation Monitoring",
+        "Response Detail",
+        "Token / Cost Usage",
+      ],
+    },
+  ]
+
+  return (
+    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {groups.map((group) => (
+        <div key={group.title} className="rounded-lg border border-white/10 bg-black/20 p-5">
+          <p className="text-[12px] uppercase tracking-[0.18em] text-white/35">
+            {group.title}
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 text-xs leading-5 text-white/58"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function DeepQProductStructureVisual() {
+  return (
+    <div className="grid gap-5 lg:grid-cols-2">
+      <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
+        <div className="bg-black/30 p-3">
+          <img
+            src={deepqScreens.resultChart}
+            alt="DeepQ 사용자 분석 경험 화면"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            className="h-auto w-full rounded-md object-contain"
+          />
+        </div>
+        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+          마스킹 처리 이미지 — 질문, 결과, 차트, 과정 패널이 이어지는 사용자 분석 흐름
+        </figcaption>
+      </figure>
+      <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
+        <div className="bg-black/30 p-3">
+          <img
+            src={deepqScreens.adminDashboard}
+            alt="DeepQ 관리자 운영 콘솔 화면"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            className="h-auto w-full rounded-md object-contain"
+          />
+        </div>
+        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+          마스킹 처리 이미지 — 사용자, 사용량, 오류, 비용을 함께 관찰하는 관리자 운영 흐름
+        </figcaption>
+      </figure>
+    </div>
+  )
+}
+
+function DeepQCompactFigure({
+  src,
+  alt,
+  caption,
+  fit = "cover",
+}: {
+  src: string
+  alt: string
+  caption: string
+  fit?: "cover" | "contain"
+}) {
+  return (
+    <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
+      <div className="aspect-[4/3] bg-black/30 p-2">
+        <img
+          src={src}
+          alt={alt}
+          loading="eager"
+          decoding="async"
+          draggable={false}
+          className={`h-full w-full rounded-md ${
+            fit === "contain" ? "object-contain" : "object-cover object-top"
+          }`}
+        />
+      </div>
+      <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-5 text-white/45">
         {caption}
       </figcaption>
     </figure>

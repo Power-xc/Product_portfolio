@@ -80,8 +80,8 @@ export const selectedQuestions: SelectedQuestion[] = [
   },
   {
     number: "03",
-    question: "AI의 답은 나왔는데,\n사용자는 무엇을 근거로 믿어야 할까?",
-    project: "SAPIE DeepQ",
+    question: "AI가 답을 말해도,\n사용자는 무엇을 보고 신뢰할 수 있을까?",
+    project: "SAPIE DeepQ / Enterprise Intelligence Platform",
     tag: "Explainable AI UX",
     slug: "sapie-deepq",
     href: "/work/sapie-deepq",
@@ -106,7 +106,7 @@ export const workProjectGroups: WorkProjectGroup[] = [
     projects: [
       { name: "SPC 던킨 AI 스마트 POS", role: "프로덕트 UX 리드", year: "2026" },
       { name: "SAPIE Guardian", role: "Enterprise AI Security Platform UX", year: "2026" },
-      { name: "SAPIE DeepQ", role: "AI 에이전트 UX/UI", year: "2025" },
+      { name: "SAPIE DeepQ", role: "Explainable AI Data Analysis UX", year: "2025" },
       { name: "SAPIE SQL Agent", role: "AI 데이터 질의 UX/UI", year: "2025" },
       { name: "LG U+ Simple Agent", role: "UI/UX 개선", year: "2025" },
       { name: "SAPIE AI 챗봇", role: "AI 서비스 UX/UI", year: "2024" },
