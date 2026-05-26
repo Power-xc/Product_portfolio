@@ -91,6 +91,7 @@ type TradeOff = {
 
 const dunkinSlug = "spc-dunkin-ai-smart-pos"
 const imageBase = "/images/dunkin"
+const captureBase = `${imageBase}/captures`
 
 const caseStudies = [
   {
@@ -131,7 +132,7 @@ const structureMetrics: Metric[] = [
 
 const heroMeta: InfoItem[] = [
   { label: "Role", value: "UX Lead · PO · Frontend 참여" },
-  { label: "Period", value: "2025 ~ 2026" },
+  { label: "Period", value: "2026" },
   { label: "Team", value: "디자인 3 · 개발 1 · 데이터 1" },
 ]
 
@@ -354,6 +355,113 @@ const mobileScreens: ScreenItem[] = [
     description: "검색 실패나 판단 보류 상황에서 자연어로 발주 흐름에 재진입하게 했다.",
     src: `${imageBase}/mobile-pip-ai-chat-order-approval.png`,
     alt: "모바일 PIP AI 채팅 발주 승인 화면",
+    type: "mobile",
+  },
+]
+
+const workflowActualScreens: ScreenItem[] = [
+  {
+    title: "POS 종합현황",
+    description: "디자인에서 구현까지 책임진 결과물",
+    src: `${captureBase}/actual-pos-dashboard.png`,
+    alt: "실제 구현된 POS 종합현황 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 발주관리",
+    description: "AI 추천 이후 점주가 발주 목록을 검토하는 화면",
+    src: `${captureBase}/actual-pos-order-1.png`,
+    alt: "실제 구현된 POS 발주관리 화면",
+    type: "desktop",
+  },
+]
+
+const actualPosScreens: ScreenItem[] = [
+  {
+    title: "POS 종합현황",
+    description: "당일 운영 판단을 시작하는 실제 POS 종합현황 화면",
+    src: `${captureBase}/actual-pos-dashboard.png`,
+    alt: "실제 구현된 POS 종합현황 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 생산관리",
+    description: "소진 예상과 생산 지시를 확인하는 실제 생산관리 화면",
+    src: `${captureBase}/actual-pos-production.png`,
+    alt: "실제 구현된 POS 생산관리 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 발주관리",
+    description: "AI 추천 이후 발주 수량을 검토하는 실제 발주 화면",
+    src: `${captureBase}/actual-pos-order-1.png`,
+    alt: "실제 구현된 POS 발주관리 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS AI 실시간 현황",
+    description: "에이전트 상태와 추천 근거를 추적하는 실제 화면",
+    src: `${captureBase}/actual-pos-ai-realtime.png`,
+    alt: "실제 구현된 POS AI 실시간 현황 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 프로모션",
+    description: "프로모션 손익 판단을 확인하는 실제 화면",
+    src: `${captureBase}/actual-pos-promotion.png`,
+    alt: "실제 구현된 POS 프로모션 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS AI 검증",
+    description: "AI 추천 검증 기준을 확인하는 실제 화면",
+    src: `${captureBase}/actual-pos-ai-validation.png`,
+    alt: "실제 구현된 POS AI 검증 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 성과분석",
+    description: "운영 지표를 확인하는 실제 성과분석 화면",
+    src: `${captureBase}/actual-pos-performance.png`,
+    alt: "실제 구현된 POS 성과분석 화면",
+    type: "desktop",
+  },
+  {
+    title: "POS 벤치마킹",
+    description: "비교 기준을 통해 매장 상태를 판단하는 실제 화면",
+    src: `${captureBase}/actual-pos-benchmarking.png`,
+    alt: "실제 구현된 POS 벤치마킹 화면",
+    type: "desktop",
+  },
+]
+
+const actualMobileScreens: ScreenItem[] = [
+  {
+    title: "모바일 한눈에",
+    description: "원격에서 당일 운영 상태를 확인하는 실제 모바일 화면",
+    src: `${captureBase}/actual-mobile-main.png`,
+    alt: "실제 구현된 모바일 한눈에 화면",
+    type: "mobile",
+  },
+  {
+    title: "모바일 매장",
+    description: "재고 타임라인과 생산지시를 확인하는 실제 모바일 화면",
+    src: `${captureBase}/actual-mobile-store.png`,
+    alt: "실제 구현된 모바일 매장 화면",
+    type: "mobile",
+  },
+  {
+    title: "모바일 발주",
+    description: "AI 추천 이후 수량을 조정하는 실제 모바일 발주 화면",
+    src: `${captureBase}/actual-mobile-order.png`,
+    alt: "실제 구현된 모바일 발주 화면",
+    type: "mobile",
+  },
+  {
+    title: "모바일 채팅",
+    description: "PIP AI로 업무 흐름에 재진입하는 실제 모바일 화면",
+    src: `${captureBase}/actual-mobile-chat.png`,
+    alt: "실제 구현된 모바일 PIP AI 채팅 화면",
     type: "mobile",
   },
 ]
@@ -1108,6 +1216,30 @@ function KeyScreensSection() {
             />
           ))}
         </div>
+        <div className="border-t border-white/10 pt-10">
+          <h3 className="mb-5 break-keep text-xl font-normal text-white">실제 구현 화면</h3>
+          <div className="grid gap-4 lg:grid-cols-2">
+            {actualPosScreens.map((screen) => (
+              <ScreenFigure
+                key={screen.title}
+                src={screen.src}
+                alt={screen.alt}
+                caption={`실제 구현 화면 — ${screen.description}`}
+              />
+            ))}
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {actualMobileScreens.map((screen) => (
+              <ScreenFigure
+                key={screen.title}
+                src={screen.src}
+                alt={screen.alt}
+                caption={`실제 구현 화면 — ${screen.description}`}
+                mobile
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </CaseSection>
   )
@@ -1148,13 +1280,15 @@ function SpeedWorkflowSection() {
       <ClosingText>
         AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 판단을 맡는다.
       </ClosingText>
-      <div className="mt-8">
-        <ScreenFigure
-          src={`${imageBase}/actual-implementation-pos-overview.png`}
-          alt="실제 구현된 POS 화면"
-          caption="실제 구현 화면 — 디자인에서 구현까지 연결한 PoC 결과물"
-          wide
-        />
+      <div className="mt-8 grid gap-4 lg:grid-cols-2">
+        {workflowActualScreens.map((screen) => (
+          <ScreenFigure
+            key={screen.title}
+            src={screen.src}
+            alt={screen.alt}
+            caption={`실제 구현 화면 — ${screen.description}`}
+          />
+        ))}
       </div>
     </CaseSection>
   )
@@ -1466,22 +1600,33 @@ function ScreenFigure({
   return (
     <figure
       className={`overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] ${
-        wide ? "shadow-card" : ""
+        wide ? "shadow-card 2xl:-mx-[120px]" : ""
       }`}
     >
       <div
-        className={`flex bg-black/30 p-3 ${
-          mobile ? "justify-center" : "items-center justify-center"
+        className={`flex bg-black/30 ${
+          mobile ? "justify-center p-4 sm:p-5" : "items-center justify-center p-3"
         }`}
       >
-        {src ? (
+        {src && mobile ? (
+          <div className="w-full max-w-[320px] overflow-hidden rounded-[30px] border-[10px] border-[#121217] bg-[#121217] shadow-card">
+            <img
+              src={src}
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              className="h-auto w-full rounded-[20px]"
+            />
+          </div>
+        ) : src ? (
           <img
             src={src}
             alt={alt}
             loading="lazy"
-            className={`h-auto w-full rounded-md object-contain ${
-              mobile ? "max-h-[720px] max-w-[260px]" : "max-h-[760px]"
-            }`}
+            decoding="async"
+            draggable={false}
+            className="h-auto w-full rounded-md object-contain"
           />
         ) : (
           <div className="flex min-h-[280px] w-full items-center justify-center rounded-md border border-white/10 bg-white/[0.025] text-sm text-white/35">
