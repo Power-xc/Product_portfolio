@@ -99,7 +99,7 @@ const caseStudies = [
     number: "01",
     tag: "AI Decision UX",
     question: "AI가 추천해도,\n점주는 왜 바로 주문하지 못했을까?",
-    project: "SPC Dunkin AI Smart POS / Mobile",
+    project: "SPC Dunkin AI Decision UX / Product Structure",
   },
 ] as const
 
@@ -420,10 +420,10 @@ const actualPosScreens: ScreenItem[] = [
     type: "desktop",
   },
   {
-    title: "POS 성과분석",
-    description: "운영 지표를 확인하는 실제 성과분석 화면",
+    title: "POS 운영 지표",
+    description: "점포 운영 상태를 지표 기준으로 확인하는 실제 화면",
     src: `${captureBase}/actual-pos-performance.png`,
-    alt: "실제 구현된 POS 성과분석 화면",
+    alt: "실제 구현된 POS 운영 지표 화면",
     type: "desktop",
   },
   {
@@ -488,7 +488,7 @@ const tradeOffs: TradeOff[] = [
   },
   {
     title: "남긴 것",
-    items: ["추천 근거", "정확도", "다음 행동", "예외 경고"],
+    items: ["추천 근거", "검증 기준", "다음 행동", "예외 경고"],
   },
   {
     title: "이유",
@@ -498,10 +498,10 @@ const tradeOffs: TradeOff[] = [
 
 const ideationSteps = [
   "데스크 리서치·인터뷰",
-  "브레인스토밍 60개 아이디어",
+  "업무 흐름 기준 아이디어 60개 정리",
   "어피니티 다이어그램 5테마 클러스터링",
   "MoSCoW + Impact-Effort 필터링",
-  "5가지 킬러 기능 도출",
+  "핵심 후보 기능 5개 도출",
 ] as const
 
 const workflowSteps = [
@@ -510,15 +510,15 @@ const workflowSteps = [
   "카드소팅",
   "구조 설계",
   "핵심 디자인",
-  "병렬 개발",
+  "반응형 구현",
   "핸드오프",
 ] as const
 
 const qualitativeResults = [
-  "점주 인터뷰와 FGI를 통해 AI 추천의 핵심 불신 요인을 도출했다.",
-  "AI 추천을 단순 수치 제안이 아니라, 근거·조정·확인 가능한 의사결정 흐름으로 재설계했다.",
-  "POS와 모바일의 역할을 분리해 매장 내 즉시 처리와 원격 판단 흐름을 연결했다.",
-  "본사, SV, 점주, 크루가 같은 운영 데이터를 다른 수준의 의사결정 화면으로 볼 수 있게 구조화했다.",
+  "점주가 AI 추천을 거절하거나 수정해야 하는 이유를 화면 안에서 확인할 수 있게 했다.",
+  "추천 수치, 근거, 조정, 최종 확인을 하나의 발주 판단 흐름으로 연결했다.",
+  "POS는 매장 내 즉시 조치, 모바일은 매장 밖 원격 판단으로 역할을 분리했다.",
+  "본사, SV, 점주, 크루가 같은 운영 데이터를 각자의 책임 범위에 맞게 보도록 구조화했다.",
 ] as const
 
 const operationMetrics = [
@@ -535,10 +535,10 @@ const reflectionColumns: TradeOff[] = [
   {
     title: "잘한 것",
     items: [
-      "리서치로 문제를 재정의한 것",
-      "AI 추천을 신뢰·조정·확인 가능한 구조로 바꾼 것",
-      "Trade-off를 명확히 한 것",
-      "병렬 워크플로우로 제한된 일정을 대응한 것",
+      "기능 구현 요청을 점주의 판단 문제로 재정의한 것",
+      "AI 추천을 근거·조정·확인 가능한 구조로 바꾼 것",
+      "피크타임 판단 속도와 상세 분석 사이의 Trade-off를 명확히 한 것",
+      "제한된 일정 안에서 디자인과 반응형 구현 범위를 함께 조율한 것",
     ],
   },
   {
@@ -555,11 +555,11 @@ const reflectionColumns: TradeOff[] = [
       "전국 확장 시 지역별 소비 패턴 차이",
       "점포 규모별 운영 방식 차이",
       "점주 숙련도에 따른 AI 추천 수용률 차이",
-      "코호트 단위 A/B 테스트 필요",
+      "코호트 단위 운영 검증 필요",
     ],
   },
   {
-    title: "다음에 했을 것",
+    title: "다음 검증",
     items: [
       "AI 추천 수용률 주 단위 추적",
       "점포 규모별 세그먼트 분석",
@@ -592,7 +592,7 @@ export async function generateMetadata({
     return {
       title: "SPC Dunkin AI Decision UX · Kangkeun Park",
       description:
-        "AI 추천을 점주가 이해하고, 조정하고, 최종 판단할 수 있게 재설계한 AI Decision UX 케이스스터디.",
+        "AI 추천을 점주가 검토하고 조정한 뒤 최종 판단할 수 있게 재설계한 Product UX 케이스스터디.",
     }
   }
 
@@ -689,12 +689,16 @@ function HeroSection() {
             AI가 추천해도, 점주는 왜 바로 주문하지 못했을까?
           </h1>
           <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/55 md:text-[18px]">
-            AI-Driven Decision UX — Reimagining Store Manager Experience
+            AI Decision UX — 점주가 추천을 검토하고 조정하는 운영 판단 구조
+          </p>
+          <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
+            AI 기능 제작 사례가 아니라, 추천의 근거와 조정 흐름을 설계해 점주의
+            최종 판단권을 유지한 Product UX 케이스다.
           </p>
           <div className="mt-7 flex flex-wrap gap-2">
             <TagText>B2B</TagText>
             <TagText>AI Agent UX</TagText>
-            <TagText>2025~2026</TagText>
+            <TagText>2026</TagText>
           </div>
         </div>
         <div className="grid gap-3">
@@ -735,8 +739,8 @@ function BusinessContextSection() {
   return (
     <CaseSection
       number="01"
-      title="왜 이 문제가 중요했는가"
-      description="SPC 던킨 매장은 이미 본사 데이터, 주문 데이터, 생산 데이터, 매출 데이터를 갖고 있었다. 문제는 데이터의 존재가 아니라, 점주가 매장 운영 중 그 데이터를 판단 가능한 형태로 받아보지 못한다는 점이었다."
+      title="데이터는 있었지만, 점주의 판단 흐름에는 닿지 않았다"
+      description="SPC 던킨 매장은 본사, 주문, 생산, 매출 데이터를 이미 갖고 있었다. 문제는 데이터의 존재가 아니라, 점주가 운영 중 그 데이터를 판단 가능한 순서로 받지 못한다는 점이었다."
     >
       <DiagramCard
         title="이해관계자 구조"
@@ -746,7 +750,7 @@ function BusinessContextSection() {
         <Card title="기존 커뮤니케이션 문제">
           <p className="break-keep text-sm leading-7 text-white/55">
             영업담당자가 매장을 직접 방문해 출력물을 보여주며 설명하는 구조.
-            데이터는 있었지만 점주에게 닿는 방식이 달랐다.
+            데이터는 있었지만 점주가 바로 조치할 수 있는 형태로 연결되지 않았다.
           </p>
         </Card>
         <Card title="PIP 네이밍">
@@ -779,8 +783,8 @@ function ProblemSection() {
   return (
     <CaseSection
       number="02"
-      title="기존 가설이 왜 틀렸는가"
-      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리해야 했다. 현장 리서치와 분석을 통해 핵심 문제를 점주가 AI 추천을 믿고 판단할 수 있는 구조로 재정의했다."
+      title="문제는 AI 기능이 아니라, 추천을 검토할 근거가 없다는 점이었다"
+      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리해야 했다. 핵심 문제는 AI 추천을 더 많이 만드는 것이 아니라, 점주가 추천을 믿거나 수정할 기준을 갖는 것이었다."
     >
       <SimpleTable
         headers={["기존 가설", "실제 문제"]}
@@ -798,8 +802,8 @@ function ResearchSection() {
   return (
     <CaseSection
       number="03"
-      title="현장에서 확인한 진짜 문제"
-      description="인터뷰, FGI, 카드소팅을 통해 점주가 멈추는 지점을 기능 부족이 아니라 신뢰와 판단 비용의 문제로 정리했다."
+      title="현장에서는 숫자보다 판단 기준이 부족했다"
+      description="인터뷰, FGI, 카드소팅에서 반복된 문제는 기능 부족보다 신뢰, 지연, 책임의 문제였다. 점주는 숫자를 보는 것보다 그 숫자로 무엇을 해야 하는지 알고 싶어 했다."
     >
       <div className="grid gap-4 md:grid-cols-3">
         {researchMethods.map((method) => (
@@ -841,7 +845,7 @@ function JourneySection() {
   return (
     <CaseSection
       number="04"
-      title="점주의 하루는 어디서 막혔는가"
+      title="점주의 하루는 판단해야 하는 순간마다 멈췄다"
       description="하루 흐름을 기준으로 보면 문제는 화면 수가 아니라, 판단해야 하는 순간마다 필요한 근거가 흩어져 있다는 점이었다."
     >
       <ResponsiveTable>
@@ -875,8 +879,8 @@ function PrincipleSection() {
   return (
     <CaseSection
       number="05"
-      title="인사이트를 설계 원칙으로 바꾸다"
-      description="리서치에서 확인한 문제를 화면의 판단 기준, 근거 표시, 복구 장치로 연결했다."
+      title="AI 추천은 근거, 조정, 복구 장치와 함께 제공되어야 했다"
+      description="현장에서 확인한 불신과 판단 지연을 화면의 기준, 수정 흐름, 되돌리기 장치로 연결했다."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {patterns.map((pattern) => (
@@ -906,8 +910,8 @@ function RequirementMappingSection() {
   return (
     <CaseSection
       number="06"
-      title="고객사 요구사항을 어떻게 UX 구조로 바꿨나"
-      description="요구사항은 기능 목록으로 끝내지 않고, 점주가 판단할 때 막히는 이유와 검증할 운영 지표로 다시 매핑했다."
+      title="요구사항을 기능이 아니라 검증 가능한 판단 흐름으로 바꿨다"
+      description="요구사항은 기능 목록으로 끝내지 않았다. 점주가 어디에서 멈추는지, 어떤 지표로 운영 검증이 필요한지 함께 매핑했다."
     >
       <ResponsiveTable>
         <thead>
@@ -938,7 +942,7 @@ function IaRedesignSection() {
   return (
     <CaseSection
       number="07"
-      title="구조를 먼저 바꿨다"
+      title="기능 메뉴를 점주의 판단 순서로 다시 묶었다"
       description="점주가 기능명을 찾는 구조에서, 지금 해야 할 판단을 따라가는 구조로 바꾸었다."
     >
       <div className="grid gap-4 md:grid-cols-2">
@@ -1024,7 +1028,7 @@ function UxDesignSection() {
   return (
     <CaseSection
       number="08"
-      title="의사결정 구조를 어떻게 바꿨는가"
+      title="AI가 결정하지 않고, 점주가 판단할 수 있게 했다"
       description="화면은 AI 결과를 보여주는 곳이 아니라, 점주가 근거를 확인하고 수정한 뒤 결정하는 작업 공간이어야 했다."
     >
       <DesignBlock
@@ -1056,10 +1060,13 @@ function UxDesignSection() {
       <DesignBlock
         eyebrow="02"
         title="검증 가능한 AI 신뢰 구조"
-        body="AI 추천을 믿을 근거를 화면 안에 넣었다. 추천량, 예측 정확도, 에이전트 판단 로그를 통해 점주가 AI의 제안을 검토할 수 있게 했다."
+        body="AI 추천을 믿을 근거를 화면 안에 넣었다. 추천량, 오차 기준, 에이전트 판단 로그를 통해 점주가 AI의 제안을 검토할 수 있게 했다."
       >
         <div className="grid gap-4 md:grid-cols-2">
-          <FormulaCard label="AI 승률" value="추천량 vs 실제 판매량 오차율 7일 평균" />
+          <FormulaCard
+            label="추천 검증 기준"
+            value="추천량과 실제 판매량의 오차를 7일 단위로 확인"
+          />
           <FormulaCard label="에이전트 활동 로그" value="추천 근거 역추적 가능" />
         </div>
         <div className="mt-6">
@@ -1104,7 +1111,7 @@ function UxDesignSection() {
         <DesignBlock
           eyebrow="05"
           title="본사 관점: HQ Console"
-          body="점주 사용 데이터가 쌓이면 본사는 33개 점포의 운영 패턴을 집계할 수 있다. 발주 정확도 개선, 폐기율 추적, 공급망 최적화의 기반 데이터로 연결되도록 설계했다."
+          body="점주 사용 데이터가 쌓이면 본사는 33개 점포의 운영 패턴을 집계할 수 있다. 발주 추천의 적합성, 폐기율 변화, 공급망 조정 여부를 확인할 기반 데이터로 연결되도록 설계했다."
           compact
         />
       </div>
@@ -1167,7 +1174,7 @@ function KeyScreensSection() {
   return (
     <CaseSection
       number="09"
-      title="주요 화면"
+      title="화면은 다음 행동을 결정하는 증거가 되어야 했다"
       description="각 화면은 정보를 보여주는 단위가 아니라, 점주가 다음 결정을 내리는 단위로 정리했다."
     >
       <div className="space-y-10">
@@ -1205,7 +1212,7 @@ function KeyScreensSection() {
           caption="디자인 파일 이미지 — 에이전트별 상태와 추천 근거를 통해 AI 판단을 추적하게 했다."
           wide
         />
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {mobileScreens.map((screen) => (
             <ScreenFigure
               key={screen.title}
@@ -1228,7 +1235,7 @@ function KeyScreensSection() {
               />
             ))}
           </div>
-          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
             {actualMobileScreens.map((screen) => (
               <ScreenFigure
                 key={screen.title}
@@ -1249,7 +1256,7 @@ function TradeOffSection() {
   return (
     <CaseSection
       number="10"
-      title="무엇을 보여주지 않기로 했는가"
+      title="모든 데이터를 보여주는 대신 즉시 판단을 남겼다"
       description="모든 데이터를 보여주지 않기로 결정했다. 고급 커스터마이징과 일부 상세 분석을 줄이고, 바쁜 아침에 점주가 바로 판단해야 하는 정보만 전면에 배치했다."
     >
       <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
@@ -1270,15 +1277,17 @@ function SpeedWorkflowSection() {
   return (
     <CaseSection
       number="11"
-      title="어떻게 빠르게 만들었나"
-      description="프로젝트는 제한된 일정과 적은 인원 안에서 진행됐다. AI를 결과물 대체가 아니라 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용했다."
+      title="AI와 프론트엔드 구현은 판단 속도를 높이는 도구로 사용했다"
+      description="프로젝트는 제한된 일정과 적은 인원 안에서 진행됐다. AI는 결과물 대체가 아니라 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용했다."
     >
       <TwoColumn>
         <NumberedList title="아이디에이션 프로세스" items={ideationSteps} />
         <NumberedList title="실행 워크플로우" items={workflowSteps} />
       </TwoColumn>
       <ClosingText>
-        AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 판단을 맡는다.
+        AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 판단을 맡는다. 구현은
+        컴포넌트 범위를 좁히고 POS·모바일 반응형 화면을 함께 점검하는 방식으로
+        진행했다.
       </ClosingText>
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         {workflowActualScreens.map((screen) => (
@@ -1298,8 +1307,8 @@ function ResultSection() {
   return (
     <CaseSection
       number="12"
-      title="무엇이 달라졌는가"
-      description="Result는 비즈니스 성과가 아니라, 검증 가능한 UX 구조 변화와 정식 운영 시 추적할 지표로 정리했다."
+      title="비즈니스 성과가 아니라, 검증 가능한 제품 구조를 남겼다"
+      description="정식 운영 전 단계이므로 성과 수치가 아니라 UX 구조 변화와 운영 시 추적할 지표로 결과를 정리했다."
     >
       <MetricGrid metrics={structureMetrics} />
       <TwoColumn className="mt-8">
@@ -1318,8 +1327,8 @@ function ReflectionSection() {
   return (
     <CaseSection
       number="13"
-      title="다음에는 무엇을 검증할 것인가"
-      description="PoC에서 확인한 구조는 정식 운영 데이터로 다시 검증되어야 한다."
+      title="다음 검증은 추천 수용과 운영 리스크를 기준으로 해야 한다"
+      description="PoC에서 확인한 구조는 정식 운영 데이터와 점포별 운영 차이로 다시 검증되어야 한다."
     >
       <div className="grid gap-4 lg:grid-cols-4">
         {reflectionColumns.map((column) => (
@@ -1347,14 +1356,14 @@ function CaseSection({
         <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
           {number}
         </p>
-        <div>
+        <div className="min-w-0">
           <h2 className="max-w-4xl break-keep text-[clamp(2rem,6vw,52px)] font-normal leading-[1.14] text-white">
             {title}
           </h2>
           <p className="mt-6 max-w-3xl break-keep text-base font-normal leading-8 text-white/55 md:text-[18px]">
             {description}
           </p>
-          <div className="mt-10">{children}</div>
+          <div className="mt-10 min-w-0">{children}</div>
         </div>
       </div>
     </section>
@@ -1463,7 +1472,7 @@ function SimpleTable({ headers, rows }: { headers: string[]; rows: string[][] })
 
 function ResponsiveTable({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-white/10 bg-white/[0.035]">
+    <div className="max-w-full overflow-x-auto rounded-lg border border-white/10 bg-white/[0.035]">
       <table className="min-w-[760px] w-full border-collapse text-left">{children}</table>
     </div>
   )
