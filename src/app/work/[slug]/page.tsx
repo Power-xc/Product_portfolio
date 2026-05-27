@@ -1196,7 +1196,7 @@ function DeepQHeroSection() {
           <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
             AI가 답을 말해도, 사용자는 무엇을 보고 신뢰할 수 있을까?
           </h1>
-          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-[18px]">
+          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-lg">
             SAPIE DeepQ — Designing an explainable data analysis experience for
             enterprise users
           </p>
@@ -1205,13 +1205,13 @@ function DeepQHeroSection() {
           <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">
             Product Frame
           </p>
-          <p className="mt-4 break-keep text-sm leading-7 text-white/58">
+          <p className="mt-4 break-keep text-sm leading-7 text-white/60">
             B2B · AI Data Analysis · Explainable AI UX · Enterprise Intelligence
             Platform · Admin UX · Data Workflow
           </p>
         </div>
       </div>
-      <div className="mt-12 max-w-4xl space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+      <div className="mt-12 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
         <p className="break-keep">
           DeepQ는 SQL이나 데이터 구조를 모르는 현업 사용자가 자연어로 데이터에
           질문하고, AI가 어떤 데이터와 로직으로 답을 만들었는지 확인하며, 업무
@@ -1239,7 +1239,7 @@ function DeepQWhySection() {
       title="왜 이 케이스를 깊게 보여주는가"
       description="이 포트폴리오는 많은 프로젝트를 나열하기보다, 복잡한 제품 문제를 깊게 파고드는 방식을 보여주기 위해 4개의 케이스스터디만 선별했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         DeepQ는 그중 Explainable AI UX와 Enterprise Data Product 설계를 보여주는
         케이스입니다. 중요한 것은 AI가 답을 생성하는 화면 자체가 아니라, 사용자가
         그 답을 어떤 근거로 이해하고, 검토하고, 다음 판단으로 이어갈 수 있는가였습니다.
@@ -1273,7 +1273,7 @@ function DeepQContextSection() {
       title="데이터는 있어도, 누구나 분석할 수 있는 것은 아니었다"
       description="많은 조직에서 데이터는 이미 존재합니다. 하지만 현업 사용자가 원하는 질문을 직접 분석하려면 SQL, DB 구조, BI 도구, 데이터 요청 프로세스를 이해해야 합니다."
     >
-      <div className="space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+      <div className="space-y-5 text-base leading-8 text-white/60 md:text-lg">
         <p className="break-keep">
           기존 방식에서는 사용자가 전산/IT 조직에 분석을 요청하고, 결과를 기다린 뒤
           다시 추가 질문을 하는 흐름이 반복될 수밖에 없었습니다.
@@ -1319,7 +1319,7 @@ function DeepQDiscoverySection() {
       title="화면을 만들기 전에, 질문 경험과 운영 경험을 분리했다"
       description="DeepQ는 로그인, 인트로, 질문 입력, 답변 결과, SQL 확인, 추천 질문, 관리자 대시보드, 사용자 관리, 대화 이력, 응답 상세 정보가 모두 포함된 화면 수가 많은 제품입니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         처음부터 화면을 나열하면 제품이 복잡한 질의 도구처럼 보일 수 있었습니다.
         그래서 화면과 기능을 사용자의 업무 목적 기준으로 재분류했습니다.
       </p>
@@ -1339,7 +1339,7 @@ function DeepQProblemSection() {
       title="문제는 답변 생성이 아니라, 답변을 신뢰할 수 있는 구조의 부재였다"
       description="AI가 자연어 질문에 답하는 것 자체는 어렵지 않아 보일 수 있습니다. 하지만 Enterprise 데이터 분석 환경에서는 답변 하나만으로는 충분하지 않습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤
         SQL을 생성했는지, 결과가 어떤 기준으로 요약됐는지 확인할 수 있어야 합니다.
       </p>
@@ -1389,7 +1389,7 @@ function DeepQThesisSection() {
         <h3 className="mt-4 text-[clamp(1.8rem,5vw,3rem)] font-normal text-white">
           Analysis Receipt
         </h3>
-        <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+        <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
           질문 하나가 단순 메시지로 끝나지 않고, 의도 해석, 데이터 구조, 생성 SQL,
           실행 결과, 차트, 설명, 추천 질문, 관리자 로그로 이어지는 검토 가능한 분석
           기록이 되도록 설계했습니다.
@@ -1425,7 +1425,7 @@ function DeepQWorkflowSection() {
       title="사용자는 답만 원하는 것이 아니라, 판단 가능한 근거가 필요했다"
       description="DeepQ의 핵심 사용자는 데이터 전문가가 아니라, 업무 판단을 위해 데이터를 확인해야 하는 현업 사용자입니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         이 사용자는 SQL을 직접 작성하고 싶은 것이 아니라, 내 질문이 어떤 데이터로
         해석됐는지, 결과가 어떤 계산과 조건에서 나왔는지, 다음에 어떤 질문을 이어가야
         하는지 알고 싶어합니다.
@@ -1541,7 +1541,7 @@ function DeepQFirstEntrySection() {
       title="첫 진입에서 기능보다 사용 맥락을 먼저 설명했다"
       description="DeepQ는 첫 진입에서 바로 질문 입력창만 보여주기보다, 제품이 무엇을 할 수 있고 어떤 방식으로 데이터를 분석하는지 먼저 이해시키는 구조를 선택했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         신규 사용자는 Intro를 통해 자연어 질문, 실시간 분석, 데이터 구조 이해,
         보안/관리 맥락을 이해하고, 반복 사용자는 “다시 보지 않기” 옵션으로 불필요한
         단계를 건너뛸 수 있습니다.
@@ -1550,18 +1550,17 @@ function DeepQFirstEntrySection() {
         <DeepQCompactFigure
           src={deepqScreens.login}
           alt="DeepQ 로그인 화면"
-          caption="마스킹 처리 이미지 — 엔터프라이즈 계정으로 분석 환경에 진입하는 화면"
-          fit="contain"
+          caption="비식별 처리 이미지 — 엔터프라이즈 계정으로 분석 환경에 진입하는 화면"
         />
         <DeepQCompactFigure
           src={deepqScreens.intro}
           alt="DeepQ Intro 화면"
-          caption="마스킹 처리 이미지 — 첫 사용자가 제품 목적과 검토 흐름을 이해하는 화면"
+          caption="비식별 처리 이미지 — 첫 사용자가 제품 목적과 검토 흐름을 이해하는 화면"
         />
         <DeepQCompactFigure
           src={deepqScreens.dataStructure}
           alt="DeepQ 데이터 구조 이해 화면"
-          caption="마스킹 처리 이미지 — 연결된 데이터 구조와 읽기 전용 실행 원칙을 먼저 확인"
+          caption="비식별 처리 이미지 — 연결된 데이터 구조와 읽기 전용 실행 원칙을 먼저 확인"
         />
       </div>
       <div className="mt-8">
@@ -1586,7 +1585,7 @@ function DeepQQuestionWorkspaceSection() {
       title="분석의 시작점을 메뉴가 아니라 질문으로 바꿨다"
       description="DeepQ의 핵심 행동은 메뉴 탐색이 아니라 질문입니다. 따라서 첫 화면의 중심은 대시보드나 리포트 목록이 아니라 사용자의 질문 입력입니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         최근 대화와 추천 질문은 보조 요소로 두고, 사용자가 가장 먼저 지금 궁금한 업무
         질문을 입력하도록 구조화했습니다.
       </p>
@@ -1594,24 +1593,24 @@ function DeepQQuestionWorkspaceSection() {
         <ScreenFigure
           src={deepqScreens.firstQuestion}
           alt="DeepQ 첫 질문 입력 화면"
-          caption="마스킹 처리 이미지 — BI 메뉴 탐색이 아니라 자연어 질문에서 분석을 시작하도록 한 구조"
+          caption="비식별 처리 이미지 — BI 메뉴 탐색이 아니라 자연어 질문에서 분석을 시작하도록 한 구조"
         />
         <ScreenFigure
           src={deepqScreens.workspace}
           alt="DeepQ 질문 중심 분석 공간"
-          caption="마스킹 처리 이미지 — 최근 대화는 보조로 두고 현재 질문 입력을 화면의 중심에 배치"
+          caption="비식별 처리 이미지 — 최근 대화는 보조로 두고 현재 질문 입력을 화면의 중심에 배치"
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <DeepQCompactFigure
           src={deepqScreens.userMenu}
           alt="DeepQ 사용자 메뉴 화면"
-          caption="마스킹 처리 이미지 — 사용량과 설정은 보조 패널로 분리해 분석 흐름을 방해하지 않음"
+          caption="비식별 처리 이미지 — 사용량과 설정은 보조 패널로 분리해 분석 흐름을 방해하지 않음"
         />
         <DeepQCompactFigure
           src={deepqScreens.usage}
           alt="DeepQ 사용량 팝업"
-          caption="마스킹 처리 이미지 — 비용과 쿼리 사용량은 운영 지표로 분리해 확인"
+          caption="비식별 처리 이미지 — 비용과 쿼리 사용량은 운영 지표로 분리해 확인"
         />
       </div>
     </CaseSection>
@@ -1625,7 +1624,7 @@ function DeepQTransparencySection() {
       title="로딩 상태를 AI 사고 과정으로 번역했다"
       description="AI 분석은 사용자가 입력한 뒤 바로 결과가 나오기까지 짧은 지연이 발생합니다. 이때 단순 로딩만 보여주면 사용자는 시스템이 무엇을 하고 있는지 알 수 없습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         DeepQ는 스키마 검색, 유사 쿼리 검색, 메타데이터 로드, SQL 생성, SQL 실행,
         결과 분석, 추천 질문 생성 과정을 단계별로 보여줍니다. 이 구조는 대기 시간을
         단순 로딩이 아니라, AI가 어떤 근거를 준비하고 있는지 확인하는 시간으로 바꿉니다.
@@ -1634,13 +1633,13 @@ function DeepQTransparencySection() {
         <ScreenFigure
           src={deepqScreens.processPanel}
           alt="DeepQ 답변 준비 과정 패널"
-          caption="마스킹 처리 이미지 — AI의 대기 시간을 분석 과정의 투명성으로 전환한 패널"
+          caption="비식별 처리 이미지 — AI의 대기 시간을 분석 과정의 투명성으로 전환한 패널"
           mobile
         />
         <ScreenFigure
           src={deepqScreens.resultChart}
           alt="DeepQ 답변 결과와 준비 과정 화면"
-          caption="마스킹 처리 이미지 — 결과와 준비 과정이 같은 분석 맥락 안에서 이어지는 화면"
+          caption="비식별 처리 이미지 — 결과와 준비 과정이 같은 분석 맥락 안에서 이어지는 화면"
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -1677,7 +1676,7 @@ function DeepQEvidenceLayerSection() {
       title="답변을 하나의 문장이 아니라 검토 가능한 레이어로 나눴다"
       description="DeepQ는 AI의 최종 답변만 보여주지 않습니다. 같은 결과를 테이블, 차트, SQL, 자연어 설명, 추천 질문으로 나눠 제공합니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         현업 사용자는 요약과 차트로 빠르게 이해하고, 데이터에 익숙한 사용자는 SQL과
         테이블을 확인해 답변의 근거를 검토할 수 있습니다.
       </p>
@@ -1685,12 +1684,12 @@ function DeepQEvidenceLayerSection() {
         <ScreenFigure
           src={deepqScreens.resultChart}
           alt="DeepQ 결과 테이블과 차트 화면"
-          caption="마스킹 처리 이미지 — 하나의 질문 결과를 표와 차트로 나눠 확인하는 Evidence Layer"
+          caption="비식별 처리 이미지 — 하나의 질문 결과를 표와 차트로 나눠 확인하는 Evidence Layer"
         />
         <ScreenFigure
           src={deepqScreens.viewSql}
           alt="DeepQ View SQL 화면"
-          caption="마스킹 처리 이미지 — AI 답변의 근거를 사용자가 직접 검토할 수 있게 한 SQL 레이어"
+          caption="비식별 처리 이미지 — AI 답변의 근거를 사용자가 직접 검토할 수 있게 한 SQL 레이어"
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -1726,7 +1725,7 @@ function DeepQAdminLoopSection() {
       title="Enterprise AI 제품은 운영자가 추적할 수 있어야 한다"
       description="DeepQ는 사용자 질문 화면만으로 완성되는 제품이 아닙니다. 기업 환경에서는 누가 어떤 데이터에 질문했는지, 어떤 SQL이 생성됐는지, 어떤 답변이 제공됐는지, 비용과 오류가 어떻게 발생했는지 추적할 수 있어야 합니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         관리자 콘솔은 이 정보를 운영자가 확인하고, 권한·DB 연결·품질·비용을 관리할
         수 있게 하는 Enterprise AI 운영 구조입니다.
       </p>
@@ -1749,25 +1748,24 @@ function DeepQAdminLoopSection() {
         <ScreenFigure
           src={deepqScreens.adminDashboard}
           alt="DeepQ 관리자 대시보드"
-          caption="마스킹 처리 이미지 — 사용량, 오류, 비용, 사용자 흐름을 운영자가 함께 보는 구조"
+          caption="비식별 처리 이미지 — 사용량, 오류, 비용, 사용자 흐름을 운영자가 함께 보는 구조"
         />
         <ScreenFigure
           src={deepqScreens.conversationMonitoring}
           alt="DeepQ 대화 이력 모니터링 화면"
-          caption="마스킹 처리 이미지 — 질문 내용, 생성 시간, Trace, 비용을 운영 이력으로 추적"
+          caption="비식별 처리 이미지 — 질문 내용, 생성 시간, Trace, 비용을 운영 이력으로 추적"
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <DeepQCompactFigure
           src={deepqScreens.userManagement}
           alt="DeepQ 사용자 관리 화면"
-          caption="마스킹 처리 이미지 — 사용자와 권한, DB 연결 계정을 운영 단위로 관리"
+          caption="비식별 처리 이미지 — 사용자와 권한, DB 연결 계정을 운영 단위로 관리"
         />
         <DeepQCompactFigure
           src={deepqScreens.responseDetail}
           alt="DeepQ 응답 상세 정보 패널"
-          caption="마스킹 처리 이미지 — Generated SQL, 실행 결과, 최종 답변을 추적할 수 있는 운영 구조"
-          fit="contain"
+          caption="비식별 처리 이미지 — Generated SQL, 실행 결과, 최종 답변을 추적할 수 있는 운영 구조"
         />
       </div>
     </CaseSection>
@@ -1781,7 +1779,7 @@ function DeepQTradeOffSection() {
       title="쉬운 질문 경험과 검증 가능한 분석 구조 사이의 균형을 잡았다"
       description="DeepQ는 사용자가 쉽게 질문할 수 있어야 하지만, 너무 단순하면 AI 답변을 신뢰하기 어렵습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         반대로 SQL, 데이터 구조, 실행 과정, 메타데이터를 모두 전면에 노출하면 현업
         사용자에게는 다시 어려운 분석 도구가 됩니다. 그래서 기본 경험은 질문과 답변
         중심으로 단순화하고, 검증이 필요한 사용자를 위해 SQL, 데이터 샘플, 설명, 추천
@@ -1849,14 +1847,7 @@ function DeepQSystemCoverageSection() {
             key={`${title}-${src}`}
             src={src}
             alt={`DeepQ ${title} 화면`}
-            caption={`마스킹 처리 이미지 — ${title}`}
-            fit={
-              src === deepqScreens.login ||
-              src === deepqScreens.processPanel ||
-              src === deepqScreens.responseDetail
-                ? "contain"
-                : "cover"
-            }
+            caption={`비식별 처리 이미지 — ${title}`}
           />
         ))}
       </div>
@@ -1912,7 +1903,7 @@ function DeepQReflectionSection() {
       title="AI 답변보다 중요한 것은 사용자가 검토할 수 있는 구조였다"
       description="DeepQ를 설계하면서 가장 중요하게 본 것은 AI가 얼마나 많은 답을 생성하는지가 아니었습니다. 사용자가 그 답을 업무에 활용해도 되는지 판단할 수 있는 구조가 필요했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/58 md:text-[18px]">
+      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         그래서 질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 로그를 연결해
         AI 답변을 일회성 메시지가 아니라 검토 가능한 분석 기록으로 다루는 방향을
         선택했습니다.
@@ -1963,7 +1954,7 @@ function GuardianHeroSection() {
           <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
             AI 도구를 허용할수록, 조직은 무엇을 감시하고 통제해야 할까?
           </h1>
-          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-[18px]">
+          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-lg">
             Enterprise Gen AI Security Platform — Designing visibility, policy,
             audit, and access control for responsible AI usage
           </p>
@@ -2144,7 +2135,6 @@ function GuardianProductStructureSection() {
             src={screen.src}
             alt={screen.alt}
             caption={screen.description}
-            fit={screen.type === "desktop" ? "cover" : "contain"}
           />
         ))}
       </div>
@@ -2362,13 +2352,11 @@ function GuardianAccessControlSection() {
           src={guardianScreens.adminDetail}
           alt="Guardian 관리자 상세 정보 패널"
           caption="관리자 상태와 접속 이력"
-          fit="contain"
         />
         <GuardianCompactFigure
           src={guardianScreens.login}
           alt="Guardian 관리자 로그인 화면"
           caption="콘솔 진입 전 인증 흐름"
-          fit="contain"
         />
         <GuardianCompactFigure
           src={guardianScreens.otpDevice}
@@ -2397,7 +2385,6 @@ function GuardianSystemCoverageSection() {
             src={screen.src}
             alt={screen.alt}
             caption={`${screen.title} — ${screen.description}`}
-            fit={screen.type === "desktop" ? "cover" : "contain"}
           />
         ))}
       </div>
@@ -2480,10 +2467,10 @@ function HeroSection() {
       </p>
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
         <div>
-          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.6vw,76px)] font-normal leading-[1.08] text-white">
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
             AI가 추천해도, 점주는 왜 바로 주문하지 못했을까?
           </h1>
-          <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/55 md:text-[18px]">
+          <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/55 md:text-lg">
             AI Decision UX — 점주가 추천을 검토하고 조정하는 운영 판단 구조
           </p>
           <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
@@ -2686,7 +2673,7 @@ function PrincipleSection() {
             <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">
               {pattern.insight}
             </p>
-            <p className="mt-5 break-keep text-2xl font-normal leading-tight text-white">
+            <p className="mt-5 break-keep text-xl font-normal leading-tight text-white">
               {pattern.principle}
             </p>
             <p className="mt-5 break-keep text-sm leading-7 text-white/55">{pattern.design}</p>
@@ -2931,7 +2918,7 @@ function UxDesignSection() {
               {crossPlatformFlows.map((flow) => (
                 <div
                   key={flow.from}
-                  className="grid gap-3 rounded-lg border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/62"
+                  className="grid gap-3 rounded-lg border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/60"
                 >
                   <span>{flow.from}</span>
                   <span className="text-white/25">→</span>
@@ -3155,7 +3142,7 @@ function CaseSection({
           <h2 className="max-w-4xl break-keep text-[clamp(2rem,6vw,52px)] font-normal leading-[1.14] text-white">
             {title}
           </h2>
-          <p className="mt-6 max-w-3xl break-keep text-base font-normal leading-8 text-white/55 md:text-[18px]">
+          <p className="mt-6 max-w-3xl break-keep text-base font-normal leading-8 text-white/55 md:text-lg">
             {description}
           </p>
           <div className="mt-10 min-w-0">{children}</div>
@@ -3176,7 +3163,7 @@ function MetricGrid({ metrics }: { metrics: Metric[] }) {
           <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">
             {metric.context}
           </p>
-          <p className="mt-4 text-[clamp(2rem,5vw,3.4rem)] font-semibold leading-none text-white">
+          <p className="mt-4 text-[clamp(2rem,5vw,3.4rem)] font-normal leading-none text-white">
             {metric.value}
           </p>
           <p className="mt-5 break-keep text-sm leading-6 text-white/55">{metric.label}</p>
@@ -3207,7 +3194,7 @@ function DefinitionCard({ title, body }: { title: string; body: string }) {
   return (
     <div className="rounded-lg border border-white/10 bg-black/20 p-5">
       <p className="text-[15px] font-normal leading-6 text-white">{title}</p>
-      <p className="mt-3 break-keep text-sm leading-6 text-white/52">{body}</p>
+      <p className="mt-3 break-keep text-sm leading-6 text-white/50">{body}</p>
     </div>
   )
 }
@@ -3293,7 +3280,7 @@ function TableCell({
   return (
     <td
       className={`px-5 py-5 align-top text-sm leading-6 ${
-        strong ? "text-white" : muted ? "text-white/42" : "text-white/60"
+        strong ? "text-white" : muted ? "text-white/40" : "text-white/60"
       }`}
     >
       {children}
@@ -3303,7 +3290,7 @@ function TableCell({
 
 function ClosingText({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-8 max-w-3xl break-keep border-l border-white/18 pl-5 text-[18px] font-normal leading-8 text-white/72">
+    <p className="mt-8 max-w-3xl break-keep border-l border-white/15 pl-5 text-lg font-normal leading-8 text-white/70">
       {children}
     </p>
   )
@@ -3325,7 +3312,7 @@ function QuoteCard({ item }: { item: QuoteItem }) {
         {item.store} — {item.meta}
       </figcaption>
       <blockquote className="mt-5">
-        <p className="break-keep text-[18px] font-normal italic leading-8 text-white/78">
+        <p className="break-keep text-lg font-normal italic leading-8 text-white/80">
           "{item.quote}"
         </p>
       </blockquote>
@@ -3336,10 +3323,10 @@ function QuoteCard({ item }: { item: QuoteItem }) {
 function BeforeAfterCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="text-2xl font-normal text-white">{title}</h3>
+      <h3 className="text-xl font-normal text-white">{title}</h3>
       <ul className="mt-6 space-y-3">
         {items.map((item) => (
-          <li key={item} className="break-keep text-sm leading-7 text-white/58">
+          <li key={item} className="break-keep text-sm leading-7 text-white/60">
             {item}
           </li>
         ))}
@@ -3368,7 +3355,7 @@ function DesignBlock({
       }`}
     >
       <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">{eyebrow}</p>
-      <h3 className="mt-4 break-keep text-[clamp(1.65rem,4vw,2.6rem)] font-normal leading-tight text-white">
+      <h3 className="mt-4 break-keep text-xl font-normal leading-tight text-white md:text-2xl">
         {title}
       </h3>
       <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-white/55 md:text-base md:leading-8">
@@ -3383,7 +3370,7 @@ function FormulaCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-white/10 bg-black/25 p-5">
       <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">{label}</p>
-      <p className="mt-4 break-keep text-sm leading-7 text-white/66">{value}</p>
+      <p className="mt-4 break-keep text-sm leading-7 text-white/65">{value}</p>
     </div>
   )
 }
@@ -3459,7 +3446,7 @@ function DeepQHeroVisual() {
             loading="eager"
             decoding="async"
             draggable={false}
-            className="h-full max-h-[720px] w-full object-cover object-top"
+            className="h-auto w-full object-contain"
           />
         </div>
         <div className="grid min-w-0 gap-3 md:grid-cols-2 lg:grid-cols-1">
@@ -3470,7 +3457,7 @@ function DeepQHeroVisual() {
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-full max-h-[352px] w-full object-cover object-top"
+              className="h-auto w-full object-contain"
             />
           </div>
           <div className="overflow-hidden rounded-md border border-white/10 bg-[#111]">
@@ -3480,13 +3467,13 @@ function DeepQHeroVisual() {
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-full max-h-[352px] w-full object-cover object-top"
+              className="h-auto w-full object-contain"
             />
           </div>
         </div>
       </div>
       <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-        마스킹 처리 이미지 — 질문 입력, 결과 검토, SQL 확인을 하나의 분석 흐름으로 배치
+          비식별 처리 이미지 — 질문 입력, 결과 검토, SQL 확인을 하나의 분석 흐름으로 배치
       </figcaption>
     </figure>
   )
@@ -3500,7 +3487,7 @@ function DeepQFlowCard({ title, nodes }: { title: string; nodes: string[] }) {
         {nodes.map((node, index) => (
           <li key={node} className="grid grid-cols-[34px_1fr] gap-3 text-sm leading-6">
             <span className="text-white/30">{String(index + 1).padStart(2, "0")}</span>
-            <span className="break-keep text-white/62">{node}</span>
+            <span className="break-keep text-white/60">{node}</span>
           </li>
         ))}
       </ol>
@@ -3514,7 +3501,7 @@ function DeepQFlowLine({ nodes }: { nodes: string[] }) {
       <div className="flex flex-wrap items-center gap-3">
         {nodes.map((node, index) => (
           <div key={`${node}-${index}`} className="flex items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs leading-5 text-white/64 md:text-sm">
+            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs leading-5 text-white/65 md:text-sm">
               {node}
             </span>
             {index < nodes.length - 1 ? <span className="text-white/25">→</span> : null}
@@ -3570,7 +3557,7 @@ function DeepQSortingMap() {
             {group.items.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 text-xs leading-5 text-white/58"
+                className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 text-xs leading-5 text-white/60"
               >
                 {item}
               </span>
@@ -3597,7 +3584,7 @@ function DeepQProductStructureVisual() {
           />
         </div>
         <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-          마스킹 처리 이미지 — 질문, 결과, 차트, 과정 패널이 이어지는 사용자 분석 흐름
+          비식별 처리 이미지 — 질문, 결과, 차트, 과정 패널이 이어지는 사용자 분석 흐름
         </figcaption>
       </figure>
       <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
@@ -3612,7 +3599,7 @@ function DeepQProductStructureVisual() {
           />
         </div>
         <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-          마스킹 처리 이미지 — 사용자, 사용량, 오류, 비용을 함께 관찰하는 관리자 운영 흐름
+          비식별 처리 이미지 — 사용자, 사용량, 오류, 비용을 함께 관찰하는 관리자 운영 흐름
         </figcaption>
       </figure>
     </div>
@@ -3623,12 +3610,10 @@ function DeepQCompactFigure({
   src,
   alt,
   caption,
-  fit = "cover",
 }: {
   src: string
   alt: string
   caption: string
-  fit?: "cover" | "contain"
 }) {
   return (
     <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
@@ -3639,9 +3624,7 @@ function DeepQCompactFigure({
           loading="eager"
           decoding="async"
           draggable={false}
-          className={`h-full w-full rounded-md ${
-            fit === "contain" ? "object-contain" : "object-cover object-top"
-          }`}
+          className="h-full w-full rounded-md object-contain"
         />
       </div>
       <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-5 text-white/45">
@@ -3662,7 +3645,7 @@ function GuardianHeroVisual() {
             loading="eager"
             decoding="async"
             draggable={false}
-            className="h-full max-h-[720px] w-full object-cover object-top"
+            className="h-auto w-full object-contain"
           />
         </div>
         <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white lg:-ml-px">
@@ -3672,12 +3655,12 @@ function GuardianHeroVisual() {
             loading="eager"
             decoding="async"
             draggable={false}
-            className="h-full max-h-[720px] w-full object-cover object-top"
+            className="h-auto w-full object-contain"
           />
         </div>
       </div>
       <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-        마스킹 처리 이미지 — 조직 전체 위험 흐름과 고위험 이벤트 처리 화면을 함께 배치
+        비식별 처리 이미지 — 조직 전체 위험 흐름과 고위험 이벤트 처리 화면을 함께 배치
       </figcaption>
     </figure>
   )
@@ -3687,12 +3670,10 @@ function GuardianCompactFigure({
   src,
   alt,
   caption,
-  fit = "cover",
 }: {
   src: string
   alt: string
   caption: string
-  fit?: "cover" | "contain"
 }) {
   return (
     <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
@@ -3703,9 +3684,7 @@ function GuardianCompactFigure({
           loading="lazy"
           decoding="async"
           draggable={false}
-          className={`h-full w-full rounded-md ${
-            fit === "contain" ? "object-contain" : "object-cover object-top"
-          }`}
+          className="h-full w-full rounded-md object-contain"
         />
       </div>
       <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-5 text-white/45">
@@ -3730,7 +3709,7 @@ function ListCard({
       {intro ? <p className="mt-4 text-sm leading-7 text-white/45">{intro}</p> : null}
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
-          <li key={item} className="break-keep text-sm leading-7 text-white/58">
+          <li key={item} className="break-keep text-sm leading-7 text-white/60">
             {item}
           </li>
         ))}
@@ -3747,7 +3726,7 @@ function NumberedList({ title, items }: { title: string; items: readonly string[
         {items.map((item, index) => (
           <li key={item} className="grid grid-cols-[42px_1fr] gap-4 text-sm leading-7">
             <span className="text-white/35">{String(index + 1).padStart(2, "0")}</span>
-            <span className="break-keep text-white/62">{item}</span>
+            <span className="break-keep text-white/60">{item}</span>
           </li>
         ))}
       </ol>
@@ -3807,7 +3786,7 @@ function StepHeroSection() {
           <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
             콘텐츠가 넘쳐도,<br />학습자는 왜 다음 행동을 찾지 못했을까?
           </h1>
-          <p className="mt-6 break-keep text-[18px] font-normal leading-8 text-white/55">
+          <p className="mt-6 break-keep text-lg font-normal leading-8 text-white/55">
             STEP Lifelong Education Platform
           </p>
           <p className="mt-2 text-base font-normal leading-7 text-white/38">
@@ -3816,12 +3795,12 @@ function StepHeroSection() {
         </div>
         <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
           <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Role</p>
-          <p className="mt-3 break-keep text-sm leading-7 text-white/58">
+          <p className="mt-3 break-keep text-sm leading-7 text-white/60">
             UX/UI Design · IA Structuring · Key Screen Design · Design Handoff · Publishing Review &amp; Partial Front-end Adjustment
           </p>
         </div>
       </div>
-      <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+      <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
         <p className="break-keep">
           STEP은 콘텐츠가 부족한 서비스가 아니었다. 이러닝, K-디지털, 추천테마,
           가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지 너무 많은 학습 콘텐츠와
@@ -3850,33 +3829,33 @@ function StepHeroVisual() {
       <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white">
           <img
-            src={`${stepImageBase}/01_step_home.png`}
+            src={`${stepImageBase}/01_step_home.jpg`}
             alt="STEP 메인 홈 화면"
             loading="eager"
             decoding="async"
             draggable={false}
-            className="h-full max-h-[680px] w-full object-cover object-top"
+            className="h-auto w-full object-contain"
           />
         </div>
         <div className="grid min-w-0 gap-3">
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/02_step_course_list.png`}
+              src={`${stepImageBase}/02_step_course_list.jpg`}
               alt="STEP 과정 목록 화면"
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-full max-h-[330px] w-full object-cover object-top"
+              className="h-auto w-full object-contain"
             />
           </div>
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/03_step_course_detail.png`}
+              src={`${stepImageBase}/03_step_course_detail.jpg`}
               alt="STEP 과정 상세 화면"
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-full max-h-[330px] w-full object-cover object-top"
+              className="h-auto w-full object-contain"
             />
           </div>
         </div>
@@ -4202,7 +4181,7 @@ function StepKeyDecisionsSection() {
             <h3 className="mt-3 break-keep text-[17px] font-normal leading-7 text-white">
               {d.title}
             </h3>
-            <p className="mt-4 break-keep text-sm leading-7 text-white/58">{d.body}</p>
+            <p className="mt-4 break-keep text-sm leading-7 text-white/60">{d.body}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {d.tags.map((tag) => (
                 <span
@@ -4227,7 +4206,7 @@ function StepKeyScreensSection() {
       title: "전체 콘텐츠가 아니라 진입 목적별 허브",
       caption:
         "운영 참고 화면 — 학습자가 이어서 학습할지, 새 과정을 찾을지, 추천/인기 과정을 볼지 빠르게 선택할 수 있는 진입 구조",
-      src: `${stepImageBase}/01_step_home.png`,
+      src: `${stepImageBase}/01_step_home.jpg`,
       alt: "STEP 메인 홈 화면",
     },
     {
@@ -4235,7 +4214,7 @@ function StepKeyScreensSection() {
       title: "조건 탐색과 비교 정보를 앞단에 배치",
       caption:
         "운영 참고 화면 — 과정 목록에서 수강 조건을 좁히고 여러 과정을 비교할 수 있도록 필터와 카드 정보를 함께 제공한 구조",
-      src: `${stepImageBase}/02_step_course_list.png`,
+      src: `${stepImageBase}/02_step_course_list.jpg`,
       alt: "STEP 과정 목록 화면",
     },
     {
@@ -4243,7 +4222,7 @@ function StepKeyScreensSection() {
       title: "수강 신청 직전, 판단 근거를 한 화면에",
       caption:
         "운영 참고 화면 — 수강신청 전 필요한 판단 근거(운영사, 학습시간, 수료증, 관련 과정)와 CTA를 한 흐름 안에 정리한 화면",
-      src: `${stepImageBase}/03_step_course_detail.png`,
+      src: `${stepImageBase}/03_step_course_detail.jpg`,
       alt: "STEP 과정 상세 화면",
     },
     {
@@ -4251,7 +4230,7 @@ function StepKeyScreensSection() {
       title: "수강 이력이 아니라 다음 학습 행동 중심",
       caption:
         "운영 참고 화면 — 수강 이력 확인보다 이어서 해야 할 학습 행동(학습하기, 진도율, 수료증, 후기)을 먼저 보여주는 관리 화면",
-      src: `${stepImageBase}/04_step_my_learning.png`,
+      src: `${stepImageBase}/04_step_my_learning.jpg`,
       alt: "STEP 마이페이지 학습 관리 화면",
     },
     {
@@ -4267,7 +4246,7 @@ function StepKeyScreensSection() {
       title: "학습 이후 지식 공유 흐름으로 확장",
       caption:
         "운영 참고 화면 — 과정 수강 이후 칼럼, 멘토링, 공지, 이벤트로 확장될 수 있도록 지식 공유 구조를 함께 설계한 화면",
-      src: `${stepImageBase}/06_step_wiki.png`,
+      src: `${stepImageBase}/06_step_wiki.jpg`,
       alt: "STEP 위키 화면",
     },
   ]
@@ -4292,7 +4271,7 @@ function StepKeyScreensSection() {
                   loading="lazy"
                   decoding="async"
                   draggable={false}
-                  className="aspect-[16/10] w-full object-cover object-top"
+                  className="h-auto w-full object-contain"
                 />
               </div>
             </div>
@@ -4301,7 +4280,7 @@ function StepKeyScreensSection() {
               <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-white">
                 {s.title}
               </p>
-              <p className="mt-2 break-keep text-xs leading-5 text-white/42">{s.caption}</p>
+              <p className="mt-2 break-keep text-xs leading-5 text-white/40">{s.caption}</p>
             </figcaption>
           </figure>
         ))}
@@ -4381,12 +4360,12 @@ function StepCollaborationSection() {
         <div className="bg-black/30 p-3">
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/08_step_live_service.png`}
+              src={`${stepImageBase}/08_step_live_service.jpg`}
               alt="STEP 운영 중인 서비스 화면"
               loading="lazy"
               decoding="async"
               draggable={false}
-              className="aspect-[16/9] w-full object-cover object-top"
+              className="h-auto w-full object-contain"
             />
           </div>
         </div>
