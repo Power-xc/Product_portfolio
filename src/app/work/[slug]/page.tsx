@@ -96,6 +96,8 @@ const deepqSlug = "sapie-deepq"
 const deepqImageBase = "/images/deepq"
 const guardianSlug = "sapie-guardian"
 const guardianImageBase = "/images/guardian"
+const stepSlug = "step-lifelong-education-platform"
+const stepImageBase = "/images/work/step"
 
 const caseStudies = [
   {
@@ -118,6 +120,13 @@ const caseStudies = [
     tag: "Enterprise AI Security Platform",
     question: "AI 도구를 허용할수록,\n조직은 무엇을 감시하고 통제해야 할까?",
     project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
+  },
+  {
+    slug: stepSlug,
+    number: "02",
+    tag: "Lifelong Education Platform UX",
+    question: "콘텐츠가 넘쳐도,\n학습자는 왜 다음 행동을 찾지 못했을까?",
+    project: "STEP Lifelong Education Platform",
   },
 ] as const
 
@@ -996,6 +1005,14 @@ export async function generateMetadata({
     }
   }
 
+  if (slug === stepSlug) {
+    return {
+      title: "STEP Lifelong Education Platform · Kangkeun Park",
+      description:
+        "다양한 학습 콘텐츠와 운영 기능이 분산된 대규모 평생교육 포털을 학습자의 탐색·판단·지속학습 흐름으로 재구성한 UX 케이스스터디.",
+    }
+  }
+
   return {
     title: `${caseStudy.project} · Kangkeun Park`,
     description: caseStudy.question.replace(/\n/g, " "),
@@ -1020,6 +1037,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   if (slug === guardianSlug) {
     return <GuardianCaseStudy />
+  }
+
+  if (slug === stepSlug) {
+    return <StepCaseStudy />
   }
 
   return (
@@ -1530,6 +1551,7 @@ function DeepQFirstEntrySection() {
           src={deepqScreens.login}
           alt="DeepQ 로그인 화면"
           caption="마스킹 처리 이미지 — 엔터프라이즈 계정으로 분석 환경에 진입하는 화면"
+          fit="contain"
         />
         <DeepQCompactFigure
           src={deepqScreens.intro}
@@ -1828,7 +1850,13 @@ function DeepQSystemCoverageSection() {
             src={src}
             alt={`DeepQ ${title} 화면`}
             caption={`마스킹 처리 이미지 — ${title}`}
-            fit={src === deepqScreens.processPanel || src === deepqScreens.responseDetail ? "contain" : "cover"}
+            fit={
+              src === deepqScreens.login ||
+              src === deepqScreens.processPanel ||
+              src === deepqScreens.responseDetail
+                ? "contain"
+                : "cover"
+            }
           />
         ))}
       </div>
@@ -2340,6 +2368,7 @@ function GuardianAccessControlSection() {
           src={guardianScreens.login}
           alt="Guardian 관리자 로그인 화면"
           caption="콘솔 진입 전 인증 흐름"
+          fit="contain"
         />
         <GuardianCompactFigure
           src={guardianScreens.otpDevice}
@@ -3723,5 +3752,744 @@ function NumberedList({ title, items }: { title: string; items: readonly string[
         ))}
       </ol>
     </div>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────
+// STEP Lifelong Education Platform Case Study
+// ─────────────────────────────────────────────────────────────
+
+function StepCaseStudy() {
+  return (
+    <div className="min-h-screen bg-background text-white">
+      <Header />
+      <main>
+        <StepHeroSection />
+        <StepProblemSection />
+        <StepDiscoverySection />
+        <StepWorkflowSection />
+        <StepIaSection />
+        <StepKeyDecisionsSection />
+        <StepKeyScreensSection />
+        <StepTradeOffSection />
+        <StepCollaborationSection />
+        <StepOutcomeSection />
+        <StepReflectionSection />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+function StepHeroSection() {
+  const tags = [
+    "평생교육 포털",
+    "IA Structuring",
+    "Learner UX",
+    "Key Screen Design",
+    "Design Handoff",
+    "Publishing Review",
+  ]
+
+  return (
+    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+      <Link
+        href="/work"
+        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+      >
+        ← Back to Work
+      </Link>
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+        02 / Lifelong Education Platform UX
+      </p>
+      <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
+        <div>
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+            콘텐츠가 넘쳐도,<br />학습자는 왜 다음 행동을 찾지 못했을까?
+          </h1>
+          <p className="mt-6 break-keep text-[18px] font-normal leading-8 text-white/55">
+            STEP Lifelong Education Platform
+          </p>
+          <p className="mt-2 text-base font-normal leading-7 text-white/38">
+            From Content-heavy Portal to Learner-centered Education Journey
+          </p>
+        </div>
+        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Role</p>
+          <p className="mt-3 break-keep text-sm leading-7 text-white/58">
+            UX/UI Design · IA Structuring · Key Screen Design · Design Handoff · Publishing Review &amp; Partial Front-end Adjustment
+          </p>
+        </div>
+      </div>
+      <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/58 md:text-[18px]">
+        <p className="break-keep">
+          STEP은 콘텐츠가 부족한 서비스가 아니었다. 이러닝, K-디지털, 추천테마,
+          가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지 너무 많은 학습 콘텐츠와
+          운영 기능이 한 포털 안에 분산되어 있었다.
+        </p>
+        <p className="break-keep">
+          문제는 사용자가 원하는 과정을 찾고, 수강 여부를 판단하고, 이후 학습을
+          이어가기까지의 흐름이 명확하지 않았다는 점이었다. 따라서 기능을 더
+          추가하기보다, 학습자의 행동 순서에 맞게 정보 구조와 화면 구조를 다시
+          정리하는 것이 핵심 방향이었다.
+        </p>
+      </div>
+      <div className="mt-8 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <TagText key={tag}>{tag}</TagText>
+        ))}
+      </div>
+      <StepHeroVisual />
+    </section>
+  )
+}
+
+function StepHeroVisual() {
+  return (
+    <figure className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
+      <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white">
+          <img
+            src={`${stepImageBase}/01_step_home.png`}
+            alt="STEP 메인 홈 화면"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            className="h-full max-h-[680px] w-full object-cover object-top"
+          />
+        </div>
+        <div className="grid min-w-0 gap-3">
+          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+            <img
+              src={`${stepImageBase}/02_step_course_list.png`}
+              alt="STEP 과정 목록 화면"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              className="h-full max-h-[330px] w-full object-cover object-top"
+            />
+          </div>
+          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+            <img
+              src={`${stepImageBase}/03_step_course_detail.png`}
+              alt="STEP 과정 상세 화면"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              className="h-full max-h-[330px] w-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        운영 참고 화면 — 학습자 탐색 진입부터 과정 비교·판단까지의 화면 구조
+      </figcaption>
+    </figure>
+  )
+}
+
+function StepProblemSection() {
+  const problems = [
+    {
+      title: "탐색 기준의 분산",
+      body: "이러닝, K-디지털, 가상훈련, 추천테마 등 콘텐츠 유형이 많아 사용자가 어디서 탐색을 시작해야 할지 판단하기 어려웠다.",
+    },
+    {
+      title: "수강 판단 정보의 흩어짐",
+      body: "과정 목록에서 교육비, 지원 기기, 운영사, 수료 여부 같은 판단 근거가 여러 단계에 분산되어 있었다.",
+    },
+    {
+      title: "학습 지속 흐름의 단절",
+      body: "수강 이후 진도, 성적, 수료증, 후기 관리 흐름이 분리되어 있어 다음에 해야 할 행동을 확인하기 어려웠다.",
+    },
+    {
+      title: "사용자 유형별 인증 복잡성",
+      body: "일반 학습자, 기업 담당자, 실무 담당자 등 사용자 유형에 따라 인증 조건과 가입 흐름이 달라 진입 자체에 마찰이 생겼다.",
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="01 / Problem Definition"
+      title="문제는 기능 부족이 아니라, 판단 흐름의 분산이었다"
+      description="STEP에 없는 기능은 없었다. 하지만 사용자가 '다음에 무엇을 해야 하는가'를 화면 안에서 찾을 수 없었다."
+    >
+      <div className="grid gap-5 md:grid-cols-2">
+        {problems.map((p) => (
+          <DefinitionCard key={p.title} title={p.title} body={p.body} />
+        ))}
+      </div>
+      <ClosingText>
+        각 문제는 "기능이 없다"가 아니라 "사용자가 다음 행동을 판단하기 어렵다"는
+        관점에서 재정의했다. 이것이 기능 추가가 아닌 구조 재설계로 방향을 잡은 근거였다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function StepDiscoverySection() {
+  const original = [
+    "강의 (이러닝)",
+    "K-디지털",
+    "추천테마",
+    "가상훈련",
+    "에듀테크+",
+    "위키",
+    "커뮤니티",
+    "업무지원",
+    "게시판",
+    "인증/회원",
+    "마이페이지",
+  ]
+
+  const restructured = [
+    {
+      stage: "Explore",
+      label: "탐색 진입",
+      items: ["메인", "통합검색", "카테고리", "추천/인기/신규 과정"],
+    },
+    {
+      stage: "Compare",
+      label: "비교·조건 탐색",
+      items: ["과정 목록", "필터", "카드 정보", "미리보기"],
+    },
+    {
+      stage: "Decide",
+      label: "수강 결정",
+      items: ["과정 상세", "학습시간", "운영사", "수료증", "수강신청"],
+    },
+    {
+      stage: "Continue",
+      label: "학습 지속",
+      items: ["마이페이지", "진도율", "학습하기", "성적", "수료증", "후기"],
+    },
+    {
+      stage: "Extend",
+      label: "지식 확장",
+      items: ["위키", "칼럼", "멘토링", "커뮤니티", "이벤트"],
+    },
+    {
+      stage: "Support",
+      label: "운영·인증 지원",
+      items: ["로그인", "회원가입", "인증", "업무지원", "게시판"],
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="02 / Discovery & Structuring"
+      title="화면을 다시 그리기 전에, 기능을 학습자의 행동 기준으로 재분류했다"
+      description="STEP은 다양한 기능이 각자 독립적으로 구성된 포털이었다. 처음부터 화면을 새로 그리기보다, 먼저 기존 기능과 화면을 학습자의 행동 목적 기준으로 재분류했다."
+    >
+      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.035] p-6">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">기존 기능 단위</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {original.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-white/10 bg-black/25 px-3 py-1.5 text-sm text-white/55"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+        <div className="mt-5 flex items-center gap-3 text-white/25">
+          <div className="h-px flex-1 bg-white/10" />
+          <span className="text-xs uppercase tracking-widest">학습자 행동 목적 기준으로 재분류</span>
+          <div className="h-px flex-1 bg-white/10" />
+        </div>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {restructured.map((group) => (
+          <div
+            key={group.stage}
+            className="rounded-lg border border-white/10 bg-white/[0.035] p-5"
+          >
+            <div className="flex items-baseline gap-3">
+              <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[11px] font-normal uppercase tracking-widest text-accent">
+                {group.stage}
+              </span>
+              <span className="text-sm text-white/45">{group.label}</span>
+            </div>
+            <ul className="mt-4 space-y-1.5">
+              {group.items.map((item) => (
+                <li key={item} className="text-sm leading-6 text-white/60">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <ClosingText>
+        기능을 줄인 것이 아니라, 사용자가 과정을 찾고·비교하고·신청하고·이어서 학습하고·지식을
+        확장하는 순서에 맞게 정보 구조를 다시 정리했다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function StepWorkflowSection() {
+  const stages = [
+    {
+      stage: "탐색",
+      question: "내가 들을 만한 과정은 어디에 있는가?",
+      surfaces: "메인 · 검색 · 카테고리 · 추천/인기",
+    },
+    {
+      stage: "비교·판단",
+      question: "이 과정이 내 목적과 조건에 맞는가?",
+      surfaces: "목록 · 필터 · 카드 정보 · 미리보기",
+    },
+    {
+      stage: "신청",
+      question: "지금 바로 신청해도 되는가?",
+      surfaces: "상세 · 수강신청 CTA · 운영사 · 수료증",
+    },
+    {
+      stage: "학습 지속",
+      question: "내가 이어서 해야 할 학습은 무엇인가?",
+      surfaces: "마이페이지 · 진도율 · 학습하기",
+    },
+    {
+      stage: "수료·후기",
+      question: "성적, 수료증, 후기는 어디서 처리하는가?",
+      surfaces: "성적 · 수료증 발급 · 수강후기",
+    },
+    {
+      stage: "지식 공유",
+      question: "더 배우거나 질문할 수 있는 공간이 있는가?",
+      surfaces: "위키 · 커뮤니티 · 멘토링 · 이벤트",
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="03 / User Workflow Analysis"
+      title="학습자는 콘텐츠를 보는 것이 아니라, 다음 행동을 결정해야 했다"
+      description="각 단계에서 사용자가 실제로 던지는 질문을 기준으로 흐름을 재구성했다. 이 질문들이 화면 구조를 결정하는 기준이 되었다."
+    >
+      <div className="space-y-3">
+        {stages.map((s, i) => (
+          <div
+            key={s.stage}
+            className="grid gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5 md:grid-cols-[auto_1fr_1fr]"
+          >
+            <div className="flex items-center gap-3 md:block">
+              <span className="text-[11px] uppercase tracking-widest text-white/30">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="ml-2 text-sm font-normal text-white md:ml-0 md:mt-2 md:block">
+                {s.stage}
+              </span>
+            </div>
+            <p className="break-keep text-sm leading-7 text-white/65 md:border-l md:border-white/10 md:pl-5">
+              "{s.question}"
+            </p>
+            <p className="break-keep text-sm leading-7 text-white/38 md:border-l md:border-white/10 md:pl-5">
+              {s.surfaces}
+            </p>
+          </div>
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function StepIaSection() {
+  const groups = [
+    {
+      title: "Learning Discovery",
+      sub: "탐색 진입",
+      items: ["메인", "통합검색", "카테고리", "추천 과정", "인기 과정", "신규 과정"],
+    },
+    {
+      title: "Course Decision",
+      sub: "수강 결정",
+      items: ["과정 목록", "필터 탐색", "과정 상세", "미리보기", "수강신청"],
+    },
+    {
+      title: "Learning Management",
+      sub: "학습 관리",
+      items: ["마이페이지", "진도율", "학습하기", "성적", "수료증", "수강후기"],
+    },
+    {
+      title: "Knowledge Community",
+      sub: "지식 확장",
+      items: ["위키", "칼럼", "멘토링", "커뮤니티", "이벤트", "설문"],
+    },
+    {
+      title: "Operational Support",
+      sub: "운영·인증",
+      items: ["로그인", "회원가입", "인증", "업무지원", "게시판"],
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="04 / IA & Product Structure"
+      title="포털의 많은 기능을 학습 여정과 운영 여정으로 나눠 정리했다"
+      description="정보 구조는 기능 목록이 아니라 사용자가 언제 무엇을 필요로 하는지를 기준으로 재편성했다."
+    >
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {groups.map((g) => (
+          <div key={g.title} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">{g.sub}</p>
+            <h3 className="mt-2 text-base font-normal text-white">{g.title}</h3>
+            <ul className="mt-4 space-y-2">
+              {g.items.map((item) => (
+                <li key={item} className="text-sm leading-6 text-white/55">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <ClosingText>
+        기능을 더 넣기보다, 정보가 놓이는 순서를 다시 잡는 것이 핵심이었다.
+        사용자가 어떤 정보를 먼저 보고 어떤 행동으로 이어져야 하는지를 기준으로
+        화면 구조를 정리했다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function StepKeyDecisionsSection() {
+  const decisions = [
+    {
+      number: "Decision 01",
+      title: "메인을 콘텐츠 모음이 아니라 진입 목적별 허브로 재구성",
+      body: "이어서 학습하기, 인기 과정, 추천 과정, 새로 올라온 과정, 공지/이벤트/위키를 진입 목적에 따라 분리 배치했다. 전체 콘텐츠를 한 번에 보여주기보다, 사용자가 지금 어떤 행동을 원하는지에 따라 빠르게 이동할 수 있는 구조로 설계했다.",
+      tags: ["이어서 학습하기", "인기 과정", "추천 과정", "공지/이벤트"],
+    },
+    {
+      number: "Decision 02",
+      title: "과정 목록은 탐색 조건과 비교 정보를 함께 제공",
+      body: "교육비, 교육구분, 지원기기 필터와 카드/리스트 전환, 미리보기, 수강신청 CTA를 목록 단계에서 제공해 판단에 필요한 정보를 앞단에 배치했다. 상세 화면까지 가지 않고도 핵심 조건을 비교할 수 있도록 했다.",
+      tags: ["교육비 필터", "교육구분", "지원기기", "미리보기 CTA"],
+    },
+    {
+      number: "Decision 03",
+      title: "상세 화면은 수강 결정을 위한 근거를 한 화면에 정리",
+      body: "운영사, 학습시간, 과정 소개, 학습 목차, 수료증 발급 여부, 관련 과정, 수강신청을 수강 결정 흐름에 맞게 배치했다. 상세 화면은 소개 페이지가 아니라 수강 판단 화면으로 설계했다.",
+      tags: ["운영사 정보", "수료증 발급", "관련 과정", "수강신청 CTA"],
+    },
+    {
+      number: "Decision 04",
+      title: "마이페이지는 기록 확인보다 다음 행동 중심으로 구성",
+      body: "학습하기 버튼, 진도율, 성적, 수료증, 수강후기를 이어서 해야 할 행동 순서에 맞게 배치했다. 단순 수강 이력 확인 화면이 아니라 학습 관리 허브로 설계했다.",
+      tags: ["이어서 학습하기", "진도율", "수료증", "패키지 과정"],
+    },
+    {
+      number: "Decision 05",
+      title: "위키·커뮤니티는 학습 이후 지식 확장 흐름으로 연결",
+      body: "학습 경험이 과정 수강에서 끝나지 않도록 칼럼, 멘토링, 공지, 이벤트, 설문으로 이어지는 구조를 함께 설계했다. 각 채널은 독립적인 기능이 아니라 학습 이후 참여 흐름의 일부로 정의했다.",
+      tags: ["위키", "칼럼", "멘토링", "커뮤니티"],
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="05 / Key UX Decisions"
+      title="화면은 결과물이 아니라, 사용자가 판단할 순서를 정리한 결과였다"
+      description="각 화면 구성은 기능 배치가 아니라 '이 단계에서 사용자가 무엇을 결정해야 하는가'를 기준으로 설계했다."
+    >
+      <div className="space-y-5">
+        {decisions.map((d) => (
+          <div key={d.number} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">{d.number}</p>
+            <h3 className="mt-3 break-keep text-[17px] font-normal leading-7 text-white">
+              {d.title}
+            </h3>
+            <p className="mt-4 break-keep text-sm leading-7 text-white/58">{d.body}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {d.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/45"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function StepKeyScreensSection() {
+  const screens = [
+    {
+      label: "01 / Main Home",
+      title: "전체 콘텐츠가 아니라 진입 목적별 허브",
+      caption:
+        "운영 참고 화면 — 학습자가 이어서 학습할지, 새 과정을 찾을지, 추천/인기 과정을 볼지 빠르게 선택할 수 있는 진입 구조",
+      src: `${stepImageBase}/01_step_home.png`,
+      alt: "STEP 메인 홈 화면",
+    },
+    {
+      label: "02 / Course List",
+      title: "조건 탐색과 비교 정보를 앞단에 배치",
+      caption:
+        "운영 참고 화면 — 과정 목록에서 수강 조건을 좁히고 여러 과정을 비교할 수 있도록 필터와 카드 정보를 함께 제공한 구조",
+      src: `${stepImageBase}/02_step_course_list.png`,
+      alt: "STEP 과정 목록 화면",
+    },
+    {
+      label: "03 / Course Detail",
+      title: "수강 신청 직전, 판단 근거를 한 화면에",
+      caption:
+        "운영 참고 화면 — 수강신청 전 필요한 판단 근거(운영사, 학습시간, 수료증, 관련 과정)와 CTA를 한 흐름 안에 정리한 화면",
+      src: `${stepImageBase}/03_step_course_detail.png`,
+      alt: "STEP 과정 상세 화면",
+    },
+    {
+      label: "04 / My Learning",
+      title: "수강 이력이 아니라 다음 학습 행동 중심",
+      caption:
+        "운영 참고 화면 — 수강 이력 확인보다 이어서 해야 할 학습 행동(학습하기, 진도율, 수료증, 후기)을 먼저 보여주는 관리 화면",
+      src: `${stepImageBase}/04_step_my_learning.png`,
+      alt: "STEP 마이페이지 학습 관리 화면",
+    },
+    {
+      label: "05 / Login & Membership",
+      title: "사용자 유형별 인증을 단계적으로 분리",
+      caption:
+        "운영 참고 화면 — 일반 학습자, 기업 담당자 등 사용자 유형에 따른 인증 조건을 단계별 흐름으로 분리해 진입 마찰을 줄인 구조",
+      src: `${stepImageBase}/05_step_login_signup.png`,
+      alt: "STEP 회원가입 및 인증 화면",
+    },
+    {
+      label: "06 / Wiki & Community",
+      title: "학습 이후 지식 공유 흐름으로 확장",
+      caption:
+        "운영 참고 화면 — 과정 수강 이후 칼럼, 멘토링, 공지, 이벤트로 확장될 수 있도록 지식 공유 구조를 함께 설계한 화면",
+      src: `${stepImageBase}/06_step_wiki.png`,
+      alt: "STEP 위키 화면",
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="06 / Key Screens"
+      title="각 화면은 사용자가 무엇을 판단하는가로 설명된다"
+      description="화면 수를 자랑하는 것이 아니라, 각 화면이 어떤 판단을 가능하게 했는지를 기준으로 선별했다."
+    >
+      <div className="grid gap-8 md:grid-cols-2">
+        {screens.map((s) => (
+          <figure
+            key={s.label}
+            className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]"
+          >
+            <div className="bg-black/30 p-3">
+              <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                  className="aspect-[16/10] w-full object-cover object-top"
+                />
+              </div>
+            </div>
+            <figcaption className="border-t border-white/10 px-5 py-4">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-white/35">{s.label}</p>
+              <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-white">
+                {s.title}
+              </p>
+              <p className="mt-2 break-keep text-xs leading-5 text-white/42">{s.caption}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function StepTradeOffSection() {
+  const cols = [
+    {
+      title: "제거하지 않은 것",
+      items: [
+        "다양한 교육 카테고리 구조",
+        "기관별 콘텐츠 분류",
+        "운영·인증·게시판 기능",
+        "복잡한 사용자 유형 처리",
+      ],
+    },
+    {
+      title: "재정리한 것",
+      items: [
+        "화면의 목적과 정보 배치 순서",
+        "탐색 → 판단 → 신청 → 지속학습 흐름",
+        "진입 목적별 메인 구조",
+        "다음 행동 중심 마이페이지",
+      ],
+    },
+    {
+      title: "선택한 이유",
+      items: [
+        "공공 포털은 정보를 과감히 제거하기 어렵다",
+        "운영 안정성과 사용자 탐색성을 동시에 고려해야 했다",
+        "미니멀 UI보다 정보가 놓이는 순서를 바꾸는 것이 현실적이었다",
+      ],
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="07 / Trade-off"
+      title="공공 포털의 많은 정보를 줄이기보다, 사용 목적별로 다시 묶는 방향을 선택했다"
+      description="STEP은 다양한 기관, 과정, 사용자 유형, 운영 기능을 포함해야 했기 때문에 정보를 과감히 제거하기 어려웠다."
+    >
+      <div className="grid gap-5 md:grid-cols-3">
+        {cols.map((col) => (
+          <ListCard key={col.title} title={col.title} items={col.items} />
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
+function StepCollaborationSection() {
+  return (
+    <CaseSection
+      number="08 / Collaboration & Handoff"
+      title="디자인 의도가 실제 구현 화면으로 이어지도록 퍼블리싱 협업을 병행했다"
+      description="주요 화면 UX/UI 설계를 담당했고, 전체 퍼블리싱은 별도 담당자와 협업했다."
+    >
+      <div className="grid gap-5 md:grid-cols-2">
+        <DefinitionCard
+          title="설계 담당 범위"
+          body="UX/UI 설계, 정보구조 정리, 주요 화면 디자인, 디자인 핸드오프"
+        />
+        <DefinitionCard
+          title="협업 범위"
+          body="퍼블리싱 검수 및 일부 수정 대응 — 디자인 산출물이 실제 화면으로 확장되는 과정에서 스타일 수정과 구현 검수에 참여"
+        />
+      </div>
+      <ClosingText>
+        이 케이스는 전체 퍼블리싱 담당 사례가 아니라, 설계 의도와 구현 결과 사이의
+        간격을 줄인 협업 사례로 표현된다. 현재 운영 중인 STEP 화면은 협업을 통해
+        구현된 결과이며, 본 케이스는 그 중 UX/UI 설계 기여 범위를 중심으로 서술한다.
+      </ClosingText>
+      <figure className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
+        <div className="bg-black/30 p-3">
+          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+            <img
+              src={`${stepImageBase}/08_step_live_service.png`}
+              alt="STEP 운영 중인 서비스 화면"
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              className="aspect-[16/9] w-full object-cover object-top"
+            />
+          </div>
+        </div>
+        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+          운영 참고 화면 — 설계 방향이 실제 서비스 화면으로 이어진 맥락
+        </figcaption>
+      </figure>
+    </CaseSection>
+  )
+}
+
+function StepOutcomeSection() {
+  const outcomes = [
+    "주요 학습 여정을 탐색, 판단, 신청, 학습 지속, 지식 공유 흐름으로 정리",
+    "과정 목록, 상세, 마이페이지, 위키, 커뮤니티 등 주요 화면 구조 설계",
+    "운영 서비스에 반영될 수 있는 화면 구조와 퍼블리싱 협업 기반 마련",
+  ]
+
+  const nextMetrics = [
+    "과정 탐색 성공률 — 원하는 과정을 찾는 데 걸리는 단계 수",
+    "검색·필터 사용 후 상세 진입률",
+    "상세 페이지에서 수강신청 전환율",
+    "이어서 학습하기 클릭률",
+    "마이페이지 내 학습하기·수료증·성적 확인 사용률",
+    "위키·커뮤니티 재방문 및 참여율",
+  ]
+
+  return (
+    <CaseSection
+      number="09 / Outcome & Next Metrics"
+      title="성과를 꾸미기보다, 운영 후 검증해야 할 지표를 정의했다"
+      description="정량 성과를 임의로 만들지 않는다. 대신 이 구조 설계가 실제 효과를 냈는지 확인하기 위해 어떤 지표를 봐야 하는지를 정의했다."
+    >
+      <TwoColumn>
+        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Design Outcome</p>
+          <ul className="mt-5 space-y-3">
+            {outcomes.map((o) => (
+              <li key={o} className="break-keep text-sm leading-7 text-white/60">
+                {o}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <NumberedList title="Next Metrics — 운영 후 검증 지표" items={nextMetrics} />
+      </TwoColumn>
+      <ClosingText>
+        위 지표는 측정된 성과가 아니라 정식 운영 후 확인해야 할 검증 지표다.
+        이 구조가 실제로 효과가 있었는지는 운영 데이터와 사용자 행동을 통해 확인해야 한다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
+function StepReflectionSection() {
+  const cols: TradeOff[] = [
+    {
+      title: "집중한 것",
+      items: [
+        "복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성",
+        "기능 추가가 아닌 정보 구조와 화면 목적의 재정리",
+        "공공 포털의 운영 현실을 고려한 현실적 트레이드오프 선택",
+      ],
+    },
+    {
+      title: "더 확인해야 할 것",
+      items: [
+        "실제 학습자가 어떤 기준으로 과정을 비교하고 신청하는지",
+        "검색·필터 사용 흐름과 목록 → 상세 진입 패턴",
+        "마이페이지에서의 실제 학습 지속 행동",
+        "위키·커뮤니티 참여 흐름과 재방문 동기",
+      ],
+    },
+    {
+      title: "다음 단계",
+      items: [
+        "운영 데이터 기반 탐색 성공률 측정",
+        "상세 페이지 수강 결정 과정 관찰",
+        "마이페이지 내 학습 지속 행동 추적",
+        "사용자 유형별 인증 흐름 개선 검토",
+      ],
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="10 / Reflection"
+      title="다음에는 화면 완성도보다 학습자의 선택 과정 자체를 더 검증해야 한다"
+      description="이번 프로젝트에서는 복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성하는 데 집중했다. 하지만 실제 효과는 운영 데이터와 사용자 관찰을 통해 더 확인해야 한다."
+    >
+      <div className="grid gap-5 md:grid-cols-3">
+        {cols.map((col) => (
+          <ListCard key={col.title} title={col.title} items={col.items} />
+        ))}
+      </div>
+      <div className="mt-10 flex justify-start">
+        <Link
+          href="/work"
+          className="inline-flex items-center gap-2 text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        >
+          ← Back to Work
+        </Link>
+      </div>
+    </CaseSection>
   )
 }
