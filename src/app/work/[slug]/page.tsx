@@ -3811,7 +3811,10 @@ function StepHeroSection() {
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
         <div>
           <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
-            콘텐츠가 넘쳐도,<br />학습자는 왜 다음 행동을 찾지 못했을까?
+            콘텐츠가 넘쳐도,<br />
+            학습자는 왜 <br className="sm:hidden" />
+            다음 행동을 <br className="sm:hidden" />
+            찾지 못했을까?
           </h1>
           <p className="mt-6 break-keep text-lg font-normal leading-8 text-white/55">
             STEP Lifelong Education Platform
@@ -3867,37 +3870,37 @@ function StepHeroSection() {
 
 function StepHeroVisual() {
   return (
-    <figure className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
+    <figure className="mt-12 w-full min-w-0 max-w-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
       <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white">
+        <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
           <img
             src={stepScreens.home}
             alt="STEP 운영 홈 고화질 캡처 화면"
             loading="eager"
             decoding="async"
             draggable={false}
-            className="h-auto w-full object-contain"
+            className="block h-auto w-full max-w-full object-contain"
           />
         </div>
         <div className="grid min-w-0 gap-3">
-          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
             <img
               src={stepScreens.sitemap}
               alt="STEP 전체 메뉴 IA 고화질 캡처 화면"
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-auto w-full object-contain"
+              className="block h-auto w-full max-w-full object-contain"
             />
           </div>
-          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
             <img
               src={stepScreens.allCourses}
               alt="STEP 이러닝 과정 목록 고화질 캡처 화면"
               loading="eager"
               decoding="async"
               draggable={false}
-              className="h-auto w-full object-contain"
+              className="block h-auto w-full max-w-full object-contain"
             />
           </div>
         </div>
@@ -4059,7 +4062,7 @@ function StepScreenFigure({
 }) {
   const isPhone = screen.size === "phone"
   const figureClass = [
-    "overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]",
+    "min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]",
     screen.size === "wide" ? "md:col-span-2" : "",
   ]
     .filter(Boolean)
@@ -4067,7 +4070,7 @@ function StepScreenFigure({
 
   return (
     <figure className={figureClass}>
-      <div className={compact ? "bg-black/30 p-3" : "bg-black/30 p-4"}>
+      <div className={compact ? "min-w-0 bg-black/30 p-3" : "min-w-0 bg-black/30 p-4"}>
         {isPhone ? (
           <div className="mx-auto max-w-[250px] rounded-[28px] border border-white/15 bg-[#101010] p-2 shadow-card">
             <div className="overflow-hidden rounded-[22px] bg-white">
@@ -4077,19 +4080,19 @@ function StepScreenFigure({
                 loading="lazy"
                 decoding="async"
                 draggable={false}
-                className="h-auto w-full object-contain"
+                className="block h-auto w-full max-w-full object-contain"
               />
             </div>
           </div>
         ) : (
-          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
             <img
               src={screen.src}
               alt={screen.alt}
               loading="lazy"
               decoding="async"
               draggable={false}
-              className="h-auto w-full object-contain"
+              className="block h-auto w-full max-w-full object-contain"
             />
           </div>
         )}
@@ -4524,15 +4527,15 @@ function StepCollaborationSection() {
         구현된 결과이며, 본 케이스는 그 중 UX/UI 설계 기여 범위를 중심으로 서술한다.
       </ClosingText>
       <figure className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-        <div className="bg-black/30 p-3">
-          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+        <div className="min-w-0 bg-black/30 p-3">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
             <img
               src={stepScreens.home}
               alt="STEP 운영 중인 서비스 홈 고화질 캡처 화면"
               loading="lazy"
               decoding="async"
               draggable={false}
-              className="h-auto w-full object-contain"
+              className="block h-auto w-full max-w-full object-contain"
             />
           </div>
         </div>
