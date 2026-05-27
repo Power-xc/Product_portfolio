@@ -98,6 +98,32 @@ const guardianSlug = "sapie-guardian"
 const guardianImageBase = "/images/guardian"
 const stepSlug = "step-lifelong-education-platform"
 const stepImageBase = "/images/work/step"
+const stepScreens = {
+  home: `${stepImageBase}/step-main-home-1440.png`,
+  sitemap: `${stepImageBase}/step-sitemap-ia.png`,
+  megamenu: `${stepImageBase}/step-gnb-megamenu.png`,
+  search: `${stepImageBase}/step-search-autocomplete.png`,
+  allCourses: `${stepImageBase}/step-all-courses-fullpage.png`,
+  courseDetail: `${stepImageBase}/step-course-detail-live.png`,
+  edutech: `${stepImageBase}/step-edutech-fullpage.png`,
+  mobileHome: `${stepImageBase}/step-mobile-home.png`,
+  mobileMenu: `${stepImageBase}/step-mobile-menu.png`,
+  myLearning: `${stepImageBase}/04_step_my_learning.jpg`,
+  loginSignup: `${stepImageBase}/05_step_login_signup.png`,
+  wiki: `${stepImageBase}/06_step_wiki.jpg`,
+  liveService: `${stepImageBase}/08_step_live_service.jpg`,
+} as const
+
+type StepScreenSize = "standard" | "wide" | "phone"
+
+type StepScreenItem = {
+  label: string
+  title: string
+  caption: string
+  src: string
+  alt: string
+  size?: StepScreenSize
+}
 
 const caseStudies = [
   {
@@ -3746,6 +3772,7 @@ function StepCaseStudy() {
         <StepHeroSection />
         <StepProblemSection />
         <StepDiscoverySection />
+        <StepCaptureStrategySection />
         <StepWorkflowSection />
         <StepIaSection />
         <StepKeyDecisionsSection />
@@ -3765,9 +3792,9 @@ function StepHeroSection() {
     "평생교육 포털",
     "IA Structuring",
     "Learner UX",
+    "Responsive IA",
     "Key Screen Design",
-    "Design Handoff",
-    "Publishing Review",
+    "Production Capture Review",
   ]
 
   return (
@@ -3794,23 +3821,38 @@ function StepHeroSection() {
           </p>
         </div>
         <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Role</p>
-          <p className="mt-3 break-keep text-sm leading-7 text-white/60">
-            UX/UI Design · IA Structuring · Key Screen Design · Design Handoff · Publishing Review &amp; Partial Front-end Adjustment
-          </p>
+          <dl className="space-y-5">
+            <div>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Role</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+                UX/UI Design · IA Structuring · Design Handoff
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Scope</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+                Home · Search · Course Flow · My Learning · Wiki · Responsive Review
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Evidence</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+                운영 화면 고화질 캡처 · IA / GNB / 검색 / 목록 / 상세 / 모바일 메뉴
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
       <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
         <p className="break-keep">
-          STEP은 콘텐츠가 부족한 서비스가 아니었다. 이러닝, K-디지털, 추천테마,
-          가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지 너무 많은 학습 콘텐츠와
-          운영 기능이 한 포털 안에 분산되어 있었다.
+          STEP은 단일 교육 사이트가 아니라 여러 학습 서비스가 연결된 공공 포털이었다.
+          이러닝, K-디지털, 가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지
+          서로 다른 목적의 기능이 한 화면 체계 안에 공존했다.
         </p>
         <p className="break-keep">
-          문제는 사용자가 원하는 과정을 찾고, 수강 여부를 판단하고, 이후 학습을
-          이어가기까지의 흐름이 명확하지 않았다는 점이었다. 따라서 기능을 더
-          추가하기보다, 학습자의 행동 순서에 맞게 정보 구조와 화면 구조를 다시
-          정리하는 것이 핵심 방향이었다.
+          핵심은 더 많은 콘텐츠를 보여주는 것이 아니라, 학습자가 과정을 찾고,
+          비교하고, 신청하고, 이후 학습을 이어갈 수 있도록 화면과 메뉴의 판단 순서를
+          정리하는 것이었다.
         </p>
       </div>
       <div className="mt-8 flex flex-wrap gap-2">
@@ -3829,8 +3871,8 @@ function StepHeroVisual() {
       <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white">
           <img
-            src={`${stepImageBase}/01_step_home.jpg`}
-            alt="STEP 메인 홈 화면"
+            src={stepScreens.home}
+            alt="STEP 운영 홈 고화질 캡처 화면"
             loading="eager"
             decoding="async"
             draggable={false}
@@ -3840,8 +3882,8 @@ function StepHeroVisual() {
         <div className="grid min-w-0 gap-3">
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/02_step_course_list.jpg`}
-              alt="STEP 과정 목록 화면"
+              src={stepScreens.sitemap}
+              alt="STEP 전체 메뉴 IA 고화질 캡처 화면"
               loading="eager"
               decoding="async"
               draggable={false}
@@ -3850,8 +3892,8 @@ function StepHeroVisual() {
           </div>
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/03_step_course_detail.jpg`}
-              alt="STEP 과정 상세 화면"
+              src={stepScreens.allCourses}
+              alt="STEP 이러닝 과정 목록 고화질 캡처 화면"
               loading="eager"
               decoding="async"
               draggable={false}
@@ -3861,7 +3903,7 @@ function StepHeroVisual() {
         </div>
       </div>
       <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-        운영 참고 화면 — 학습자 탐색 진입부터 과정 비교·판단까지의 화면 구조
+        고화질 캡처 화면 — 홈, 전체 메뉴 IA, 과정 목록을 연결해 학습자가 어디서 시작하고 어떻게 탐색하는지 보여주는 구조
       </figcaption>
     </figure>
   )
@@ -4008,6 +4050,135 @@ function StepDiscoverySection() {
   )
 }
 
+function StepScreenFigure({
+  screen,
+  compact = false,
+}: {
+  screen: StepScreenItem
+  compact?: boolean
+}) {
+  const isPhone = screen.size === "phone"
+  const figureClass = [
+    "overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]",
+    screen.size === "wide" ? "md:col-span-2" : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+
+  return (
+    <figure className={figureClass}>
+      <div className={compact ? "bg-black/30 p-3" : "bg-black/30 p-4"}>
+        {isPhone ? (
+          <div className="mx-auto max-w-[250px] rounded-[28px] border border-white/15 bg-[#101010] p-2 shadow-card">
+            <div className="overflow-hidden rounded-[22px] bg-white">
+              <img
+                src={screen.src}
+                alt={screen.alt}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="overflow-hidden rounded-md border border-white/10 bg-white">
+            <img
+              src={screen.src}
+              alt={screen.alt}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        )}
+      </div>
+      <figcaption className="border-t border-white/10 px-5 py-4">
+        <p className="text-[11px] uppercase tracking-[0.14em] text-white/35">{screen.label}</p>
+        <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-white">{screen.title}</p>
+        <p className="mt-2 break-keep text-xs leading-5 text-white/40">{screen.caption}</p>
+      </figcaption>
+    </figure>
+  )
+}
+
+function StepCaptureStrategySection() {
+  const capturePoints = [
+    {
+      title: "IA Evidence",
+      body: "전체 메뉴와 GNB 메가메뉴를 함께 캡처해, 학습 서비스가 어떤 상위 구조로 묶이는지 확인했다.",
+    },
+    {
+      title: "Decision Flow Evidence",
+      body: "검색 자동완성, 과정 목록, 과정 상세를 한 흐름으로 묶어 찾기 → 비교하기 → 신청 판단하기를 설명할 수 있게 했다.",
+    },
+    {
+      title: "Responsive Evidence",
+      body: "모바일 홈과 메뉴를 별도 캡처해, 작은 화면에서 포털 IA가 어떻게 재배치되는지 함께 보여준다.",
+    },
+    {
+      title: "Production Evidence",
+      body: "운영 화면 기준의 고화질 PNG를 사용해 디자인 산출물이 실제 서비스 구조로 연결된 맥락을 보강했다.",
+    },
+  ]
+
+  const evidenceScreens: StepScreenItem[] = [
+    {
+      label: "IA / All Menu",
+      title: "전체 메뉴에서 서비스 축을 먼저 확인",
+      caption: "고화질 캡처 화면 — 이러닝, K-디지털, 가상훈련, 에듀테크+, 위키, 커뮤니티가 한 포털 안에서 어떻게 묶이는지 보여주는 IA 화면",
+      src: stepScreens.sitemap,
+      alt: "STEP 전체 메뉴 IA 고화질 캡처 화면",
+    },
+    {
+      label: "IA / GNB",
+      title: "상위 메뉴와 과정 탐색의 연결 구조",
+      caption: "고화질 캡처 화면 — 메가메뉴에서 과정 탐색과 서비스 진입이 어떻게 분리되는지 확인할 수 있는 화면",
+      src: stepScreens.megamenu,
+      alt: "STEP GNB 메가메뉴 고화질 캡처 화면",
+    },
+    {
+      label: "Search / Entry",
+      title: "검색을 탐색 시작점으로 보강",
+      caption: "고화질 캡처 화면 — 사용자가 정확한 과정명을 몰라도 추천 키워드와 결과 후보로 탐색을 시작할 수 있게 한 검색 구조",
+      src: stepScreens.search,
+      alt: "STEP 검색 자동완성 고화질 캡처 화면",
+    },
+    {
+      label: "Mobile / IA",
+      title: "모바일에서는 포털 구조를 접이식 메뉴로 재배치",
+      caption: "고화질 캡처 화면 — 데스크톱 IA를 작은 화면에서도 잃지 않도록 주요 서비스 진입을 메뉴 구조로 재정리한 화면",
+      src: stepScreens.mobileMenu,
+      alt: "STEP 모바일 메뉴 고화질 캡처 화면",
+      size: "phone",
+    },
+  ]
+
+  return (
+    <CaseSection
+      number="03 / Capture Evidence"
+      title="화면 캡처는 예쁜 화면보다, 구조를 증명하는 증거여야 했다"
+      description="STEP은 긴 포털 화면과 여러 메뉴 체계가 함께 작동하는 서비스다. 그래서 화면을 단순 나열하지 않고, IA와 학습 결정 흐름을 설명할 수 있는 장면을 우선 캡처했다."
+    >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {capturePoints.map((point) => (
+          <DefinitionCard key={point.title} title={point.title} body={point.body} />
+        ))}
+      </div>
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        {evidenceScreens.map((screen) => (
+          <StepScreenFigure key={screen.label} screen={screen} compact />
+        ))}
+      </div>
+      <ClosingText>
+        고화질 캡처는 화면 장식이 아니라, 사용자가 포털에서 길을 찾고 판단하는 구조를
+        설명하기 위한 근거로 사용했다.
+      </ClosingText>
+    </CaseSection>
+  )
+}
+
 function StepWorkflowSection() {
   const stages = [
     {
@@ -4044,7 +4215,7 @@ function StepWorkflowSection() {
 
   return (
     <CaseSection
-      number="03 / User Workflow Analysis"
+      number="04 / User Workflow Analysis"
       title="학습자는 콘텐츠를 보는 것이 아니라, 다음 행동을 결정해야 했다"
       description="각 단계에서 사용자가 실제로 던지는 질문을 기준으로 흐름을 재구성했다. 이 질문들이 화면 구조를 결정하는 기준이 되었다."
     >
@@ -4106,7 +4277,7 @@ function StepIaSection() {
 
   return (
     <CaseSection
-      number="04 / IA & Product Structure"
+      number="05 / IA & Product Structure"
       title="포털의 많은 기능을 학습 여정과 운영 여정으로 나눠 정리했다"
       description="정보 구조는 기능 목록이 아니라 사용자가 언제 무엇을 필요로 하는지를 기준으로 재편성했다."
     >
@@ -4170,7 +4341,7 @@ function StepKeyDecisionsSection() {
 
   return (
     <CaseSection
-      number="05 / Key UX Decisions"
+      number="06 / Key UX Decisions"
       title="화면은 결과물이 아니라, 사용자가 판단할 순서를 정리한 결과였다"
       description="각 화면 구성은 기능 배치가 아니라 '이 단계에서 사용자가 무엇을 결정해야 하는가'를 기준으로 설계했다."
     >
@@ -4200,89 +4371,85 @@ function StepKeyDecisionsSection() {
 }
 
 function StepKeyScreensSection() {
-  const screens = [
+  const screens: StepScreenItem[] = [
     {
-      label: "01 / Main Home",
-      title: "전체 콘텐츠가 아니라 진입 목적별 허브",
+      label: "01 / Home Entry",
+      title: "홈은 콘텐츠 진열장이 아니라 학습 진입 허브",
       caption:
-        "운영 참고 화면 — 학습자가 이어서 학습할지, 새 과정을 찾을지, 추천/인기 과정을 볼지 빠르게 선택할 수 있는 진입 구조",
-      src: `${stepImageBase}/01_step_home.jpg`,
-      alt: "STEP 메인 홈 화면",
+        "고화질 캡처 화면 — 학습자가 이어서 학습할지, 새 과정을 찾을지, 추천/인기 과정을 볼지 먼저 선택하게 하는 진입 구조",
+      src: stepScreens.home,
+      alt: "STEP 메인 홈 고화질 캡처 화면",
+      size: "wide",
     },
     {
-      label: "02 / Course List",
-      title: "조건 탐색과 비교 정보를 앞단에 배치",
+      label: "02 / Search Entry",
+      title: "정확한 과정명을 몰라도 탐색을 시작할 수 있는 검색",
       caption:
-        "운영 참고 화면 — 과정 목록에서 수강 조건을 좁히고 여러 과정을 비교할 수 있도록 필터와 카드 정보를 함께 제공한 구조",
-      src: `${stepImageBase}/02_step_course_list.jpg`,
-      alt: "STEP 과정 목록 화면",
+        "고화질 캡처 화면 — 추천 키워드와 결과 후보를 함께 보여줘 사용자의 첫 탐색 비용을 낮춘 구조",
+      src: stepScreens.search,
+      alt: "STEP 검색 자동완성 고화질 캡처 화면",
     },
     {
-      label: "03 / Course Detail",
-      title: "수강 신청 직전, 판단 근거를 한 화면에",
+      label: "03 / Course List",
+      title: "조건 탐색과 비교 정보를 목록 단계에 배치",
       caption:
-        "운영 참고 화면 — 수강신청 전 필요한 판단 근거(운영사, 학습시간, 수료증, 관련 과정)와 CTA를 한 흐름 안에 정리한 화면",
-      src: `${stepImageBase}/03_step_course_detail.jpg`,
-      alt: "STEP 과정 상세 화면",
+        "고화질 캡처 화면 — 과정 목록에서 카테고리, 필터, 카드 정보를 함께 보며 비교할 수 있게 한 탐색 화면",
+      src: stepScreens.allCourses,
+      alt: "STEP 과정 목록 고화질 캡처 화면",
     },
     {
-      label: "04 / My Learning",
+      label: "04 / Course Detail",
+      title: "수강 신청 직전 필요한 판단 근거를 한 화면에",
+      caption:
+        "고화질 캡처 화면 — 운영사, 학습 시간, 과정 소개, 수강신청 CTA를 수강 결정 흐름에 맞게 정리한 상세 화면",
+      src: stepScreens.courseDetail,
+      alt: "STEP 과정 상세 고화질 캡처 화면",
+    },
+    {
+      label: "05 / My Learning",
       title: "수강 이력이 아니라 다음 학습 행동 중심",
       caption:
-        "운영 참고 화면 — 수강 이력 확인보다 이어서 해야 할 학습 행동(학습하기, 진도율, 수료증, 후기)을 먼저 보여주는 관리 화면",
-      src: `${stepImageBase}/04_step_my_learning.jpg`,
+        "운영 참고 화면 — 학습하기, 진도율, 성적, 수료증, 후기처럼 이어서 해야 할 행동을 먼저 확인하는 관리 화면",
+      src: stepScreens.myLearning,
       alt: "STEP 마이페이지 학습 관리 화면",
     },
     {
-      label: "05 / Login & Membership",
-      title: "사용자 유형별 인증을 단계적으로 분리",
+      label: "06 / Edutech Service",
+      title: "학습 포털 밖의 확장 서비스도 같은 구조 안에서 연결",
       caption:
-        "운영 참고 화면 — 일반 학습자, 기업 담당자 등 사용자 유형에 따른 인증 조건을 단계별 흐름으로 분리해 진입 마찰을 줄인 구조",
-      src: `${stepImageBase}/05_step_login_signup.png`,
-      alt: "STEP 회원가입 및 인증 화면",
+        "고화질 캡처 화면 — 에듀테크+처럼 별도 성격의 서비스도 포털 전체 탐색 흐름 안에서 이해되도록 정리한 화면",
+      src: stepScreens.edutech,
+      alt: "STEP 에듀테크 서비스 고화질 캡처 화면",
     },
     {
-      label: "06 / Wiki & Community",
-      title: "학습 이후 지식 공유 흐름으로 확장",
+      label: "07 / Mobile Home",
+      title: "모바일에서도 주요 학습 진입을 유지",
       caption:
-        "운영 참고 화면 — 과정 수강 이후 칼럼, 멘토링, 공지, 이벤트로 확장될 수 있도록 지식 공유 구조를 함께 설계한 화면",
-      src: `${stepImageBase}/06_step_wiki.jpg`,
-      alt: "STEP 위키 화면",
+        "고화질 캡처 화면 — 작은 화면에서도 학습자가 주요 서비스와 과정 탐색으로 이동할 수 있게 한 모바일 홈 구조",
+      src: stepScreens.mobileHome,
+      alt: "STEP 모바일 홈 고화질 캡처 화면",
+      size: "phone",
+    },
+    {
+      label: "08 / Mobile Menu",
+      title: "복잡한 포털 IA를 접이식 메뉴로 재구성",
+      caption:
+        "고화질 캡처 화면 — 데스크톱의 전체 메뉴 구조를 모바일에서 탐색 가능한 메뉴 체계로 재배치한 화면",
+      src: stepScreens.mobileMenu,
+      alt: "STEP 모바일 메뉴 고화질 캡처 화면",
+      size: "phone",
     },
   ]
 
   return (
     <CaseSection
-      number="06 / Key Screens"
+      number="07 / Key Screens"
       title="각 화면은 사용자가 무엇을 판단하는가로 설명된다"
       description="화면 수를 자랑하는 것이 아니라, 각 화면이 어떤 판단을 가능하게 했는지를 기준으로 선별했다."
     >
       <div className="grid gap-8 md:grid-cols-2">
         {screens.map((s) => (
-          <figure
-            key={s.label}
-            className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]"
-          >
-            <div className="bg-black/30 p-3">
-              <div className="overflow-hidden rounded-md border border-white/10 bg-white">
-                <img
-                  src={s.src}
-                  alt={s.alt}
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                  className="h-auto w-full object-contain"
-                />
-              </div>
-            </div>
-            <figcaption className="border-t border-white/10 px-5 py-4">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-white/35">{s.label}</p>
-              <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-white">
-                {s.title}
-              </p>
-              <p className="mt-2 break-keep text-xs leading-5 text-white/40">{s.caption}</p>
-            </figcaption>
-          </figure>
+          <StepScreenFigure key={s.label} screen={s} />
         ))}
       </div>
     </CaseSection>
@@ -4321,7 +4488,7 @@ function StepTradeOffSection() {
 
   return (
     <CaseSection
-      number="07 / Trade-off"
+      number="08 / Trade-off"
       title="공공 포털의 많은 정보를 줄이기보다, 사용 목적별로 다시 묶는 방향을 선택했다"
       description="STEP은 다양한 기관, 과정, 사용자 유형, 운영 기능을 포함해야 했기 때문에 정보를 과감히 제거하기 어려웠다."
     >
@@ -4337,7 +4504,7 @@ function StepTradeOffSection() {
 function StepCollaborationSection() {
   return (
     <CaseSection
-      number="08 / Collaboration & Handoff"
+      number="09 / Collaboration & Handoff"
       title="디자인 의도가 실제 구현 화면으로 이어지도록 퍼블리싱 협업을 병행했다"
       description="주요 화면 UX/UI 설계를 담당했고, 전체 퍼블리싱은 별도 담당자와 협업했다."
     >
@@ -4360,8 +4527,8 @@ function StepCollaborationSection() {
         <div className="bg-black/30 p-3">
           <div className="overflow-hidden rounded-md border border-white/10 bg-white">
             <img
-              src={`${stepImageBase}/08_step_live_service.jpg`}
-              alt="STEP 운영 중인 서비스 화면"
+              src={stepScreens.home}
+              alt="STEP 운영 중인 서비스 홈 고화질 캡처 화면"
               loading="lazy"
               decoding="async"
               draggable={false}
@@ -4370,7 +4537,7 @@ function StepCollaborationSection() {
           </div>
         </div>
         <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
-          운영 참고 화면 — 설계 방향이 실제 서비스 화면으로 이어진 맥락
+          고화질 캡처 화면 — 설계 방향이 실제 운영 포털의 홈 구조로 이어진 맥락
         </figcaption>
       </figure>
     </CaseSection>
@@ -4380,8 +4547,10 @@ function StepCollaborationSection() {
 function StepOutcomeSection() {
   const outcomes = [
     "주요 학습 여정을 탐색, 판단, 신청, 학습 지속, 지식 공유 흐름으로 정리",
+    "홈, 전체 메뉴, GNB, 검색, 목록, 상세, 모바일 메뉴를 하나의 탐색 시스템으로 연결",
     "과정 목록, 상세, 마이페이지, 위키, 커뮤니티 등 주요 화면 구조 설계",
-    "운영 서비스에 반영될 수 있는 화면 구조와 퍼블리싱 협업 기반 마련",
+    "운영 화면 고화질 캡처를 통해 설계 의도와 실제 서비스 구조의 연결 근거 보강",
+    "퍼블리싱 검수와 일부 화면 조정을 통해 디자인 산출물이 구현 화면으로 이어지는 과정에 참여",
   ]
 
   const nextMetrics = [
@@ -4389,13 +4558,14 @@ function StepOutcomeSection() {
     "검색·필터 사용 후 상세 진입률",
     "상세 페이지에서 수강신청 전환율",
     "이어서 학습하기 클릭률",
+    "모바일 메뉴에서 주요 서비스 진입률",
     "마이페이지 내 학습하기·수료증·성적 확인 사용률",
     "위키·커뮤니티 재방문 및 참여율",
   ]
 
   return (
     <CaseSection
-      number="09 / Outcome & Next Metrics"
+      number="10 / Outcome & Next Metrics"
       title="성과를 꾸미기보다, 운영 후 검증해야 할 지표를 정의했다"
       description="정량 성과를 임의로 만들지 않는다. 대신 이 구조 설계가 실제 효과를 냈는지 확인하기 위해 어떤 지표를 봐야 하는지를 정의했다."
     >
@@ -4427,6 +4597,7 @@ function StepReflectionSection() {
       items: [
         "복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성",
         "기능 추가가 아닌 정보 구조와 화면 목적의 재정리",
+        "전체 메뉴, 검색, 목록, 상세, 모바일 메뉴를 고화질 캡처로 묶어 구조 근거를 보강",
         "공공 포털의 운영 현실을 고려한 현실적 트레이드오프 선택",
       ],
     },
@@ -4435,6 +4606,7 @@ function StepReflectionSection() {
       items: [
         "실제 학습자가 어떤 기준으로 과정을 비교하고 신청하는지",
         "검색·필터 사용 흐름과 목록 → 상세 진입 패턴",
+        "모바일 메뉴에서 원하는 학습 서비스까지 이동하는 실제 경로",
         "마이페이지에서의 실제 학습 지속 행동",
         "위키·커뮤니티 참여 흐름과 재방문 동기",
       ],
@@ -4444,6 +4616,7 @@ function StepReflectionSection() {
       items: [
         "운영 데이터 기반 탐색 성공률 측정",
         "상세 페이지 수강 결정 과정 관찰",
+        "데스크톱 IA와 모바일 메뉴 간 진입 경로 비교",
         "마이페이지 내 학습 지속 행동 추적",
         "사용자 유형별 인증 흐름 개선 검토",
       ],
@@ -4452,7 +4625,7 @@ function StepReflectionSection() {
 
   return (
     <CaseSection
-      number="10 / Reflection"
+      number="11 / Reflection"
       title="다음에는 화면 완성도보다 학습자의 선택 과정 자체를 더 검증해야 한다"
       description="이번 프로젝트에서는 복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성하는 데 집중했다. 하지만 실제 효과는 운영 데이터와 사용자 관찰을 통해 더 확인해야 한다."
     >
