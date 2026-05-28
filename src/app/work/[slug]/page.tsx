@@ -4,6 +4,12 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
+import { CollaborationMoment } from "@/components/case-study/CollaborationMoment"
+import { DefinitionCard } from "@/components/case-study/DefinitionCard"
+import { FormulaCard } from "@/components/case-study/FormulaCard"
+import { OpenQuestion } from "@/components/case-study/OpenQuestion"
+import { PriorityRationale } from "@/components/case-study/PriorityRationale"
+import { ProblemStatement } from "@/components/case-study/ProblemStatement"
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -1533,13 +1539,10 @@ function DeepQProblemSection() {
       title="답변 생성보다 답변 검토 구조가 더 크게 드러났다"
       description="자연어 질문에 대한 답변만 제공할 경우, Enterprise 데이터 분석 환경에서는 데이터 출처와 계산 기준을 확인하기 어렵습니다."
     >
-      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
-        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-          도입률은 있었지만 실제 업무 활용 여부가 불명확했다.
-          AI가 답을 생성하는 것과 사용자가 그 답을 업무에 쓸 수 있는지는 다른 문제 — 활용 장벽을 먼저 정의하기로 했다.
-        </p>
-      </div>
+      <PriorityRationale>
+        도입률은 있었지만 실제 업무 활용 여부가 불명확했다.
+        AI가 답을 생성하는 것과 사용자가 그 답을 업무에 쓸 수 있는지는 다른 문제 — 활용 장벽을 먼저 정의하기로 했다.
+      </PriorityRationale>
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤
         SQL을 생성했는지, 결과가 어떤 기준으로 요약됐는지 확인할 수 있어야 합니다.
@@ -1572,15 +1575,12 @@ function DeepQProblemSection() {
         질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 모니터링을 하나의 제품
         절차로 연결했습니다.
       </ClosingText>
-      <div className="mt-8">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <FormulaCard label="대상" value="현업 분석 담당자" />
-          <FormulaCard label="상황" value="AI 답변을 업무에 사용해야 할 때" />
-          <FormulaCard label="고통" value="출처와 계산 기준을 검토할 수 없어 의사결정에 쓰지 못한다" />
-          <FormulaCard label="성공 기준 붕괴" value="AI 분석 도구를 도입해도 실제 업무 활용률이 낮다" />
-        </div>
-      </div>
+      <ProblemStatement
+        target="현업 분석 담당자"
+        situation="AI 답변을 업무에 사용해야 할 때"
+        pain="출처와 계산 기준을 검토할 수 없어 의사결정에 쓰지 못한다"
+        breakdown="AI 분석 도구를 도입해도 실제 업무 활용률이 낮다"
+      />
     </CaseSection>
   )
 }
@@ -2102,13 +2102,10 @@ function DeepQOutcomeSection() {
           ]}
         />
       </TwoColumn>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
-        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
-          사용자가 View SQL이나 설명 영역을 실제로 확인하는지, 확인 이후 의사결정에 차이가 생기는지는 운영 데이터로만 확인 가능하다.
-          쿼리 재사용률과 AI 답변 기반 리포트 공유 빈도를 측정해야 실질 업무 활용 여부를 판단할 수 있다.
-        </p>
-      </div>
+      <OpenQuestion>
+        사용자가 View SQL이나 설명 영역을 실제로 확인하는지, 확인 이후 의사결정에 차이가 생기는지는 운영 데이터로만 확인 가능하다.
+        쿼리 재사용률과 AI 답변 기반 리포트 공유 빈도를 측정해야 실질 업무 활용 여부를 판단할 수 있다.
+      </OpenQuestion>
     </CaseSection>
   )
 }
@@ -2150,32 +2147,11 @@ function DeepQReflectionSection() {
           ]}
         />
       </TwoColumn>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
-        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              개발팀은 SQL을 기본 노출하는 방식이 단순하다고 선호했다.
-              나는 비개발자 분석가의 인지 부하를 줄이기 위해 SQL을 선택적으로 열어보는 구조를 제안했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white">
-              초기 사용성 검토에서 비개발자가 SQL을 처음 보고 당황하는 반응이 나왔다.
-              "확인하고 싶을 때만 보여야 한다"는 피드백을 근거로 View SQL 버튼 방식을 제시했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              개발팀도 구현 복잡도가 크지 않다고 동의했다.
-              SQL은 선택적 열람으로, 요약 설명은 기본 표시로 분리하는 방식으로 합의했다.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CollaborationMoment
+        situation="개발팀은 SQL을 기본 노출하는 방식이 단순하다고 선호했다. 나는 비개발자 분석가의 인지 부하를 줄이기 위해 SQL을 선택적으로 열어보는 구조를 제안했다."
+        evidence={'초기 사용성 검토에서 비개발자가 SQL을 처음 보고 당황하는 반응이 나왔다. "확인하고 싶을 때만 보여야 한다"는 피드백을 근거로 View SQL 버튼 방식을 제시했다.'}
+        result="개발팀도 구현 복잡도가 크지 않다고 동의했다. SQL은 선택적 열람으로, 요약 설명은 기본 표시로 분리하는 방식으로 합의했다."
+      />
     </CaseSection>
   )
 }
@@ -2337,13 +2313,10 @@ function GuardianProblemSection() {
       title="AI 차단보다 운영 가능한 통제 체계가 부족했다"
       description="초기에는 AI 도구 차단이 문제처럼 보일 수 있습니다. 하지만 기업 환경에서는 차단만으로 사용 현황, 위반 원인, 사고 이후 추적을 다룰 수 없습니다."
     >
-      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
-        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-          AI 사용 증가는 측정됐지만 어떤 위험이 실제로 발생하는지 조직 내부에서 보이지 않았다.
-          차단 정책을 강화하는 방향보다, 위험을 가시화하고 운영 가능한 통제 구조를 먼저 만들어야 관리자가 판단할 수 있다고 판단했다.
-        </p>
-      </div>
+      <PriorityRationale>
+        AI 사용 증가는 측정됐지만 어떤 위험이 실제로 발생하는지 조직 내부에서 보이지 않았다.
+        차단 정책을 강화하는 방향보다, 위험을 가시화하고 운영 가능한 통제 구조를 먼저 만들어야 관리자가 판단할 수 있다고 판단했다.
+      </PriorityRationale>
       <SimpleTable
         headers={["기존 접근", "실제 UX 문제"]}
         rows={guardianProblemRows.map(([before, after]) => [before, after])}
@@ -2352,15 +2325,12 @@ function GuardianProblemSection() {
         AI 사용 현황, 위반 감지, 정책 설정, 파일·채팅 기록, 권한 관리를 하나의
         관리 절차로 재구성했습니다.
       </ClosingText>
-      <div className="mt-8">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <FormulaCard label="대상" value="보안 관리자" />
-          <FormulaCard label="상황" value="조직 내 AI 사용이 증가하는 상황" />
-          <FormulaCard label="고통" value="어떤 위험이 발생하는지 확인하고 통제할 수단이 없다" />
-          <FormulaCard label="성공 기준 붕괴" value="AI를 허용할수록 조직 리스크가 커진다" />
-        </div>
-      </div>
+      <ProblemStatement
+        target="보안 관리자"
+        situation="조직 내 AI 사용이 증가하는 상황"
+        pain="어떤 위험이 발생하는지 확인하고 통제할 수단이 없다"
+        breakdown="AI를 허용할수록 조직 리스크가 커진다"
+      />
     </CaseSection>
   )
 }
@@ -2692,13 +2662,10 @@ function GuardianOutcomeSection() {
           items={[...guardianNextMetrics]}
         />
       </TwoColumn>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
-        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
-          정책 적용 이후 실제 위반 건수 감소 여부와 관리자의 대시보드 사용 패턴은 6개월 이상 운영 데이터가 있어야 확인 가능하다.
-          알림 피로도 감소 여부는 운영 후 관리자 인터뷰로 검증하고 싶다.
-        </p>
-      </div>
+      <OpenQuestion>
+        정책 적용 이후 실제 위반 건수 감소 여부와 관리자의 대시보드 사용 패턴은 6개월 이상 운영 데이터가 있어야 확인 가능하다.
+        알림 피로도 감소 여부는 운영 후 관리자 인터뷰로 검증하고 싶다.
+      </OpenQuestion>
     </CaseSection>
   )
 }
@@ -2715,32 +2682,11 @@ function GuardianReflectionSection() {
           <ListCard key={column.title} title={column.title} items={column.items} />
         ))}
       </div>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
-        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              보안팀은 모든 위반 이벤트를 실시간 알림으로 전송하길 원했다.
-              관리자 부담을 고려해 중요도 기반 분류 방식을 먼저 제안했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white">
-              알림 과잉은 정작 중요한 이벤트를 놓치게 만든다는 점을 근거로 들었다.
-              심각도·정책 기준으로 위반을 분류한 대시보드 구조와 고위험 이벤트만 알림으로 보내는 안을 시각화해 제시했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              보안팀도 관리자가 대시보드 요약을 먼저 보고 상세로 이동하는 흐름에 동의했다.
-              실시간 알림은 고위험 이벤트에만 적용하는 방향으로 조율했다.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CollaborationMoment
+        situation="보안팀은 모든 위반 이벤트를 실시간 알림으로 전송하길 원했다. 관리자 부담을 고려해 중요도 기반 분류 방식을 먼저 제안했다."
+        evidence="알림 과잉은 정작 중요한 이벤트를 놓치게 만든다는 점을 근거로 들었다. 심각도·정책 기준으로 위반을 분류한 대시보드 구조와 고위험 이벤트만 알림으로 보내는 안을 시각화해 제시했다."
+        result="보안팀도 관리자가 대시보드 요약을 먼저 보고 상세로 이동하는 흐름에 동의했다. 실시간 알림은 고위험 이벤트에만 적용하는 방향으로 조율했다."
+      />
     </CaseSection>
   )
 }
@@ -2860,13 +2806,10 @@ function ProblemSection() {
       title="AI 추천보다 추천을 검토할 근거가 부족했다"
       description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리했습니다. 확인된 지점은 AI 추천 수를 늘리는 것보다, 점주가 추천을 수용하거나 수정할 기준을 갖는 것이었습니다."
     >
-      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
-        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-          발주율이 낮다는 데이터는 있었지만, AI 추천 자체의 문제인지 UX의 문제인지 구분이 먼저 필요했다.
-          AI가 더 많이 추천하는 방향 대신, 점주가 추천을 수용하거나 거부할 근거를 갖는 구조를 먼저 정의하기로 했다.
-        </p>
-      </div>
+      <PriorityRationale>
+        발주율이 낮다는 데이터는 있었지만, AI 추천 자체의 문제인지 UX의 문제인지 구분이 먼저 필요했다.
+        AI가 더 많이 추천하는 방향 대신, 점주가 추천을 수용하거나 거부할 근거를 갖는 구조를 먼저 정의하기로 했다.
+      </PriorityRationale>
       <SimpleTable
         headers={["기존 가설", "실제 문제"]}
         rows={rows.map(([before, after]) => [before, after])}
@@ -2875,15 +2818,12 @@ function ProblemSection() {
         따라서 설계 목표는 AI 추천 수를 늘리는 데 두지 않고, 점주가 추천을
         이해하고, 조정하고, 최종 승인할 수 있는 발주 절차를 만드는 것이었습니다.
       </ClosingText>
-      <div className="mt-8">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <FormulaCard label="대상" value="점주" />
-          <FormulaCard label="상황" value="AI 추천 화면에서 발주를 검토할 때" />
-          <FormulaCard label="고통" value="추천 근거를 확인하지 못해 수동 조정이 반복된다" />
-          <FormulaCard label="성공 기준 붕괴" value="발주 완료율이 낮고 AI 추천 수용이 일어나지 않는다" />
-        </div>
-      </div>
+      <ProblemStatement
+        target="점주"
+        situation="AI 추천 화면에서 발주를 검토할 때"
+        pain="추천 근거를 확인하지 못해 수동 조정이 반복된다"
+        breakdown="발주 완료율이 낮고 AI 추천 수용이 일어나지 않는다"
+      />
     </CaseSection>
   )
 }
@@ -3458,13 +3398,10 @@ function ResultSection() {
           items={[...operationMetrics]}
         />
       </TwoColumn>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
-        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
-          정식 운영 전 단계이므로 실제 발주 완료율과 AI 추천 수용률 변화는 확인하지 못했다.
-          런칭 이후 추천 수용률을 기준 지표로 설정하고, 화면 구조별 수용 패턴 차이를 A/B 테스트로 검증하고 싶다.
-        </p>
-      </div>
+      <OpenQuestion>
+        정식 운영 전 단계이므로 실제 발주 완료율과 AI 추천 수용률 변화는 확인하지 못했다.
+        런칭 이후 추천 수용률을 기준 지표로 설정하고, 화면 구조별 수용 패턴 차이를 A/B 테스트로 검증하고 싶다.
+      </OpenQuestion>
     </CaseSection>
   )
 }
@@ -3481,32 +3418,11 @@ function ReflectionSection() {
           <ListCard key={column.title} title={column.title} items={column.items} />
         ))}
       </div>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
-        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              AI 추천 근거 표시 여부를 놓고 PM과 의견이 나뉘었다. PM은 화면 단순화를 원했고,
-              나는 점주가 추천을 수용하려면 근거 확인 단계가 필수라고 판단했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white">
-              인터뷰에서 점주가 "왜 이게 추천됐는지 모르면 그냥 수동으로 한다"고 말했다.
-              이 발언을 근거로 추천 카드에 AI 근거 레이어를 3단계로 구조화한 안을 제시했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              PM이 인터뷰 발언을 직접 확인하고 설득됐다. 추천 수량 근거와 재고 상태를
-              카드 안에 함께 표시하는 방향으로 합의했다.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CollaborationMoment
+        situation="AI 추천 근거 표시 여부를 놓고 PM과 의견이 나뉘었다. PM은 화면 단순화를 원했고, 나는 점주가 추천을 수용하려면 근거 확인 단계가 필수라고 판단했다."
+        evidence={'인터뷰에서 점주가 "왜 이게 추천됐는지 모르면 그냥 수동으로 한다"고 말했다. 이 발언을 근거로 추천 카드에 AI 근거 레이어를 3단계로 구조화한 안을 제시했다.'}
+        result="PM이 인터뷰 발언을 직접 확인하고 설득됐다. 추천 수량 근거와 재고 상태를 카드 안에 함께 표시하는 방향으로 합의했다."
+      />
     </CaseSection>
   )
 }
@@ -3645,15 +3561,6 @@ function Card({ title, children }: { title: string; children: ReactNode }) {
     <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
       <h3 className="break-keep text-xl font-normal leading-7 text-white">{title}</h3>
       <div className="mt-4">{children}</div>
-    </div>
-  )
-}
-
-function DefinitionCard({ title, body }: { title: string; body: string }) {
-  return (
-    <div className="rounded-lg border border-white/10 bg-black/20 p-5">
-      <p className="text-[15px] font-normal leading-6 text-white">{title}</p>
-      <p className="mt-3 break-keep text-sm leading-6 text-white/50">{body}</p>
     </div>
   )
 }
@@ -3835,14 +3742,6 @@ function DesignBlock({
   )
 }
 
-function FormulaCard({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-lg border border-white/10 bg-black/25 p-5">
-      <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">{label}</p>
-      <p className="mt-4 break-keep text-sm leading-7 text-white/65">{value}</p>
-    </div>
-  )
-}
 
 function ScreenFigure({
   src,
@@ -4361,13 +4260,10 @@ function StepProblemSection() {
       title="기능 수보다 탐색과 신청 과정의 분산이 드러났다"
       description="STEP에는 필요한 기능이 이미 많았습니다. 다만 사용자가 '다음에 무엇을 해야 하는가'를 화면 안에서 찾기 어려웠습니다."
     >
-      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
-        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-          기능을 추가하면 해결될 것처럼 보였지만, 메뉴 30개+가 있는데도 탐색 이탈이 반복된다는 것은 구조 문제였다.
-          기능 개선 전에 IA를 먼저 건드리지 않으면 어떤 화면 개선도 효과를 내기 어렵다고 판단했다.
-        </p>
-      </div>
+      <PriorityRationale>
+        기능을 추가하면 해결될 것처럼 보였지만, 메뉴 30개+가 있는데도 탐색 이탈이 반복된다는 것은 구조 문제였다.
+        기능 개선 전에 IA를 먼저 건드리지 않으면 어떤 화면 개선도 효과를 내기 어렵다고 판단했다.
+      </PriorityRationale>
       <div className="grid gap-5 md:grid-cols-2">
         {problems.map((p) => (
           <DefinitionCard key={p.title} title={p.title} body={p.body} />
@@ -4377,15 +4273,12 @@ function StepProblemSection() {
         각 항목은 "기능이 없다"보다 "사용자가 다음 행동을 찾기 어렵다"는
         관점에서 재정의했습니다. 이것이 기능 추가가 아닌 구조 재설계로 방향을 잡은 근거였습니다.
       </ClosingText>
-      <div className="mt-8">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <FormulaCard label="대상" value="학습자" />
-          <FormulaCard label="상황" value="30개 이상 메뉴가 있는 플랫폼에서 과정을 탐색할 때" />
-          <FormulaCard label="고통" value="원하는 과정을 찾지 못하고 탐색 중 이탈이 반복된다" />
-          <FormulaCard label="성공 기준 붕괴" value="기능은 충분하지만 학습자가 다음 행동을 찾지 못한다" />
-        </div>
-      </div>
+      <ProblemStatement
+        target="학습자"
+        situation="30개 이상 메뉴가 있는 플랫폼에서 과정을 탐색할 때"
+        pain="원하는 과정을 찾지 못하고 탐색 중 이탈이 반복된다"
+        breakdown="기능은 충분하지만 학습자가 다음 행동을 찾지 못한다"
+      />
     </CaseSection>
   )
 }
@@ -5028,13 +4921,10 @@ function StepOutcomeSection() {
         위 지표는 측정된 성과값이 아니며 정식 운영 후 확인해야 할 검증 지표입니다.
         이 구조가 실제로 효과가 있었는지는 운영 데이터와 사용자 행동을 통해 확인해야 합니다.
       </ClosingText>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
-        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
-        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
-          이번 IA 재설계가 실제 탐색 성공률과 수강 전환율에 어떤 영향을 미쳤는지는 운영 데이터로만 확인 가능하다.
-          재방문율과 과정 등록 전환율을 추적해 구조 변화의 효과를 정량적으로 검증하는 것이 다음 단계다.
-        </p>
-      </div>
+      <OpenQuestion>
+        이번 IA 재설계가 실제 탐색 성공률과 수강 전환율에 어떤 영향을 미쳤는지는 운영 데이터로만 확인 가능하다.
+        재방문율과 과정 등록 전환율을 추적해 구조 변화의 효과를 정량적으로 검증하는 것이 다음 단계다.
+      </OpenQuestion>
     </CaseSection>
   )
 }
@@ -5083,34 +4973,11 @@ function StepReflectionSection() {
           <ListCard key={col.title} title={col.title} items={col.items} />
         ))}
       </div>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
-        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              개발사가 기존 메뉴 구조를 최대한 유지하길 원했다.
-              학습자 탐색 흐름 기준으로 보면 GNB 재구성이 필요했지만, 전면 재설계보다
-              기존 기능을 새 IA에 흡수하는 방식을 선택했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white">
-              운영 화면 고화질 캡처를 기반으로 메뉴 항목이 학습 행동 목적과 맞지 않는
-              지점을 시각화했다. 학습 여정 단계 기준으로 재분류한 IA 초안을 함께 제시해
-              변경 범위와 기대 효과를 구체적으로 설명했다.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
-            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
-              메뉴명과 1·2뎁스 구조는 변경하되, 기존 기능은 새 IA에 흡수하는 방식으로
-              합의했다. 개발 공수를 최소화하면서 탐색 흐름을 개선하는 방향이 채택됐다.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CollaborationMoment
+        situation="개발사가 기존 메뉴 구조를 최대한 유지하길 원했다. 학습자 탐색 흐름 기준으로 보면 GNB 재구성이 필요했지만, 전면 재설계보다 기존 기능을 새 IA에 흡수하는 방식을 선택했다."
+        evidence="운영 화면 고화질 캡처를 기반으로 메뉴 항목이 학습 행동 목적과 맞지 않는 지점을 시각화했다. 학습 여정 단계 기준으로 재분류한 IA 초안을 함께 제시해 변경 범위와 기대 효과를 구체적으로 설명했다."
+        result="메뉴명과 1·2뎁스 구조는 변경하되, 기존 기능은 새 IA에 흡수하는 방식으로 합의했다. 개발 공수를 최소화하면서 탐색 흐름을 개선하는 방향이 채택됐다."
+      />
       <div className="mt-10 flex justify-start">
         <Link
           href="/work"
