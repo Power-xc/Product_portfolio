@@ -68,7 +68,7 @@ function PlaceholderGraphic({ type }: { type: BehindItem["placeholder"] }) {
 
 export function BehindTheOneOne() {
   return (
-    <section className="border-y border-white/10 bg-[#0B0B10]">
+    <section id="behind-1-1" className="border-y border-white/10 bg-[#0B0B10]">
       <div className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
         <SectionHeading
           eyebrow="Behind the 1.1"

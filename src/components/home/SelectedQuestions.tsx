@@ -4,7 +4,10 @@ import { selectedQuestions } from "@/lib/home-content"
 
 export function SelectedQuestions() {
   return (
-    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+    <section
+      id="selected-questions"
+      className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32"
+    >
       <SectionHeading
         eyebrow="Selected Questions"
         title="질문은 프로젝트보다 먼저 보입니다."
