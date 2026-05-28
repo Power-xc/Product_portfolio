@@ -98,20 +98,22 @@ const guardianSlug = "sapie-guardian"
 const guardianImageBase = "/images/guardian"
 const stepSlug = "step-lifelong-education-platform"
 const stepImageBase = "/images/work/step"
+const stepImageVersion = "20260528"
+const stepImage = (fileName: string) => `${stepImageBase}/${fileName}?v=${stepImageVersion}`
 const stepScreens = {
-  home: `${stepImageBase}/step-main-home-1440.png`,
-  sitemap: `${stepImageBase}/step-sitemap-ia.png`,
-  megamenu: `${stepImageBase}/step-gnb-megamenu.png`,
-  search: `${stepImageBase}/step-search-autocomplete.png`,
-  allCourses: `${stepImageBase}/step-all-courses-fullpage.png`,
-  courseDetail: `${stepImageBase}/step-course-detail-live.png`,
-  edutech: `${stepImageBase}/step-edutech-fullpage.png`,
-  mobileHome: `${stepImageBase}/step-mobile-home.png`,
-  mobileMenu: `${stepImageBase}/step-mobile-menu.png`,
-  myLearning: `${stepImageBase}/04_step_my_learning.jpg`,
-  loginSignup: `${stepImageBase}/05_step_login_signup.png`,
-  wiki: `${stepImageBase}/06_step_wiki.jpg`,
-  liveService: `${stepImageBase}/08_step_live_service.jpg`,
+  home: stepImage("step-main-home-1440.png"),
+  sitemap: stepImage("step-sitemap-ia.png"),
+  megamenu: stepImage("step-gnb-megamenu.png"),
+  search: stepImage("step-search-autocomplete.png"),
+  allCourses: stepImage("step-all-courses-fullpage.png"),
+  courseDetail: stepImage("step-course-detail-live.png"),
+  edutech: stepImage("step-edutech-fullpage.png"),
+  mobileHome: stepImage("step-mobile-home.png"),
+  mobileMenu: stepImage("step-mobile-menu.png"),
+  myLearning: stepImage("04_step_my_learning.jpg"),
+  loginSignup: stepImage("05_step_login_signup.png"),
+  wiki: stepImage("06_step_wiki.jpg"),
+  liveService: stepImage("08_step_live_service.jpg"),
 } as const
 
 type StepScreenSize = "standard" | "wide" | "phone"
@@ -3165,10 +3167,10 @@ function CaseSection({
           {number}
         </p>
         <div className="min-w-0">
-          <h2 className="max-w-4xl break-keep text-[clamp(2rem,6vw,52px)] font-normal leading-[1.14] text-white">
+          <h2 className="max-w-4xl break-keep text-[clamp(1.72rem,4.6vw,42px)] font-normal leading-[1.18] text-white">
             {title}
           </h2>
-          <p className="mt-6 max-w-3xl break-keep text-base font-normal leading-8 text-white/55 md:text-lg">
+          <p className="mt-5 max-w-3xl break-keep text-[15px] font-normal leading-7 text-white/55 md:text-base md:leading-8">
             {description}
           </p>
           <div className="mt-10 min-w-0">{children}</div>
@@ -3871,7 +3873,7 @@ function StepHeroSection() {
 function StepHeroVisual() {
   return (
     <figure className="mt-12 w-full min-w-0 max-w-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
-      <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="grid items-start gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
           <img
             src={stepScreens.home}
@@ -3882,7 +3884,7 @@ function StepHeroVisual() {
             className="block h-auto w-full max-w-full object-contain"
           />
         </div>
-        <div className="grid min-w-0 gap-3">
+        <div className="grid min-w-0 content-start gap-3">
           <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
             <img
               src={stepScreens.sitemap}
@@ -4161,8 +4163,8 @@ function StepCaptureStrategySection() {
   return (
     <CaseSection
       number="03 / Capture Evidence"
-      title="화면 캡처는 예쁜 화면보다, 구조를 증명하는 증거여야 했다"
-      description="STEP은 긴 포털 화면과 여러 메뉴 체계가 함께 작동하는 서비스다. 그래서 화면을 단순 나열하지 않고, IA와 학습 결정 흐름을 설명할 수 있는 장면을 우선 캡처했다."
+      title="캡처 화면은 구조를 설명하는 근거가 되어야 했다"
+      description="STEP은 긴 포털 화면과 여러 메뉴 체계가 함께 작동하는 서비스다. 그래서 화면을 단순 나열하지 않고, IA와 학습 결정 흐름을 확인할 수 있는 장면을 우선 캡처했다."
     >
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {capturePoints.map((point) => (
@@ -4175,7 +4177,7 @@ function StepCaptureStrategySection() {
         ))}
       </div>
       <ClosingText>
-        고화질 캡처는 화면 장식이 아니라, 사용자가 포털에서 길을 찾고 판단하는 구조를
+        고화질 캡처는 단순한 화면 나열이 아니라, 사용자가 포털에서 길을 찾고 판단하는 구조를
         설명하기 위한 근거로 사용했다.
       </ClosingText>
     </CaseSection>

@@ -39,7 +39,7 @@ export function Hero() {
         <div className="mt-9 grid max-w-[860px] gap-3 border-y border-white/10 py-5 text-sm leading-6 text-white/55 sm:grid-cols-3">
           <p className="font-normal text-white">Kangkeun Park</p>
           <p>Product Designer · AI UX · Enterprise UX</p>
-          <p>Seoul, South Korea</p>
+          <p>Uiwang-si, Gyeonggi-do</p>
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/work">View Work</ButtonLink>

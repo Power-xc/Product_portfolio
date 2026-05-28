@@ -33,6 +33,8 @@ body {
     BlinkMacSystemFont,
     system-ui,
     sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-synthesis-weight: none;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;

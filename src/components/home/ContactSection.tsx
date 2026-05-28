@@ -47,7 +47,7 @@ export function ContactSection() {
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
                 Location
               </dt>
-              <dd className="mt-2 text-white">Seoul, South Korea</dd>
+              <dd className="mt-2 text-white">Uiwang-si, Gyeonggi-do</dd>
             </div>
             <div>
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">

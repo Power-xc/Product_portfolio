@@ -27,7 +27,7 @@ const profileInfo: InfoItem[] = [
   { label: "Company", value: "솔트웨어㈜" },
   { label: "Team", value: "디자인서비스팀 팀장" },
   { label: "Level", value: "책임매니저 (과장급)" },
-  { label: "Location", value: "Seoul, South Korea" },
+  { label: "Location", value: "Uiwang-si, Gyeonggi-do" },
 ]
 
 const timelineItems: TimelineItem[] = [
@@ -195,7 +195,7 @@ export default function AboutPage() {
                   Senior Product Designer
                 </p>
                 <p className="mt-1 break-keep text-sm font-normal leading-6 text-white/35">
-                  솔트웨어㈜ · Seoul
+                  솔트웨어㈜ · Uiwang-si, Gyeonggi-do
                 </p>
               </div>
             </div>

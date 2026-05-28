@@ -118,6 +118,7 @@ export const workProjectGroups: WorkProjectGroup[] = [
       { name: "솔트웨어 관리자 포털", role: "관리자 시스템 UX/UI", year: "2024" },
       { name: "솔트웨어 홈페이지 리뉴얼", role: "웹사이트 UX/UI", year: "2024" },
       { name: "솔트웨어 영문 트랜스레이터", role: "AI 번역 서비스 UX/UI", year: "2024" },
+      { name: "솔트웨어 BX 디자인 제안", role: "브랜드 아이덴티티 · 사내 발표", year: "2025" },
     ],
   },
   {
