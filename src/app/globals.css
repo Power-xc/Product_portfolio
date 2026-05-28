@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 :root {
-  background: #08080c;
   color: #ffffff;
 }
 
@@ -15,7 +14,6 @@
 
 html {
   scroll-behavior: smooth;
-  background: #08080c;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -23,7 +21,6 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #08080c;
   color: #ffffff;
   font-family:
     "Pretendard Variable",
