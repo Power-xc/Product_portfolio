@@ -403,7 +403,7 @@ const orderStepScreens: ScreenItem[] = [
   },
   {
     title: "3. 최종 검토",
-    description: "납품 시간대와 금액을 확인한 뒤 최종 승인하도록 분리했다.",
+    description: "최종 발주 전 수량과 납품 조건을 재확인하는 팝업으로 승인 책임을 분리했다.",
     src: `${imageBase}/pos-order-final-review-step-3.png`,
     alt: "POS 최종 검토 3단계",
     type: "desktop",
