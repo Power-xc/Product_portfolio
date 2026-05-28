@@ -37,12 +37,6 @@ export function SelectedQuestions() {
           </Link>
         ))}
       </div>
-      <Link
-        href="/work"
-        className="mt-8 flex min-h-14 w-full items-center justify-center rounded-lg border border-white/15 px-5 text-sm font-medium text-white/75 transition duration-200 hover:border-white/45 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:mt-10"
-      >
-        View Work Archive →
-      </Link>
     </section>
   )
 }
