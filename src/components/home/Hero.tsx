@@ -1,5 +1,3 @@
-import { ButtonLink } from "@/components/ui/ButtonLink"
-
 export function Hero() {
   return (
     <section className="mx-auto flex min-h-[calc(100svh-72px)] max-w-content items-center px-5 py-16 md:px-8 md:py-20 lg:min-h-[680px] lg:py-24">
@@ -31,12 +29,6 @@ export function Hero() {
           <p className="font-normal text-white">Kangkeun Park</p>
           <p>Product Designer · AI UX · Enterprise UX</p>
           <p>Uiwang-si, Gyeonggi-do</p>
-        </div>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/work">View Work</ButtonLink>
-          <ButtonLink href="/about" variant="secondary">
-            About
-          </ButtonLink>
         </div>
       </div>
     </section>
