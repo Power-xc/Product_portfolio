@@ -98,6 +98,13 @@ type Hypothesis = {
   tag: string
 }
 
+type LearningNote = {
+  hypothesis: string
+  expected: string
+  actual: string
+  change: string
+}
+
 const dunkinSlug = "spc-dunkin-ai-smart-pos"
 const imageBase = "/images/dunkin"
 const captureBase = `${imageBase}/captures`
@@ -1213,6 +1220,34 @@ const guardianHypotheses: Hypothesis[] = [
   },
 ]
 
+const dunkinLearningNote: LearningNote = {
+  hypothesis: "H2",
+  expected: "운영 숫자를 행동 지시로 변환하면 점주가 즉시 결정할 것이다",
+  actual: "초기 프로토타입 검토에서 정보가 많을수록 오히려 결정 지연이 발생했다. 점주는 '몇 개 만들면 되나'는 결론만 원했고, 근거 수치는 요청 시 확인하는 방식을 선호했다",
+  change: "대시보드 기본 화면을 요약 지시 중심으로 압축하고, 근거 수치는 드릴다운으로 분리했다",
+}
+
+const stepLearningNote: LearningNote = {
+  hypothesis: "H1",
+  expected: "IA를 행동 목적 기준으로 재분류하면 탐색 뎁스가 줄어들 것이다",
+  actual: "카드소팅에서 학습자의 첫 번째 기준은 메뉴 구조가 아니라 수강료 지원 여부였다. IA 재설계보다 과정 카드 안의 정보 노출이 더 급한 문제였다",
+  change: "IA 정비와 병행해 과정 목록 카드에 지원 여부·교육비를 1순위로 노출하는 방향을 추가했다",
+}
+
+const deepqLearningNote: LearningNote = {
+  hypothesis: "H1",
+  expected: "AI 답변 생성 과정(스키마 → SQL → 실행)을 시각화하면 사용자가 신뢰할 것이다",
+  actual: "데이터 분석 담당자는 SQL 실행 단계보다 'AI가 내 질문의 의도를 제대로 파악했는가'를 먼저 확인하고 싶어했다. 과정 투명성보다 의도 해석 확인이 더 중요한 신뢰 요소였다",
+  change: "Evidence Layer에 SQL 실행 로그보다 '질문 의도 해석 요약'을 최상단에 배치하는 방향으로 우선순위를 조정했다",
+}
+
+const guardianLearningNote: LearningNote = {
+  hypothesis: "H2",
+  expected: "위험 유형·부서·처리 상태로 분류하면 관리자가 고위험 이벤트부터 처리할 것이다",
+  actual: "보안 관리자는 이미 별도 도구로 이 분류 정보를 보고 있었다. 대시보드 통합보다 '즉시 취할 수 있는 조치 버튼'이 없는 것이 더 큰 병목이었다",
+  change: "분류 필터보다 위반 이벤트 행 안에 즉시 조치 액션(경고·차단·예외처리)을 인라인으로 노출하는 방향을 추가했다",
+}
+
 function DunkinCaseStudy() {
   return (
     <div className="min-h-screen bg-background text-white">
@@ -1229,6 +1264,7 @@ function DunkinCaseStudy() {
           title="인사이트를 3가지 검증 가설로 정의했다"
           description="불신·지연·통제 3가지 패턴을 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
           hypotheses={dunkinHypotheses}
+          learningNote={dunkinLearningNote}
         />
         <RequirementMappingSection />
         <IaRedesignSection />
@@ -1259,6 +1295,7 @@ function GuardianCaseStudy() {
           title="보안 운영 문제를 3가지 검증 가설로 정의했다"
           description="가시성·우선순위·감사 추적 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
           hypotheses={guardianHypotheses}
+          learningNote={guardianLearningNote}
         />
         <GuardianProductStructureSection />
         <GuardianRiskModelSection />
@@ -1292,6 +1329,7 @@ function DeepQCaseStudy() {
           title="신뢰 문제를 3가지 검증 가설로 정의했다"
           description="프로세스 가시성·분석 연속성·관리자 추적 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
           hypotheses={deepqHypotheses}
+          learningNote={deepqLearningNote}
         />
         <DeepQThesisSection />
         <DeepQWorkflowSection />
@@ -3362,11 +3400,13 @@ function HypothesisSection({
   title,
   description,
   hypotheses,
+  learningNote,
 }: {
   number: string
   title: string
   description: string
   hypotheses: Hypothesis[]
+  learningNote?: LearningNote
 }) {
   return (
     <CaseSection number={number} title={title} description={description}>
@@ -3396,6 +3436,30 @@ function HypothesisSection({
           </div>
         ))}
       </div>
+      {learningNote && (
+        <div className="mt-6 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+          <div className="flex items-center gap-3">
+            <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+              {learningNote.hypothesis} · 회고
+            </span>
+            <p className="text-[12px] uppercase tracking-[0.12em] text-white/25">가설이 수정된 지점</p>
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">예상</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-white/55">{learningNote.expected}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">실제</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-white">{learningNote.actual}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">변경한 것</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-white/55">{learningNote.change}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </CaseSection>
   )
 }
@@ -3982,6 +4046,7 @@ function StepCaseStudy() {
           title="탐색 구조 문제를 3가지 검증 가설로 정의했다"
           description="IA 재구성·결정 지원·학습 지속 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
           hypotheses={stepHypotheses}
+          learningNote={stepLearningNote}
         />
         <StepDiscoverySection />
         <StepCaptureStrategySection />
