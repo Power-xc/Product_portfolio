@@ -88,7 +88,7 @@ export const selectedQuestions: SelectedQuestion[] = [
   },
   {
     number: "04",
-    question: "AI 도구를 허용할수록,\n조직은 무엇을 감시하고 통제해야 할까?",
+    question: "AI 도구를 허용할수록,\n조직은 무엇을 확인하고 통제해야 할까?",
     project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
     tag: "Enterprise AI Security",
     slug: "sapie-guardian",
