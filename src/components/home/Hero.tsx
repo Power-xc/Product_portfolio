@@ -12,11 +12,7 @@ export function Hero() {
           <br />
           <span>1에서 2로 키우기보다</span>
           <br />
-          <span>제품의 </span>
-          <span className="text-white">1.1</span>
-          <span>을 </span>
-          <span className="text-white">집요하게 설계</span>
-          <span>하는</span>
+          <span className="text-white">제품의 1.1을 집요하게 설계하는</span>
           <br />
           <span className="text-white">Product Designer</span>
         </h1>
