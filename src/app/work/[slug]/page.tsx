@@ -89,6 +89,14 @@ type TradeOff = {
   items: string[]
 }
 
+type Hypothesis = {
+  id: string
+  ifStatement: string
+  thenStatement: string
+  metric: string
+  tag: string
+}
+
 const dunkinSlug = "spc-dunkin-ai-smart-pos"
 const imageBase = "/images/dunkin"
 const captureBase = `${imageBase}/captures`
@@ -1103,6 +1111,102 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   )
 }
 
+const dunkinHypotheses: Hypothesis[] = [
+  {
+    id: "H1",
+    ifStatement: "추천 근거와 오차 기준을 화면에 함께 표시하면",
+    thenStatement: "점주가 AI 제안을 수용할 기준이 생기고 신뢰도가 높아질 것이다",
+    metric: "AI 추천 수용률 · 수동 수정률",
+    tag: "AI Distrust",
+  },
+  {
+    id: "H2",
+    ifStatement: "운영 숫자를 다음 행동 제시(생산 지시, 발주량)로 변환하면",
+    thenStatement: "점주가 정보 확인 후 즉시 행동을 결정할 수 있어 처리 지연이 줄어들 것이다",
+    metric: "핵심 태스크 완료 시간 · 알림 후 조치율",
+    tag: "Decision Paralysis",
+  },
+  {
+    id: "H3",
+    ifStatement: "AI 추천 후 수량 조정·최종 확인·Undo를 순차 배치하면",
+    thenStatement: "점주가 발주 책임을 유지하면서 실수 복구 가능성도 높아질 것이다",
+    metric: "발주 승인 전 수정 횟수 · Undo 사용률",
+    tag: "Control Retention",
+  },
+]
+
+const stepHypotheses: Hypothesis[] = [
+  {
+    id: "H1",
+    ifStatement: "콘텐츠를 학습자의 행동 목적(탐색·비교·결정·지속) 기준으로 재분류하면",
+    thenStatement: "사용자가 다음에 할 행동을 찾는 데 걸리는 탐색 뎁스가 줄어들 것이다",
+    metric: "핵심 태스크 완료 시간 · GNB 클릭 경로 뎁스",
+    tag: "IA Restructuring",
+  },
+  {
+    id: "H2",
+    ifStatement: "과정 목록에서 수강 결정 근거(교육비·지원기기·수료여부)를 카드에 함께 노출하면",
+    thenStatement: "상세 페이지 진입 전 비교 판단이 가능해져 반복 탐색이 줄어들 것이다",
+    metric: "과정 상세 진입률 · 수강신청 전환율",
+    tag: "Decision Support",
+  },
+  {
+    id: "H3",
+    ifStatement: "마이페이지에 진도·성적·수료증·후기를 학습 흐름 순서대로 배치하면",
+    thenStatement: "수강 후 다음 행동을 찾지 못해 이탈하는 비율이 줄어들 것이다",
+    metric: "마이페이지 재방문율 · 수료 후 후속 수강 신청율",
+    tag: "Learning Continuity",
+  },
+]
+
+const deepqHypotheses: Hypothesis[] = [
+  {
+    id: "H1",
+    ifStatement: "AI 답변 생성 과정(스키마 검색 → SQL 생성 → 실행)을 단계별로 시각화하면",
+    thenStatement: "사용자가 답변을 검토할 근거를 확인하고 신뢰하게 될 것이다",
+    metric: "Evidence Layer 조회율 · SQL 확인 클릭율",
+    tag: "Process Visibility",
+  },
+  {
+    id: "H2",
+    ifStatement: "질문·SQL·결과·설명을 하나의 Analysis Receipt로 연결하면",
+    thenStatement: "사용자가 다음 업무 질문으로 이어가는 탐색 연결이 늘어날 것이다",
+    metric: "추천 질문 클릭율 · 세션당 평균 질문 수",
+    tag: "Continuity",
+  },
+  {
+    id: "H3",
+    ifStatement: "관리자가 대화 이력·SQL·비용·오류를 한 화면에서 추적할 수 있으면",
+    thenStatement: "AI 서비스 운영 문제를 조기에 발견하고 대응하는 효율이 높아질 것이다",
+    metric: "오류 발견 → 조치 소요 시간 · 비용 이상 감지율",
+    tag: "Admin Observability",
+  },
+]
+
+const guardianHypotheses: Hypothesis[] = [
+  {
+    id: "H1",
+    ifStatement: "AI 사용 현황·위반 감지·정책 설정을 하나의 운영 절차로 연결하면",
+    thenStatement: "보안 관리자가 AI 리스크를 차단 대신 통제 가능한 형태로 관리하게 될 것이다",
+    metric: "위반 이벤트 평균 대응 시간 · 정책 미설정 항목 수",
+    tag: "Visibility",
+  },
+  {
+    id: "H2",
+    ifStatement: "위반 이벤트를 위험 유형·부서·처리 상태 기준으로 분류해 대시보드에 배치하면",
+    thenStatement: "관리자가 고위험 이벤트부터 우선 처리할 수 있게 될 것이다",
+    metric: "고위험 이벤트 처리율 · 미처리 적체 건수",
+    tag: "Risk Triage",
+  },
+  {
+    id: "H3",
+    ifStatement: "메시지·파일 기록을 위험도와 처리 상태로 연결하면",
+    thenStatement: "사고 이후 감사 추적이 가능한 기록 체계를 갖추게 될 것이다",
+    metric: "감사 요청 → 기록 추출 소요 시간 · 내보내기 사용 빈도",
+    tag: "Audit Trail",
+  },
+]
+
 function DunkinCaseStudy() {
   return (
     <div className="min-h-screen bg-background text-white">
@@ -1114,6 +1218,12 @@ function DunkinCaseStudy() {
         <ResearchSection />
         <JourneySection />
         <PrincipleSection />
+        <HypothesisSection
+          number="05-1 / Hypothesis"
+          title="인사이트를 3가지 검증 가설로 정의했다"
+          description="불신·지연·통제 3가지 패턴을 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
+          hypotheses={dunkinHypotheses}
+        />
         <RequirementMappingSection />
         <IaRedesignSection />
         <UxDesignSection />
@@ -1138,6 +1248,12 @@ function GuardianCaseStudy() {
         <GuardianContextSection />
         <GuardianWorkflowSection />
         <GuardianProblemSection />
+        <HypothesisSection
+          number="04-1 / Hypothesis"
+          title="보안 운영 문제를 3가지 검증 가설로 정의했다"
+          description="가시성·우선순위·감사 추적 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
+          hypotheses={guardianHypotheses}
+        />
         <GuardianProductStructureSection />
         <GuardianRiskModelSection />
         <GuardianRiskOverviewSection />
@@ -1165,6 +1281,12 @@ function DeepQCaseStudy() {
         <DeepQContextSection />
         <DeepQDiscoverySection />
         <DeepQProblemSection />
+        <HypothesisSection
+          number="04-1 / Hypothesis"
+          title="신뢰 문제를 3가지 검증 가설로 정의했다"
+          description="프로세스 가시성·분석 연속성·관리자 추적 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
+          hypotheses={deepqHypotheses}
+        />
         <DeepQThesisSection />
         <DeepQWorkflowSection />
         <DeepQProductStructureSection />
@@ -3180,6 +3302,49 @@ function CaseSection({
   )
 }
 
+function HypothesisSection({
+  number,
+  title,
+  description,
+  hypotheses,
+}: {
+  number: string
+  title: string
+  description: string
+  hypotheses: Hypothesis[]
+}) {
+  return (
+    <CaseSection number={number} title={title} description={description}>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {hypotheses.map((h) => (
+          <div key={h.id} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+            <div className="flex items-center justify-between">
+              <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">가설 {h.id}</p>
+              <span className="rounded-full border border-white/10 bg-white/[0.05] px-2 py-1 text-[11px] text-white/40">
+                {h.tag}
+              </span>
+            </div>
+            <div className="mt-6 space-y-4">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">If</p>
+                <p className="mt-2 break-keep text-sm leading-6 text-white">{h.ifStatement}</p>
+              </div>
+              <div className="border-t border-white/10 pt-4">
+                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Then</p>
+                <p className="mt-2 break-keep text-sm leading-6 text-white">{h.thenStatement}</p>
+              </div>
+              <div className="border-t border-white/10 pt-4">
+                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">검증 지표</p>
+                <p className="mt-2 break-keep text-[13px] leading-6 text-white/50">{h.metric}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </CaseSection>
+  )
+}
+
 function MetricGrid({ metrics }: { metrics: Metric[] }) {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -3747,6 +3912,12 @@ function StepCaseStudy() {
       <main>
         <StepHeroSection />
         <StepProblemSection />
+        <HypothesisSection
+          number="01-1 / Hypothesis"
+          title="탐색 구조 문제를 3가지 검증 가설로 정의했다"
+          description="IA 재구성·결정 지원·학습 지속 3가지 과제를 If-Then 가설로 바꾸고, 각 가설을 검증할 운영 지표를 사전에 설정했다."
+          hypotheses={stepHypotheses}
+        />
         <StepDiscoverySection />
         <StepCaptureStrategySection />
         <StepWorkflowSection />

@@ -23,13 +23,6 @@ type TimelineItem = {
   body: string
 }
 
-const profileInfo: InfoItem[] = [
-  { label: "Company", value: "솔트웨어㈜" },
-  { label: "Team", value: "디자인서비스팀 팀장" },
-  { label: "Level", value: "책임매니저 (과장급)" },
-  { label: "Location", value: "Uiwang-si, Gyeonggi-do" },
-]
-
 const timelineItems: TimelineItem[] = [
   {
     period: "2023.01 ~ 현재",
@@ -145,101 +138,106 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="min-h-screen bg-[#FAFAF8] text-[#171717]">
       <Header />
       <main>
-        <section className="mx-auto grid max-w-content gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16 lg:py-28">
-          <div className="self-center">
-            <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
-              About
-            </p>
-            <h1 className="mt-5 break-keep text-[clamp(2.45rem,9vw,64px)] font-normal leading-[1.12] text-white">
-              박강근
-              <br />
-              <span className="text-[#999]">Senior Product Designer</span>
-            </h1>
-            <div className="mt-8 max-w-2xl space-y-5 break-keep text-base font-normal leading-8 text-[#999] md:text-[17px] md:leading-9">
-              <p>
-                복잡한 제품과 운영 시스템을 사용자가 이해하고, 판단하고, 행동할 수
-                있는 구조로 다시 설계하는 Product Designer입니다.
+        <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-24 lg:py-28">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
+            <div className="self-center">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-black/40">
+                About
               </p>
-              <p>
-                AI 제품과 엔터프라이즈 시스템에서 화면의 완성도보다 먼저 문제의
-                구조, 판단 기준, 업무 흐름을 정리합니다. 필요할 때는 프론트엔드
-                Draft까지 직접 만들어 팀이 같은 화면으로 논의할 수 있게 합니다.
-              </p>
+              <h1 className="mt-5 break-keep text-[clamp(2.45rem,9vw,64px)] font-normal leading-[1.12] text-[#171717]">
+                박강근
+                <br />
+                <span className="text-black/40">Senior Product Designer</span>
+              </h1>
+              <div className="mt-8 max-w-2xl space-y-5 break-keep text-base font-normal leading-8 text-black/50 md:text-[17px] md:leading-9">
+                <p>
+                  복잡한 제품과 운영 시스템을 사용자가 이해하고, 판단하고, 행동할 수
+                  있는 구조로 다시 설계하는 Product Designer입니다.
+                </p>
+                <p>
+                  AI 제품과 엔터프라이즈 시스템에서 화면의 완성도보다 먼저 문제의
+                  구조, 판단 기준, 업무 흐름을 정리합니다. 필요할 때는 프론트엔드
+                  Draft까지 직접 만들어 팀이 같은 화면으로 논의할 수 있게 합니다.
+                </p>
+              </div>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href={contactHref}>Contact Me</ButtonLink>
+                <ButtonLink href="/work" variant="secondary">
+                  View Work
+                </ButtonLink>
+              </div>
             </div>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={contactHref}>Contact Me</ButtonLink>
-              <ButtonLink href="/work" variant="secondary">
-                View Work
-              </ButtonLink>
-            </div>
-          </div>
 
-          <aside className="self-center rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6">
-            <div className="flex items-center gap-5">
-              <div className="relative size-[104px] shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white md:size-[116px]">
-                <Image
-                  src="/profile.png"
-                  alt="박강근 프로필 사진"
-                  fill
-                  sizes="116px"
-                  className="object-cover object-[center_30%]"
-                  priority
-                />
-              </div>
-              <div className="min-w-0">
-                <p className="break-keep text-xl font-normal leading-7 text-white">박강근</p>
-                <p className="mt-2 break-keep text-sm font-normal leading-6 text-white/55">
-                  Senior Product Designer
-                </p>
-                <p className="mt-1 break-keep text-sm font-normal leading-6 text-white/35">
-                  솔트웨어㈜ · Uiwang-si, Gyeonggi-do
-                </p>
-              </div>
-            </div>
-            <dl className="mt-7 divide-y divide-white/10 border-t border-white/10">
-              {profileInfo.map((item) => (
-                <div
-                  key={item.label}
-                  className="grid gap-2 py-4 text-sm font-normal leading-6 sm:grid-cols-[112px_1fr]"
-                >
-                  <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30">
-                    {item.label}
-                  </dt>
-                  <dd className="break-keep text-white/70">
-                    {item.value}
-                  </dd>
+            <aside className="self-center">
+              <div className="flex items-center gap-5">
+                <div className="relative size-[88px] shrink-0 overflow-hidden rounded-full border border-black/10 bg-black/5 md:size-[100px]">
+                  <Image
+                    src="/profile.png"
+                    alt="박강근 프로필 사진"
+                    fill
+                    sizes="100px"
+                    className="object-cover object-[center_30%]"
+                    priority
+                  />
                 </div>
-              ))}
-            </dl>
-          </aside>
+                <div className="min-w-0">
+                  <p className="break-keep text-xl font-normal leading-7 text-[#171717]">박강근</p>
+                  <p className="mt-1 break-keep text-sm font-normal leading-6 text-black/50">
+                    Senior Product Designer
+                  </p>
+                  <p className="mt-0.5 break-keep text-sm font-normal leading-6 text-black/35">
+                    솔트웨어㈜ · Uiwang-si, Gyeonggi-do
+                  </p>
+                </div>
+              </div>
+              <dl className="mt-8 space-y-4">
+                <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
+                  <dt className="text-[11px] font-normal uppercase tracking-[0.14em] text-black/35 pt-0.5">Company</dt>
+                  <dd className="break-keep text-black/65">솔트웨어㈜</dd>
+                </div>
+                <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
+                  <dt className="text-[11px] font-normal uppercase tracking-[0.14em] text-black/35 pt-0.5">Team</dt>
+                  <dd className="break-keep text-black/65">디자인서비스팀 팀장</dd>
+                </div>
+                <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
+                  <dt className="text-[11px] font-normal uppercase tracking-[0.14em] text-black/35 pt-0.5">Level</dt>
+                  <dd className="break-keep text-black/65">책임매니저 (과장급)</dd>
+                </div>
+                <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
+                  <dt className="text-[11px] font-normal uppercase tracking-[0.14em] text-black/35 pt-0.5">Location</dt>
+                  <dd className="break-keep text-black/65">Uiwang-si, Gyeonggi-do</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
         </section>
 
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
-          <div className="grid gap-8 border-t border-white/10 pt-10 md:grid-cols-[0.32fr_1fr] md:pt-12">
+          <div className="grid gap-8 border-t border-black/10 pt-10 md:grid-cols-[0.32fr_1fr] md:pt-12">
             <div>
-              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-black/40">
                 Experience
               </p>
-              <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-white md:text-[48px]">
+              <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-[#171717] md:text-[48px]">
                 제품과 조직의 흐름을 함께 설계합니다.
               </h2>
             </div>
-            <div className="divide-y divide-white/10 border-t border-white/10 md:border-t-0">
+            <div className="divide-y divide-black/10 border-t border-black/10 md:border-t-0">
               {timelineItems.map((item) => (
                 <article
                   key={`${item.period}-${item.title}`}
                   className="grid gap-4 py-6 md:grid-cols-[0.28fr_1fr] md:gap-8"
                 >
-                  <p className="text-sm font-normal leading-6 text-white/35">{item.period}</p>
+                  <p className="text-sm font-normal leading-6 text-black/35">{item.period}</p>
                   <div>
-                    <h3 className="text-xl font-normal text-white">{item.title}</h3>
-                    <p className="mt-2 break-keep text-sm font-normal leading-6 text-white/60">
+                    <h3 className="text-xl font-normal text-[#171717]">{item.title}</h3>
+                    <p className="mt-2 break-keep text-sm font-normal leading-6 text-black/55">
                       {item.meta}
                     </p>
-                    <p className="mt-4 break-keep text-sm font-normal leading-7 text-white/45">
+                    <p className="mt-4 break-keep text-sm font-normal leading-7 text-black/45">
                       {item.body}
                     </p>
                   </div>
@@ -254,16 +252,16 @@ export default function AboutPage() {
             {credentialSections.map((section) => (
               <article
                 key={section.title}
-                className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6"
+                className="rounded-lg border border-black/10 bg-black/[0.025] p-5 md:p-6"
               >
-                <h2 className="text-[18px] font-normal text-white md:text-[20px]">
+                <h2 className="text-[18px] font-normal text-[#171717] md:text-[20px]">
                   {section.title}
                 </h2>
-                <ul className="mt-7 divide-y divide-white/10">
+                <ul className="mt-7 divide-y divide-black/10">
                   {section.items.map((item) => (
                     <li
                       key={item}
-                      className="break-keep py-4 text-sm font-normal leading-7 text-white/55"
+                      className="break-keep py-4 text-sm font-normal leading-7 text-black/55"
                     >
                       {item}
                     </li>
@@ -275,25 +273,25 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
-          <div className="border-t border-white/10 pt-10 md:pt-12">
-            <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+          <div className="border-t border-black/10 pt-10 md:pt-12">
+            <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-black/40">
               Capabilities
             </p>
-            <h2 className="mt-4 max-w-3xl break-keep text-[clamp(1.8rem,6.4vw,42px)] font-normal leading-[1.18] text-white">
+            <h2 className="mt-4 max-w-3xl break-keep text-[clamp(1.8rem,6.4vw,42px)] font-normal leading-[1.18] text-[#171717]">
               프로젝트에서 실제로 사용하는 도구와 방법을 중심으로 정리했습니다.
             </h2>
             <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
               {skillGroups.map((group) => (
                 <article
                   key={group.title}
-                  className="rounded-lg border border-white/10 bg-white/[0.018] p-5"
+                  className="rounded-lg border border-black/10 bg-black/[0.025] p-5"
                 >
-                  <h3 className="text-base font-normal text-white">{group.title}</h3>
+                  <h3 className="text-base font-normal text-[#171717]">{group.title}</h3>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-[12px] font-normal leading-5 text-white/55"
+                        className="rounded-full border border-black/10 bg-black/[0.04] px-3 py-1.5 text-[12px] font-normal leading-5 text-black/55"
                       >
                         {item}
                       </span>
@@ -306,29 +304,29 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
-          <div className="grid gap-8 border-t border-white/10 pt-10 md:grid-cols-[0.7fr_1fr] md:pt-12">
+          <div className="grid gap-8 border-t border-black/10 pt-10 md:grid-cols-[0.7fr_1fr] md:pt-12">
             <div>
-              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-black/40">
                 Contact
               </p>
-              <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-white md:text-[48px]">
+              <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-[#171717] md:text-[48px]">
                 제품과 경험에 대해 이야기할 수 있습니다.
               </h2>
             </div>
-            <dl className="divide-y divide-white/10 border-t border-white/10 md:border-t-0">
+            <dl className="divide-y divide-black/10 border-t border-black/10 md:border-t-0">
               {contactInfo.map((item) => (
                 <div
                   key={item.label}
                   className="grid gap-2 py-5 text-sm font-normal leading-6 md:grid-cols-[0.34fr_1fr]"
                 >
-                  <dt className="text-white/35">{item.label}</dt>
-                  <dd className="break-all text-white/70">
+                  <dt className="text-black/35">{item.label}</dt>
+                  <dd className="break-all text-black/65">
                     {item.href ? (
                       <a
                         href={item.href}
                         target={item.href.startsWith("http") ? "_blank" : undefined}
                         rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                        className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                        className="transition hover:text-[#171717] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                       >
                         {item.value}
                       </a>
