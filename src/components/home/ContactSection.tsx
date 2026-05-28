@@ -29,38 +29,44 @@ export function ContactSection() {
             </button>
           </div>
         </div>
-        <aside className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6">
-          <dl className="space-y-6">
-            <div>
+        <aside className="border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+          <dl className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="border-b border-white/10 pb-5 sm:border-b-0 sm:pb-0 lg:border-b lg:pb-5">
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
                 Name
               </dt>
-              <dd className="mt-2 text-white">Kangkeun Park / 박강근</dd>
+              <dd className="mt-2 break-keep text-[15px] leading-6 text-white/85">
+                Kangkeun Park / 박강근
+              </dd>
             </div>
-            <div>
+            <div className="border-b border-white/10 pb-5 sm:border-b-0 sm:pb-0 lg:border-b lg:pb-5">
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
                 Role
               </dt>
-              <dd className="mt-2 text-white">Product Designer / AI UX / Enterprise UX</dd>
+              <dd className="mt-2 break-keep text-[15px] leading-6 text-white/85">
+                Product Designer / AI UX / Enterprise UX
+              </dd>
             </div>
-            <div>
+            <div className="border-b border-white/10 pb-5 sm:border-b-0 sm:pb-0 lg:border-b lg:pb-5">
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
                 Location
               </dt>
-              <dd className="mt-2 text-white">Uiwang-si, Gyeonggi-do</dd>
+              <dd className="mt-2 break-keep text-[15px] leading-6 text-white/85">
+                Uiwang-si, Gyeonggi-do
+              </dd>
             </div>
-            <div>
+            <div className="sm:col-span-3 lg:col-span-1">
               <dt className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
                 Links
               </dt>
-              <dd className="mt-3 flex flex-wrap gap-3">
+              <dd className="mt-3 flex flex-wrap gap-x-5 gap-y-3">
                 {contactLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="rounded-full border border-white/10 px-4 py-2 text-sm text-white/60 transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                    className="border-b border-white/20 pb-1 text-sm text-white/65 transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     {link.label}
                   </a>

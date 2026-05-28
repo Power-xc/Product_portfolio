@@ -72,6 +72,14 @@ export const selectedQuestions: SelectedQuestion[] = [
   },
   {
     number: "02",
+    question: "AI 도구를 허용할수록,\n조직은 무엇을 확인하고 통제해야 할까?",
+    project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
+    tag: "Enterprise AI Security",
+    slug: "sapie-guardian",
+    href: "/work/sapie-guardian",
+  },
+  {
+    number: "03",
     question: "메뉴는 충분했는데,\n왜 사용자는 계속 길을 잃었을까?",
     project: "STEP 평생교육원",
     tag: "IA Redesign",
@@ -79,20 +87,12 @@ export const selectedQuestions: SelectedQuestion[] = [
     href: "/work/step-lifelong-education-platform",
   },
   {
-    number: "03",
+    number: "04",
     question: "AI가 답을 말해도,\n사용자는 무엇을 보고 신뢰할 수 있을까?",
     project: "SAPIE DeepQ / Enterprise Intelligence Platform",
     tag: "Explainable AI UX",
     slug: "sapie-deepq",
     href: "/work/sapie-deepq",
-  },
-  {
-    number: "04",
-    question: "AI 도구를 허용할수록,\n조직은 무엇을 확인하고 통제해야 할까?",
-    project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
-    tag: "Enterprise AI Security",
-    slug: "sapie-guardian",
-    href: "/work/sapie-guardian",
   },
 ]
 
