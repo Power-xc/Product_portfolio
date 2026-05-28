@@ -1533,6 +1533,13 @@ function DeepQProblemSection() {
       title="답변 생성보다 답변 검토 구조가 더 크게 드러났다"
       description="자연어 질문에 대한 답변만 제공할 경우, Enterprise 데이터 분석 환경에서는 데이터 출처와 계산 기준을 확인하기 어렵습니다."
     >
+      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
+        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+          도입률은 있었지만 실제 업무 활용 여부가 불명확했다.
+          AI가 답을 생성하는 것과 사용자가 그 답을 업무에 쓸 수 있는지는 다른 문제 — 활용 장벽을 먼저 정의하기로 했다.
+        </p>
+      </div>
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤
         SQL을 생성했는지, 결과가 어떤 기준으로 요약됐는지 확인할 수 있어야 합니다.
@@ -2095,6 +2102,13 @@ function DeepQOutcomeSection() {
           ]}
         />
       </TwoColumn>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
+        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
+          사용자가 View SQL이나 설명 영역을 실제로 확인하는지, 확인 이후 의사결정에 차이가 생기는지는 운영 데이터로만 확인 가능하다.
+          쿼리 재사용률과 AI 답변 기반 리포트 공유 빈도를 측정해야 실질 업무 활용 여부를 판단할 수 있다.
+        </p>
+      </div>
     </CaseSection>
   )
 }
@@ -2323,6 +2337,13 @@ function GuardianProblemSection() {
       title="AI 차단보다 운영 가능한 통제 체계가 부족했다"
       description="초기에는 AI 도구 차단이 문제처럼 보일 수 있습니다. 하지만 기업 환경에서는 차단만으로 사용 현황, 위반 원인, 사고 이후 추적을 다룰 수 없습니다."
     >
+      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
+        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+          AI 사용 증가는 측정됐지만 어떤 위험이 실제로 발생하는지 조직 내부에서 보이지 않았다.
+          차단 정책을 강화하는 방향보다, 위험을 가시화하고 운영 가능한 통제 구조를 먼저 만들어야 관리자가 판단할 수 있다고 판단했다.
+        </p>
+      </div>
       <SimpleTable
         headers={["기존 접근", "실제 UX 문제"]}
         rows={guardianProblemRows.map(([before, after]) => [before, after])}
@@ -2671,6 +2692,13 @@ function GuardianOutcomeSection() {
           items={[...guardianNextMetrics]}
         />
       </TwoColumn>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
+        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
+          정책 적용 이후 실제 위반 건수 감소 여부와 관리자의 대시보드 사용 패턴은 6개월 이상 운영 데이터가 있어야 확인 가능하다.
+          알림 피로도 감소 여부는 운영 후 관리자 인터뷰로 검증하고 싶다.
+        </p>
+      </div>
     </CaseSection>
   )
 }
@@ -2832,6 +2860,13 @@ function ProblemSection() {
       title="AI 추천보다 추천을 검토할 근거가 부족했다"
       description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리했습니다. 확인된 지점은 AI 추천 수를 늘리는 것보다, 점주가 추천을 수용하거나 수정할 기준을 갖는 것이었습니다."
     >
+      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
+        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+          발주율이 낮다는 데이터는 있었지만, AI 추천 자체의 문제인지 UX의 문제인지 구분이 먼저 필요했다.
+          AI가 더 많이 추천하는 방향 대신, 점주가 추천을 수용하거나 거부할 근거를 갖는 구조를 먼저 정의하기로 했다.
+        </p>
+      </div>
       <SimpleTable
         headers={["기존 가설", "실제 문제"]}
         rows={rows.map(([before, after]) => [before, after])}
@@ -3423,6 +3458,13 @@ function ResultSection() {
           items={[...operationMetrics]}
         />
       </TwoColumn>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
+        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
+          정식 운영 전 단계이므로 실제 발주 완료율과 AI 추천 수용률 변화는 확인하지 못했다.
+          런칭 이후 추천 수용률을 기준 지표로 설정하고, 화면 구조별 수용 패턴 차이를 A/B 테스트로 검증하고 싶다.
+        </p>
+      </div>
     </CaseSection>
   )
 }
@@ -4319,6 +4361,13 @@ function StepProblemSection() {
       title="기능 수보다 탐색과 신청 과정의 분산이 드러났다"
       description="STEP에는 필요한 기능이 이미 많았습니다. 다만 사용자가 '다음에 무엇을 해야 하는가'를 화면 안에서 찾기 어려웠습니다."
     >
+      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Why This Problem First</p>
+        <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+          기능을 추가하면 해결될 것처럼 보였지만, 메뉴 30개+가 있는데도 탐색 이탈이 반복된다는 것은 구조 문제였다.
+          기능 개선 전에 IA를 먼저 건드리지 않으면 어떤 화면 개선도 효과를 내기 어렵다고 판단했다.
+        </p>
+      </div>
       <div className="grid gap-5 md:grid-cols-2">
         {problems.map((p) => (
           <DefinitionCard key={p.title} title={p.title} body={p.body} />
@@ -4979,6 +5028,13 @@ function StepOutcomeSection() {
         위 지표는 측정된 성과값이 아니며 정식 운영 후 확인해야 할 검증 지표입니다.
         이 구조가 실제로 효과가 있었는지는 운영 데이터와 사용자 행동을 통해 확인해야 합니다.
       </ClosingText>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] px-5 py-5">
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">검증하지 못한 가설</p>
+        <p className="mt-3 break-keep text-sm leading-7 text-white/55">
+          이번 IA 재설계가 실제 탐색 성공률과 수강 전환율에 어떤 영향을 미쳤는지는 운영 데이터로만 확인 가능하다.
+          재방문율과 과정 등록 전환율을 추적해 구조 변화의 효과를 정량적으로 검증하는 것이 다음 단계다.
+        </p>
+      </div>
     </CaseSection>
   )
 }

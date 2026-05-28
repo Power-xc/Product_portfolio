@@ -299,7 +299,7 @@ export default function AboutPage() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-black/15 bg-[#EDEBE2] px-3 py-1.5 text-[12px] font-normal leading-5 text-[#252520]"
+                        className="rounded-full border border-black/[0.12] bg-white px-3 py-1.5 text-[12px] font-normal leading-5 text-[#252520]"
                       >
                         {item}
                       </span>
