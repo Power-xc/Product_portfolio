@@ -15,13 +15,13 @@ export default function WorkPage() {
       <Header />
       <main>
         <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
-          <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#5F5F59]">
+          <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#3E3E37]">
             Selected Work
           </p>
           <h1 className="mt-4 text-[clamp(2rem,5.4vw,4rem)] font-normal leading-[1.08] text-[#171717]">
             Work Archive
           </h1>
-          <p className="mt-6 max-w-2xl break-keep text-base font-normal leading-8 text-[#4B4B45] md:text-lg">
+          <p className="mt-6 max-w-2xl break-keep text-base font-normal leading-8 text-[#252520] md:text-lg">
             AI 제품, 내부 시스템, 엔터프라이즈 플랫폼까지 제품 구조를 정리하고
             사용자가 판단할 수 있는 화면으로 옮긴 작업들입니다.
           </p>
@@ -32,7 +32,7 @@ export default function WorkPage() {
                 <div className="grid gap-5 border-t border-black/15 pt-6 md:grid-cols-[0.32fr_1fr] md:gap-10">
                   <h2
                     id={`work-${group.category}`}
-                    className="text-[15px] font-normal leading-7 text-[#4B4B45] md:text-[18px]"
+                    className="text-[15px] font-normal leading-7 text-[#252520] md:text-[18px]"
                   >
                     {group.category}
                   </h2>
@@ -40,7 +40,7 @@ export default function WorkPage() {
                     {group.projects.map((project) => (
                       <li
                         key={`${group.category}-${project.name}-${project.year}`}
-                        className="grid gap-1 border-b border-black/15 py-4 text-sm font-normal leading-6 text-[#4B4B45] transition hover:bg-[#EFEDE5] md:grid-cols-[1fr_1fr_auto] md:gap-6 md:px-2 md:text-[15px]"
+                        className="grid gap-1 border-b border-black/15 py-4 text-sm font-normal leading-6 text-[#252520] transition hover:bg-black/[0.04] md:grid-cols-[1fr_1fr_auto] md:gap-6 md:px-2 md:text-[15px]"
                       >
                         <span className="break-keep text-[#171717]">{project.name}</span>
                         <span className="break-keep">{project.role}</span>

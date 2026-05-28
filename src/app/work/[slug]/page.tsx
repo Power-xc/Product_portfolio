@@ -1565,6 +1565,15 @@ function DeepQProblemSection() {
         질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 모니터링을 하나의 제품
         절차로 연결했습니다.
       </ClosingText>
+      <div className="mt-8">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
+        <div className="grid gap-3 md:grid-cols-4">
+          <FormulaCard label="대상" value="현업 분석 담당자" />
+          <FormulaCard label="상황" value="AI 답변을 업무에 사용해야 할 때" />
+          <FormulaCard label="고통" value="출처와 계산 기준을 검토할 수 없어 의사결정에 쓰지 못한다" />
+          <FormulaCard label="성공 기준 붕괴" value="AI 분석 도구를 도입해도 실제 업무 활용률이 낮다" />
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -2127,6 +2136,32 @@ function DeepQReflectionSection() {
           ]}
         />
       </TwoColumn>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              개발팀은 SQL을 기본 노출하는 방식이 단순하다고 선호했다.
+              나는 비개발자 분석가의 인지 부하를 줄이기 위해 SQL을 선택적으로 열어보는 구조를 제안했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white">
+              초기 사용성 검토에서 비개발자가 SQL을 처음 보고 당황하는 반응이 나왔다.
+              "확인하고 싶을 때만 보여야 한다"는 피드백을 근거로 View SQL 버튼 방식을 제시했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              개발팀도 구현 복잡도가 크지 않다고 동의했다.
+              SQL은 선택적 열람으로, 요약 설명은 기본 표시로 분리하는 방식으로 합의했다.
+            </p>
+          </div>
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -2296,6 +2331,15 @@ function GuardianProblemSection() {
         AI 사용 현황, 위반 감지, 정책 설정, 파일·채팅 기록, 권한 관리를 하나의
         관리 절차로 재구성했습니다.
       </ClosingText>
+      <div className="mt-8">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
+        <div className="grid gap-3 md:grid-cols-4">
+          <FormulaCard label="대상" value="보안 관리자" />
+          <FormulaCard label="상황" value="조직 내 AI 사용이 증가하는 상황" />
+          <FormulaCard label="고통" value="어떤 위험이 발생하는지 확인하고 통제할 수단이 없다" />
+          <FormulaCard label="성공 기준 붕괴" value="AI를 허용할수록 조직 리스크가 커진다" />
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -2643,6 +2687,32 @@ function GuardianReflectionSection() {
           <ListCard key={column.title} title={column.title} items={column.items} />
         ))}
       </div>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              보안팀은 모든 위반 이벤트를 실시간 알림으로 전송하길 원했다.
+              관리자 부담을 고려해 중요도 기반 분류 방식을 먼저 제안했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white">
+              알림 과잉은 정작 중요한 이벤트를 놓치게 만든다는 점을 근거로 들었다.
+              심각도·정책 기준으로 위반을 분류한 대시보드 구조와 고위험 이벤트만 알림으로 보내는 안을 시각화해 제시했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              보안팀도 관리자가 대시보드 요약을 먼저 보고 상세로 이동하는 흐름에 동의했다.
+              실시간 알림은 고위험 이벤트에만 적용하는 방향으로 조율했다.
+            </p>
+          </div>
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -2770,6 +2840,15 @@ function ProblemSection() {
         따라서 설계 목표는 AI 추천 수를 늘리는 데 두지 않고, 점주가 추천을
         이해하고, 조정하고, 최종 승인할 수 있는 발주 절차를 만드는 것이었습니다.
       </ClosingText>
+      <div className="mt-8">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
+        <div className="grid gap-3 md:grid-cols-4">
+          <FormulaCard label="대상" value="점주" />
+          <FormulaCard label="상황" value="AI 추천 화면에서 발주를 검토할 때" />
+          <FormulaCard label="고통" value="추천 근거를 확인하지 못해 수동 조정이 반복된다" />
+          <FormulaCard label="성공 기준 붕괴" value="발주 완료율이 낮고 AI 추천 수용이 일어나지 않는다" />
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -3359,6 +3438,32 @@ function ReflectionSection() {
         {reflectionColumns.map((column) => (
           <ListCard key={column.title} title={column.title} items={column.items} />
         ))}
+      </div>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              AI 추천 근거 표시 여부를 놓고 PM과 의견이 나뉘었다. PM은 화면 단순화를 원했고,
+              나는 점주가 추천을 수용하려면 근거 확인 단계가 필수라고 판단했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white">
+              인터뷰에서 점주가 "왜 이게 추천됐는지 모르면 그냥 수동으로 한다"고 말했다.
+              이 발언을 근거로 추천 카드에 AI 근거 레이어를 3단계로 구조화한 안을 제시했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              PM이 인터뷰 발언을 직접 확인하고 설득됐다. 추천 수량 근거와 재고 상태를
+              카드 안에 함께 표시하는 방향으로 합의했다.
+            </p>
+          </div>
+        </div>
       </div>
     </CaseSection>
   )
@@ -4223,6 +4328,15 @@ function StepProblemSection() {
         각 항목은 "기능이 없다"보다 "사용자가 다음 행동을 찾기 어렵다"는
         관점에서 재정의했습니다. 이것이 기능 추가가 아닌 구조 재설계로 방향을 잡은 근거였습니다.
       </ClosingText>
+      <div className="mt-8">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">Problem Statement</p>
+        <div className="grid gap-3 md:grid-cols-4">
+          <FormulaCard label="대상" value="학습자" />
+          <FormulaCard label="상황" value="30개 이상 메뉴가 있는 플랫폼에서 과정을 탐색할 때" />
+          <FormulaCard label="고통" value="원하는 과정을 찾지 못하고 탐색 중 이탈이 반복된다" />
+          <FormulaCard label="성공 기준 붕괴" value="기능은 충분하지만 학습자가 다음 행동을 찾지 못한다" />
+        </div>
+      </div>
     </CaseSection>
   )
 }
@@ -4912,6 +5026,34 @@ function StepReflectionSection() {
         {cols.map((col) => (
           <ListCard key={col.title} title={col.title} items={col.items} />
         ))}
+      </div>
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">Collaboration Moment</p>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">상황</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              개발사가 기존 메뉴 구조를 최대한 유지하길 원했다.
+              학습자 탐색 흐름 기준으로 보면 GNB 재구성이 필요했지만, 전면 재설계보다
+              기존 기능을 새 IA에 흡수하는 방식을 선택했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">근거</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white">
+              운영 화면 고화질 캡처를 기반으로 메뉴 항목이 학습 행동 목적과 맞지 않는
+              지점을 시각화했다. 학습 여정 단계 기준으로 재분류한 IA 초안을 함께 제시해
+              변경 범위와 기대 효과를 구체적으로 설명했다.
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">결과</p>
+            <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              메뉴명과 1·2뎁스 구조는 변경하되, 기존 기능은 새 IA에 흡수하는 방식으로
+              합의했다. 개발 공수를 최소화하면서 탐색 흐름을 개선하는 방향이 채택됐다.
+            </p>
+          </div>
+        </div>
       </div>
       <div className="mt-10 flex justify-start">
         <Link

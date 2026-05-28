@@ -28,11 +28,14 @@ export function SelectedQuestions() {
             <h3 className="mt-10 whitespace-pre-line break-keep text-[25px] font-normal leading-[1.25] text-white sm:text-[28px] md:mt-12 md:text-[32px]">
               {card.question}
             </h3>
-            <div className="mt-auto flex items-end justify-between gap-6 pt-10">
-              <p className="text-sm font-normal leading-6 text-white/45">{card.project}</p>
-              <span className="text-xl text-white/45 opacity-60 transition duration-200 group-hover:translate-x-1 group-hover:text-white group-hover:opacity-100">
-                →
-              </span>
+            <div className="mt-auto pt-10">
+              <p className="break-keep text-xs leading-5 text-white/35">{card.result}</p>
+              <div className="mt-3 flex items-end justify-between gap-6">
+                <p className="text-sm font-normal leading-6 text-white/45">{card.project}</p>
+                <span className="text-xl text-white/45 opacity-60 transition duration-200 group-hover:translate-x-1 group-hover:text-white group-hover:opacity-100">
+                  →
+                </span>
+              </div>
             </div>
           </Link>
         ))}

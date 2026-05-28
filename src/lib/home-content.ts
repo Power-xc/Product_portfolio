@@ -10,6 +10,7 @@ export type SelectedQuestion = {
   tag: string
   slug: string
   href: string
+  result: string
 }
 
 export type WorkProject = {
@@ -69,6 +70,7 @@ export const selectedQuestions: SelectedQuestion[] = [
     tag: "AI Decision UX",
     slug: "spc-dunkin-ai-smart-pos",
     href: "/work/spc-dunkin-ai-smart-pos",
+    result: "추천 근거·재고 상태를 카드에 통합 → 점주의 발주 판단 구조 완성",
   },
   {
     number: "02",
@@ -77,6 +79,7 @@ export const selectedQuestions: SelectedQuestion[] = [
     tag: "Enterprise AI Security",
     slug: "sapie-guardian",
     href: "/work/sapie-guardian",
+    result: "위험 가시화·정책 거버넌스·감사 기록을 하나의 운영 절차로 설계",
   },
   {
     number: "03",
@@ -85,6 +88,7 @@ export const selectedQuestions: SelectedQuestion[] = [
     tag: "IA Redesign",
     slug: "step-lifelong-education-platform",
     href: "/work/step-lifelong-education-platform",
+    result: "30개+ 메뉴를 학습 여정 6단계로 재구조화 → 탐색 진입 경로 일원화",
   },
   {
     number: "04",
@@ -93,6 +97,7 @@ export const selectedQuestions: SelectedQuestion[] = [
     tag: "Explainable AI UX",
     slug: "sapie-deepq",
     href: "/work/sapie-deepq",
+    result: "질문→SQL→결과→설명을 하나의 분석 기록으로 연결 → 검토 가능한 AI 답변 구조",
   },
 ]
 

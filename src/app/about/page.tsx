@@ -144,15 +144,15 @@ export default function AboutPage() {
         <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-24 lg:py-28">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
             <div className="self-center">
-              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#5F5F59]">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#3E3E37]">
                 About
               </p>
               <h1 className="mt-5 break-keep text-[clamp(2.45rem,9vw,64px)] font-normal leading-[1.12] text-[#171717]">
                 박강근
                 <br />
-                <span className="text-[#5F5F59]">Senior Product Designer</span>
+                <span className="text-[#3E3E37]">Senior Product Designer</span>
               </h1>
-              <div className="mt-8 max-w-2xl space-y-5 break-keep text-base font-normal leading-8 text-[#4B4B45] md:text-[17px] md:leading-9">
+              <div className="mt-8 max-w-2xl space-y-5 break-keep text-base font-normal leading-8 text-[#222219] md:text-[17px] md:leading-9">
                 <p>
                   복잡한 제품과 운영 시스템을 사용자가 이해하고, 판단하고, 행동할 수
                   있는 구조로 다시 설계하는 Product Designer입니다.
@@ -193,30 +193,30 @@ export default function AboutPage() {
                 </div>
                 <div className="min-w-0">
                   <p className="break-keep text-xl font-normal leading-7 text-[#171717]">박강근</p>
-                  <p className="mt-1 break-keep text-sm font-normal leading-6 text-[#4B4B45]">
+                  <p className="mt-1 break-keep text-sm font-normal leading-6 text-[#252520]">
                     Senior Product Designer
                   </p>
-                  <p className="mt-0.5 break-keep text-sm font-normal leading-6 text-[#6F6F68]">
+                  <p className="mt-0.5 break-keep text-sm font-normal leading-6 text-[#525249]">
                     솔트웨어㈜ · Uiwang-si, Gyeonggi-do
                   </p>
                 </div>
               </div>
               <dl className="mt-8 space-y-4">
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#6F6F68]">Company</dt>
-                  <dd className="break-keep text-[#3F3F39]">솔트웨어㈜</dd>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Company</dt>
+                  <dd className="break-keep text-[#1A1A15]">솔트웨어㈜</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#6F6F68]">Team</dt>
-                  <dd className="break-keep text-[#3F3F39]">디자인서비스팀 팀장</dd>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Team</dt>
+                  <dd className="break-keep text-[#1A1A15]">디자인서비스팀 팀장</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#6F6F68]">Level</dt>
-                  <dd className="break-keep text-[#3F3F39]">책임매니저 (과장급)</dd>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Level</dt>
+                  <dd className="break-keep text-[#1A1A15]">책임매니저 (과장급)</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#6F6F68]">Location</dt>
-                  <dd className="break-keep text-[#3F3F39]">Uiwang-si, Gyeonggi-do</dd>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Location</dt>
+                  <dd className="break-keep text-[#1A1A15]">Uiwang-si, Gyeonggi-do</dd>
                 </div>
               </dl>
             </aside>
@@ -226,7 +226,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
           <div className="grid gap-8 border-t border-black/15 pt-10 md:grid-cols-[0.32fr_1fr] md:pt-12">
             <div>
-              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#5F5F59]">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#3E3E37]">
                 Experience
               </p>
               <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-[#171717] md:text-[48px]">
@@ -239,13 +239,13 @@ export default function AboutPage() {
                   key={`${item.period}-${item.title}`}
                   className="grid gap-4 py-6 md:grid-cols-[0.28fr_1fr] md:gap-8"
                 >
-                  <p className="text-sm font-normal leading-6 text-[#6F6F68]">{item.period}</p>
+                  <p className="text-sm font-normal leading-6 text-[#525249]">{item.period}</p>
                   <div>
                     <h3 className="text-xl font-normal text-[#171717]">{item.title}</h3>
-                    <p className="mt-2 break-keep text-sm font-normal leading-6 text-[#4B4B45]">
+                    <p className="mt-2 break-keep text-sm font-normal leading-6 text-[#252520]">
                       {item.meta}
                     </p>
-                    <p className="mt-4 break-keep text-sm font-normal leading-7 text-[#55554F]">
+                    <p className="mt-4 break-keep text-sm font-normal leading-7 text-[#2B2B24]">
                       {item.body}
                     </p>
                   </div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
                   {section.items.map((item) => (
                     <li
                       key={item}
-                      className="break-keep py-4 text-sm font-normal leading-7 text-[#4B4B45]"
+                      className="break-keep py-4 text-sm font-normal leading-7 text-[#252520]"
                     >
                       {item}
                     </li>
@@ -282,7 +282,7 @@ export default function AboutPage() {
 
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
           <div className="border-t border-black/15 pt-10 md:pt-12">
-            <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#5F5F59]">
+            <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#3E3E37]">
               Capabilities
             </p>
             <h2 className="mt-4 max-w-3xl break-keep text-[clamp(1.8rem,6.4vw,42px)] font-normal leading-[1.18] text-[#171717]">
@@ -299,7 +299,7 @@ export default function AboutPage() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-black/15 bg-[#EDEBE2] px-3 py-1.5 text-[12px] font-normal leading-5 text-[#4B4B45]"
+                        className="rounded-full border border-black/15 bg-[#EDEBE2] px-3 py-1.5 text-[12px] font-normal leading-5 text-[#252520]"
                       >
                         {item}
                       </span>
@@ -314,7 +314,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-24 lg:pb-32">
           <div className="grid gap-8 border-t border-black/15 pt-10 md:grid-cols-[0.7fr_1fr] md:pt-12">
             <div>
-              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#5F5F59]">
+              <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-[#3E3E37]">
                 Contact
               </p>
               <h2 className="mt-4 break-keep text-[clamp(1.8rem,7vw,3rem)] font-normal leading-[1.16] text-[#171717] md:text-[48px]">
@@ -327,8 +327,8 @@ export default function AboutPage() {
                   key={item.label}
                   className="grid gap-2 py-5 text-sm font-normal leading-6 md:grid-cols-[0.34fr_1fr]"
                 >
-                  <dt className="text-[#6F6F68]">{item.label}</dt>
-                  <dd className="break-all text-[#3F3F39]">
+                  <dt className="text-[#525249]">{item.label}</dt>
+                  <dd className="break-all text-[#1A1A15]">
                     {item.href ? (
                       <a
                         href={item.href}
