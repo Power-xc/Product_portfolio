@@ -146,7 +146,7 @@ const caseStudies = [
     slug: guardianSlug,
     number: "04",
     tag: "Enterprise AI Security Platform",
-    question: "AI 도구를 허용할수록,\n조직은 무엇을 감시하고 통제해야 할까?",
+    question: "AI 도구를 허용할수록,\n조직은 무엇을 확인하고 통제해야 할까?",
     project: "SAPIE Guardian / Enterprise Gen AI Security Platform",
   },
   {
@@ -233,7 +233,7 @@ const patterns: Principle[] = [
   {
     insight: "Decision Paralysis",
     principle: "행동 중심 정보 설계",
-    design: "숫자 나열이 아니라 다음 행동 제시 · 기회손실 표시 · 소진 예상 시간 제공",
+    design: "숫자 나열을 다음 행동 제시 · 기회손실 표시 · 소진 예상 시간 제공으로 전환",
   },
   {
     insight: "Control Retention",
@@ -249,7 +249,7 @@ const researchPatterns: ResearchPattern[] = [
   },
   {
     title: "Decision Paralysis",
-    body: "숫자는 있는데 판단이 안 된다",
+    body: "숫자는 있지만 다음 조치가 보이지 않는다",
   },
   {
     title: "Control Retention",
@@ -319,13 +319,13 @@ const requirementRows: RequirementRow[] = [
   },
   {
     requirement: "당일 생산·폐기 관리",
-    problem: "언제 생산하고 언제 멈춰야 하는지 판단이 어려움",
+    problem: "언제 생산하고 언제 멈춰야 하는지 정하기 어려움",
     solution: "시간 중심 신선도 라이브 보드",
     metric: "폐기율, 품절 시간, 생산 지시 반응 시간",
   },
   {
     requirement: "프로모션 수익성 불투명",
-    problem: "참여 여부를 손익 기준으로 판단하기 어려움",
+    problem: "참여 여부를 손익 기준으로 검토하기 어려움",
     solution: "P&L 시뮬레이터",
     metric: "프로모션 참여율, 예상·실제 손익 차이",
   },
@@ -376,7 +376,7 @@ const orderStepScreens: ScreenItem[] = [
   },
   {
     title: "3. 최종 검토",
-    description: "납품 시간대와 금액을 확인한 뒤 마지막 판단을 내리도록 분리했다.",
+    description: "납품 시간대와 금액을 확인한 뒤 최종 승인하도록 분리했다.",
     src: `${imageBase}/pos-order-final-review-step-3.png`,
     alt: "POS 최종 검토 3단계",
     type: "desktop",
@@ -386,14 +386,14 @@ const orderStepScreens: ScreenItem[] = [
 const mobileScreens: ScreenItem[] = [
   {
     title: "매장",
-    description: "재고 타임라인과 생산지시를 모바일에서도 이어서 판단할 수 있게 했다.",
+    description: "재고 타임라인과 생산지시를 모바일에서도 이어서 확인할 수 있게 했다.",
     src: `${imageBase}/mobile-store-status-expanded.png`,
     alt: "모바일 매장 재고 타임라인 화면",
     type: "mobile",
   },
   {
     title: "한눈에",
-    description: "전체 기능보다 당일 운영 판단에 필요한 카드만 전면에 배치했다.",
+    description: "전체 기능보다 당일 운영 확인에 필요한 카드만 전면에 배치했다.",
     src: `${imageBase}/mobile-main-dashboard.png`,
     alt: "모바일 한눈에 대시보드",
     type: "mobile",
@@ -407,7 +407,7 @@ const mobileScreens: ScreenItem[] = [
   },
   {
     title: "채팅",
-    description: "검색 실패나 판단 보류 상황에서 자연어로 발주 흐름에 재진입하게 했다.",
+    description: "검색 실패나 승인 보류 상황에서 자연어로 발주 절차에 재진입하게 했다.",
     src: `${imageBase}/mobile-pip-ai-chat-order-approval.png`,
     alt: "모바일 PIP AI 채팅 발주 승인 화면",
     type: "mobile",
@@ -434,7 +434,7 @@ const workflowActualScreens: ScreenItem[] = [
 const actualPosScreens: ScreenItem[] = [
   {
     title: "POS 종합현황",
-    description: "당일 운영 판단을 시작하는 실제 POS 종합현황 화면",
+    description: "당일 운영 확인을 시작하는 실제 POS 종합현황 화면",
     src: `${captureBase}/actual-pos-dashboard.png`,
     alt: "실제 구현된 POS 종합현황 화면",
     type: "desktop",
@@ -462,7 +462,7 @@ const actualPosScreens: ScreenItem[] = [
   },
   {
     title: "POS 프로모션",
-    description: "프로모션 손익 판단을 확인하는 실제 화면",
+    description: "프로모션 손익 기준을 확인하는 실제 화면",
     src: `${captureBase}/actual-pos-promotion.png`,
     alt: "실제 구현된 POS 프로모션 화면",
     type: "desktop",
@@ -483,7 +483,7 @@ const actualPosScreens: ScreenItem[] = [
   },
   {
     title: "POS 벤치마킹",
-    description: "비교 기준을 통해 매장 상태를 판단하는 실제 화면",
+    description: "비교 기준을 통해 매장 상태를 확인하는 실제 화면",
     src: `${captureBase}/actual-pos-benchmarking.png`,
     alt: "실제 구현된 POS 벤치마킹 화면",
     type: "desktop",
@@ -514,7 +514,7 @@ const actualMobileScreens: ScreenItem[] = [
   },
   {
     title: "모바일 채팅",
-    description: "PIP AI로 업무 흐름에 재진입하는 실제 모바일 화면",
+    description: "PIP AI로 업무 절차에 재진입하는 실제 모바일 화면",
     src: `${captureBase}/actual-mobile-chat.png`,
     alt: "실제 구현된 모바일 PIP AI 채팅 화면",
     type: "mobile",
@@ -547,13 +547,13 @@ const tradeOffs: TradeOff[] = [
   },
   {
     title: "이유",
-    items: ["피크타임에는 분석보다 즉시 판단과 복구 가능성이 더 중요했기 때문"],
+    items: ["피크타임에는 상세 분석보다 즉시 조치와 복구 가능성이 우선이었기 때문"],
   },
 ]
 
 const ideationSteps = [
   "데스크 리서치·인터뷰",
-  "업무 흐름 기준 아이디어 60개 정리",
+  "업무 단계 기준 아이디어 60개 정리",
   "어피니티 다이어그램 5테마 클러스터링",
   "MoSCoW + Impact-Effort 필터링",
   "핵심 후보 기능 5개 도출",
@@ -570,9 +570,9 @@ const workflowSteps = [
 ] as const
 
 const qualitativeResults = [
-  "점주가 AI 추천을 거절하거나 수정해야 하는 이유를 화면 안에서 확인할 수 있게 했다.",
-  "추천 수치, 근거, 조정, 최종 확인을 하나의 발주 판단 흐름으로 연결했다.",
-  "POS는 매장 내 즉시 조치, 모바일은 매장 밖 원격 판단으로 역할을 분리했다.",
+  "점주가 AI 추천을 거절하거나 수정해야 하는 이유를 화면 안에서 검토할 수 있게 했다.",
+  "추천 수치, 근거, 조정, 최종 확인을 하나의 발주 검토 단계로 연결했다.",
+  "POS는 매장 내 즉시 조치, 모바일은 매장 밖 운영 확인으로 역할을 분리했다.",
   "본사, SV, 점주, 크루가 같은 운영 데이터를 각자의 책임 범위에 맞게 보도록 구조화했다.",
 ] as const
 
@@ -588,16 +588,16 @@ const operationMetrics = [
 
 const reflectionColumns: TradeOff[] = [
   {
-    title: "잘한 것",
+    title: "구조화한 지점",
     items: [
-      "기능 구현 요청을 점주의 판단 문제로 재정의한 것",
-      "AI 추천을 근거·조정·확인 가능한 구조로 바꾼 것",
-      "피크타임 판단 속도와 상세 분석 사이의 Trade-off를 명확히 한 것",
+      "기능 구현 요청을 점주의 발주·생산 운영 문제로 재정의",
+      "AI 추천을 근거 확인, 수량 조정, 최종 승인 단계로 분리",
+      "피크타임 처리 속도와 상세 분석 범위 사이의 Trade-off를 정리",
       "제한된 일정 안에서 디자인과 반응형 구현 범위를 함께 조율한 것",
     ],
   },
   {
-    title: "아쉬운 것",
+    title: "추가 검증이 필요한 지점",
     items: [
       "데이터 엔지니어링 지원이 초기부터 결합됐다면 추천 로직 검증 범위를 더 넓힐 수 있었음",
       "4개 점포 리서치는 상권과 운영 방식의 편향 가능성이 있음",
@@ -675,7 +675,7 @@ const guardianWhyCards: TradeOff[] = [
   },
   {
     title: "Enterprise UX",
-    items: ["보안 관리자, IT 관리자, 감사 담당자의 판단 흐름 설계"],
+    items: ["보안 관리자, IT 관리자, 감사 담당자의 업무 절차 설계"],
   },
   {
     title: "Product Structure",
@@ -683,7 +683,7 @@ const guardianWhyCards: TradeOff[] = [
   },
   {
     title: "Governance",
-    items: ["AI 사용을 막는 것이 아니라 책임 있게 허용하기 위한 통제 구조"],
+    items: ["AI 사용을 책임 범위 안에서 허용하기 위한 통제 구조"],
   },
 ]
 
@@ -698,7 +698,7 @@ const guardianRoles: TradeOff[] = [
   },
   {
     title: "Team Lead",
-    items: ["팀 단위 AI 사용과 위반 패턴 확인", "업무 생산성과 보안 리스크 사이에서 판단"],
+    items: ["팀 단위 AI 사용과 위반 패턴 확인", "업무 생산성과 보안 리스크를 함께 검토"],
   },
   {
     title: "Auditor / Compliance",
@@ -782,7 +782,7 @@ const guardianRiskCards: TradeOff[] = [
 ]
 
 const guardianRiskOverviewDecisions = [
-  "전체 사용량보다 위험 흐름을 먼저 보여준다",
+  "전체 사용량보다 위험 이벤트를 먼저 보여준다",
   "위반 유형과 부서별 비율을 함께 보여준다",
   "사용 AI 서비스와 위반 TOP 항목을 연결한다",
   "관리자가 상세 이벤트로 이동할 수 있게 한다",
@@ -800,7 +800,7 @@ const guardianViolationInfo = [
 const guardianViolationDecisions = [
   "리스트에서는 우선순위와 상태를 빠르게 본다",
   "상세에서는 원인과 조치 가능성을 본다",
-  "로그가 아니라 판단 가능한 이벤트 단위로 구성한다",
+  "로그 단위보다 조치 가능한 이벤트 단위로 구성한다",
 ] as const
 
 const guardianPolicyPoints = [
@@ -825,14 +825,14 @@ const guardianAuditPoints = [
 const guardianAccessPoints = [
   "정책 적용 범위와 조직 구조를 연결한다",
   "관리자 권한을 세분화한다",
-  "콘솔 접근 자체를 보안 흐름으로 설계한다",
+  "콘솔 접근 자체를 별도 보안 절차로 설계한다",
   "권한 관리와 접속 보안을 분리하지 않는다",
 ] as const
 
 const guardianCoverageScreens: ScreenItem[] = [
   {
     title: "Dashboard",
-    description: "조직 전체 AI 사용과 위반 흐름을 먼저 판단한다.",
+    description: "조직 전체 AI 사용과 위반 이벤트를 먼저 확인한다.",
     src: guardianScreens.dashboard,
     alt: "Guardian 대시보드 화면",
     type: "desktop",
@@ -930,9 +930,9 @@ const guardianTradeOffs: TradeOff[] = [
 
 const guardianProductOutcomes = [
   "Gen AI 사용 현황, 위반 감지, 정책 설정, 기록 추적, 권한 관리를 하나의 운영 콘솔로 통합",
-  "관리자가 전체 로그가 아니라 위험 이벤트와 후속 조치 중심으로 판단할 수 있도록 정보 구조 재설계",
-  "메시지·파일·정책·사용자·권한 데이터를 연결해 감사 가능한 운영 흐름 구성",
-  "삼성 도입 검토를 전제로, 대기업 조직 구조에 맞는 관리자 권한과 보안 접속 흐름 설계",
+  "관리자가 전체 로그보다 위험 이벤트와 후속 조치 중심으로 검토할 수 있도록 정보 구조 재설계",
+  "메시지·파일·정책·사용자·권한 데이터를 연결해 감사 가능한 운영 절차 구성",
+  "삼성 도입 검토를 전제로, 대기업 조직 구조에 맞는 관리자 권한과 보안 접속 절차 설계",
   "복잡한 보안 운영 업무를 Dashboard → Violation → Policy → Records → Permission의 제품 구조로 정리",
 ] as const
 
@@ -949,12 +949,12 @@ const guardianNextMetrics = [
 
 const guardianReflectionColumns: TradeOff[] = [
   {
-    title: "잘한 것",
+    title: "구조화한 지점",
     items: [
-      "AI 차단 문제가 아니라 운영 가능한 보안 플랫폼 구조로 문제를 재정의",
-      "대시보드, 위반 상세, 정책, 기록, 권한을 하나의 관리 흐름으로 연결",
-      "관리자 접속 보안까지 제품 흐름 안에 포함",
-      "화면 단위가 아니라 조직 운영 구조 단위로 설계",
+      "AI 차단 범위를 운영 가능한 보안 플랫폼 구조로 재정의",
+      "대시보드, 위반 상세, 정책, 기록, 권한을 하나의 관리 절차로 연결",
+      "관리자 접속 보안까지 제품 범위 안에 포함",
+      "화면 단위보다 조직 운영 구조 단위로 설계",
     ],
   },
   {
@@ -1013,7 +1013,7 @@ export async function generateMetadata({
     return {
       title: "SPC Dunkin AI Decision UX · Kangkeun Park",
       description:
-        "AI 추천을 점주가 검토하고 조정한 뒤 최종 판단할 수 있게 재설계한 Product UX 케이스스터디.",
+        "AI 추천을 점주가 검토하고 조정한 뒤 최종 승인할 수 있게 재설계한 Product UX 케이스스터디.",
     }
   }
 
@@ -1037,7 +1037,7 @@ export async function generateMetadata({
     return {
       title: "STEP Lifelong Education Platform · Kangkeun Park",
       description:
-        "다양한 학습 콘텐츠와 운영 기능이 분산된 대규모 평생교육 포털을 학습자의 탐색·판단·지속학습 흐름으로 재구성한 UX 케이스스터디.",
+        "다양한 학습 콘텐츠와 운영 기능이 분산된 대규모 평생교육 포털을 학습자의 탐색·비교·신청·지속학습 과정으로 재구성한 UX 케이스스터디.",
     }
   }
 
@@ -1243,7 +1243,7 @@ function DeepQHeroSection() {
         <p className="break-keep">
           DeepQ는 SQL이나 데이터 구조를 모르는 현업 사용자가 자연어로 데이터에
           질문하고, AI가 어떤 데이터와 로직으로 답을 만들었는지 확인하며, 업무
-          판단까지 이어갈 수 있도록 설계한 Enterprise Intelligence Platform입니다.
+          의사결정까지 이어갈 수 있도록 설계한 Enterprise Intelligence Platform입니다.
         </p>
         <p className="break-keep">
           기존에는 데이터나 문서 분석을 위해 전산/IT 조직에 요청하고 기다려야 했던
@@ -1264,13 +1264,13 @@ function DeepQWhySection() {
   return (
     <CaseSection
       number="01 / Why This Case"
-      title="왜 이 케이스를 깊게 보여주는가"
-      description="이 포트폴리오는 많은 프로젝트를 나열하기보다, 복잡한 제품 문제를 깊게 파고드는 방식을 보여주기 위해 4개의 케이스스터디만 선별했습니다."
+      title="DeepQ를 별도 케이스로 정리한 이유"
+      description="이 포트폴리오는 프로젝트 수보다 제품 문제를 분석하고 구조화한 방식을 보여주기 위해 4개의 케이스스터디를 선별했습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         DeepQ는 그중 Explainable AI UX와 Enterprise Data Product 설계를 보여주는
-        케이스입니다. 중요한 것은 AI가 답을 생성하는 화면 자체가 아니라, 사용자가
-        그 답을 어떤 근거로 이해하고, 검토하고, 다음 판단으로 이어갈 수 있는가였습니다.
+        케이스입니다. 검토한 지점은 AI가 답을 생성하는 화면 자체보다, 사용자가
+        그 답을 어떤 근거로 이해하고, 검토하고, 다음 업무 질문으로 이어갈 수 있는가였습니다.
       </p>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <DefinitionCard
@@ -1279,11 +1279,11 @@ function DeepQWhySection() {
         />
         <DefinitionCard
           title="Context Sensing"
-          body="사용자는 SQL을 쓰고 싶은 것이 아니라 업무 질문에 대한 판단 근거가 필요함"
+          body="사용자는 SQL 자체보다 업무 질문에 대한 분석 근거가 필요함"
         />
         <DefinitionCard
           title="Rationale"
-          body="AI 답변은 검토 가능한 근거 레이어와 함께 제공되어야 함"
+          body="AI 답변은 검토 가능한 근거 레이어와 함께 제공할 필요가 있음"
         />
         <DefinitionCard
           title="Craft"
@@ -1298,7 +1298,7 @@ function DeepQContextSection() {
   return (
     <CaseSection
       number="02 / Context"
-      title="데이터는 있어도, 누구나 분석할 수 있는 것은 아니었다"
+      title="데이터 접근 권한과 분석 실행 사이에 간격이 있었다"
       description="많은 조직에서 데이터는 이미 존재합니다. 하지만 현업 사용자가 원하는 질문을 직접 분석하려면 SQL, DB 구조, BI 도구, 데이터 요청 프로세스를 이해해야 합니다."
     >
       <div className="space-y-5 text-base leading-8 text-white/60 md:text-lg">
@@ -1344,8 +1344,8 @@ function DeepQDiscoverySection() {
   return (
     <CaseSection
       number="03 / Discovery & Structuring"
-      title="화면을 만들기 전에, 질문 경험과 운영 경험을 분리했다"
-      description="DeepQ는 로그인, 인트로, 질문 입력, 답변 결과, SQL 확인, 추천 질문, 관리자 대시보드, 사용자 관리, 대화 이력, 응답 상세 정보가 모두 포함된 화면 수가 많은 제품입니다."
+      title="질문 경험과 운영 경험을 먼저 분리해 정리했다"
+      description="DeepQ에는 로그인, 인트로, 질문 입력, 답변 결과, SQL 확인, 추천 질문, 관리자 대시보드, 사용자 관리, 대화 이력, 응답 상세 정보가 함께 포함되어 있었습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         처음부터 화면을 나열하면 제품이 복잡한 질의 도구처럼 보일 수 있었습니다.
@@ -1354,7 +1354,7 @@ function DeepQDiscoverySection() {
       <DeepQSortingMap />
       <ClosingText>
         화면을 기능 단위로 나열하지 않고, 사용자가 질문을 시작하고, AI가 답을 만들고,
-        사용자가 검토하고, 관리자가 운영하는 흐름으로 재구성했습니다.
+        사용자가 검토하고, 관리자가 운영하는 절차로 재구성했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -1364,8 +1364,8 @@ function DeepQProblemSection() {
   return (
     <CaseSection
       number="04 / Problem Definition"
-      title="문제는 답변 생성이 아니라, 답변을 신뢰할 수 있는 구조의 부재였다"
-      description="AI가 자연어 질문에 답하는 것 자체는 어렵지 않아 보일 수 있습니다. 하지만 Enterprise 데이터 분석 환경에서는 답변 하나만으로는 충분하지 않습니다."
+      title="답변 생성보다 답변 검토 구조가 더 크게 드러났다"
+      description="자연어 질문에 대한 답변만 제공할 경우, Enterprise 데이터 분석 환경에서는 데이터 출처와 계산 기준을 확인하기 어렵습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤
@@ -1397,7 +1397,7 @@ function DeepQProblemSection() {
       </div>
       <ClosingText>
         질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 모니터링을 하나의 제품
-        흐름으로 연결했다.
+        절차로 연결했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -1408,7 +1408,7 @@ function DeepQThesisSection() {
     <CaseSection
       number="05 / UX Thesis"
       title="AI 답변을 검토 가능한 업무 자산으로 바꾸는 경험"
-      description="DeepQ의 핵심 설계 방향은 AI가 답을 대신 말하게 하는 것이 아니라, 사용자가 그 답을 이해하고 검토하고 다음 판단으로 이어갈 수 있게 만드는 것이었습니다."
+      description="DeepQ의 설계 방향은 AI 답변을 단일 메시지로 두지 않고, 사용자가 이해하고 검토한 뒤 다음 업무 질문으로 이어갈 수 있게 만드는 것이었습니다."
     >
       <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
         <p className="text-[12px] uppercase tracking-[0.18em] text-white/35">
@@ -1450,11 +1450,11 @@ function DeepQWorkflowSection() {
   return (
     <CaseSection
       number="06 / User & Workflow Analysis"
-      title="사용자는 답만 원하는 것이 아니라, 판단 가능한 근거가 필요했다"
-      description="DeepQ의 핵심 사용자는 데이터 전문가가 아니라, 업무 판단을 위해 데이터를 확인해야 하는 현업 사용자입니다."
+      title="현업 사용자는 답변과 함께 검토 가능한 근거가 필요했다"
+      description="DeepQ의 핵심 사용자는 데이터 전문가보다, 업무 의사결정을 위해 데이터를 확인해야 하는 현업 사용자입니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
-        이 사용자는 SQL을 직접 작성하고 싶은 것이 아니라, 내 질문이 어떤 데이터로
+        이 사용자는 SQL 직접 작성보다, 내 질문이 어떤 데이터로
         해석됐는지, 결과가 어떤 계산과 조건에서 나왔는지, 다음에 어떤 질문을 이어가야
         하는지 알고 싶어합니다.
       </p>
@@ -1499,7 +1499,7 @@ function DeepQProductStructureSection() {
     <CaseSection
       number="07 / Product Structure"
       title="사용자 분석 경험과 관리자 운영 경험을 함께 설계했다"
-      description="DeepQ는 하나의 질문 화면이 아니라, 사용자가 질문하고 결과를 검토하는 분석 경험과 관리자가 서비스 사용을 운영하는 콘솔이 연결된 제품입니다."
+      description="DeepQ는 사용자가 질문하고 결과를 검토하는 분석 경험과 관리자가 서비스 사용을 운영하는 콘솔이 연결된 제품입니다."
     >
       <DeepQProductStructureVisual />
       <TwoColumn className="mt-8">
@@ -1531,8 +1531,8 @@ function DeepQTrustLadderSection() {
   return (
     <CaseSection
       number="08 / Trust Ladder"
-      title="AI 신뢰는 결과가 아니라 과정에서 만들어진다"
-      description="DeepQ의 신뢰는 “AI가 정확하다”고 말하는 방식이 아니라, 사용자가 AI의 처리 과정과 근거를 단계적으로 확인할 수 있게 하는 방식으로 설계했습니다."
+      title="신뢰를 위해 결과와 처리 과정을 함께 노출했다"
+      description="DeepQ는 AI가 정확하다고 선언하는 방식보다, 사용자가 처리 과정과 근거를 단계적으로 확인할 수 있는 방식으로 설계했습니다."
     >
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {[
@@ -1566,8 +1566,8 @@ function DeepQFirstEntrySection() {
   return (
     <CaseSection
       number="09 / Key UX Decision 1"
-      title="첫 진입에서 기능보다 사용 맥락을 먼저 설명했다"
-      description="DeepQ는 첫 진입에서 바로 질문 입력창만 보여주기보다, 제품이 무엇을 할 수 있고 어떤 방식으로 데이터를 분석하는지 먼저 이해시키는 구조를 선택했습니다."
+      title="첫 진입에서 사용 맥락과 데이터 원칙을 먼저 배치했다"
+      description="DeepQ는 첫 진입에서 질문 입력창만 제공하기보다, 제품이 어떤 데이터를 어떻게 분석하는지 먼저 확인할 수 있는 구성을 선택했습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         신규 사용자는 Intro를 통해 자연어 질문, 실시간 분석, 데이터 구조 이해,
@@ -1575,17 +1575,17 @@ function DeepQFirstEntrySection() {
         단계를 건너뛸 수 있습니다.
       </p>
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.login}
           alt="DeepQ 로그인 화면"
           caption="비식별 처리 이미지 — 엔터프라이즈 계정으로 분석 환경에 진입하는 화면"
         />
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.intro}
           alt="DeepQ Intro 화면"
           caption="비식별 처리 이미지 — 첫 사용자가 제품 목적과 검토 흐름을 이해하는 화면"
         />
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.dataStructure}
           alt="DeepQ 데이터 구조 이해 화면"
           caption="비식별 처리 이미지 — 연결된 데이터 구조와 읽기 전용 실행 원칙을 먼저 확인"
@@ -1593,12 +1593,12 @@ function DeepQFirstEntrySection() {
       </div>
       <div className="mt-8">
         <ListCard
-          title="설계 판단"
+          title="설계 기준"
           items={[
             "신규 사용자에게는 제품 목적을 먼저 설명한다",
             "반복 사용자에게는 진입 단계를 줄인다",
-            "첫 릴리즈 단계에서는 기능보다 신뢰와 사용 맥락이 중요하다",
-            "Enterprise AI 제품은 무엇을 할 수 있는지와 안전하게 쓸 수 있는지를 먼저 전달해야 한다",
+            "첫 릴리즈 단계에서는 기능 수보다 신뢰와 사용 맥락을 먼저 검증한다",
+            "Enterprise AI 제품은 분석 가능 범위와 안전한 사용 조건을 먼저 전달한다",
           ]}
         />
       </div>
@@ -1610,8 +1610,8 @@ function DeepQQuestionWorkspaceSection() {
   return (
     <CaseSection
       number="10 / Key UX Decision 2"
-      title="분석의 시작점을 메뉴가 아니라 질문으로 바꿨다"
-      description="DeepQ의 핵심 행동은 메뉴 탐색이 아니라 질문입니다. 따라서 첫 화면의 중심은 대시보드나 리포트 목록이 아니라 사용자의 질문 입력입니다."
+      title="분석 시작점을 메뉴 탐색에서 자연어 질문으로 옮겼다"
+      description="DeepQ의 핵심 행동은 리포트 메뉴 탐색보다 자연어 질문 입력에 가까웠습니다. 첫 화면의 중심도 대시보드 목록보다 사용자의 질문 입력으로 배치했습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         최근 대화와 추천 질문은 보조 요소로 두고, 사용자가 가장 먼저 지금 궁금한 업무
@@ -1621,7 +1621,7 @@ function DeepQQuestionWorkspaceSection() {
         <ScreenFigure
           src={deepqScreens.firstQuestion}
           alt="DeepQ 첫 질문 입력 화면"
-          caption="비식별 처리 이미지 — BI 메뉴 탐색이 아니라 자연어 질문에서 분석을 시작하도록 한 구조"
+          caption="비식별 처리 이미지 — BI 메뉴 탐색 대신 자연어 질문에서 분석을 시작하도록 한 구조"
         />
         <ScreenFigure
           src={deepqScreens.workspace}
@@ -1630,12 +1630,12 @@ function DeepQQuestionWorkspaceSection() {
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.userMenu}
           alt="DeepQ 사용자 메뉴 화면"
           caption="비식별 처리 이미지 — 사용량과 설정은 보조 패널로 분리해 분석 흐름을 방해하지 않음"
         />
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.usage}
           alt="DeepQ 사용량 팝업"
           caption="비식별 처리 이미지 — 비용과 쿼리 사용량은 운영 지표로 분리해 확인"
@@ -1649,13 +1649,13 @@ function DeepQTransparencySection() {
   return (
     <CaseSection
       number="11 / Key UX Decision 3"
-      title="로딩 상태를 AI 사고 과정으로 번역했다"
-      description="AI 분석은 사용자가 입력한 뒤 바로 결과가 나오기까지 짧은 지연이 발생합니다. 이때 단순 로딩만 보여주면 사용자는 시스템이 무엇을 하고 있는지 알 수 없습니다."
+      title="대기 상태를 분석 준비 과정으로 표시했다"
+      description="AI 분석은 사용자가 입력한 뒤 결과가 나오기까지 짧은 지연이 발생합니다. 단순 로딩만 보여주면 사용자는 시스템이 어떤 작업을 처리 중인지 확인하기 어렵습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         DeepQ는 스키마 검색, 유사 쿼리 검색, 메타데이터 로드, SQL 생성, SQL 실행,
         결과 분석, 추천 질문 생성 과정을 단계별로 보여줍니다. 이 구조는 대기 시간을
-        단순 로딩이 아니라, AI가 어떤 근거를 준비하고 있는지 확인하는 시간으로 바꿉니다.
+        분석 근거를 준비하는 단계를 확인하는 시간으로 바꿉니다.
       </p>
       <div className="mt-8 grid gap-5 lg:grid-cols-[0.72fr_1.28fr]">
         <ScreenFigure
@@ -1684,12 +1684,12 @@ function DeepQTransparencySection() {
           ]}
         />
         <ListCard
-          title="설계 판단"
+          title="설계 기준"
           items={[
             "대기 중인 사용자의 불안을 줄인다",
-            "AI가 임의로 답하는 것이 아니라 데이터 구조를 탐색하고 있음을 보여준다",
+            "AI가 데이터 구조를 탐색하고 있음을 보여준다",
             "분석 단계가 실패했을 때 어느 지점에서 문제가 생겼는지 파악 가능하게 한다",
-            "설명 가능성을 답변 이후가 아니라 생성 과정부터 제공한다",
+            "설명 가능성을 답변 이후 단계에만 두지 않고 생성 과정부터 제공한다",
           ]}
         />
       </div>
@@ -1701,7 +1701,7 @@ function DeepQEvidenceLayerSection() {
   return (
     <CaseSection
       number="12 / Key UX Decision 4"
-      title="답변을 하나의 문장이 아니라 검토 가능한 레이어로 나눴다"
+      title="답변을 검토 가능한 레이어로 나눴다"
       description="DeepQ는 AI의 최종 답변만 보여주지 않습니다. 같은 결과를 테이블, 차트, SQL, 자연어 설명, 추천 질문으로 나눠 제공합니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
@@ -1750,8 +1750,8 @@ function DeepQAdminLoopSection() {
   return (
     <CaseSection
       number="13 / Key UX Decision 5"
-      title="Enterprise AI 제품은 운영자가 추적할 수 있어야 한다"
-      description="DeepQ는 사용자 질문 화면만으로 완성되는 제품이 아닙니다. 기업 환경에서는 누가 어떤 데이터에 질문했는지, 어떤 SQL이 생성됐는지, 어떤 답변이 제공됐는지, 비용과 오류가 어떻게 발생했는지 추적할 수 있어야 합니다."
+      title="Enterprise AI 제품에는 운영 추적 화면이 필요했다"
+      description="DeepQ는 사용자 질문 화면만으로 운영되기 어렵습니다. 기업 환경에서는 누가 어떤 데이터에 질문했는지, 어떤 SQL이 생성됐는지, 어떤 답변이 제공됐는지, 비용과 오류가 어떻게 발생했는지 추적할 수 있어야 합니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         관리자 콘솔은 이 정보를 운영자가 확인하고, 권한·DB 연결·품질·비용을 관리할
@@ -1785,12 +1785,12 @@ function DeepQAdminLoopSection() {
         />
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.userManagement}
           alt="DeepQ 사용자 관리 화면"
           caption="비식별 처리 이미지 — 사용자와 권한, DB 연결 계정을 운영 단위로 관리"
         />
-        <DeepQCompactFigure
+        <CompactFigure
           src={deepqScreens.responseDetail}
           alt="DeepQ 응답 상세 정보 패널"
           caption="비식별 처리 이미지 — Generated SQL, 실행 결과, 최종 답변을 추적할 수 있는 운영 구조"
@@ -1804,8 +1804,8 @@ function DeepQTradeOffSection() {
   return (
     <CaseSection
       number="14 / Trade-off"
-      title="쉬운 질문 경험과 검증 가능한 분석 구조 사이의 균형을 잡았다"
-      description="DeepQ는 사용자가 쉽게 질문할 수 있어야 하지만, 너무 단순하면 AI 답변을 신뢰하기 어렵습니다."
+      title="질문 입력의 단순함과 분석 근거 노출 범위를 조정했다"
+      description="DeepQ는 사용자가 쉽게 질문할 수 있어야 했지만, 답변 근거가 부족하면 Enterprise 환경에서 검토가 어려웠습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         반대로 SQL, 데이터 구조, 실행 과정, 메타데이터를 모두 전면에 노출하면 현업
@@ -1831,7 +1831,7 @@ function DeepQTradeOffSection() {
           ]}
         />
         <ListCard
-          title="Chosen Direction"
+          title="Selected Scope"
           items={[
             "질문 중심의 단순한 기본 경험",
             "필요할 때 확인 가능한 SQL/테이블/차트/설명 레이어",
@@ -1866,12 +1866,12 @@ function DeepQSystemCoverageSection() {
   return (
     <CaseSection
       number="15 / System Coverage"
-      title="질문 경험부터 운영 관리까지 하나의 제품으로 설계했다"
-      description="DeepQ는 질문 입력 화면 하나가 아니라, AI 데이터 분석 서비스가 실제 조직 안에서 운영되기 위해 필요한 화면 범위를 함께 설계했습니다."
+      title="질문 입력부터 운영 관리까지 필요한 화면 범위를 정리했다"
+      description="DeepQ는 질문 입력 화면에 그치지 않고, AI 데이터 분석 서비스가 조직 안에서 운영되기 위해 필요한 화면 범위를 함께 포함했습니다."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {screens.map(([title, src]) => (
-          <DeepQCompactFigure
+          <CompactFigure
             key={`${title}-${src}`}
             src={src}
             alt={`DeepQ ${title} 화면`}
@@ -1887,8 +1887,8 @@ function DeepQOutcomeSection() {
   return (
     <CaseSection
       number="16 / Product Outcome & Next Metrics"
-      title="제품 구조로 무엇을 만들었는가"
-      description="정식 운영 성과 수치를 주장하기보다, 제품 구조상 어떤 분석 흐름과 운영 흐름을 가능하게 했는지 중심으로 정리합니다."
+      title="제품 구조와 운영 후 검증 지표를 정리했다"
+      description="정식 운영 성과 수치를 주장하지 않고, 제품 구조상 어떤 분석 절차와 운영 절차를 가능하게 했는지 중심으로 정리합니다."
     >
       <TwoColumn>
         <ListCard
@@ -1916,7 +1916,7 @@ function DeepQOutcomeSection() {
             "관리자 응답 상세 확인 빈도",
             "오류 발생률",
             "비용/토큰 사용량 추이",
-            "사용자가 AI 답변을 신뢰한다고 판단할 수 있는 정성 피드백",
+            "사용자의 AI 답변 신뢰 여부를 확인할 수 있는 정성 피드백",
           ]}
         />
       </TwoColumn>
@@ -1928,19 +1928,19 @@ function DeepQReflectionSection() {
   return (
     <CaseSection
       number="17 / Reflection"
-      title="AI 답변보다 중요한 것은 사용자가 검토할 수 있는 구조였다"
-      description="DeepQ를 설계하면서 가장 중요하게 본 것은 AI가 얼마나 많은 답을 생성하는지가 아니었습니다. 사용자가 그 답을 업무에 활용해도 되는지 판단할 수 있는 구조가 필요했습니다."
+      title="AI 답변을 업무에 활용하기 위한 검토 구조를 정리했다"
+      description="DeepQ를 설계하면서 확인한 지점은 AI가 생성하는 답변의 양보다, 사용자가 그 답을 업무에 활용해도 되는지 검토할 수 있는 구조였습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
         그래서 질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 로그를 연결해
-        AI 답변을 일회성 메시지가 아니라 검토 가능한 분석 기록으로 다루는 방향을
+        AI 답변을 일회성 메시지로 두지 않고 검토 가능한 분석 기록으로 다루는 방향을
         선택했습니다.
       </p>
       <TwoColumn className="mt-8">
         <ListCard
-          title="잘한 것"
+          title="구조화한 지점"
           items={[
-            "자연어 질문 경험을 단순 답변 UI가 아니라 데이터 분석 제품 구조로 확장",
+            "자연어 질문 경험을 데이터 분석 제품 구조로 확장",
             "답변 준비 과정을 시각화해 AI의 불투명성을 줄임",
             "SQL, 테이블, 차트, 설명, 추천 질문을 분리해 사용자별 검토 깊이를 조절할 수 있게 함",
             "관리자 대시보드와 대화이력 모니터링까지 설계해 Enterprise 운영 가능성을 확보",
@@ -1980,7 +1980,7 @@ function GuardianHeroSection() {
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.54fr] lg:items-end">
         <div>
           <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
-            AI 도구를 허용할수록, 조직은 무엇을 감시하고 통제해야 할까?
+            AI 도구를 허용할수록, 조직은 무엇을 확인하고 통제해야 할까?
           </h1>
           <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-lg">
             Enterprise Gen AI Security Platform — Designing visibility, policy,
@@ -1988,7 +1988,7 @@ function GuardianHeroSection() {
           </p>
           <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
             삼성 도입 검토를 위해 설계한 Enterprise Gen AI Security Platform입니다.
-            조직이 Gen AI 사용을 단순히 차단하는 것이 아니라, 사용 현황을
+            조직이 Gen AI 사용을 차단만 하는 방식에서 벗어나, 사용 현황을
             파악하고 정책을 설정하며 위반 처리와 감사 기록까지 이어지는 운영
             구조를 설계했습니다.
           </p>
@@ -2030,13 +2030,13 @@ function GuardianWhySection() {
   return (
     <CaseSection
       number="01"
-      title="복잡한 AI 보안 운영을 제품 구조로 설명하는 케이스다"
-      description="이 포트폴리오는 많은 프로젝트를 나열하기보다, 복잡한 제품 문제를 깊게 파고드는 방식을 보여주기 위해 4개의 케이스스터디만 선별했습니다."
+      title="AI 보안 운영을 제품 구조로 정리한 케이스"
+      description="이 포트폴리오는 프로젝트 수보다 복잡한 제품 문제를 분석하고 구조화한 방식을 보여주기 위해 4개의 케이스스터디를 선별했습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
         Guardian은 그중 Enterprise AI Security 영역을 보여주는 케이스입니다. AI
         도구 사용이 늘어나는 조직에서, 보안 운영자가 무엇을 보고 어떤 기준으로
-        판단하며 사고 이후 무엇을 추적해야 하는지를 제품 구조로 설계했습니다.
+        조치하며 사고 이후 무엇을 추적해야 하는지를 제품 구조로 정리했습니다.
       </p>
       <div className="mt-8 grid gap-4 lg:grid-cols-4">
         {guardianWhyCards.map((card) => (
@@ -2051,8 +2051,8 @@ function GuardianContextSection() {
   return (
     <CaseSection
       number="02"
-      title="기업은 AI 사용을 막는 것이 아니라 운영해야 한다"
-      description="Gen AI 도구는 이미 업무 안으로 들어오고 있습니다. 문제는 사용 여부가 아니라, 조직이 어떤 사용을 허용하고 어떤 사용을 제한할지 판단할 수 있는 운영 구조가 있는가입니다."
+      title="기업 환경의 AI 사용 현황을 운영 단위로 구성했다"
+      description="Gen AI 도구는 이미 업무 안으로 들어오고 있습니다. 사용 여부 자체보다, 조직이 어떤 사용을 허용하고 어떤 사용을 제한할지 관리할 수 있는 운영 체계가 필요했습니다."
     >
       <Card title="대기업 환경 도입 검토">
         <p className="break-keep text-sm leading-7 text-white/55">
@@ -2083,8 +2083,8 @@ function GuardianWorkflowSection() {
   return (
     <CaseSection
       number="03"
-      title="보안 관리자는 어떤 정보를 보고 어떤 판단을 해야 하는가"
-      description="Guardian의 핵심 사용자는 일반 최종 사용자가 아니라, 조직의 AI 사용 리스크를 관리해야 하는 보안·운영 관리자입니다."
+      title="보안 관리자가 확인해야 할 정보와 조치 단위를 정리했다"
+      description="Guardian의 핵심 사용자는 일반 최종 사용자보다, 조직의 AI 사용 리스크를 관리해야 하는 보안·운영 관리자입니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
         사용자 분석의 초점은 화면 편의성보다, 관리자가 어떤 위험을 먼저 봐야
@@ -2119,8 +2119,8 @@ function GuardianProblemSection() {
   return (
     <CaseSection
       number="04"
-      title="문제는 AI 차단이 아니라 운영 가능한 통제 구조의 부재였다"
-      description="초기 문제는 AI 도구를 어떻게 막을 것인가처럼 보일 수 있습니다. 하지만 기업 환경에서는 차단만으로 사용 현황, 위반 원인, 사고 이후 추적을 다룰 수 없습니다."
+      title="AI 차단보다 운영 가능한 통제 체계가 부족했다"
+      description="초기에는 AI 도구 차단이 문제처럼 보일 수 있습니다. 하지만 기업 환경에서는 차단만으로 사용 현황, 위반 원인, 사고 이후 추적을 다룰 수 없습니다."
     >
       <SimpleTable
         headers={["기존 접근", "실제 UX 문제"]}
@@ -2128,7 +2128,7 @@ function GuardianProblemSection() {
       />
       <ClosingText>
         AI 사용 현황, 위반 감지, 정책 설정, 파일·채팅 기록, 권한 관리를 하나의
-        관리 흐름으로 재구성했다.
+        관리 절차로 재구성했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -2138,8 +2138,8 @@ function GuardianProductStructureSection() {
   return (
     <CaseSection
       number="05"
-      title="제품 구조를 보안 운영 흐름에 맞게 설계했다"
-      description="Guardian은 기능 메뉴를 나열하는 방식이 아니라, 관리자가 위험을 발견하고 조치하고 기록으로 남기는 운영 흐름을 기준으로 구조화했습니다."
+      title="제품 구조를 보안 운영 절차에 맞게 정리했다"
+      description="Guardian은 기능 메뉴를 나열하는 방식보다, 관리자가 위험을 발견하고 조치하고 기록으로 남기는 운영 절차를 기준으로 구조화했습니다."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {guardianStructureCards.map((card) => (
@@ -2158,7 +2158,7 @@ function GuardianProductStructureSection() {
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {guardianCoverageScreens.slice(0, 6).map((screen) => (
-          <GuardianCompactFigure
+          <CompactFigure
             key={screen.title}
             src={screen.src}
             alt={screen.alt}
@@ -2174,7 +2174,7 @@ function GuardianRiskModelSection() {
   return (
     <CaseSection
       number="06"
-      title="위험을 업무 단위로 다시 분류했다"
+      title="위험 이벤트를 업무 단위로 다시 분류했다"
       description="보안 리스크를 단순히 위험/정상으로 나누지 않고, 관리자가 실제로 조치할 수 있는 업무 단위로 분류했습니다."
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -2183,17 +2183,17 @@ function GuardianRiskModelSection() {
         ))}
       </div>
       <div className="mt-8 grid gap-4 lg:grid-cols-3">
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.violations}
           alt="Guardian 실시간 위반 화면"
           caption="위험 이벤트를 정책과 상태 기준으로 분류"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.policy}
           alt="Guardian 정책 관리 화면"
           caption="정책별 위반 건수와 상태를 함께 확인"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.files}
           alt="Guardian 파일 관리 화면"
           caption="파일 단위 위험과 처리 상태를 추적"
@@ -2207,8 +2207,8 @@ function GuardianRiskOverviewSection() {
   return (
     <CaseSection
       number="07"
-      title="첫 화면은 전체 로그가 아니라 대응 우선순위를 보여줘야 했다"
-      description="대시보드는 단순 사용량이 아니라, 위반 유형, 부서별 비율, 사용 AI 서비스, 정규화된 위반 TOP 항목을 함께 보여줍니다."
+      title="첫 화면에는 전체 로그보다 대응 우선순위를 배치했다"
+      description="대시보드는 단순 사용량보다, 위반 유형, 부서별 비율, 사용 AI 서비스, 정규화된 위반 TOP 항목을 함께 보여주는 방식으로 구성했습니다."
     >
       <ScreenFigure
         src={guardianScreens.dashboard}
@@ -2218,7 +2218,7 @@ function GuardianRiskOverviewSection() {
       />
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {guardianRiskOverviewDecisions.map((decision) => (
-          <DefinitionCard key={decision} title={decision} body="위험 흐름을 먼저 읽고 상세 이벤트로 이동하게 했다." />
+          <DefinitionCard key={decision} title={decision} body="위험 이벤트를 먼저 확인하고 상세 기록으로 이동하게 했다." />
         ))}
       </div>
     </CaseSection>
@@ -2229,7 +2229,7 @@ function GuardianViolationTriageSection() {
   return (
     <CaseSection
       number="08"
-      title="위반 이벤트는 감지보다 처리 흐름이 중요했다"
+      title="위반 이벤트는 감지 이후 처리 절차까지 필요했다"
       description="위반 상세에서는 사용자, 부서, AI 서비스, 감지 시각, 최고 위험도, 위반 정책을 한 번에 확인할 수 있게 했습니다."
     >
       <div className="grid gap-5 lg:grid-cols-[1fr_0.42fr]">
@@ -2246,7 +2246,7 @@ function GuardianViolationTriageSection() {
       </div>
       <TwoColumn className="mt-8">
         <ListCard title="정보 구조" items={[...guardianViolationInfo]} />
-        <ListCard title="설계 판단" items={[...guardianViolationDecisions]} />
+        <ListCard title="설계 기준" items={[...guardianViolationDecisions]} />
       </TwoColumn>
     </CaseSection>
   )
@@ -2256,7 +2256,7 @@ function GuardianPolicyControlSection() {
   return (
     <CaseSection
       number="09"
-      title="정책은 관리자가 조정 가능한 조건이어야 했다"
+      title="정책은 관리자가 조정 가능한 조건으로 나눴다"
       description="정책 관리는 키워드, AI 모델, 파일 확장자, 최대 파일 크기처럼 관리자가 실제로 조정할 수 있는 조건으로 나눴습니다."
     >
       <div className="grid gap-5 lg:grid-cols-[1fr_0.42fr]">
@@ -2278,7 +2278,7 @@ function GuardianPolicyControlSection() {
           caption="File Rule — 허용 확장자와 최대 파일 크기를 운영 조건으로 조정"
         />
         <ListCard
-          title="설계 포인트"
+          title="설계 기준"
           intro="정책별 위반 건수와 상태를 함께 노출해, 정책이 실제 위험 이벤트와 연결되도록 했다."
           items={[...guardianPolicyPoints]}
         />
@@ -2291,8 +2291,8 @@ function GuardianAuditTrailSection() {
   return (
     <CaseSection
       number="10"
-      title="사고 이후에는 메시지와 파일 기록을 추적할 수 있어야 했다"
-      description="채팅과 파일 기록은 단순 보관이 아니라 감사와 사고 대응의 근거입니다."
+      title="사고 이후 추적을 위해 메시지와 파일 기록을 연결했다"
+      description="채팅과 파일 기록은 보관 대상에 그치지 않고, 감사와 사고 대응의 근거로 사용됩니다."
     >
       <div className="grid gap-5 lg:grid-cols-2">
         <ScreenFigure
@@ -2325,7 +2325,7 @@ function GuardianAuditTrailSection() {
       </div>
       <div className="mt-8">
         <ListCard
-          title="설계 포인트"
+          title="설계 기준"
           intro="관리자는 메시지, 파일, AI 서비스, 사용자, 위험도, 처리 상태를 연결해 확인하고 필요한 기록을 내보낼 수 있다."
           items={[...guardianAuditPoints]}
         />
@@ -2338,7 +2338,7 @@ function GuardianAccessControlSection() {
   return (
     <CaseSection
       number="11"
-      title="AI 사용 통제는 조직 권한 구조 위에서 작동해야 했다"
+      title="AI 사용 통제는 조직 권한 체계와 함께 작동하도록 구성했다"
       description="같은 AI 도구라도 부서, 직급, 역할에 따라 허용 범위가 달라질 수 있습니다."
     >
       <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
@@ -2366,34 +2366,34 @@ function GuardianAccessControlSection() {
         </div>
       </div>
       <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.departments}
           alt="Guardian 부서 관리 화면"
           caption="부서 기준 정책 적용 범위"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.roles}
           alt="Guardian 직급 관리 화면"
           caption="직급 기준 책임 범위"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.adminDetail}
           alt="Guardian 관리자 상세 정보 패널"
           caption="관리자 상태와 접속 이력"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.login}
           alt="Guardian 관리자 로그인 화면"
           caption="콘솔 진입 전 인증 흐름"
         />
-        <GuardianCompactFigure
+        <CompactFigure
           src={guardianScreens.otpDevice}
           alt="Guardian OTP 인증 기기 등록 화면"
           caption="관리자 접근을 보호하는 인증 흐름"
         />
       </div>
       <div className="mt-8">
-        <ListCard title="설계 판단" items={[...guardianAccessPoints]} />
+        <ListCard title="설계 기준" items={[...guardianAccessPoints]} />
       </div>
     </CaseSection>
   )
@@ -2403,12 +2403,12 @@ function GuardianSystemCoverageSection() {
   return (
     <CaseSection
       number="12"
-      title="운영에 필요한 화면 범위를 함께 설계했다"
-      description="Guardian은 하나의 대시보드가 아니라, AI 사용을 운영하기 위해 필요한 관리 화면들이 연결된 콘솔입니다."
+      title="운영에 필요한 관리 화면 범위를 함께 정리했다"
+      description="Guardian은 대시보드 한 화면에 그치지 않고, AI 사용을 운영하기 위해 필요한 관리 화면들이 연결된 콘솔입니다."
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {guardianCoverageScreens.map((screen) => (
-          <GuardianCompactFigure
+          <CompactFigure
             key={screen.title}
             src={screen.src}
             alt={screen.alt}
@@ -2424,13 +2424,13 @@ function GuardianTradeOffSection() {
   return (
     <CaseSection
       number="13"
-      title="감시처럼 보이지 않게, 통제 가능성을 설계했다"
-      description="모든 행동을 감시하는 구조는 사용자 반발을 만들 수 있습니다. 반대로 아무것도 보지 않으면 조직은 AI 사용 리스크를 통제할 수 없습니다."
+      title="전수 감시보다 위험 이벤트 중심의 통제 범위를 선택했다"
+      description="모든 행동을 기록하는 방식은 사용자 반발을 만들 수 있습니다. 반대로 아무것도 보지 않으면 조직은 AI 사용 리스크를 통제할 수 없습니다."
     >
       <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
         <p className="max-w-3xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-white">
-          개인의 모든 행동이 아니라, 정책 위반 가능성이 있는 메시지·파일·AI 사용
-          이벤트를 중심으로 구조화했다.
+          개인의 모든 행동보다, 정책 위반 가능성이 있는 메시지·파일·AI 사용
+          이벤트를 중심으로 구조화했습니다.
         </p>
       </div>
       <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -2439,8 +2439,8 @@ function GuardianTradeOffSection() {
         ))}
       </div>
       <ClosingText>
-        차단, 경고, 상세 확인, 내보내기, 권한 관리가 이어지는 운영 흐름을 설계해
-        보안팀이 대응 가능한 단위로 위험을 다룰 수 있게 했다.
+        차단, 경고, 상세 확인, 내보내기, 권한 관리가 이어지는 운영 절차를 설계해
+        보안팀이 대응 가능한 단위로 위험을 다룰 수 있게 했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -2450,8 +2450,8 @@ function GuardianOutcomeSection() {
   return (
     <CaseSection
       number="14"
-      title="정식 운영 성과보다 제품 구조로 무엇을 만들었는지 정리했다"
-      description="운영 성과 수치를 주장하기보다, 제품 구조상 어떤 운영 흐름을 가능하게 했는지 중심으로 정리합니다."
+      title="제품 구조와 운영 후 검증 지표를 정리했다"
+      description="운영 성과 수치를 주장하지 않고, 제품 구조상 어떤 운영 절차를 가능하게 했는지 중심으로 정리합니다."
     >
       <TwoColumn>
         <ListCard title="Product Outcome" items={[...guardianProductOutcomes]} />
@@ -2469,8 +2469,8 @@ function GuardianReflectionSection() {
   return (
     <CaseSection
       number="15"
-      title="제품화 관점에서 더 고도화할 것"
-      description="회고는 감상보다 다음 판단 기준이어야 한다. 운영 구조를 확장할 때 어떤 부분을 더 검증하고 세분화해야 하는지로 정리했다."
+      title="제품화 관점에서 추가 검증할 지점"
+      description="운영 구조를 확장할 때 어떤 부분을 더 검증하고 세분화해야 하는지 기준으로 정리했습니다."
     >
       <div className="grid gap-4 lg:grid-cols-2">
         {guardianReflectionColumns.map((column) => (
@@ -2499,11 +2499,11 @@ function HeroSection() {
             AI가 추천해도, 점주는 왜 바로 주문하지 못했을까?
           </h1>
           <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/55 md:text-lg">
-            AI Decision UX — 점주가 추천을 검토하고 조정하는 운영 판단 구조
+            AI Decision UX — 추천 검토와 발주 조정을 지원하는 운영 UX
           </p>
           <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
-            AI 기능 제작 사례가 아니라, 추천의 근거와 조정 흐름을 설계해 점주의
-            최종 판단권을 유지한 Product UX 케이스다.
+            AI 기능 자체보다, 추천 근거와 수량 조정 단계를 설계해 점주의
+            최종 승인권을 유지한 Product UX 케이스입니다.
           </p>
           <div className="mt-7 flex flex-wrap gap-2">
             <TagText>B2B</TagText>
@@ -2537,7 +2537,7 @@ function HeroSection() {
         <ScreenFigure
           src={`${imageBase}/pos-dashboard-overview.png`}
           alt="SPC Dunkin POS 종합현황 디자인 화면"
-          caption="디자인 파일 이미지 — 점주가 당일 운영 판단을 시작하는 종합현황 화면"
+          caption="디자인 파일 이미지 — 점주가 당일 매출과 생산 상태를 함께 확인하는 종합현황 화면"
           wide
         />
       </div>
@@ -2549,8 +2549,8 @@ function BusinessContextSection() {
   return (
     <CaseSection
       number="01"
-      title="데이터는 있었지만, 점주의 판단 흐름에는 닿지 않았다"
-      description="SPC 던킨 매장은 본사, 주문, 생산, 매출 데이터를 이미 갖고 있었다. 문제는 데이터의 존재가 아니라, 점주가 운영 중 그 데이터를 판단 가능한 순서로 받지 못한다는 점이었다."
+      title="데이터는 있었지만, 매장 운영 순서로 전달되지는 않았다"
+      description="SPC 던킨 매장은 본사, 주문, 생산, 매출 데이터를 이미 갖고 있었습니다. 확인된 간격은 데이터의 존재보다, 점주가 운영 중 필요한 순서로 그 데이터를 받지 못한다는 점이었습니다."
     >
       <DiagramCard
         title="이해관계자 구조"
@@ -2576,7 +2576,7 @@ function BusinessContextSection() {
       <div className="mt-6">
         <DiagramCard
           title="에이전트 아키텍처"
-          nodes={["생산관리", "주문관리", "매출분석", "PIP AI 통합", "점주 판단"]}
+          nodes={["생산관리", "주문관리", "매출분석", "PIP AI 통합", "점주 발주 결정"]}
         />
       </div>
     </CaseSection>
@@ -2585,7 +2585,7 @@ function BusinessContextSection() {
 
 function ProblemSection() {
   const rows = [
-    ["데이터가 부족하다", "데이터를 보고도 판단할 수 없다"],
+    ["데이터가 부족하다", "데이터를 보고도 조치를 정하기 어렵다"],
     ["AI가 틀렸다", "AI를 믿을 근거가 없다"],
     ["기능이 부족하다", "결정 비용이 너무 높다"],
   ] as const
@@ -2593,16 +2593,16 @@ function ProblemSection() {
   return (
     <CaseSection
       number="02"
-      title="문제는 AI 기능이 아니라, 추천을 검토할 근거가 없다는 점이었다"
-      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리해야 했다. 핵심 문제는 AI 추천을 더 많이 만드는 것이 아니라, 점주가 추천을 믿거나 수정할 기준을 갖는 것이었다."
+      title="AI 추천보다 추천을 검토할 근거가 부족했다"
+      description="제한된 리소스와 짧은 일정 안에서 PoC 방향을 다시 정리했습니다. 확인된 지점은 AI 추천 수를 늘리는 것보다, 점주가 추천을 수용하거나 수정할 기준을 갖는 것이었습니다."
     >
       <SimpleTable
         headers={["기존 가설", "실제 문제"]}
         rows={rows.map(([before, after]) => [before, after])}
       />
       <ClosingText>
-        따라서 설계 목표는 AI 추천을 더 많이 보여주는 것이 아니라, 점주가 추천을
-        이해하고, 조정하고, 책임 있게 결정할 수 있는 흐름을 만드는 것이었다.
+        따라서 설계 목표는 AI 추천 수를 늘리는 데 두지 않고, 점주가 추천을
+        이해하고, 조정하고, 최종 승인할 수 있는 발주 절차를 만드는 것이었습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -2612,8 +2612,8 @@ function ResearchSection() {
   return (
     <CaseSection
       number="03"
-      title="현장에서는 숫자보다 판단 기준이 부족했다"
-      description="인터뷰, FGI, 카드소팅에서 반복된 문제는 기능 부족보다 신뢰, 지연, 책임의 문제였다. 점주는 숫자를 보는 것보다 그 숫자로 무엇을 해야 하는지 알고 싶어 했다."
+      title="현장 리서치에서는 숫자보다 운영 기준의 부족이 반복됐다"
+      description="인터뷰, FGI, 카드소팅에서는 기능 수보다 신뢰, 지연, 책임의 문제가 반복되었습니다. 점주는 숫자 자체보다 그 숫자를 바탕으로 어떤 조치를 해야 하는지 확인하고 싶어 했습니다."
     >
       <div className="grid gap-4 md:grid-cols-3">
         {researchMethods.map((method) => (
@@ -2655,8 +2655,8 @@ function JourneySection() {
   return (
     <CaseSection
       number="04"
-      title="점주의 하루는 판단해야 하는 순간마다 멈췄다"
-      description="하루 흐름을 기준으로 보면 문제는 화면 수가 아니라, 판단해야 하는 순간마다 필요한 근거가 흩어져 있다는 점이었다."
+      title="점주의 하루에서 발주와 생산 결정 지점이 반복적으로 끊겼다"
+      description="하루 운영을 기준으로 보면 화면 수보다, 발주·생산·손익 확인 시점마다 필요한 근거가 흩어져 있다는 점이 드러났습니다."
     >
       <ResponsiveTable>
         <thead>
@@ -2689,8 +2689,8 @@ function PrincipleSection() {
   return (
     <CaseSection
       number="05"
-      title="AI 추천은 근거, 조정, 복구 장치와 함께 제공되어야 했다"
-      description="현장에서 확인한 불신과 판단 지연을 화면의 기준, 수정 흐름, 되돌리기 장치로 연결했다."
+      title="AI 추천에 근거, 조정, 복구 장치를 함께 배치했다"
+      description="현장에서 확인한 불신과 처리 지연을 추천 기준, 수량 수정 단계, 되돌리기 장치로 연결했습니다."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {patterns.map((pattern) => (
@@ -2709,8 +2709,8 @@ function PrincipleSection() {
         ))}
       </div>
       <ClosingText>
-        AI가 결정을 대신하는 것이 아니라, 점주가 더 나은 결정을 할 수 있도록
-        판단 기준과 복구 장치를 설계했다.
+        AI가 결정을 대신하지 않고, 점주가 추천을 검토하고 발주 책임을 유지할 수 있도록
+        기준과 복구 장치를 설계했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -2720,8 +2720,8 @@ function RequirementMappingSection() {
   return (
     <CaseSection
       number="06"
-      title="요구사항을 기능이 아니라 검증 가능한 판단 흐름으로 바꿨다"
-      description="요구사항은 기능 목록으로 끝내지 않았다. 점주가 어디에서 멈추는지, 어떤 지표로 운영 검증이 필요한지 함께 매핑했다."
+      title="요구사항을 검증 가능한 운영 시나리오로 바꿨다"
+      description="요구사항을 기능 목록으로 끝내지 않고, 점주가 어디에서 멈추는지와 어떤 지표로 운영 검증이 필요한지를 함께 매핑했습니다."
     >
       <ResponsiveTable>
         <thead>
@@ -2752,8 +2752,8 @@ function IaRedesignSection() {
   return (
     <CaseSection
       number="07"
-      title="기능 메뉴를 점주의 판단 순서로 다시 묶었다"
-      description="점주가 기능명을 찾는 구조에서, 지금 해야 할 판단을 따라가는 구조로 바꾸었다."
+      title="기능 메뉴를 발주·생산·손익 확인 순서로 다시 묶었다"
+      description="점주가 기능명을 찾는 구조에서, 당일 운영 업무를 따라가는 구조로 바꾸었습니다."
     >
       <div className="grid gap-4 md:grid-cols-2">
         <BeforeAfterCard
@@ -2766,7 +2766,7 @@ function IaRedesignSection() {
             "4개 그룹",
             "추천 · 도넛/먼치킨 · 커피/음료 · 핫밀",
             "핵심 정보 탐색 뎁스 1단계",
-            "점주의 판단 흐름 기준으로 재구성",
+            "점주의 발주·생산 업무 기준으로 재구성",
           ]}
         />
       </div>
@@ -2838,13 +2838,13 @@ function UxDesignSection() {
   return (
     <CaseSection
       number="08"
-      title="AI가 결정하지 않고, 점주가 판단할 수 있게 했다"
-      description="화면은 AI 결과를 보여주는 곳이 아니라, 점주가 근거를 확인하고 수정한 뒤 결정하는 작업 공간이어야 했다."
+      title="AI 추천 이후 점주가 검토하고 승인하는 작업 공간을 만들었다"
+      description="화면을 AI 결과 표시 영역으로 두지 않고, 점주가 근거를 확인하고 수량을 수정한 뒤 승인하는 작업 공간으로 구성했습니다."
     >
       <DesignBlock
         eyebrow="01"
         title="행동 중심 정보 설계"
-        body="숫자 나열을 지금 무엇을 해야 하는지로 바꿨다. 기회손실 금액, 소진 예상 시간, 생산 완료 후 피드백을 같은 판단 흐름 안에서 확인하게 했다."
+        body="숫자 나열을 당장 확인해야 할 운영 정보로 바꿨습니다. 기회손실 금액, 소진 예상 시간, 생산 완료 후 피드백을 같은 화면 맥락에서 확인하게 했습니다."
       >
         <div className="grid gap-4 md:grid-cols-2">
           <FormulaCard label="찬스로스" value="재고 0 시간대 평균 판매속도 역산 × 단가" />
@@ -2857,12 +2857,12 @@ function UxDesignSection() {
           <ScreenFigure
             src={`${imageBase}/pos-dashboard-overview.png`}
             alt="POS 종합현황 디자인"
-            caption="디자인 파일 이미지 — 당일 운영 판단의 시작점"
+            caption="디자인 파일 이미지 — 당일 매출과 재고 상태를 함께 확인하는 시작 화면"
           />
           <ScreenFigure
             src={`${imageBase}/pos-production-management.png`}
             alt="POS 생산관리 디자인"
-            caption="디자인 파일 이미지 — 생산 지시 여부를 판단하는 흐름"
+            caption="디자인 파일 이미지 — 소진 예상 시간과 생산 지시 여부를 함께 확인하는 화면"
           />
         </div>
       </DesignBlock>
@@ -2870,7 +2870,7 @@ function UxDesignSection() {
       <DesignBlock
         eyebrow="02"
         title="검증 가능한 AI 신뢰 구조"
-        body="AI 추천을 믿을 근거를 화면 안에 넣었다. 추천량, 오차 기준, 에이전트 판단 로그를 통해 점주가 AI의 제안을 검토할 수 있게 했다."
+        body="AI 추천을 검토할 근거를 화면 안에 배치했습니다. 추천량, 오차 기준, 에이전트 로그를 통해 점주가 AI의 제안을 검토할 수 있게 했습니다."
       >
         <div className="grid gap-4 md:grid-cols-2">
           <FormulaCard
@@ -2883,7 +2883,7 @@ function UxDesignSection() {
           <ScreenFigure
             src={`${imageBase}/pos-ai-realtime-status.png`}
             alt="POS AI 실시간 현황 디자인"
-            caption="디자인 파일 이미지 — AI 판단 근거와 에이전트 상태를 확인하는 화면"
+            caption="디자인 파일 이미지 — AI 추천 근거와 에이전트 상태를 확인하는 화면"
             wide
           />
         </div>
@@ -2892,11 +2892,11 @@ function UxDesignSection() {
       <DesignBlock
         eyebrow="03"
         title="통제 가능한 발주 설계"
-        body="AI 추천 → 수량 조정 → 최종 확인의 3단계로 분리했다. AI가 자동으로 결정하는 구조가 아니라, 점주가 마지막 판단권을 유지하는 구조로 설계했다."
+        body="AI 추천 → 수량 조정 → 최종 확인의 3단계로 분리했습니다. AI가 자동으로 결정하지 않고, 점주가 마지막 승인권을 유지하는 구조로 설계했습니다."
       >
         <div className="grid gap-4 md:grid-cols-3">
           <DefinitionCard title="130% 초과" body="재확인 팝업" />
-          <DefinitionCard title="4주 평균 180% 초과" body="이상 주문으로 판단" />
+          <DefinitionCard title="4주 평균 180% 초과" body="이상 주문으로 분류" />
           <DefinitionCard title="5초" body="Undo 제공" />
         </div>
         <div className="mt-6 grid gap-4 lg:grid-cols-3">
@@ -2915,13 +2915,13 @@ function UxDesignSection() {
         <DesignBlock
           eyebrow="04"
           title="Undo, Not Confirm"
-          body="확인 팝업으로 모든 흐름을 끊는 대신, 일부 빠른 작업에는 5초 Undo를 제공했다. 피크타임 처리 속도와 오조작 복구 가능성을 함께 고려했다."
+          body="확인 팝업으로 모든 작업을 끊는 대신, 일부 빠른 작업에는 5초 Undo를 제공했습니다. 피크타임 처리 속도와 오조작 복구 가능성을 함께 고려했습니다."
           compact
         />
         <DesignBlock
           eyebrow="05"
           title="본사 관점: HQ Console"
-          body="점주 사용 데이터가 쌓이면 본사는 33개 점포의 운영 패턴을 집계할 수 있다. 발주 추천의 적합성, 폐기율 변화, 공급망 조정 여부를 확인할 기반 데이터로 연결되도록 설계했다."
+          body="점주 사용 데이터가 쌓이면 본사는 33개 점포의 운영 패턴을 집계할 수 있습니다. 발주 추천의 적합성, 폐기율 변화, 공급망 조정 여부를 확인할 기반 데이터로 연결되도록 설계했습니다."
           compact
         />
       </div>
@@ -2929,14 +2929,14 @@ function UxDesignSection() {
       <DesignBlock
         eyebrow="06"
         title="모바일 UX 원칙"
-        body="모바일은 전체 기능을 압축한 화면이 아니라, 매장 밖에서도 판단을 이어갈 수 있는 보조 의사결정 흐름으로 정의했다."
+        body="모바일은 전체 기능을 압축하기보다, 매장 밖에서도 생산·발주 상태를 이어서 확인할 수 있는 보조 운영 화면으로 정의했습니다."
       >
         <div className="grid gap-4 md:grid-cols-3">
           <DefinitionCard title="Context Continuity" body="POS와 동일 데이터를 모바일에서 이어서 확인" />
           <DefinitionCard title="Remote Decision" body="매장 부재 중에도 생산지시·발주 가능" />
           <DefinitionCard
             title="Information Compression"
-            body="모든 기능이 아니라 주요 판단 흐름만 제공"
+            body="모든 기능보다 주요 운영 확인 단계만 제공"
           />
         </div>
         <div className="mt-6">
@@ -2984,26 +2984,26 @@ function KeyScreensSection() {
   return (
     <CaseSection
       number="09"
-      title="화면은 다음 행동을 결정하는 증거가 되어야 했다"
-      description="각 화면은 정보를 보여주는 단위가 아니라, 점주가 다음 결정을 내리는 단위로 정리했다."
+      title="각 화면을 다음 운영 행동과 연결해 설명했다"
+      description="각 화면을 정보 노출 단위보다, 점주가 다음 운영 행동을 확인하는 단위로 정리했습니다."
     >
       <div className="space-y-10">
         <ScreenFigure
           src={`${imageBase}/pos-dashboard-overview.png`}
           alt="POS 종합현황 대시보드"
-          caption="디자인 파일 이미지 — 당일 매출, 추천 행동, 손실 가능성을 같은 판단 화면으로 묶었다."
+          caption="디자인 파일 이미지 — 당일 매출, 추천 행동, 손실 가능성을 같은 화면에서 확인하게 했다."
           wide
         />
         <div className="grid gap-4 lg:grid-cols-2">
           <ScreenFigure
             src={`${imageBase}/pos-production-management.png`}
             alt="POS 생산관리 화면"
-            caption="디자인 파일 이미지 — 소진 예상과 생산 지시를 같은 흐름에 놓아 즉시 조치 여부를 판단하게 했다."
+            caption="디자인 파일 이미지 — 소진 예상과 생산 지시를 함께 배치해 즉시 조치 여부를 확인하게 했다."
           />
           <ScreenFigure
             src={`${imageBase}/pos-order-management-overview.png`}
             alt="POS 발주관리 화면"
-            caption="디자인 파일 이미지 — 추천과 수동 조정을 분리해 최종 판단 전 검토하게 했다."
+            caption="디자인 파일 이미지 — 추천과 수동 조정을 분리해 최종 승인 전 검토하게 했다."
           />
         </div>
         <div className="grid gap-4 lg:grid-cols-3">
@@ -3019,7 +3019,7 @@ function KeyScreensSection() {
         <ScreenFigure
           src={`${imageBase}/pos-ai-realtime-status.png`}
           alt="POS AI 실시간 현황 화면"
-          caption="디자인 파일 이미지 — 에이전트별 상태와 추천 근거를 통해 AI 판단을 추적하게 했다."
+          caption="디자인 파일 이미지 — 에이전트별 상태와 추천 근거를 통해 AI 제안을 추적하게 했다."
           wide
         />
         <div className="grid gap-4 md:grid-cols-2">
@@ -3066,12 +3066,12 @@ function TradeOffSection() {
   return (
     <CaseSection
       number="10"
-      title="모든 데이터를 보여주는 대신 즉시 판단을 남겼다"
-      description="모든 데이터를 보여주지 않기로 결정했다. 고급 커스터마이징과 일부 상세 분석을 줄이고, 바쁜 아침에 점주가 바로 판단해야 하는 정보만 전면에 배치했다."
+      title="전체 데이터보다 즉시 조치에 필요한 정보만 전면에 남겼다"
+      description="모든 데이터를 보여주기보다, 고급 커스터마이징과 일부 상세 분석을 줄이고 바쁜 아침에 점주가 바로 확인해야 하는 정보만 전면에 배치했습니다."
     >
       <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
         <p className="max-w-2xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-white">
-          더 많은 정보보다, 더 빠른 판단이 우선이었다.
+          더 많은 정보보다, 피크타임에 바로 조치할 수 있는 정보가 우선이었습니다.
         </p>
       </div>
       <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -3087,17 +3087,17 @@ function SpeedWorkflowSection() {
   return (
     <CaseSection
       number="11"
-      title="AI와 프론트엔드 구현은 판단 속도를 높이는 도구로 사용했다"
-      description="프로젝트는 제한된 일정과 적은 인원 안에서 진행됐다. AI는 결과물 대체가 아니라 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용했다."
+      title="AI와 프론트엔드 구현은 반복 작업과 화면 검증에 사용했다"
+      description="프로젝트는 제한된 일정과 적은 인원 안에서 진행되었습니다. AI는 결과물 대체용으로 쓰지 않고 리서치 요약, 구조 탐색, 화면 Draft, 프론트엔드 초안 생성에 사용했습니다."
     >
       <TwoColumn>
         <NumberedList title="아이디에이션 프로세스" items={ideationSteps} />
         <NumberedList title="실행 워크플로우" items={workflowSteps} />
       </TwoColumn>
       <ClosingText>
-        AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 판단을 맡는다. 구현은
+        AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 검토를 맡았습니다. 구현은
         컴포넌트 범위를 좁히고 POS·모바일 반응형 화면을 함께 점검하는 방식으로
-        진행했다.
+        진행했습니다.
       </ClosingText>
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         {workflowActualScreens.map((screen) => (
@@ -3117,8 +3117,8 @@ function ResultSection() {
   return (
     <CaseSection
       number="12"
-      title="비즈니스 성과가 아니라, 검증 가능한 제품 구조를 남겼다"
-      description="정식 운영 전 단계이므로 성과 수치가 아니라 UX 구조 변화와 운영 시 추적할 지표로 결과를 정리했다."
+      title="정식 운영 전 단계에서 검증 가능한 제품 구조를 정리했다"
+      description="정식 운영 전 단계이므로 성과 수치 대신 UX 구조 변화와 운영 시 추적할 지표로 결과를 정리했습니다."
     >
       <MetricGrid metrics={structureMetrics} />
       <TwoColumn className="mt-8">
@@ -3137,8 +3137,8 @@ function ReflectionSection() {
   return (
     <CaseSection
       number="13"
-      title="다음 검증은 추천 수용과 운영 리스크를 기준으로 해야 한다"
-      description="PoC에서 확인한 구조는 정식 운영 데이터와 점포별 운영 차이로 다시 검증되어야 한다."
+      title="다음 검증 기준은 추천 수용과 운영 리스크로 정리했다"
+      description="PoC에서 확인한 구조는 정식 운영 데이터와 점포별 운영 차이로 다시 검증할 필요가 있습니다."
     >
       <div className="grid gap-4 lg:grid-cols-4">
         {reflectionColumns.map((column) => (
@@ -3634,7 +3634,7 @@ function DeepQProductStructureVisual() {
   )
 }
 
-function DeepQCompactFigure({
+function CompactFigure({
   src,
   alt,
   caption,
@@ -3643,13 +3643,15 @@ function DeepQCompactFigure({
   alt: string
   caption: string
 }) {
+  const imageLoading = src.startsWith(deepqImageBase) ? "eager" : "lazy"
+
   return (
     <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
       <div className="aspect-[4/3] bg-black/30 p-2">
         <img
           src={src}
           alt={alt}
-          loading="eager"
+          loading={imageLoading}
           decoding="async"
           draggable={false}
           className="h-full w-full rounded-md object-contain"
@@ -3689,34 +3691,6 @@ function GuardianHeroVisual() {
       </div>
       <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
         비식별 처리 이미지 — 조직 전체 위험 흐름과 고위험 이벤트 처리 화면을 함께 배치
-      </figcaption>
-    </figure>
-  )
-}
-
-function GuardianCompactFigure({
-  src,
-  alt,
-  caption,
-}: {
-  src: string
-  alt: string
-  caption: string
-}) {
-  return (
-    <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-      <div className="aspect-[4/3] bg-black/30 p-2">
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-          className="h-full w-full rounded-md object-contain"
-        />
-      </div>
-      <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-5 text-white/45">
-        {caption}
       </figcaption>
     </figure>
   )
@@ -3850,14 +3824,13 @@ function StepHeroSection() {
       </div>
       <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
         <p className="break-keep">
-          STEP은 단일 교육 사이트가 아니라 여러 학습 서비스가 연결된 공공 포털이었다.
+          STEP은 단일 교육 사이트보다 여러 학습 서비스가 연결된 공공 포털에 가까웠습니다.
           이러닝, K-디지털, 가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지
-          서로 다른 목적의 기능이 한 화면 체계 안에 공존했다.
+          서로 다른 목적의 기능이 한 화면 체계 안에 공존했습니다.
         </p>
         <p className="break-keep">
-          핵심은 더 많은 콘텐츠를 보여주는 것이 아니라, 학습자가 과정을 찾고,
-          비교하고, 신청하고, 이후 학습을 이어갈 수 있도록 화면과 메뉴의 판단 순서를
-          정리하는 것이었다.
+          검토한 지점은 콘텐츠 양보다, 학습자가 과정을 찾고, 비교하고, 신청하고,
+          이후 학습을 이어갈 수 있도록 화면과 메뉴의 순서를 정리하는 것이었습니다.
         </p>
       </div>
       <div className="mt-8 flex flex-wrap gap-2">
@@ -3918,27 +3891,27 @@ function StepProblemSection() {
   const problems = [
     {
       title: "탐색 기준의 분산",
-      body: "이러닝, K-디지털, 가상훈련, 추천테마 등 콘텐츠 유형이 많아 사용자가 어디서 탐색을 시작해야 할지 판단하기 어려웠다.",
+      body: "이러닝, K-디지털, 가상훈련, 추천테마 등 콘텐츠 유형이 많아 사용자가 어디서 탐색을 시작해야 할지 확인하기 어려웠습니다.",
     },
     {
-      title: "수강 판단 정보의 흩어짐",
-      body: "과정 목록에서 교육비, 지원 기기, 운영사, 수료 여부 같은 판단 근거가 여러 단계에 분산되어 있었다.",
+      title: "수강 결정 정보의 흩어짐",
+      body: "과정 목록에서 교육비, 지원 기기, 운영사, 수료 여부 같은 수강 결정 근거가 여러 단계에 분산되어 있었습니다.",
     },
     {
-      title: "학습 지속 흐름의 단절",
-      body: "수강 이후 진도, 성적, 수료증, 후기 관리 흐름이 분리되어 있어 다음에 해야 할 행동을 확인하기 어려웠다.",
+      title: "학습 지속 과정의 단절",
+      body: "수강 이후 진도, 성적, 수료증, 후기 관리가 분리되어 있어 다음에 해야 할 행동을 확인하기 어려웠습니다.",
     },
     {
       title: "사용자 유형별 인증 복잡성",
-      body: "일반 학습자, 기업 담당자, 실무 담당자 등 사용자 유형에 따라 인증 조건과 가입 흐름이 달라 진입 자체에 마찰이 생겼다.",
+      body: "일반 학습자, 기업 담당자, 실무 담당자 등 사용자 유형에 따라 인증 조건과 가입 절차가 달라 진입 자체에 마찰이 생겼습니다.",
     },
   ]
 
   return (
     <CaseSection
       number="01 / Problem Definition"
-      title="문제는 기능 부족이 아니라, 판단 흐름의 분산이었다"
-      description="STEP에 없는 기능은 없었다. 하지만 사용자가 '다음에 무엇을 해야 하는가'를 화면 안에서 찾을 수 없었다."
+      title="기능 수보다 탐색과 신청 과정의 분산이 드러났다"
+      description="STEP에는 필요한 기능이 이미 많았습니다. 다만 사용자가 '다음에 무엇을 해야 하는가'를 화면 안에서 찾기 어려웠습니다."
     >
       <div className="grid gap-5 md:grid-cols-2">
         {problems.map((p) => (
@@ -3946,8 +3919,8 @@ function StepProblemSection() {
         ))}
       </div>
       <ClosingText>
-        각 문제는 "기능이 없다"가 아니라 "사용자가 다음 행동을 판단하기 어렵다"는
-        관점에서 재정의했다. 이것이 기능 추가가 아닌 구조 재설계로 방향을 잡은 근거였다.
+        각 항목은 "기능이 없다"보다 "사용자가 다음 행동을 찾기 어렵다"는
+        관점에서 재정의했습니다. 이것이 기능 추가가 아닌 구조 재설계로 방향을 잡은 근거였습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -4004,8 +3977,8 @@ function StepDiscoverySection() {
   return (
     <CaseSection
       number="02 / Discovery & Structuring"
-      title="화면을 다시 그리기 전에, 기능을 학습자의 행동 기준으로 재분류했다"
-      description="STEP은 다양한 기능이 각자 독립적으로 구성된 포털이었다. 처음부터 화면을 새로 그리기보다, 먼저 기존 기능과 화면을 학습자의 행동 목적 기준으로 재분류했다."
+      title="기존 기능을 학습자의 행동 목적 기준으로 재분류했다"
+      description="STEP은 다양한 기능이 각자 독립적으로 구성된 포털이었습니다. 처음부터 화면을 새로 그리기보다, 기존 기능과 화면을 학습자의 행동 목적 기준으로 먼저 재분류했습니다."
     >
       <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.035] p-6">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">기존 기능 단위</p>
@@ -4048,8 +4021,8 @@ function StepDiscoverySection() {
         ))}
       </div>
       <ClosingText>
-        기능을 줄인 것이 아니라, 사용자가 과정을 찾고·비교하고·신청하고·이어서 학습하고·지식을
-        확장하는 순서에 맞게 정보 구조를 다시 정리했다.
+        기능을 줄이기보다, 사용자가 과정을 찾고·비교하고·신청하고·이어서 학습하고·지식을
+        확장하는 순서에 맞게 정보 구조를 다시 정리했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -4112,19 +4085,19 @@ function StepCaptureStrategySection() {
   const capturePoints = [
     {
       title: "IA Evidence",
-      body: "전체 메뉴와 GNB 메가메뉴를 함께 캡처해, 학습 서비스가 어떤 상위 구조로 묶이는지 확인했다.",
+      body: "전체 메뉴와 GNB 메가메뉴를 함께 캡처해, 학습 서비스가 어떤 상위 구조로 묶이는지 확인했습니다.",
     },
     {
       title: "Decision Flow Evidence",
-      body: "검색 자동완성, 과정 목록, 과정 상세를 한 흐름으로 묶어 찾기 → 비교하기 → 신청 판단하기를 설명할 수 있게 했다.",
+      body: "검색 자동완성, 과정 목록, 과정 상세를 한 절차로 묶어 찾기 → 비교하기 → 신청하기를 설명할 수 있게 했습니다.",
     },
     {
       title: "Responsive Evidence",
-      body: "모바일 홈과 메뉴를 별도 캡처해, 작은 화면에서 포털 IA가 어떻게 재배치되는지 함께 보여준다.",
+      body: "모바일 홈과 메뉴를 별도 캡처해, 작은 화면에서 포털 IA가 어떻게 재배치되는지 함께 보여줍니다.",
     },
     {
       title: "Production Evidence",
-      body: "운영 화면 기준의 고화질 PNG를 사용해 디자인 산출물이 실제 서비스 구조로 연결된 맥락을 보강했다.",
+      body: "운영 화면 기준의 고화질 PNG를 사용해 디자인 산출물이 실제 서비스 구조로 연결된 맥락을 보강했습니다.",
     },
   ]
 
@@ -4163,8 +4136,8 @@ function StepCaptureStrategySection() {
   return (
     <CaseSection
       number="03 / Capture Evidence"
-      title="캡처 화면은 구조를 설명하는 근거가 되어야 했다"
-      description="STEP은 긴 포털 화면과 여러 메뉴 체계가 함께 작동하는 서비스다. 그래서 화면을 단순 나열하지 않고, IA와 학습 결정 흐름을 확인할 수 있는 장면을 우선 캡처했다."
+      title="캡처 화면은 IA와 학습 절차를 설명하는 근거로 선별했다"
+      description="STEP은 긴 포털 화면과 여러 메뉴 체계가 함께 작동하는 서비스입니다. 화면을 단순 나열하기보다, IA와 학습 결정 과정을 확인할 수 있는 장면을 우선 캡처했습니다."
     >
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {capturePoints.map((point) => (
@@ -4177,8 +4150,8 @@ function StepCaptureStrategySection() {
         ))}
       </div>
       <ClosingText>
-        고화질 캡처는 단순한 화면 나열이 아니라, 사용자가 포털에서 길을 찾고 판단하는 구조를
-        설명하기 위한 근거로 사용했다.
+        고화질 캡처는 단순한 화면 나열로 두지 않고, 사용자가 포털에서 길을 찾고 수강 여부를
+        검토하는 구조를 설명하기 위한 근거로 사용했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -4192,7 +4165,7 @@ function StepWorkflowSection() {
       surfaces: "메인 · 검색 · 카테고리 · 추천/인기",
     },
     {
-      stage: "비교·판단",
+      stage: "비교·검토",
       question: "이 과정이 내 목적과 조건에 맞는가?",
       surfaces: "목록 · 필터 · 카드 정보 · 미리보기",
     },
@@ -4221,8 +4194,8 @@ function StepWorkflowSection() {
   return (
     <CaseSection
       number="04 / User Workflow Analysis"
-      title="학습자는 콘텐츠를 보는 것이 아니라, 다음 행동을 결정해야 했다"
-      description="각 단계에서 사용자가 실제로 던지는 질문을 기준으로 흐름을 재구성했다. 이 질문들이 화면 구조를 결정하는 기준이 되었다."
+      title="학습자의 질문을 기준으로 탐색과 신청 단계를 정리했다"
+      description="각 단계에서 사용자가 실제로 던지는 질문을 기준으로 절차를 재구성했습니다. 이 질문들이 화면 구조를 결정하는 기준이 되었습니다."
     >
       <div className="space-y-3">
         {stages.map((s, i) => (
@@ -4283,8 +4256,8 @@ function StepIaSection() {
   return (
     <CaseSection
       number="05 / IA & Product Structure"
-      title="포털의 많은 기능을 학습 여정과 운영 여정으로 나눠 정리했다"
-      description="정보 구조는 기능 목록이 아니라 사용자가 언제 무엇을 필요로 하는지를 기준으로 재편성했다."
+      title="포털 기능을 학습 여정과 운영 지원 영역으로 나눠 정리했다"
+      description="정보 구조는 기능 목록보다, 사용자가 언제 무엇을 필요로 하는지를 기준으로 재편성했습니다."
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {groups.map((g) => (
@@ -4302,9 +4275,9 @@ function StepIaSection() {
         ))}
       </div>
       <ClosingText>
-        기능을 더 넣기보다, 정보가 놓이는 순서를 다시 잡는 것이 핵심이었다.
+        기능을 더 넣기보다, 정보가 놓이는 순서를 다시 잡는 것이 핵심이었습니다.
         사용자가 어떤 정보를 먼저 보고 어떤 행동으로 이어져야 하는지를 기준으로
-        화면 구조를 정리했다.
+        화면 구조를 정리했습니다.
       </ClosingText>
     </CaseSection>
   )
@@ -4314,32 +4287,32 @@ function StepKeyDecisionsSection() {
   const decisions = [
     {
       number: "Decision 01",
-      title: "메인을 콘텐츠 모음이 아니라 진입 목적별 허브로 재구성",
-      body: "이어서 학습하기, 인기 과정, 추천 과정, 새로 올라온 과정, 공지/이벤트/위키를 진입 목적에 따라 분리 배치했다. 전체 콘텐츠를 한 번에 보여주기보다, 사용자가 지금 어떤 행동을 원하는지에 따라 빠르게 이동할 수 있는 구조로 설계했다.",
+      title: "메인을 진입 목적별 허브로 재구성",
+      body: "이어서 학습하기, 인기 과정, 추천 과정, 새로 올라온 과정, 공지/이벤트/위키를 진입 목적에 따라 분리 배치했습니다. 전체 콘텐츠를 한 번에 보여주기보다, 사용자가 지금 어떤 행동을 원하는지에 따라 이동할 수 있는 구조로 설계했습니다.",
       tags: ["이어서 학습하기", "인기 과정", "추천 과정", "공지/이벤트"],
     },
     {
       number: "Decision 02",
       title: "과정 목록은 탐색 조건과 비교 정보를 함께 제공",
-      body: "교육비, 교육구분, 지원기기 필터와 카드/리스트 전환, 미리보기, 수강신청 CTA를 목록 단계에서 제공해 판단에 필요한 정보를 앞단에 배치했다. 상세 화면까지 가지 않고도 핵심 조건을 비교할 수 있도록 했다.",
+      body: "교육비, 교육구분, 지원기기 필터와 카드/리스트 전환, 미리보기, 수강신청 CTA를 목록 단계에서 제공해 비교에 필요한 정보를 앞단에 배치했습니다. 상세 화면까지 가지 않고도 핵심 조건을 비교할 수 있도록 했습니다.",
       tags: ["교육비 필터", "교육구분", "지원기기", "미리보기 CTA"],
     },
     {
       number: "Decision 03",
       title: "상세 화면은 수강 결정을 위한 근거를 한 화면에 정리",
-      body: "운영사, 학습시간, 과정 소개, 학습 목차, 수료증 발급 여부, 관련 과정, 수강신청을 수강 결정 흐름에 맞게 배치했다. 상세 화면은 소개 페이지가 아니라 수강 판단 화면으로 설계했다.",
+      body: "운영사, 학습시간, 과정 소개, 학습 목차, 수료증 발급 여부, 관련 과정, 수강신청을 수강 결정 단계에 맞게 배치했습니다. 상세 화면은 소개 페이지보다 수강 조건을 검토하는 화면으로 설계했습니다.",
       tags: ["운영사 정보", "수료증 발급", "관련 과정", "수강신청 CTA"],
     },
     {
       number: "Decision 04",
       title: "마이페이지는 기록 확인보다 다음 행동 중심으로 구성",
-      body: "학습하기 버튼, 진도율, 성적, 수료증, 수강후기를 이어서 해야 할 행동 순서에 맞게 배치했다. 단순 수강 이력 확인 화면이 아니라 학습 관리 허브로 설계했다.",
+      body: "학습하기 버튼, 진도율, 성적, 수료증, 수강후기를 이어서 해야 할 행동 순서에 맞게 배치했습니다. 단순 수강 이력 확인 화면보다 학습 관리 허브에 가깝게 설계했습니다.",
       tags: ["이어서 학습하기", "진도율", "수료증", "패키지 과정"],
     },
     {
       number: "Decision 05",
       title: "위키·커뮤니티는 학습 이후 지식 확장 흐름으로 연결",
-      body: "학습 경험이 과정 수강에서 끝나지 않도록 칼럼, 멘토링, 공지, 이벤트, 설문으로 이어지는 구조를 함께 설계했다. 각 채널은 독립적인 기능이 아니라 학습 이후 참여 흐름의 일부로 정의했다.",
+      body: "학습 경험이 과정 수강에서 끝나지 않도록 칼럼, 멘토링, 공지, 이벤트, 설문으로 이어지는 구조를 함께 설계했습니다. 각 채널은 독립적인 기능보다 학습 이후 참여 경로의 일부로 정의했습니다.",
       tags: ["위키", "칼럼", "멘토링", "커뮤니티"],
     },
   ]
@@ -4347,8 +4320,8 @@ function StepKeyDecisionsSection() {
   return (
     <CaseSection
       number="06 / Key UX Decisions"
-      title="화면은 결과물이 아니라, 사용자가 판단할 순서를 정리한 결과였다"
-      description="각 화면 구성은 기능 배치가 아니라 '이 단계에서 사용자가 무엇을 결정해야 하는가'를 기준으로 설계했다."
+      title="각 화면은 사용자의 결정 단계에 맞춰 구성했다"
+      description="각 화면 구성은 기능 배치보다 '이 단계에서 사용자가 무엇을 확인해야 하는가'를 기준으로 설계했습니다."
     >
       <div className="space-y-5">
         {decisions.map((d) => (
@@ -4379,7 +4352,7 @@ function StepKeyScreensSection() {
   const screens: StepScreenItem[] = [
     {
       label: "01 / Home Entry",
-      title: "홈은 콘텐츠 진열장이 아니라 학습 진입 허브",
+      title: "홈은 학습 진입 허브",
       caption:
         "고화질 캡처 화면 — 학습자가 이어서 학습할지, 새 과정을 찾을지, 추천/인기 과정을 볼지 먼저 선택하게 하는 진입 구조",
       src: stepScreens.home,
@@ -4404,7 +4377,7 @@ function StepKeyScreensSection() {
     },
     {
       label: "04 / Course Detail",
-      title: "수강 신청 직전 필요한 판단 근거를 한 화면에",
+      title: "수강 신청 직전 필요한 결정 근거를 한 화면에",
       caption:
         "고화질 캡처 화면 — 운영사, 학습 시간, 과정 소개, 수강신청 CTA를 수강 결정 흐름에 맞게 정리한 상세 화면",
       src: stepScreens.courseDetail,
@@ -4412,7 +4385,7 @@ function StepKeyScreensSection() {
     },
     {
       label: "05 / My Learning",
-      title: "수강 이력이 아니라 다음 학습 행동 중심",
+      title: "수강 이력보다 다음 학습 행동 중심",
       caption:
         "운영 참고 화면 — 학습하기, 진도율, 성적, 수료증, 후기처럼 이어서 해야 할 행동을 먼저 확인하는 관리 화면",
       src: stepScreens.myLearning,
@@ -4449,8 +4422,8 @@ function StepKeyScreensSection() {
   return (
     <CaseSection
       number="07 / Key Screens"
-      title="각 화면은 사용자가 무엇을 판단하는가로 설명된다"
-      description="화면 수를 자랑하는 것이 아니라, 각 화면이 어떤 판단을 가능하게 했는지를 기준으로 선별했다."
+      title="각 화면은 사용자가 확인해야 할 정보로 설명했다"
+      description="화면 수보다, 각 화면이 탐색·비교·신청·학습 지속 중 어떤 정보를 제공하는지를 기준으로 선별했습니다."
     >
       <div className="grid gap-8 md:grid-cols-2">
         {screens.map((s) => (
@@ -4476,7 +4449,7 @@ function StepTradeOffSection() {
       title: "재정리한 것",
       items: [
         "화면의 목적과 정보 배치 순서",
-        "탐색 → 판단 → 신청 → 지속학습 흐름",
+        "탐색 → 비교 → 신청 → 지속학습 과정",
         "진입 목적별 메인 구조",
         "다음 행동 중심 마이페이지",
       ],
@@ -4485,7 +4458,7 @@ function StepTradeOffSection() {
       title: "선택한 이유",
       items: [
         "공공 포털은 정보를 과감히 제거하기 어렵다",
-        "운영 안정성과 사용자 탐색성을 동시에 고려해야 했다",
+        "운영 안정성과 사용자 탐색성을 동시에 고려했습니다",
         "미니멀 UI보다 정보가 놓이는 순서를 바꾸는 것이 현실적이었다",
       ],
     },
@@ -4494,8 +4467,8 @@ function StepTradeOffSection() {
   return (
     <CaseSection
       number="08 / Trade-off"
-      title="공공 포털의 많은 정보를 줄이기보다, 사용 목적별로 다시 묶는 방향을 선택했다"
-      description="STEP은 다양한 기관, 과정, 사용자 유형, 운영 기능을 포함해야 했기 때문에 정보를 과감히 제거하기 어려웠다."
+      title="공공 포털의 정보를 사용 목적별로 다시 묶었다"
+      description="STEP은 다양한 기관, 과정, 사용자 유형, 운영 기능을 포함해야 했기 때문에 정보를 과감히 제거하기보다 사용 목적별로 재배치했습니다."
     >
       <div className="grid gap-5 md:grid-cols-3">
         {cols.map((col) => (
@@ -4510,7 +4483,7 @@ function StepCollaborationSection() {
   return (
     <CaseSection
       number="09 / Collaboration & Handoff"
-      title="디자인 의도가 실제 구현 화면으로 이어지도록 퍼블리싱 협업을 병행했다"
+      title="설계 의도가 구현 화면에 반영되도록 퍼블리싱 협업을 병행했다"
       description="주요 화면 UX/UI 설계를 담당했고, 전체 퍼블리싱은 별도 담당자와 협업했다."
     >
       <div className="grid gap-5 md:grid-cols-2">
@@ -4524,9 +4497,9 @@ function StepCollaborationSection() {
         />
       </div>
       <ClosingText>
-        이 케이스는 전체 퍼블리싱 담당 사례가 아니라, 설계 의도와 구현 결과 사이의
-        간격을 줄인 협업 사례로 표현된다. 현재 운영 중인 STEP 화면은 협업을 통해
-        구현된 결과이며, 본 케이스는 그 중 UX/UI 설계 기여 범위를 중심으로 서술한다.
+        이 케이스는 전체 퍼블리싱 담당 사례로 두기보다, 설계 의도와 구현 결과 사이의
+        간격을 줄인 협업 사례로 표현됩니다. 현재 운영 중인 STEP 화면은 협업을 통해
+        구현된 결과이며, 본 케이스는 그 중 UX/UI 설계 기여 범위를 중심으로 서술합니다.
       </ClosingText>
       <figure className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
         <div className="min-w-0 bg-black/30 p-3">
@@ -4551,7 +4524,7 @@ function StepCollaborationSection() {
 
 function StepOutcomeSection() {
   const outcomes = [
-    "주요 학습 여정을 탐색, 판단, 신청, 학습 지속, 지식 공유 흐름으로 정리",
+    "주요 학습 여정을 탐색, 비교, 신청, 학습 지속, 지식 공유 과정으로 정리",
     "홈, 전체 메뉴, GNB, 검색, 목록, 상세, 모바일 메뉴를 하나의 탐색 시스템으로 연결",
     "과정 목록, 상세, 마이페이지, 위키, 커뮤니티 등 주요 화면 구조 설계",
     "운영 화면 고화질 캡처를 통해 설계 의도와 실제 서비스 구조의 연결 근거 보강",
@@ -4571,8 +4544,8 @@ function StepOutcomeSection() {
   return (
     <CaseSection
       number="10 / Outcome & Next Metrics"
-      title="성과를 꾸미기보다, 운영 후 검증해야 할 지표를 정의했다"
-      description="정량 성과를 임의로 만들지 않는다. 대신 이 구조 설계가 실제 효과를 냈는지 확인하기 위해 어떤 지표를 봐야 하는지를 정의했다."
+      title="정량 성과 대신 운영 후 검증 지표를 정의했다"
+      description="정량 성과를 임의로 만들지 않고, 이 구조 설계가 실제 효과를 냈는지 확인하기 위해 어떤 지표를 봐야 하는지를 정의했습니다."
     >
       <TwoColumn>
         <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
@@ -4588,8 +4561,8 @@ function StepOutcomeSection() {
         <NumberedList title="Next Metrics — 운영 후 검증 지표" items={nextMetrics} />
       </TwoColumn>
       <ClosingText>
-        위 지표는 측정된 성과가 아니라 정식 운영 후 확인해야 할 검증 지표다.
-        이 구조가 실제로 효과가 있었는지는 운영 데이터와 사용자 행동을 통해 확인해야 한다.
+        위 지표는 측정된 성과값이 아니며 정식 운영 후 확인해야 할 검증 지표입니다.
+        이 구조가 실제로 효과가 있었는지는 운영 데이터와 사용자 행동을 통해 확인해야 합니다.
       </ClosingText>
     </CaseSection>
   )
@@ -4631,8 +4604,8 @@ function StepReflectionSection() {
   return (
     <CaseSection
       number="11 / Reflection"
-      title="다음에는 화면 완성도보다 학습자의 선택 과정 자체를 더 검증해야 한다"
-      description="이번 프로젝트에서는 복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성하는 데 집중했다. 하지만 실제 효과는 운영 데이터와 사용자 관찰을 통해 더 확인해야 한다."
+      title="다음 검증 기준은 학습자의 선택 과정으로 정리했다"
+      description="이번 프로젝트에서는 복잡한 교육 포털의 기능을 학습 여정 중심으로 재구성하는 데 집중했습니다. 실제 효과는 운영 데이터와 사용자 관찰을 통해 더 확인해야 합니다."
     >
       <div className="grid gap-5 md:grid-cols-3">
         {cols.map((col) => (
