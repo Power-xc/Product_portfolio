@@ -59,6 +59,7 @@ type RequirementRow = {
   problem: string
   solution: string
   metric: string
+  hypothesis: string
 }
 
 type SortingRow = {
@@ -324,30 +325,35 @@ const requirementRows: RequirementRow[] = [
     problem: "AI를 믿을 기준이 없음",
     solution: "설명 가능한 AI 발주, 예측 정확도, 추천 근거 표시",
     metric: "AI 추천 수용률, 수동 수정률",
+    hypothesis: "H1",
   },
   {
     requirement: "당일 생산·폐기 관리",
     problem: "언제 생산하고 언제 멈춰야 하는지 정하기 어려움",
     solution: "시간 중심 신선도 라이브 보드",
     metric: "폐기율, 품절 시간, 생산 지시 반응 시간",
+    hypothesis: "H2",
   },
   {
     requirement: "프로모션 수익성 불투명",
     problem: "참여 여부를 손익 기준으로 검토하기 어려움",
     solution: "P&L 시뮬레이터",
     metric: "프로모션 참여율, 예상·실제 손익 차이",
+    hypothesis: "H2",
   },
   {
     requirement: "복잡한 메뉴 구조",
     problem: "필요한 기능에 도달하기 전 탐색 비용이 큼",
     solution: "4개 그룹 중심 IA 재설계, 자연어 업무 비서",
     metric: "핵심 태스크 완료 시간, 탐색 뎁스",
+    hypothesis: "H2",
   },
   {
     requirement: "레거시 데이터 지연",
     problem: "점주가 화면을 새로고침하며 상태를 확인함",
     solution: "체감 실시간 UX, 상태 변화 알림",
     metric: "재확인 행동 빈도, 알림 후 조치율",
+    hypothesis: "H1",
   },
 ]
 
@@ -2848,7 +2854,7 @@ function RequirementMappingSection() {
       <ResponsiveTable>
         <thead>
           <tr>
-            {["고객사 요구사항", "확인된 UX 문제", "UX 솔루션", "검증할 지표"].map(
+            {["고객사 요구사항", "확인된 UX 문제", "UX 솔루션", "검증할 지표", "핵심 가설"].map(
               (header) => (
                 <TableHead key={header}>{header}</TableHead>
               ),
@@ -2862,6 +2868,7 @@ function RequirementMappingSection() {
               <TableCell>{row.problem}</TableCell>
               <TableCell>{row.solution}</TableCell>
               <TableCell muted>{row.metric}</TableCell>
+              <TableCell muted>{row.hypothesis}</TableCell>
             </tr>
           ))}
         </tbody>
@@ -2967,6 +2974,7 @@ function UxDesignSection() {
         eyebrow="01"
         title="행동 중심 정보 설계"
         body="숫자 나열을 당장 확인해야 할 운영 정보로 바꿨습니다. 기회손실 금액, 소진 예상 시간, 생산 완료 후 피드백을 같은 화면 맥락에서 확인하게 했습니다."
+        researchLink={{ hypothesis: "H2", findings: "약수역 점주 인터뷰 — 숫자 확인 후 다음 행동을 결정하지 못하는 패턴 관찰" }}
       >
         <div className="grid gap-4 md:grid-cols-2">
           <FormulaCard label="찬스로스" value="재고 0 시간대 평균 판매속도 역산 × 단가" />
@@ -2993,6 +3001,7 @@ function UxDesignSection() {
         eyebrow="02"
         title="검증 가능한 AI 신뢰 구조"
         body="AI 추천을 검토할 근거를 화면 안에 배치했습니다. 추천량, 오차 기준, 에이전트 로그를 통해 점주가 AI의 제안을 검토할 수 있게 했습니다."
+        researchLink={{ hypothesis: "H1", findings: "아현뉴타운 점주 인터뷰 — AI 추천을 믿을 근거가 없어 매번 수동 확인하는 행동 관찰" }}
       >
         <div className="grid gap-4 md:grid-cols-2">
           <FormulaCard
@@ -3015,6 +3024,7 @@ function UxDesignSection() {
         eyebrow="03"
         title="통제 가능한 발주 설계"
         body="AI 추천 → 수량 조정 → 최종 확인의 3단계로 분리했습니다. AI가 자동으로 결정하지 않고, 점주가 마지막 승인권을 유지하는 구조로 설계했습니다."
+        researchLink={{ hypothesis: "H3", findings: "크루 FGI — 자동 발주 시 실수 복구 불가로 인한 불안감 표현 수집" }}
       >
         <div className="grid gap-4 md:grid-cols-3">
           <DefinitionCard title="130% 초과" body="재확인 팝업" />
@@ -3216,6 +3226,51 @@ function SpeedWorkflowSection() {
         <NumberedList title="아이디에이션 프로세스" items={ideationSteps} />
         <NumberedList title="실행 워크플로우" items={workflowSteps} />
       </TwoColumn>
+      <div className="mt-8 grid gap-4 lg:grid-cols-3">
+        {[
+          {
+            hypothesis: "H1",
+            label: "AI Distrust",
+            impact: "High",
+            feasibility: "High",
+            reason: "점주 불신이 가장 강했고 추천 정확도 데이터 확보 가능",
+          },
+          {
+            hypothesis: "H2",
+            label: "Decision Paralysis",
+            impact: "High",
+            feasibility: "Medium",
+            reason: "카드소팅 80% 일치로 구조 방향 확인",
+          },
+          {
+            hypothesis: "H3",
+            label: "Control Retention",
+            impact: "Medium",
+            feasibility: "High",
+            reason: "3단계 프로토타입 사용성 검증 완료",
+          },
+        ].map((item) => (
+          <div key={item.hypothesis} className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
+            <div className="flex items-center justify-between">
+              <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+                {item.hypothesis}
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.12em] text-white/30">{item.label}</span>
+            </div>
+            <div className="mt-5 flex gap-6">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Impact</p>
+                <p className="mt-1.5 text-sm font-normal text-white">{item.impact}</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Feasibility</p>
+                <p className="mt-1.5 text-sm font-normal text-white">{item.feasibility}</p>
+              </div>
+            </div>
+            <p className="mt-4 break-keep text-[12px] leading-5 text-white/35">{item.reason}</p>
+          </div>
+        ))}
+      </div>
       <ClosingText>
         AI는 반복과 초안을 맡고, 사람은 문제 정의와 품질 검토를 맡았습니다. 구현은
         컴포넌트 범위를 좁히고 POS·모바일 반응형 화면을 함께 점검하는 방식으로
@@ -3534,12 +3589,14 @@ function DesignBlock({
   body,
   children,
   compact = false,
+  researchLink,
 }: {
   eyebrow: string
   title: string
   body: string
   children?: ReactNode
   compact?: boolean
+  researchLink?: { hypothesis: string; findings: string }
 }) {
   return (
     <section
@@ -3555,6 +3612,14 @@ function DesignBlock({
         {body}
       </p>
       {children ? <div className="mt-6">{children}</div> : null}
+      {researchLink && !compact ? (
+        <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+          <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+            {researchLink.hypothesis}
+          </span>
+          <p className="text-[12px] leading-5 text-white/35">{researchLink.findings}</p>
+        </div>
+      ) : null}
     </section>
   )
 }
