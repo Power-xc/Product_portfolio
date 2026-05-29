@@ -10,8 +10,8 @@ type ButtonLinkProps = {
 export function ButtonLink({ href, children, variant = "primary" }: ButtonLinkProps) {
   const variantClass =
     variant === "primary"
-      ? "bg-white text-background hover:bg-[#DADADA] focus-visible:outline-accent"
-      : "border border-white/20 text-white/75 hover:border-white/45 hover:text-white focus-visible:outline-accent"
+      ? "bg-fg text-bg hover:opacity-90 focus-visible:outline-accent"
+      : "border border-line-strong text-fg-muted hover:border-line-strong hover:text-fg focus-visible:outline-accent"
 
   return (
     <Link

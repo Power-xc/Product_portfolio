@@ -4,11 +4,11 @@ import { tools, workflowCards, workflowFlow } from "@/lib/home-content"
 
 export function AIWorkflow() {
   return (
-    <section id="ai-workflow" className="border-y border-white/10 bg-[#0B0B10]">
+    <section id="ai-workflow" className="border-y border-line bg-raised">
       <div className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <SectionHeading title="AI는 더 빨리 만들기보다, 더 빨리 검증하기 위한 방식입니다." />
-          <div className="space-y-6 break-keep text-base font-normal leading-8 text-[#999] md:text-lg">
+          <div className="space-y-6 break-keep text-base font-normal leading-8 text-fg-muted md:text-lg">
             <p>
               저는 AI를 활용해 리서치 요약, IA 탐색, 와이어프레임, Frontend Draft를 빠르게 만듭니다.
             </p>
@@ -24,26 +24,23 @@ export function AIWorkflow() {
         </div>
         <div className="mt-10 grid gap-4 md:mt-14 md:grid-cols-3">
           {workflowCards.map((card) => (
-            <article
-              key={card.title}
-              className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6"
-            >
-              <h3 className="text-xl font-normal text-white">{card.title}</h3>
-              <p className="mt-4 break-keep text-sm font-normal leading-7 text-white/55">
+            <article key={card.title} className="border-t border-line pt-5 md:pt-6">
+              <h3 className="text-xl font-normal text-fg">{card.title}</h3>
+              <p className="mt-4 break-keep text-sm font-normal leading-7 text-fg-muted">
                 {card.body}
               </p>
             </article>
           ))}
         </div>
-        <div className="mt-6 rounded-lg border border-white/10 bg-background/70 p-4 md:mt-8 md:p-6">
+        <div className="mt-6 rounded-lg border border-line bg-background/70 p-4 md:mt-8 md:p-6">
           <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
             {workflowFlow.map((item, index) => (
               <div key={item} className="flex items-center gap-3">
-                <span className="w-full rounded-full border border-white/10 bg-white/[0.025] px-4 py-2 text-sm font-normal text-white/60 md:w-auto">
+                <span className="w-full rounded-full border border-line bg-surface px-4 py-2 text-sm font-normal text-fg-muted md:w-auto">
                   {item}
                 </span>
                 {index < workflowFlow.length - 1 ? (
-                  <span className="hidden text-white/30 md:inline">→</span>
+                  <span className="hidden text-fg-faint md:inline">→</span>
                 ) : null}
               </div>
             ))}

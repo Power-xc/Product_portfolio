@@ -18,21 +18,25 @@ export function SelectedQuestions() {
           <Link
             key={card.number}
             href={card.href}
-            className="group flex min-h-[250px] flex-col rounded-lg border border-white/10 bg-white/[0.018] p-5 transition duration-200 hover:border-white/30 hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:min-h-[280px] md:p-8"
+            className="group relative flex min-h-[250px] flex-col overflow-hidden rounded-xl border border-line bg-surface p-6 transition duration-300 ease-out hover:-translate-y-1 hover:border-line-strong hover:bg-surface-2 hover:shadow-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:min-h-[300px] md:p-9"
             aria-label={`${card.project} 질문 보기`}
           >
-            <div className="flex items-start justify-between gap-4 text-[11px] font-normal uppercase tracking-[0.16em] text-white/35 md:text-xs">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent opacity-0 blur-[80px] transition duration-500 group-hover:opacity-20"
+            />
+            <div className="flex items-start justify-between gap-4 text-[11px] font-normal uppercase tracking-[0.16em] text-fg-faint md:text-xs">
               <span>{card.number}</span>
               <span className="max-w-[72%] text-right leading-5">{card.tag}</span>
             </div>
-            <h3 className="mt-10 whitespace-pre-line break-keep text-[25px] font-normal leading-[1.25] text-white sm:text-[28px] md:mt-12 md:text-[32px]">
+            <h3 className="mt-10 whitespace-pre-line break-keep text-[25px] font-normal leading-[1.25] text-fg sm:text-[28px] md:mt-12 md:text-[32px]">
               {card.question}
             </h3>
             <div className="mt-auto pt-10">
-              <p className="break-keep text-xs leading-5 text-white/35">{card.result}</p>
+              <p className="break-keep text-xs leading-5 text-fg-faint">{card.result}</p>
               <div className="mt-3 flex items-end justify-between gap-6">
-                <p className="text-sm font-normal leading-6 text-white/45">{card.project}</p>
-                <span className="text-xl text-white/45 opacity-60 transition duration-200 group-hover:translate-x-1 group-hover:text-white group-hover:opacity-100">
+                <p className="text-sm font-normal leading-6 text-fg-muted">{card.project}</p>
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-line text-fg-faint transition duration-300 group-hover:border-line-strong group-hover:bg-fg group-hover:text-bg">
                   →
                 </span>
               </div>

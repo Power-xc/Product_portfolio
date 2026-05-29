@@ -6,6 +6,7 @@ import { PriorityRationale } from "@/components/case-study/PriorityRationale"
 import { ProblemStatement } from "@/components/case-study/ProblemStatement"
 import type { Hypothesis, LearningNote } from "../_lib/types"
 import {
+  HeroAtmosphere,
   CaseStudyShell,
   CaseSection,
   ClosingText,
@@ -75,7 +76,7 @@ const deepqLearningNote: LearningNote = {
 
 export function DeepQCaseStudy() {
   return (
-    <CaseStudyShell>
+    <CaseStudyShell accent="#A78BFA">
       <DeepQHeroSection />
       <DeepQWhySection />
       <DeepQContextSection />
@@ -130,34 +131,35 @@ function DeepQHeroSection() {
   ]
 
   return (
-    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+    <section className="relative isolate mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+      <HeroAtmosphere />
       <Link
         href="/work"
-        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="inline-flex text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         ← Back to Work
       </Link>
-      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
         03 / Explainable AI Data Analysis UX
       </p>
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.55fr] lg:items-end">
         <div>
-          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-fg">
             AI가 답을 말해도, 사용자는 무엇을 보고 신뢰할 수 있을까?
           </h1>
-          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-lg">
+          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-fg-muted md:text-lg">
             SAPIE DeepQ — Designing an explainable data analysis experience for enterprise users
           </p>
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Product Frame</p>
-          <p className="mt-4 break-keep text-sm leading-7 text-white/60">
+        <div className="border-t border-line pt-5">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Product Frame</p>
+          <p className="mt-4 break-keep text-sm leading-7 text-fg-muted">
             B2B · AI Data Analysis · Explainable AI UX · Enterprise Intelligence Platform · Admin UX
             · Data Workflow
           </p>
         </div>
       </div>
-      <div className="mt-12 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
+      <div className="mt-12 max-w-4xl space-y-5 text-base leading-8 text-fg-muted md:text-lg">
         <p className="break-keep">
           DeepQ는 SQL이나 데이터 구조를 모르는 현업 사용자가 자연어로 데이터에 질문하고, AI가 어떤
           데이터와 로직으로 답을 만들었는지 확인하며, 업무 의사결정까지 이어갈 수 있도록 설계한
@@ -185,7 +187,7 @@ function DeepQWhySection() {
       title="DeepQ를 별도 케이스로 정리한 이유"
       description="이 포트폴리오는 프로젝트 수보다 제품 문제를 분석하고 구조화한 방식을 보여주기 위해 4개의 케이스스터디를 선별했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         DeepQ는 그중 Explainable AI UX와 Enterprise Data Product 설계를 보여주는 케이스입니다.
         검토한 지점은 AI가 답을 생성하는 화면 자체보다, 사용자가 그 답을 어떤 근거로 이해하고,
         검토하고, 다음 업무 질문으로 이어갈 수 있는가였습니다.
@@ -219,7 +221,7 @@ function DeepQContextSection() {
       title="데이터 접근 권한과 분석 실행 사이에 간격이 있었다"
       description="많은 조직에서 데이터는 이미 존재합니다. 하지만 현업 사용자가 원하는 질문을 직접 분석하려면 SQL, DB 구조, BI 도구, 데이터 요청 프로세스를 이해해야 합니다."
     >
-      <div className="space-y-5 text-base leading-8 text-white/60 md:text-lg">
+      <div className="space-y-5 text-base leading-8 text-fg-muted md:text-lg">
         <p className="break-keep">
           기존 방식에서는 사용자가 전산/IT 조직에 분석을 요청하고, 결과를 기다린 뒤 다시 추가 질문을
           하는 흐름이 반복될 수밖에 없었습니다.
@@ -264,7 +266,7 @@ function DeepQDiscoverySection() {
       title="질문 경험과 운영 경험을 먼저 분리해 정리했다"
       description="DeepQ에는 로그인, 인트로, 질문 입력, 답변 결과, SQL 확인, 추천 질문, 관리자 대시보드, 사용자 관리, 대화 이력, 응답 상세 정보가 함께 포함되어 있었습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         처음부터 화면을 나열하면 제품이 복잡한 질의 도구처럼 보일 수 있었습니다. 그래서 화면과
         기능을 사용자의 업무 목적 기준으로 재분류했습니다.
       </p>
@@ -288,7 +290,7 @@ function DeepQProblemSection() {
         도입률은 있었지만 실제 업무 활용 여부가 불명확했다. AI가 답을 생성하는 것과 사용자가 그 답을
         업무에 쓸 수 있는지는 다른 문제 — 활용 장벽을 먼저 정의하기로 했다.
       </PriorityRationale>
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         사용자는 AI가 어떤 데이터베이스를 봤는지, 질문을 어떻게 해석했는지, 어떤 SQL을 생성했는지,
         결과가 어떤 기준으로 요약됐는지 확인할 수 있어야 합니다.
       </p>
@@ -328,12 +330,10 @@ function DeepQThesisSection() {
       title="AI 답변을 검토 가능한 업무 자산으로 바꾸는 경험"
       description="DeepQ의 설계 방향은 AI 답변을 단일 메시지로 두지 않고, 사용자가 이해하고 검토한 뒤 다음 업무 질문으로 이어갈 수 있게 만드는 것이었습니다."
     >
-      <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
-        <p className="text-[12px] uppercase tracking-[0.18em] text-white/35">Core UX Idea</p>
-        <h3 className="mt-4 text-[clamp(1.8rem,5vw,3rem)] font-normal text-white">
-          Analysis Receipt
-        </h3>
-        <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <div className="border-t border-line pt-6 md:pt-8">
+        <p className="text-[12px] uppercase tracking-[0.18em] text-fg-faint">Core UX Idea</p>
+        <h3 className="mt-4 text-[clamp(1.8rem,5vw,3rem)] font-normal text-fg">Analysis Receipt</h3>
+        <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
           질문 하나가 단순 메시지로 끝나지 않고, 의도 해석, 데이터 구조, 생성 SQL, 실행 결과, 차트,
           설명, 추천 질문, 관리자 로그로 이어지는 검토 가능한 분석 기록이 되도록 설계했습니다.
         </p>
@@ -368,7 +368,7 @@ function DeepQWorkflowSection() {
       title="현업 사용자는 답변과 함께 검토 가능한 근거가 필요했다"
       description="DeepQ의 핵심 사용자는 데이터 전문가보다, 업무 의사결정을 위해 데이터를 확인해야 하는 현업 사용자입니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         이 사용자는 SQL 직접 작성보다, 내 질문이 어떤 데이터로 해석됐는지, 결과가 어떤 계산과
         조건에서 나왔는지, 다음에 어떤 질문을 이어가야 하는지 알고 싶어합니다.
       </p>
@@ -476,7 +476,7 @@ function DeepQFirstEntrySection() {
       title="첫 진입에서 사용 맥락과 데이터 원칙을 먼저 배치했다"
       description="DeepQ는 첫 진입에서 질문 입력창만 제공하기보다, 제품이 어떤 데이터를 어떻게 분석하는지 먼저 확인할 수 있는 구성을 선택했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         신규 사용자는 Intro를 통해 자연어 질문, 실시간 분석, 데이터 구조 이해, 보안/관리 맥락을
         이해하고, 반복 사용자는 “다시 보지 않기” 옵션으로 불필요한 단계를 건너뛸 수 있습니다.
       </p>
@@ -522,7 +522,7 @@ function DeepQQuestionWorkspaceSection() {
       title="분석 시작점을 메뉴 탐색에서 자연어 질문으로 옮겼다"
       description="DeepQ의 핵심 행동은 리포트 메뉴 탐색보다 자연어 질문 입력에 가까웠습니다. 첫 화면의 중심도 대시보드 목록보다 사용자의 질문 입력으로 배치했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         최근 대화와 추천 질문은 보조 요소로 두고, 사용자가 가장 먼저 지금 궁금한 업무 질문을
         입력하도록 구조화했습니다.
       </p>
@@ -565,7 +565,7 @@ function DeepQTransparencySection() {
       title="대기 상태를 분석 준비 과정으로 표시했다"
       description="AI 분석은 사용자가 입력한 뒤 결과가 나오기까지 짧은 지연이 발생합니다. 단순 로딩만 보여주면 사용자는 시스템이 어떤 작업을 처리 중인지 확인하기 어렵습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         DeepQ는 스키마 검색, 유사 쿼리 검색, 메타데이터 로드, SQL 생성, SQL 실행, 결과 분석, 추천
         질문 생성 과정을 단계별로 보여줍니다. 이 구조는 대기 시간을 분석 근거를 준비하는 단계를
         확인하는 시간으로 바꿉니다.
@@ -619,7 +619,7 @@ function DeepQEvidenceLayerSection() {
       title="답변을 검토 가능한 레이어로 나눴다"
       description="DeepQ는 AI의 최종 답변만 보여주지 않습니다. 같은 결과를 테이블, 차트, SQL, 자연어 설명, 추천 질문으로 나눠 제공합니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         현업 사용자는 요약과 차트로 빠르게 이해하고, 데이터에 익숙한 사용자는 SQL과 테이블을 확인해
         답변의 근거를 검토할 수 있습니다.
       </p>
@@ -667,7 +667,7 @@ function DeepQAdminLoopSection() {
       title="Enterprise AI 제품에는 운영 추적 화면이 필요했다"
       description="DeepQ는 사용자 질문 화면만으로 운영되기 어렵습니다. 기업 환경에서는 누가 어떤 데이터에 질문했는지, 어떤 SQL이 생성됐는지, 어떤 답변이 제공됐는지, 비용과 오류가 어떻게 발생했는지 추적할 수 있어야 합니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         관리자 콘솔은 이 정보를 운영자가 확인하고, 권한·DB 연결·품질·비용을 관리할 수 있게 하는
         Enterprise AI 운영 구조입니다.
       </p>
@@ -725,7 +725,7 @@ function DeepQTradeOffSection() {
       title="질문 입력의 단순함과 분석 근거 노출 범위를 조정했다"
       description="DeepQ는 사용자가 쉽게 질문할 수 있어야 했지만, 답변 근거가 부족하면 Enterprise 환경에서 검토가 어려웠습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         반대로 SQL, 데이터 구조, 실행 과정, 메타데이터를 모두 전면에 노출하면 현업 사용자에게는 다시
         어려운 분석 도구가 됩니다. 그래서 기본 경험은 질문과 답변 중심으로 단순화하고, 검증이 필요한
         사용자를 위해 SQL, 데이터 샘플, 설명, 추천 질문을 확장 가능한 레이어로 제공했습니다.
@@ -850,7 +850,7 @@ function DeepQReflectionSection() {
       title="AI 답변을 업무에 활용하기 위한 검토 구조를 정리했다"
       description="DeepQ를 설계하면서 확인한 지점은 AI가 생성하는 답변의 양보다, 사용자가 그 답을 업무에 활용해도 되는지 검토할 수 있는 구조였습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/60 md:text-lg">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted md:text-lg">
         그래서 질문, 데이터 구조, SQL, 결과, 설명, 추천 질문, 관리자 로그를 연결해 AI 답변을 일회성
         메시지로 두지 않고 검토 가능한 분석 기록으로 다루는 방향을 선택했습니다.
       </p>
@@ -892,9 +892,9 @@ function DeepQReflectionSection() {
 
 function DeepQHeroVisual() {
   return (
-    <figure className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
-      <div className="grid gap-3 bg-black/30 p-3 lg:grid-cols-[1.12fr_0.88fr]">
-        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-[#111]">
+    <figure className="mt-12 overflow-hidden rounded-lg border border-line bg-surface shadow-card 2xl:-mx-[120px]">
+      <div className="grid gap-3 bg-surface-2 p-3 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="min-w-0 overflow-hidden rounded-md border border-line bg-surface-2">
           <img
             src={deepqScreens.workspace}
             alt="DeepQ 질문 중심 분석 공간"
@@ -905,7 +905,7 @@ function DeepQHeroVisual() {
           />
         </div>
         <div className="grid min-w-0 gap-3 md:grid-cols-2 lg:grid-cols-1">
-          <div className="overflow-hidden rounded-md border border-white/10 bg-[#111]">
+          <div className="overflow-hidden rounded-md border border-line bg-surface-2">
             <img
               src={deepqScreens.resultChart}
               alt="DeepQ 결과 검토 화면"
@@ -915,7 +915,7 @@ function DeepQHeroVisual() {
               className="h-auto w-full object-contain"
             />
           </div>
-          <div className="overflow-hidden rounded-md border border-white/10 bg-[#111]">
+          <div className="overflow-hidden rounded-md border border-line bg-surface-2">
             <img
               src={deepqScreens.viewSql}
               alt="DeepQ View SQL 근거 확인 화면"
@@ -927,7 +927,7 @@ function DeepQHeroVisual() {
           </div>
         </div>
       </div>
-      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+      <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
         비식별 처리 이미지 — 질문 입력, 결과 검토, SQL 확인을 하나의 분석 흐름으로 배치
       </figcaption>
     </figure>
@@ -936,13 +936,13 @@ function DeepQHeroVisual() {
 
 function DeepQFlowCard({ title, nodes }: { title: string; nodes: string[] }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="text-xl font-normal text-white">{title}</h3>
+    <div className="border-t border-line pt-6">
+      <h3 className="text-xl font-normal text-fg">{title}</h3>
       <ol className="mt-6 space-y-3">
         {nodes.map((node, index) => (
           <li key={node} className="grid grid-cols-[34px_1fr] gap-3 text-sm leading-6">
-            <span className="text-white/30">{String(index + 1).padStart(2, "0")}</span>
-            <span className="break-keep text-white/60">{node}</span>
+            <span className="text-fg-faint">{String(index + 1).padStart(2, "0")}</span>
+            <span className="break-keep text-fg-muted">{node}</span>
           </li>
         ))}
       </ol>
@@ -952,14 +952,14 @@ function DeepQFlowCard({ title, nodes }: { title: string; nodes: string[] }) {
 
 function DeepQFlowLine({ nodes }: { nodes: string[] }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-black/25 p-4">
+    <div className="border-t border-line pt-4">
       <div className="flex flex-wrap items-center gap-3">
         {nodes.map((node, index) => (
           <div key={`${node}-${index}`} className="flex items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs leading-5 text-white/65 md:text-sm">
+            <span className="rounded-full border border-line bg-surface px-4 py-2 text-xs leading-5 text-fg-muted md:text-sm">
               {node}
             </span>
-            {index < nodes.length - 1 ? <span className="text-white/25">→</span> : null}
+            {index < nodes.length - 1 ? <span className="text-fg-faint">→</span> : null}
           </div>
         ))}
       </div>
@@ -1009,13 +1009,13 @@ function DeepQSortingMap() {
   return (
     <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {groups.map((group) => (
-        <div key={group.title} className="rounded-lg border border-white/10 bg-black/20 p-5">
-          <p className="text-[12px] uppercase tracking-[0.18em] text-white/35">{group.title}</p>
+        <div key={group.title} className="border-t border-line pt-5">
+          <p className="text-[12px] uppercase tracking-[0.18em] text-fg-faint">{group.title}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {group.items.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 text-xs leading-5 text-white/60"
+                className="rounded-full border border-line bg-surface px-3 py-2 text-xs leading-5 text-fg-muted"
               >
                 {item}
               </span>
@@ -1030,8 +1030,8 @@ function DeepQSortingMap() {
 function DeepQProductStructureVisual() {
   return (
     <div className="grid gap-5 lg:grid-cols-2">
-      <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-        <div className="bg-black/30 p-3">
+      <figure className="overflow-hidden rounded-lg border border-line bg-surface">
+        <div className="bg-surface-2 p-3">
           <img
             src={deepqScreens.resultChart}
             alt="DeepQ 사용자 분석 경험 화면"
@@ -1041,12 +1041,12 @@ function DeepQProductStructureVisual() {
             className="h-auto w-full rounded-md object-contain"
           />
         </div>
-        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
           비식별 처리 이미지 — 질문, 결과, 차트, 과정 패널이 이어지는 사용자 분석 흐름
         </figcaption>
       </figure>
-      <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-        <div className="bg-black/30 p-3">
+      <figure className="overflow-hidden rounded-lg border border-line bg-surface">
+        <div className="bg-surface-2 p-3">
           <img
             src={deepqScreens.adminDashboard}
             alt="DeepQ 관리자 운영 콘솔 화면"
@@ -1056,7 +1056,7 @@ function DeepQProductStructureVisual() {
             className="h-auto w-full rounded-md object-contain"
           />
         </div>
-        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
           비식별 처리 이미지 — 사용자, 사용량, 오류, 비용을 함께 관찰하는 관리자 운영 흐름
         </figcaption>
       </figure>

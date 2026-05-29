@@ -5,7 +5,13 @@
 @tailwind utilities;
 
 :root {
-  color: #ffffff;
+  --bg-rgb: 8 8 12;
+  --surface-rgb: 19 19 25;
+  --surface-2-rgb: 26 26 34;
+  --raised-rgb: 13 13 18;
+  --fg-rgb: 255 255 255;
+  --accent-rgb: 201 182 255;
+  color: rgb(var(--fg-rgb));
 }
 
 * {
@@ -21,7 +27,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  color: #ffffff;
+  background: rgb(var(--bg-rgb));
+  color: rgb(var(--fg-rgb));
   font-family:
     "Pretendard Variable",
     Pretendard,

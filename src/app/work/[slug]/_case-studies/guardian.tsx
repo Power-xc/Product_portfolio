@@ -6,6 +6,7 @@ import { PriorityRationale } from "@/components/case-study/PriorityRationale"
 import { ProblemStatement } from "@/components/case-study/ProblemStatement"
 import type { Hypothesis, InfoItem, LearningNote, ScreenItem, TradeOff } from "../_lib/types"
 import {
+  HeroAtmosphere,
   CaseStudyShell,
   BeforeAfterCard,
   Card,
@@ -403,7 +404,7 @@ const guardianLearningNote: LearningNote = {
 
 export function GuardianCaseStudy() {
   return (
-    <CaseStudyShell>
+    <CaseStudyShell accent="#6AA8FF">
       <GuardianHeroSection />
       <GuardianWhySection />
       <GuardianContextSection />
@@ -433,26 +434,27 @@ export function GuardianCaseStudy() {
 
 function GuardianHeroSection() {
   return (
-    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+    <section className="relative isolate mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+      <HeroAtmosphere />
       <Link
         href="/work"
-        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="inline-flex text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         ← Back to Work
       </Link>
-      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
         04 / Enterprise AI Security Platform
       </p>
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.54fr] lg:items-end">
         <div>
-          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-fg">
             AI 도구를 허용할수록, 조직은 무엇을 확인하고 통제해야 할까?
           </h1>
-          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-white/55 md:text-lg">
+          <p className="mt-8 max-w-3xl text-base font-normal leading-8 text-fg-muted md:text-lg">
             Enterprise Gen AI Security Platform — Designing visibility, policy, audit, and access
             control for responsible AI usage
           </p>
-          <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
+          <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-fg-faint md:text-base md:leading-8">
             삼성 도입 검토를 위해 설계한 Enterprise Gen AI Security Platform입니다. 조직이 Gen AI
             사용을 차단만 하는 방식에서 벗어나, 사용 현황을 파악하고 정책을 설정하며 위반 처리와
             감사 기록까지 이어지는 운영 구조를 설계했습니다.
@@ -469,12 +471,12 @@ function GuardianHeroSection() {
           {guardianMeta.map((item) => (
             <div
               key={item.label}
-              className="grid grid-cols-[0.32fr_1fr] gap-4 border-t border-white/10 py-4"
+              className="grid grid-cols-[0.32fr_1fr] gap-4 border-t border-line py-4"
             >
-              <span className="text-[12px] uppercase tracking-[0.16em] text-white/35">
+              <span className="text-[12px] uppercase tracking-[0.16em] text-fg-faint">
                 {item.label}
               </span>
-              <span className="break-keep text-sm leading-6 text-white/70">{item.value}</span>
+              <span className="break-keep text-sm leading-6 text-fg-muted">{item.value}</span>
             </div>
           ))}
         </div>
@@ -498,7 +500,7 @@ function GuardianWhySection() {
       title="AI 보안 운영을 제품 구조로 정리한 케이스"
       description="이 포트폴리오는 프로젝트 수보다 복잡한 제품 문제를 분석하고 구조화한 방식을 보여주기 위해 4개의 케이스스터디를 선별했습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted">
         Guardian은 그중 Enterprise AI Security 영역을 보여주는 케이스입니다. AI 도구 사용이 늘어나는
         조직에서, 보안 운영자가 무엇을 보고 어떤 기준으로 조치하며 사고 이후 무엇을 추적해야
         하는지를 제품 구조로 정리했습니다.
@@ -520,7 +522,7 @@ function GuardianContextSection() {
       description="Gen AI 도구는 이미 업무 안으로 들어오고 있습니다. 사용 여부 자체보다, 조직이 어떤 사용을 허용하고 어떤 사용을 제한할지 관리할 수 있는 운영 체계가 필요했습니다."
     >
       <Card title="대기업 환경 도입 검토">
-        <p className="break-keep text-sm leading-7 text-white/55">
+        <p className="break-keep text-sm leading-7 text-fg-muted">
           Guardian은 삼성 도입 검토를 전제로, AI 사용 현황, 위반 감지, 정책 관리, 파일·채팅 기록,
           사용자·관리자 권한을 하나의 관리 콘솔로 통합한 AI Security & Governance Platform입니다.
         </p>
@@ -550,7 +552,7 @@ function GuardianWorkflowSection() {
       title="보안 관리자가 확인해야 할 정보와 조치 단위를 정리했다"
       description="Guardian의 핵심 사용자는 일반 최종 사용자보다, 조직의 AI 사용 리스크를 관리해야 하는 보안·운영 관리자입니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted">
         사용자 분석의 초점은 화면 편의성보다, 관리자가 어떤 위험을 먼저 봐야 하는지, 어떤 기준으로
         정책을 설정해야 하는지, 사고 이후 어떤 기록을 추적해야 하는지에 있었습니다.
       </p>
@@ -559,16 +561,16 @@ function GuardianWorkflowSection() {
           <ListCard key={role.title} title={role.title} items={role.items} />
         ))}
       </div>
-      <div className="mt-8 rounded-lg border border-white/10 bg-white/[0.035] p-6">
-        <h3 className="text-xl font-normal text-white">Workflow</h3>
+      <div className="mt-8 border-t border-line pt-6">
+        <h3 className="text-xl font-normal text-fg">Workflow</h3>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {guardianWorkflow.map((step, index) => (
             <div key={step} className="flex items-center gap-3">
-              <span className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-white/70">
+              <span className="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm text-fg-muted">
                 {step}
               </span>
               {index < guardianWorkflow.length - 1 ? (
-                <span className="text-white/25">→</span>
+                <span className="text-fg-faint">→</span>
               ) : null}
             </div>
           ))}
@@ -819,7 +821,7 @@ function GuardianAccessControlSection() {
       title="AI 사용 통제는 조직 권한 체계와 함께 작동하도록 구성했다"
       description="같은 AI 도구라도 부서, 직급, 역할에 따라 허용 범위가 달라질 수 있습니다."
     >
-      <p className="max-w-3xl break-keep text-base leading-8 text-white/55">
+      <p className="max-w-3xl break-keep text-base leading-8 text-fg-muted">
         Guardian은 부서·직급·사용자·관리자 권한을 분리해 정책 적용 범위와 책임 범위를 명확히
         했습니다. 보안 관리 콘솔에 접근하는 관리자 계정도 별도 보호가 필요했기 때문에 인증 기기,
         OTP, 접속 상태 관리를 함께 설계했습니다.
@@ -905,8 +907,8 @@ function GuardianTradeOffSection() {
       title="전수 감시보다 위험 이벤트 중심의 통제 범위를 선택했다"
       description="모든 행동을 기록하는 방식은 사용자 반발을 만들 수 있습니다. 반대로 아무것도 보지 않으면 조직은 AI 사용 리스크를 통제할 수 없습니다."
     >
-      <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
-        <p className="max-w-3xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-white">
+      <div className="border-t border-line pt-6 md:pt-8">
+        <p className="max-w-3xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-fg">
           개인의 모든 행동보다, 정책 위반 가능성이 있는 메시지·파일·AI 사용 이벤트를 중심으로
           구조화했습니다.
         </p>
@@ -971,9 +973,9 @@ function GuardianReflectionSection() {
 
 function GuardianHeroVisual() {
   return (
-    <figure className="mt-12 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
-      <div className="grid gap-0 bg-black/30 p-3 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white">
+    <figure className="mt-12 overflow-hidden rounded-lg border border-line bg-surface shadow-card 2xl:-mx-[120px]">
+      <div className="grid gap-0 bg-surface-2 p-3 lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="min-w-0 overflow-hidden rounded-md border border-line bg-white">
           <img
             src={guardianScreens.dashboard}
             alt="Guardian 대시보드 화면"
@@ -983,7 +985,7 @@ function GuardianHeroVisual() {
             className="h-auto w-full object-contain"
           />
         </div>
-        <div className="min-w-0 overflow-hidden rounded-md border border-white/10 bg-white lg:-ml-px">
+        <div className="min-w-0 overflow-hidden rounded-md border border-line bg-white lg:-ml-px">
           <img
             src={guardianScreens.violations}
             alt="Guardian 실시간 위반 화면"
@@ -994,7 +996,7 @@ function GuardianHeroVisual() {
           />
         </div>
       </div>
-      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+      <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
         비식별 처리 이미지 — 조직 전체 위험 흐름과 고위험 이벤트 처리 화면을 함께 배치
       </figcaption>
     </figure>

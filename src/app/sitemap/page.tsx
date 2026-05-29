@@ -112,31 +112,31 @@ export const metadata: Metadata = {
 
 function SitemapCard({ section }: { section: SitemapSection }) {
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.018] p-5 md:p-6">
+    <article className="border-t border-line pt-5 md:pt-6">
       <div className="flex items-start justify-between gap-6">
         <div>
-          <p className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/35 md:text-xs">
+          <p className="text-[11px] font-normal uppercase tracking-[0.16em] text-fg-faint md:text-xs">
             {section.number}
           </p>
-          <h2 className="mt-4 text-2xl font-normal text-white">{section.title}</h2>
+          <h2 className="mt-4 text-2xl font-normal text-fg">{section.title}</h2>
         </div>
-        <span className="text-sm text-white/30">{section.links.length}</span>
+        <span className="text-sm text-fg-faint">{section.links.length}</span>
       </div>
-      <p className="mt-5 break-keep text-sm font-normal leading-7 text-white/55">{section.body}</p>
-      <div className="mt-7 divide-y divide-white/10 border-t border-white/10">
+      <p className="mt-5 break-keep text-sm font-normal leading-7 text-fg-muted">{section.body}</p>
+      <div className="mt-7 divide-y divide-white/10 border-t border-line">
         {section.links.map((link) => (
           <Link
             key={`${section.number}-${link.label}`}
             href={link.href}
             className="group grid gap-2 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
-            <span className="flex items-center justify-between gap-4 text-[15px] font-normal text-white/85 transition group-hover:text-white">
+            <span className="flex items-center justify-between gap-4 text-[15px] font-normal text-fg transition group-hover:text-fg">
               <span className="break-keep">{link.label}</span>
-              <span className="text-white/35 transition group-hover:translate-x-1 group-hover:text-white">
+              <span className="text-fg-faint transition group-hover:translate-x-1 group-hover:text-fg">
                 →
               </span>
             </span>
-            <span className="break-keep text-sm font-normal leading-6 text-white/45">
+            <span className="break-keep text-sm font-normal leading-6 text-fg-faint">
               {link.description}
             </span>
           </Link>
@@ -148,25 +148,25 @@ function SitemapCard({ section }: { section: SitemapSection }) {
 
 export default function SitemapPage() {
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="min-h-screen bg-background text-fg">
       <Header />
       <main>
         <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
-          <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/40">
+          <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
             Site Map
           </p>
-          <h1 className="mt-5 max-w-4xl break-keep text-[clamp(2.45rem,9.6vw,71px)] font-normal leading-[1.13] text-white">
+          <h1 className="mt-5 max-w-4xl break-keep text-[clamp(2.45rem,9.6vw,71px)] font-normal leading-[1.13] text-fg">
             제품의 1.1을 따라,
             <br />
             작업의 구조를 한 번에 확인합니다.
           </h1>
-          <p className="mt-8 max-w-2xl break-keep text-base font-normal leading-8 text-[#999] md:text-[17px] md:leading-9">
+          <p className="mt-8 max-w-2xl break-keep text-base font-normal leading-8 text-fg-muted md:text-[17px] md:leading-9">
             홈의 질문, 케이스스터디, 프로젝트 아카이브, 소개와 연락 경로를 같은 기준으로
             정리했습니다.
           </p>
         </section>
 
-        <section className="border-y border-white/10 bg-[#0B0B10]">
+        <section className="border-y border-line bg-raised">
           <div className="mx-auto grid max-w-content gap-4 px-5 py-20 md:grid-cols-2 md:px-8 md:py-24 lg:py-32">
             {sitemapSections.map((section) => (
               <SitemapCard key={section.number} section={section} />

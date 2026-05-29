@@ -135,21 +135,21 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
         <Link
           href="/work"
-          className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className="inline-flex text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           ← Back to Work
         </Link>
-        <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+        <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
           {caseStudy.number} / {caseStudy.tag}
         </p>
-        <h1 className="mt-5 max-w-4xl whitespace-pre-line break-keep text-[clamp(2.45rem,9.6vw,71px)] font-normal leading-[1.13] text-white">
+        <h1 className="mt-5 max-w-4xl whitespace-pre-line break-keep text-[clamp(2.45rem,9.6vw,71px)] font-normal leading-[1.13] text-fg">
           {caseStudy.question}
         </h1>
-        <p className="mt-8 text-base font-normal leading-8 text-white/55 md:text-[17px]">
+        <p className="mt-8 text-base font-normal leading-8 text-fg-muted md:text-[17px]">
           {caseStudy.project}
         </p>
-        <div className="mt-16 border-t border-white/10 pt-8">
-          <p className="break-keep text-sm font-normal leading-7 text-white/45">
+        <div className="mt-16 border-t border-line pt-8">
+          <p className="break-keep text-sm font-normal leading-7 text-fg-faint">
             케이스 스터디 상세 내용은 준비 중입니다.
           </p>
         </div>

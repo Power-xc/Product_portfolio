@@ -3,11 +3,11 @@ import { navItems } from "@/lib/home-content"
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-background/95">
+    <header className="sticky top-0 z-50 border-b border-line bg-[rgba(8,8,12,0.8)] backdrop-blur-md">
       <div className="mx-auto flex max-w-content flex-col items-center gap-3 px-5 py-4 text-center md:h-16 md:flex-row md:justify-between md:px-8 md:text-left">
         <Link
           href="/"
-          className="w-fit text-[15px] font-normal text-[#999] transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:text-[17px]"
+          className="w-fit text-[15px] font-normal text-fg-muted transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:text-[17px]"
         >
           KANGKEUN PARK / 박강근
         </Link>
@@ -19,7 +19,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex min-h-8 items-center justify-center text-center text-[14px] font-normal text-white/55 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:min-h-0 md:text-sm"
+              className="flex min-h-8 items-center justify-center text-center text-[14px] font-normal text-fg-muted transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:min-h-0 md:text-sm"
             >
               {item.label}
             </Link>

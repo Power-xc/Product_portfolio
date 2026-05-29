@@ -9,7 +9,7 @@ import { Header } from "@/components/layout/Header"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="min-h-screen bg-background text-fg">
       <Header />
       <main>
         <Hero />

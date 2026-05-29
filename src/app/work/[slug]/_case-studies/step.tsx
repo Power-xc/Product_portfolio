@@ -6,6 +6,7 @@ import { PriorityRationale } from "@/components/case-study/PriorityRationale"
 import { ProblemStatement } from "@/components/case-study/ProblemStatement"
 import type { Hypothesis, LearningNote, StepScreenItem, TradeOff } from "../_lib/types"
 import {
+  HeroAtmosphere,
   CaseStudyShell,
   CaseSection,
   ClosingText,
@@ -69,7 +70,7 @@ const stepLearningNote: LearningNote = {
 
 export function StepCaseStudy() {
   return (
-    <CaseStudyShell>
+    <CaseStudyShell accent="#FFFFFF">
       <StepHeroSection />
       <StepProblemSection />
       <HypothesisSection
@@ -104,56 +105,57 @@ function StepHeroSection() {
   ]
 
   return (
-    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+    <section className="relative isolate mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+      <HeroAtmosphere />
       <Link
         href="/work"
-        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="inline-flex text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         ← Back to Work
       </Link>
-      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
         02 / Lifelong Education Platform UX
       </p>
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
         <div>
-          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-fg">
             콘텐츠가 넘쳐도,
             <br />
             학습자는 왜 <br className="sm:hidden" />
             다음 행동을 <br className="sm:hidden" />
             찾지 못했을까?
           </h1>
-          <p className="mt-6 break-keep text-lg font-normal leading-8 text-white/55">
+          <p className="mt-6 break-keep text-lg font-normal leading-8 text-fg-muted">
             STEP Lifelong Education Platform
           </p>
-          <p className="mt-2 text-base font-normal leading-7 text-white/38">
+          <p className="mt-2 text-base font-normal leading-7 text-fg-faint">
             From Content-heavy Portal to Learner-centered Education Journey
           </p>
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
+        <div className="border-t border-line pt-5">
           <dl className="space-y-5">
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Role</dt>
-              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Role</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-fg-muted">
                 UX/UI Design · IA Structuring · Design Handoff
               </dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Scope</dt>
-              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Scope</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-fg-muted">
                 Home · Search · Course Flow · My Learning · Wiki · Responsive Review
               </dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/35">Evidence</dt>
-              <dd className="mt-2 break-keep text-sm leading-6 text-white/60">
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Evidence</dt>
+              <dd className="mt-2 break-keep text-sm leading-6 text-fg-muted">
                 운영 화면 고화질 캡처 · IA / GNB / 검색 / 목록 / 상세 / 모바일 메뉴
               </dd>
             </div>
           </dl>
         </div>
       </div>
-      <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-white/60 md:text-lg">
+      <div className="mt-10 max-w-4xl space-y-5 text-base leading-8 text-fg-muted md:text-lg">
         <p className="break-keep">
           STEP은 단일 교육 사이트보다 여러 학습 서비스가 연결된 공공 포털에 가까웠습니다. 이러닝,
           K-디지털, 가상훈련, 에듀테크+, 위키, 커뮤니티, 업무지원까지 서로 다른 목적의 기능이 한
@@ -176,9 +178,9 @@ function StepHeroSection() {
 
 function StepHeroVisual() {
   return (
-    <figure className="mt-12 w-full min-w-0 max-w-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] shadow-card 2xl:-mx-[120px]">
-      <div className="grid items-start gap-3 bg-black/30 p-3 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
+    <figure className="mt-12 w-full min-w-0 max-w-full overflow-hidden rounded-lg border border-line bg-surface shadow-card 2xl:-mx-[120px]">
+      <div className="grid items-start gap-3 bg-surface-2 p-3 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-line bg-white">
           <img
             src={stepScreens.home}
             alt="STEP 운영 홈 고화질 캡처 화면"
@@ -189,7 +191,7 @@ function StepHeroVisual() {
           />
         </div>
         <div className="grid min-w-0 content-start gap-3">
-          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-line bg-white">
             <img
               src={stepScreens.sitemap}
               alt="STEP 전체 메뉴 IA 고화질 캡처 화면"
@@ -199,7 +201,7 @@ function StepHeroVisual() {
               className="block h-auto w-full max-w-full object-contain"
             />
           </div>
-          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-line bg-white">
             <img
               src={stepScreens.allCourses}
               alt="STEP 이러닝 과정 목록 고화질 캡처 화면"
@@ -211,7 +213,7 @@ function StepHeroVisual() {
           </div>
         </div>
       </div>
-      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+      <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
         고화질 캡처 화면 — 홈, 전체 메뉴 IA, 과정 목록을 연결해 학습자가 어디서 시작하고 어떻게
         탐색하는지 보여주는 구조
       </figcaption>
@@ -323,38 +325,38 @@ function StepDiscoverySection() {
       title="기존 기능을 학습자의 행동 목적 기준으로 재분류했다"
       description="STEP은 다양한 기능이 각자 독립적으로 구성된 포털이었습니다. 처음부터 화면을 새로 그리기보다, 기존 기능과 화면을 학습자의 행동 목적 기준으로 먼저 재분류했습니다."
     >
-      <div className="mb-8 rounded-lg border border-white/10 bg-white/[0.035] p-6">
-        <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">기존 기능 단위</p>
+      <div className="mb-8 border-t border-line pt-6">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">기존 기능 단위</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {original.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-white/10 bg-black/25 px-3 py-1.5 text-sm text-white/55"
+              className="rounded-full border border-line bg-surface-2 px-3 py-1.5 text-sm text-fg-muted"
             >
               {item}
             </span>
           ))}
         </div>
-        <div className="mt-5 flex items-center gap-3 text-white/25">
-          <div className="h-px flex-1 bg-white/10" />
+        <div className="mt-5 flex items-center gap-3 text-fg-faint">
+          <div className="h-px flex-1 bg-surface-2" />
           <span className="text-xs uppercase tracking-widest">
             학습자 행동 목적 기준으로 재분류
           </span>
-          <div className="h-px flex-1 bg-white/10" />
+          <div className="h-px flex-1 bg-surface-2" />
         </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {restructured.map((group) => (
-          <div key={group.stage} className="rounded-lg border border-white/10 bg-white/[0.035] p-5">
+          <div key={group.stage} className="border-t border-line pt-5">
             <div className="flex items-baseline gap-3">
               <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[11px] font-normal uppercase tracking-widest text-accent">
                 {group.stage}
               </span>
-              <span className="text-sm text-white/45">{group.label}</span>
+              <span className="text-sm text-fg-faint">{group.label}</span>
             </div>
             <ul className="mt-4 space-y-1.5">
               {group.items.map((item) => (
-                <li key={item} className="text-sm leading-6 text-white/60">
+                <li key={item} className="text-sm leading-6 text-fg-muted">
                   {item}
                 </li>
               ))}
@@ -379,7 +381,7 @@ function StepScreenFigure({
 }) {
   const isPhone = screen.size === "phone"
   const figureClass = [
-    "min-w-0 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]",
+    "min-w-0 overflow-hidden rounded-lg border border-line bg-surface",
     screen.size === "wide" ? "md:col-span-2" : "",
   ]
     .filter(Boolean)
@@ -387,9 +389,9 @@ function StepScreenFigure({
 
   return (
     <figure className={figureClass}>
-      <div className={compact ? "min-w-0 bg-black/30 p-3" : "min-w-0 bg-black/30 p-4"}>
+      <div className={compact ? "min-w-0 bg-surface-2 p-3" : "min-w-0 bg-surface-2 p-4"}>
         {isPhone ? (
-          <div className="mx-auto max-w-[250px] rounded-[28px] border border-white/15 bg-[#101010] p-2 shadow-card">
+          <div className="mx-auto max-w-[250px] rounded-xl border border-line-strong bg-surface-2 p-2 shadow-card">
             <div className="overflow-hidden rounded-[22px] bg-white">
               <img
                 src={screen.src}
@@ -402,7 +404,7 @@ function StepScreenFigure({
             </div>
           </div>
         ) : (
-          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-line bg-white">
             <img
               src={screen.src}
               alt={screen.alt}
@@ -414,10 +416,10 @@ function StepScreenFigure({
           </div>
         )}
       </div>
-      <figcaption className="border-t border-white/10 px-5 py-4">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-white/35">{screen.label}</p>
-        <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-white">{screen.title}</p>
-        <p className="mt-2 break-keep text-xs leading-5 text-white/40">{screen.caption}</p>
+      <figcaption className="border-t border-line px-5 py-4">
+        <p className="text-[11px] uppercase tracking-[0.14em] text-fg-faint">{screen.label}</p>
+        <p className="mt-1.5 break-keep text-sm font-normal leading-6 text-fg">{screen.title}</p>
+        <p className="mt-2 break-keep text-xs leading-5 text-fg-faint">{screen.caption}</p>
       </figcaption>
     </figure>
   )
@@ -547,20 +549,20 @@ function StepWorkflowSection() {
         {stages.map((s, i) => (
           <div
             key={s.stage}
-            className="grid gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5 md:grid-cols-[auto_1fr_1fr]"
+            className="grid gap-4 border-t border-line pt-5 md:grid-cols-[auto_1fr_1fr]"
           >
             <div className="flex items-center gap-3 md:block">
-              <span className="text-[11px] uppercase tracking-widest text-white/30">
+              <span className="text-[11px] uppercase tracking-widest text-fg-faint">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="ml-2 text-sm font-normal text-white md:ml-0 md:mt-2 md:block">
+              <span className="ml-2 text-sm font-normal text-fg md:ml-0 md:mt-2 md:block">
                 {s.stage}
               </span>
             </div>
-            <p className="break-keep text-sm leading-7 text-white/65 md:border-l md:border-white/10 md:pl-5">
+            <p className="break-keep text-sm leading-7 text-fg-muted md:border-l md:border-line md:pl-5">
               &quot;{s.question}&quot;
             </p>
-            <p className="break-keep text-sm leading-7 text-white/38 md:border-l md:border-white/10 md:pl-5">
+            <p className="break-keep text-sm leading-7 text-fg-faint md:border-l md:border-line md:pl-5">
               {s.surfaces}
             </p>
           </div>
@@ -607,12 +609,12 @@ function StepIaSection() {
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {groups.map((g) => (
-          <div key={g.title} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-            <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">{g.sub}</p>
-            <h3 className="mt-2 text-base font-normal text-white">{g.title}</h3>
+          <div key={g.title} className="border-t border-line pt-6">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">{g.sub}</p>
+            <h3 className="mt-2 text-base font-normal text-fg">{g.title}</h3>
             <ul className="mt-4 space-y-2">
               {g.items.map((item) => (
-                <li key={item} className="text-sm leading-6 text-white/55">
+                <li key={item} className="text-sm leading-6 text-fg-muted">
                   {item}
                 </li>
               ))}
@@ -670,17 +672,15 @@ function StepKeyDecisionsSection() {
     >
       <div className="space-y-5">
         {decisions.map((d) => (
-          <div key={d.number} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-            <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">{d.number}</p>
-            <h3 className="mt-3 break-keep text-[17px] font-normal leading-7 text-white">
-              {d.title}
-            </h3>
-            <p className="mt-4 break-keep text-sm leading-7 text-white/60">{d.body}</p>
+          <div key={d.number} className="border-t border-line pt-6">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">{d.number}</p>
+            <h3 className="mt-3 break-keep text-[17px] font-normal leading-7 text-fg">{d.title}</h3>
+            <p className="mt-4 break-keep text-sm leading-7 text-fg-muted">{d.body}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {d.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/45"
+                  className="rounded-full border border-line bg-surface-2 px-3 py-1 text-xs text-fg-faint"
                 >
                   {tag}
                 </span>
@@ -846,9 +846,9 @@ function StepCollaborationSection() {
         협업 사례로 표현됩니다. 현재 운영 중인 STEP 화면은 협업을 통해 구현된 결과이며, 본 케이스는
         그 중 UX/UI 설계 기여 범위를 중심으로 서술합니다.
       </ClosingText>
-      <figure className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-        <div className="min-w-0 bg-black/30 p-3">
-          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-white/10 bg-white">
+      <figure className="mt-8 overflow-hidden rounded-lg border border-line bg-surface">
+        <div className="min-w-0 bg-surface-2 p-3">
+          <div className="min-w-0 max-w-full overflow-hidden rounded-md border border-line bg-white">
             <img
               src={stepScreens.home}
               alt="STEP 운영 중인 서비스 홈 고화질 캡처 화면"
@@ -859,7 +859,7 @@ function StepCollaborationSection() {
             />
           </div>
         </div>
-        <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+        <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
           고화질 캡처 화면 — 설계 방향이 실제 운영 포털의 홈 구조로 이어진 맥락
         </figcaption>
       </figure>
@@ -893,11 +893,11 @@ function StepOutcomeSection() {
       description="정량 성과를 임의로 만들지 않고, 이 구조 설계가 실제 효과를 냈는지 확인하기 위해 어떤 지표를 봐야 하는지를 정의했습니다."
     >
       <TwoColumn>
-        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Design Outcome</p>
+        <div className="border-t border-line pt-6">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Design Outcome</p>
           <ul className="mt-5 space-y-3">
             {outcomes.map((o) => (
-              <li key={o} className="break-keep text-sm leading-7 text-white/60">
+              <li key={o} className="break-keep text-sm leading-7 text-fg-muted">
                 {o}
               </li>
             ))}
@@ -970,7 +970,7 @@ function StepReflectionSection() {
       <div className="mt-10 flex justify-start">
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className="inline-flex items-center gap-2 text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           ← Back to Work
         </Link>

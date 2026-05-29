@@ -22,6 +22,8 @@ import type {
   TradeOff,
 } from "../_lib/types"
 import {
+  AccentGlow,
+  HeroAtmosphere,
   CaseStudyShell,
   BeforeAfterCard,
   Card,
@@ -30,6 +32,7 @@ import {
   DesignBlock,
   DiagramCard,
   HypothesisSection,
+  PullQuote,
   ListCard,
   MetricGrid,
   NumberedList,
@@ -87,12 +90,6 @@ const interviewQuotes: QuoteItem[] = [
     meta: "점주 인터뷰",
     quote:
       "데이터가 100% 완벽하지 않더라도, 우리가 참고할 수 있는 가이드라인만 제대로 주어진다면 장사하는 입장에선 충분히 유의미하죠.",
-  },
-  {
-    store: "아현뉴타운",
-    meta: "13년차",
-    quote:
-      "본사가 보여주는 건 가공된 자료라 믿을 수 없다. 팩트가 없으면 AI도 결국 거짓말 도구일 뿐이다.",
   },
   {
     store: "동탄하나로",
@@ -548,10 +545,15 @@ const dunkinLearningNote: LearningNote = {
 
 export function DunkinCaseStudy() {
   return (
-    <CaseStudyShell>
+    <CaseStudyShell accent="#FFFFFF">
       <HeroSection />
+      <StoryLeadSection />
       <BusinessContextSection />
       <ProblemSection />
+      <PullQuote
+        quote="본사가 보여주는 건 가공된 자료라 믿을 수 없다."
+        source="아현뉴타운점, 13년차 점주"
+      />
       <ResearchSection />
       <JourneySection />
       <PrincipleSection />
@@ -576,25 +578,29 @@ export function DunkinCaseStudy() {
 
 function HeroSection() {
   return (
-    <section className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
+    <section className="relative isolate mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+      <HeroAtmosphere />
       <Link
         href="/work"
-        className="inline-flex text-sm font-normal text-white/45 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="inline-flex text-sm font-normal text-fg-faint transition hover:text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         ← Back to Work
       </Link>
-      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
+      <p className="mt-12 text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
         01 / AI Decision UX
       </p>
-      <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
+      <p className="mt-5 break-keep text-base font-normal leading-7 text-[color:var(--case-accent)] md:text-lg">
+        리서치부터 프론트 구현까지 책임지는 AI Product Designer
+      </p>
+      <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_0.5fr] lg:items-end">
         <div>
-          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-white">
+          <h1 className="max-w-5xl break-keep text-[clamp(2.45rem,8.3vw,76px)] font-normal leading-[1.08] text-fg">
             AI가 추천해도, 점주는 왜 바로 주문하지 못했을까?
           </h1>
-          <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/55 md:text-lg">
+          <p className="mt-8 max-w-2xl text-base font-normal leading-8 text-fg-muted md:text-lg">
             AI Decision UX — 추천 검토와 발주 조정을 지원하는 운영 UX
           </p>
-          <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-white/45 md:text-base md:leading-8">
+          <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-fg-faint md:text-base md:leading-8">
             AI 기능 자체보다, 추천 근거와 수량 조정 단계를 설계해 점주의 최종 승인권을 유지한
             Product UX 케이스입니다.
           </p>
@@ -608,31 +614,52 @@ function HeroSection() {
           {heroMeta.map((item) => (
             <div
               key={item.label}
-              className="grid grid-cols-[0.36fr_1fr] gap-4 border-t border-white/10 py-4"
+              className="grid grid-cols-[0.36fr_1fr] gap-4 border-t border-line py-4"
             >
-              <span className="text-[12px] uppercase tracking-[0.16em] text-white/35">
+              <span className="text-[12px] uppercase tracking-[0.16em] text-fg-faint">
                 {item.label}
               </span>
-              <span className="break-keep text-sm leading-6 text-white/70">{item.value}</span>
+              <span className="break-keep text-sm leading-6 text-fg-muted">{item.value}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-14">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-white/35">
+      <div className="mt-16">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-fg-faint">
           Structure Change, not business performance
         </p>
-        <MetricGrid metrics={structureMetrics} />
+        <MetricGrid metrics={structureMetrics} accent />
       </div>
 
-      <div className="mt-12">
+      <div className="relative isolate mt-16">
+        <AccentGlow className="left-1/2 top-1/2 h-[130%] w-[85%] -translate-x-1/2 -translate-y-1/2" />
         <ScreenFigure
           src={`${imageBase}/pos-dashboard-overview.png`}
           alt="SPC Dunkin POS 종합현황 디자인 화면"
           caption="디자인 파일 이미지 — 점주가 당일 매출과 생산 상태를 함께 확인하는 종합현황 화면"
           wide
+          eager
         />
+      </div>
+    </section>
+  )
+}
+
+function StoryLeadSection() {
+  return (
+    <section className="border-t border-line">
+      <div className="mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+        <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
+          Behind the Project
+        </p>
+        <div className="mt-8 max-w-3xl space-y-6 break-keep text-[clamp(1.15rem,2.3vw,1.5rem)] font-normal leading-[1.6] text-fg">
+          <p>솔직히 이 프로젝트는 한 번 엎어질 뻔했다.</p>
+          <p>
+            회사 핵심 인력이 정부 과제로 빠지면서 PoC는 멈췄고, 남은 건 나였다. 기능을 더 그리는
+            대신, 나는 매장으로 갔다.
+          </p>
+        </div>
       </div>
     </section>
   )
@@ -651,7 +678,7 @@ function BusinessContextSection() {
       />
       <TwoColumn className="mt-6">
         <Card title="기존 커뮤니케이션 문제">
-          <p className="break-keep text-sm leading-7 text-white/55">
+          <p className="break-keep text-sm leading-7 text-fg-muted">
             영업담당자가 매장을 직접 방문해 출력물을 보여주며 설명하는 구조. 데이터는 있었지만
             점주가 바로 조치할 수 있는 형태로 연결되지 않았다.
           </p>
@@ -716,6 +743,7 @@ function ResearchSection() {
   return (
     <CaseSection
       number="03"
+      tone="raised"
       title="현장 리서치에서는 숫자보다 운영 기준의 부족이 반복됐다"
       description="인터뷰, FGI, 카드소팅에서는 기능 수보다 신뢰, 지연, 책임의 문제가 반복되었습니다. 점주는 숫자 자체보다 그 숫자를 바탕으로 어떤 조치를 해야 하는지 확인하고 싶어 했습니다."
     >
@@ -732,19 +760,19 @@ function ResearchSection() {
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {researchPatterns.map((pattern) => (
           <Card key={pattern.title} title={pattern.title}>
-            <p className="text-sm leading-7 text-white/55">{pattern.body}</p>
+            <p className="text-sm leading-7 text-fg-muted">{pattern.body}</p>
           </Card>
         ))}
       </div>
       <div className="mt-8">
-        <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-white/35">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-fg-faint">
           Representative Persona
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           {personas.map((persona) => (
             <Card key={persona.name} title={persona.name}>
-              <p className="text-sm leading-6 text-white/45">{persona.profile}</p>
-              <p className="mt-5 break-keep text-[17px] leading-7 text-white/80">
+              <p className="text-sm leading-6 text-fg-faint">{persona.profile}</p>
+              <p className="mt-5 break-keep text-[17px] leading-7 text-fg">
                 &quot;{persona.quote}&quot;
               </p>
             </Card>
@@ -774,7 +802,7 @@ function JourneySection() {
         </thead>
         <tbody>
           {journeyRows.map((row) => (
-            <tr key={row.stage} className="border-t border-white/10">
+            <tr key={row.stage} className="border-t border-line">
               <TableCell strong>{row.stage}</TableCell>
               <TableCell>{row.time}</TableCell>
               <TableCell>{row.before}</TableCell>
@@ -798,17 +826,14 @@ function PrincipleSection() {
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {patterns.map((pattern) => (
-          <div
-            key={pattern.insight}
-            className="rounded-lg border border-white/10 bg-white/[0.035] p-6"
-          >
-            <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">
+          <div key={pattern.insight} className="border-t border-line pt-6">
+            <p className="text-[12px] uppercase tracking-[0.16em] text-fg-faint">
               {pattern.insight}
             </p>
-            <p className="mt-5 break-keep text-xl font-normal leading-tight text-white">
+            <p className="mt-5 break-keep text-xl font-normal leading-tight text-fg">
               {pattern.principle}
             </p>
-            <p className="mt-5 break-keep text-sm leading-7 text-white/55">{pattern.design}</p>
+            <p className="mt-5 break-keep text-sm leading-7 text-fg-muted">{pattern.design}</p>
           </div>
         ))}
       </div>
@@ -839,7 +864,7 @@ function RequirementMappingSection() {
         </thead>
         <tbody>
           {requirementRows.map((row) => (
-            <tr key={row.requirement} className="border-t border-white/10">
+            <tr key={row.requirement} className="border-t border-line">
               <TableCell strong>{row.requirement}</TableCell>
               <TableCell>{row.problem}</TableCell>
               <TableCell>{row.solution}</TableCell>
@@ -876,7 +901,7 @@ function IaRedesignSection() {
         />
       </div>
       <div className="mt-8">
-        <h3 className="mb-4 text-xl font-normal text-white">카드소팅 일치율 매트릭스</h3>
+        <h3 className="mb-4 text-xl font-normal text-fg">카드소팅 일치율 매트릭스</h3>
         <ResponsiveTable>
           <thead>
             <tr>
@@ -887,7 +912,7 @@ function IaRedesignSection() {
           </thead>
           <tbody>
             {sortingRows.map((row) => (
-              <tr key={row.item} className="border-t border-white/10">
+              <tr key={row.item} className="border-t border-line">
                 <TableCell strong>{row.item}</TableCell>
                 <TableCell>{row.recommend}</TableCell>
                 <TableCell>{row.donut}</TableCell>
@@ -905,16 +930,16 @@ function IaRedesignSection() {
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <Card title="Hick's Law">
-          <p className="text-sm leading-7 text-white/55">선택지 압축으로 결정 부담 감소.</p>
+          <p className="text-sm leading-7 text-fg-muted">선택지 압축으로 결정 부담 감소.</p>
         </Card>
         <Card title="Fitts's Law">
-          <p className="text-sm leading-7 text-white/55">
+          <p className="text-sm leading-7 text-fg-muted">
             핵심 버튼 터치 영역 확대, 고대비 인터랙션.
           </p>
         </Card>
       </div>
       <div className="mt-8">
-        <h3 className="mb-4 text-xl font-normal text-white">뎁스 분석 매트릭스</h3>
+        <h3 className="mb-4 text-xl font-normal text-fg">뎁스 분석 매트릭스</h3>
         <ResponsiveTable>
           <thead>
             <tr>
@@ -925,7 +950,7 @@ function IaRedesignSection() {
           </thead>
           <tbody>
             {depthRows.map((row) => (
-              <tr key={row.task} className="border-t border-white/10">
+              <tr key={row.task} className="border-t border-line">
                 <TableCell strong>{row.task}</TableCell>
                 <TableCell>{row.asIs}</TableCell>
                 <TableCell>{row.toBe}</TableCell>
@@ -1003,6 +1028,17 @@ function UxDesignSection() {
         </div>
       </DesignBlock>
 
+      <div className="mb-8 border-l-2 border-[color:var(--case-accent)] bg-surface py-6 pl-6 pr-5 md:pl-8">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-fg-faint">
+          What we got wrong first
+        </p>
+        <p className="mt-4 max-w-3xl break-keep text-base leading-[1.7] text-fg-muted md:text-[17px]">
+          처음엔 챗봇 안에서 발주까지 끝내려 했다. 하지만 점주들은{" "}
+          <span className="italic text-fg">&quot;그건 못 믿겠다&quot;</span>고 했다. 그래서 화면
+          이동 방식으로 되돌렸다.
+        </p>
+      </div>
+
       <DesignBlock
         eyebrow="03"
         title="통제 가능한 발주 설계"
@@ -1061,16 +1097,16 @@ function UxDesignSection() {
           />
         </div>
         <div className="mt-6">
-          <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-            <h3 className="text-xl font-normal text-white">크로스 플랫폼 데이터 흐름</h3>
+          <div className="border-t border-line pt-6">
+            <h3 className="text-xl font-normal text-fg">크로스 플랫폼 데이터 흐름</h3>
             <div className="mt-6 grid gap-3 lg:grid-cols-3">
               {crossPlatformFlows.map((flow) => (
                 <div
                   key={flow.from}
-                  className="grid gap-3 rounded-lg border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/60"
+                  className="grid gap-3 border-t border-line pt-4 text-sm leading-6 text-fg-muted"
                 >
                   <span>{flow.from}</span>
-                  <span className="text-white/25">→</span>
+                  <span className="text-fg-faint">→</span>
                   <span>{flow.to}</span>
                 </div>
               ))}
@@ -1102,13 +1138,16 @@ function KeyScreensSection() {
       title="각 화면을 다음 운영 행동과 연결해 설명했다"
       description="각 화면을 정보 노출 단위보다, 점주가 다음 운영 행동을 확인하는 단위로 정리했습니다."
     >
-      <div className="space-y-10">
-        <ScreenFigure
-          src={`${imageBase}/pos-dashboard-overview.png`}
-          alt="POS 종합현황 대시보드"
-          caption="디자인 파일 이미지 — 당일 매출, 추천 행동, 손실 가능성을 같은 화면에서 확인하게 했다."
-          wide
-        />
+      <div className="space-y-12">
+        <div className="relative isolate">
+          <AccentGlow className="left-1/2 top-1/2 h-[130%] w-[85%] -translate-x-1/2 -translate-y-1/2" />
+          <ScreenFigure
+            src={`${imageBase}/pos-dashboard-overview.png`}
+            alt="POS 종합현황 대시보드"
+            caption="디자인 파일 이미지 — 당일 매출, 추천 행동, 손실 가능성을 같은 화면에서 확인하게 했다."
+            wide
+          />
+        </div>
         <div className="grid gap-4 lg:grid-cols-2">
           <ScreenFigure
             src={`${imageBase}/pos-production-management.png`}
@@ -1121,16 +1160,6 @@ function KeyScreensSection() {
             caption="디자인 파일 이미지 — 추천과 수동 조정을 분리해 최종 승인 전 검토하게 했다."
           />
         </div>
-        <div className="grid gap-4 lg:grid-cols-3">
-          {orderStepScreens.map((screen) => (
-            <ScreenFigure
-              key={screen.title}
-              src={screen.src}
-              alt={screen.alt}
-              caption={`디자인 파일 이미지 — ${screen.description}`}
-            />
-          ))}
-        </div>
         <ScreenFigure
           src={`${imageBase}/pos-ai-realtime-status.png`}
           alt="POS AI 실시간 현황 화면"
@@ -1138,7 +1167,7 @@ function KeyScreensSection() {
           wide
         />
         <div className="grid gap-4 md:grid-cols-2">
-          {mobileScreens.map((screen) => (
+          {mobileScreens.slice(0, 2).map((screen) => (
             <ScreenFigure
               key={screen.title}
               src={screen.src}
@@ -1148,28 +1177,39 @@ function KeyScreensSection() {
             />
           ))}
         </div>
-        <div className="border-t border-white/10 pt-10">
-          <h3 className="mb-5 break-keep text-xl font-normal text-white">실제 구현 화면</h3>
-          <div className="grid gap-4 lg:grid-cols-2">
-            {actualPosScreens.map((screen) => (
-              <ScreenFigure
-                key={screen.title}
-                src={screen.src}
-                alt={screen.alt}
-                caption={`실제 구현 화면 — ${screen.description}`}
-              />
-            ))}
-          </div>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {actualMobileScreens.map((screen) => (
-              <ScreenFigure
-                key={screen.title}
-                src={screen.src}
-                alt={screen.alt}
-                caption={`실제 구현 화면 — ${screen.description}`}
-                mobile
-              />
-            ))}
+        <div className="border-t border-line pt-12">
+          <h3 className="break-keep text-xl font-normal text-fg md:text-2xl">실제 구현 화면</h3>
+          <p className="mt-4 max-w-3xl break-keep text-base leading-[1.7] text-fg-muted md:text-[17px]">
+            디자인 파일에 그치지 않고, 프론트엔드 구현까지 직접 책임진 결과물입니다.
+          </p>
+          <div className="mt-8 space-y-4">
+            <ScreenFigure
+              src={actualPosScreens[0].src}
+              alt={actualPosScreens[0].alt}
+              caption={`실제 구현 화면 — ${actualPosScreens[0].description}`}
+              wide
+            />
+            <div className="grid gap-4 lg:grid-cols-2">
+              {actualPosScreens.slice(1, 3).map((screen) => (
+                <ScreenFigure
+                  key={screen.title}
+                  src={screen.src}
+                  alt={screen.alt}
+                  caption={`실제 구현 화면 — ${screen.description}`}
+                />
+              ))}
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {actualMobileScreens.slice(0, 2).map((screen) => (
+                <ScreenFigure
+                  key={screen.title}
+                  src={screen.src}
+                  alt={screen.alt}
+                  caption={`실제 구현 화면 — ${screen.description}`}
+                  mobile
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -1181,11 +1221,12 @@ function TradeOffSection() {
   return (
     <CaseSection
       number="10"
+      tone="raised"
       title="전체 데이터보다 즉시 조치에 필요한 정보만 전면에 남겼다"
       description="모든 데이터를 보여주기보다, 고급 커스터마이징과 일부 상세 분석을 줄이고 바쁜 아침에 점주가 바로 확인해야 하는 정보만 전면에 배치했습니다."
     >
-      <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
-        <p className="max-w-2xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-white">
+      <div className="border-t border-line pt-6 md:pt-8">
+        <p className="max-w-2xl break-keep text-[clamp(1.7rem,4vw,3rem)] font-normal leading-tight text-fg">
           더 많은 정보보다, 피크타임에 바로 조치할 수 있는 정보가 우선이었습니다.
         </p>
       </div>
@@ -1233,29 +1274,26 @@ function SpeedWorkflowSection() {
             reason: "3단계 프로토타입 사용성 검증 완료",
           },
         ].map((item) => (
-          <div
-            key={item.hypothesis}
-            className="rounded-lg border border-white/10 bg-white/[0.035] p-5"
-          >
+          <div key={item.hypothesis} className="border-t border-line pt-5">
             <div className="flex items-center justify-between">
-              <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+              <span className="rounded-full border border-line-strong bg-surface-2 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-fg-faint">
                 {item.hypothesis}
               </span>
-              <span className="text-[11px] uppercase tracking-[0.12em] text-white/30">
+              <span className="text-[11px] uppercase tracking-[0.12em] text-fg-faint">
                 {item.label}
               </span>
             </div>
             <div className="mt-5 flex gap-6">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Impact</p>
-                <p className="mt-1.5 text-sm font-normal text-white">{item.impact}</p>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-fg-faint">Impact</p>
+                <p className="mt-1.5 text-sm font-normal text-fg">{item.impact}</p>
               </div>
               <div>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">Feasibility</p>
-                <p className="mt-1.5 text-sm font-normal text-white">{item.feasibility}</p>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-fg-faint">Feasibility</p>
+                <p className="mt-1.5 text-sm font-normal text-fg">{item.feasibility}</p>
               </div>
             </div>
-            <p className="mt-4 break-keep text-[12px] leading-5 text-white/35">{item.reason}</p>
+            <p className="mt-4 break-keep text-[12px] leading-5 text-fg-faint">{item.reason}</p>
           </div>
         ))}
       </div>

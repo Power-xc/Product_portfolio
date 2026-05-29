@@ -6,7 +6,7 @@ export function Process() {
     <section id="approach" className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-24 lg:py-32">
       <div>
         <SectionHeading title="저는 화면을 그리기 전에, 사용자가 멈추는 구조를 먼저 찾습니다." />
-        <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:mt-14 md:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-surface-2 md:mt-14 md:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step) => (
             <article
               key={step.number}
@@ -16,11 +16,11 @@ export function Process() {
                   : ""
               }`}
             >
-              <p className="text-[11px] font-normal uppercase tracking-[0.16em] text-white/30 md:text-xs">
+              <p className="text-[11px] font-normal uppercase tracking-[0.16em] text-fg-faint md:text-xs">
                 {step.number}
               </p>
-              <h3 className="mt-8 text-2xl font-normal text-white">{step.title}</h3>
-              <p className="mt-5 break-keep text-sm font-normal leading-7 text-white/55">
+              <h3 className="mt-8 text-2xl font-normal text-fg">{step.title}</h3>
+              <p className="mt-5 break-keep text-sm font-normal leading-7 text-fg-muted">
                 {step.body}
               </p>
             </article>

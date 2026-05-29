@@ -5,14 +5,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#08080C",
-        surface: "#111118",
-        elevated: "#181823",
-        border: "rgba(255,255,255,0.12)",
-        muted: "rgba(255,255,255,0.64)",
-        faint: "rgba(255,255,255,0.42)",
-        accent: "#C9B6FF",
-        "accent-blue": "#BBD7FF",
+        background: "rgb(var(--bg-rgb) / <alpha-value>)",
+        bg: "rgb(var(--bg-rgb) / <alpha-value>)",
+        surface: "rgb(var(--surface-rgb) / <alpha-value>)",
+        "surface-2": "rgb(var(--surface-2-rgb) / <alpha-value>)",
+        raised: "rgb(var(--raised-rgb) / <alpha-value>)",
+        fg: "rgb(var(--fg-rgb) / <alpha-value>)",
+        "fg-muted": "rgb(var(--fg-rgb) / 0.62)",
+        "fg-faint": "rgb(var(--fg-rgb) / 0.42)",
+        line: "rgb(var(--fg-rgb) / 0.10)",
+        "line-strong": "rgb(var(--fg-rgb) / 0.16)",
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
       },
       fontFamily: {
         sans: [
@@ -27,7 +30,7 @@ const config: Config = {
       },
       boxShadow: {
         glow: "0 24px 80px rgba(143, 119, 255, 0.18)",
-        card: "0 18px 60px rgba(0, 0, 0, 0.26)",
+        card: "0 18px 60px rgba(0, 0, 0, 0.28)",
       },
       maxWidth: {
         content: "1160px",

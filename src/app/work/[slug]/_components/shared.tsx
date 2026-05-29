@@ -1,15 +1,71 @@
-import type { ReactNode } from "react"
+import type { CSSProperties, ReactNode } from "react"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import type { Hypothesis, LearningNote, Metric, QuoteItem } from "../_lib/types"
 
-export function CaseStudyShell({ children }: { children: ReactNode }) {
+export function CaseStudyShell({ children, accent }: { children: ReactNode; accent?: string }) {
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div
+      className="min-h-screen bg-background text-fg"
+      style={accent ? ({ "--case-accent": accent } as CSSProperties) : undefined}
+    >
       <Header />
       <main>{children}</main>
       <Footer />
     </div>
+  )
+}
+
+export function AccentGlow({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-hidden
+      className={`pointer-events-none absolute -z-10 rounded-full opacity-40 blur-3xl ${className}`}
+      style={{
+        background: "radial-gradient(closest-side, var(--case-accent, #c9b6ff), transparent 70%)",
+      }}
+    />
+  )
+}
+
+export function HeroAtmosphere({
+  colorA = "var(--case-accent, #c9b6ff)",
+  colorB,
+}: {
+  colorA?: string
+  colorB?: string
+}) {
+  const tone = (c: string) => `radial-gradient(closest-side, ${c}, transparent 70%)`
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[760px] w-screen -translate-x-1/2 overflow-hidden"
+    >
+      <div
+        className="absolute -left-[12%] -top-[24%] h-[620px] w-[680px] rounded-full opacity-30 blur-[130px]"
+        style={{ background: tone(colorA) }}
+      />
+      <div
+        className="absolute right-[2%] -top-[10%] h-[460px] w-[460px] rounded-full opacity-[0.18] blur-[150px]"
+        style={{ background: tone(colorB ?? colorA) }}
+      />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-background" />
+    </div>
+  )
+}
+
+export function PullQuote({ quote, source }: { quote: string; source?: string }) {
+  return (
+    <figure className="mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+      <blockquote className="mx-auto max-w-4xl break-keep text-center text-[clamp(1.6rem,3.6vw,2.4rem)] font-normal italic leading-[1.4] text-fg">
+        &ldquo;{quote}&rdquo;
+      </blockquote>
+      {source ? (
+        <figcaption className="mt-8 text-center text-sm font-normal not-italic tracking-[0.04em] text-fg-faint">
+          — {source}
+        </figcaption>
+      ) : null}
+    </figure>
   )
 }
 
@@ -18,26 +74,30 @@ export function CaseSection({
   title,
   description,
   children,
+  tone = "base",
 }: {
   number: string
   title: string
   description: string
   children: ReactNode
+  tone?: "base" | "raised"
 }) {
   return (
-    <section className="mx-auto max-w-content border-t border-white/10 px-5 py-20 md:px-8 md:py-24">
-      <div className="grid gap-10 lg:grid-cols-[0.22fr_1fr]">
-        <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-white/35">
-          {number}
-        </p>
-        <div className="min-w-0">
-          <h2 className="max-w-4xl break-keep text-[clamp(1.72rem,4.6vw,42px)] font-normal leading-[1.18] text-white">
-            {title}
-          </h2>
-          <p className="mt-5 max-w-3xl break-keep text-[15px] font-normal leading-7 text-white/55 md:text-base md:leading-8">
-            {description}
+    <section className={`border-t border-line ${tone === "raised" ? "bg-raised" : ""}`}>
+      <div className="mx-auto max-w-content px-5 py-[88px] md:px-8 md:py-[120px]">
+        <div className="grid gap-10 lg:grid-cols-[0.22fr_1fr]">
+          <p className="text-[12px] font-normal uppercase tracking-[0.18em] text-fg-faint">
+            {number}
           </p>
-          <div className="mt-10 min-w-0">{children}</div>
+          <div className="min-w-0">
+            <h2 className="max-w-4xl break-keep text-[clamp(2rem,4.4vw,52px)] font-normal leading-[1.14] text-fg">
+              {title}
+            </h2>
+            <p className="mt-6 max-w-3xl break-keep text-base font-normal leading-[1.7] text-fg-muted md:text-[17px]">
+              {description}
+            </p>
+            <div className="mt-12 min-w-0">{children}</div>
+          </div>
         </div>
       </div>
     </section>
@@ -61,54 +121,54 @@ export function HypothesisSection({
     <CaseSection number={number} title={title} description={description}>
       <div className="grid gap-6 lg:grid-cols-3">
         {hypotheses.map((h) => (
-          <div key={h.id} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
+          <div key={h.id} className="border-t border-line pt-6">
             <div className="flex items-center justify-between">
-              <p className="text-[12px] uppercase tracking-[0.16em] text-white/35">가설 {h.id}</p>
-              <span className="rounded-full border border-white/10 bg-white/[0.05] px-2 py-1 text-[11px] text-white/40">
+              <p className="text-[12px] uppercase tracking-[0.16em] text-fg-faint">가설 {h.id}</p>
+              <span className="rounded-full border border-line bg-surface-2 px-2 py-1 text-[11px] text-fg-faint">
                 {h.tag}
               </span>
             </div>
             <div className="mt-6 space-y-4">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">If</p>
-                <p className="mt-2 break-keep text-sm leading-6 text-white">{h.ifStatement}</p>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">If</p>
+                <p className="mt-2 break-keep text-sm leading-6 text-fg">{h.ifStatement}</p>
               </div>
-              <div className="border-t border-white/10 pt-4">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Then</p>
-                <p className="mt-2 break-keep text-sm leading-6 text-white">{h.thenStatement}</p>
+              <div className="border-t border-line pt-4">
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">Then</p>
+                <p className="mt-2 break-keep text-sm leading-6 text-fg">{h.thenStatement}</p>
               </div>
-              <div className="border-t border-white/10 pt-4">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">검증 지표</p>
-                <p className="mt-2 break-keep text-[13px] leading-6 text-white/50">{h.metric}</p>
+              <div className="border-t border-line pt-4">
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">검증 지표</p>
+                <p className="mt-2 break-keep text-[13px] leading-6 text-fg-muted">{h.metric}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
       {learningNote && (
-        <div className="mt-6 rounded-lg border border-white/10 bg-white/[0.02] p-6">
+        <div className="mt-6 border-t border-line pt-6">
           <div className="flex items-center gap-3">
-            <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+            <span className="rounded-full border border-line-strong bg-surface-2 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-fg-faint">
               {learningNote.hypothesis} · 회고
             </span>
-            <p className="text-[12px] uppercase tracking-[0.12em] text-white/25">
+            <p className="text-[12px] uppercase tracking-[0.12em] text-fg-faint">
               가설이 수정된 지점
             </p>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">예상</p>
-              <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              <p className="text-[10px] uppercase tracking-[0.14em] text-fg-faint">예상</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-fg-muted">
                 {learningNote.expected}
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">실제</p>
-              <p className="mt-2 break-keep text-sm leading-6 text-white">{learningNote.actual}</p>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-fg-faint">실제</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-fg">{learningNote.actual}</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/30">변경한 것</p>
-              <p className="mt-2 break-keep text-sm leading-6 text-white/55">
+              <p className="text-[10px] uppercase tracking-[0.14em] text-fg-faint">변경한 것</p>
+              <p className="mt-2 break-keep text-sm leading-6 text-fg-muted">
                 {learningNote.change}
               </p>
             </div>
@@ -119,16 +179,20 @@ export function HypothesisSection({
   )
 }
 
-export function MetricGrid({ metrics }: { metrics: Metric[] }) {
+export function MetricGrid({ metrics, accent = false }: { metrics: Metric[]; accent?: boolean }) {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {metrics.map((metric) => (
-        <div key={metric.label} className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">{metric.context}</p>
-          <p className="mt-4 text-[clamp(2rem,5vw,3.4rem)] font-normal leading-none text-white">
+        <div key={metric.label} className="border-t border-line pt-6">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-fg-faint">{metric.context}</p>
+          <p
+            className={`mt-4 text-[clamp(2rem,5vw,3.4rem)] font-normal leading-none ${
+              accent ? "text-[color:var(--case-accent)]" : "text-fg"
+            }`}
+          >
             {metric.value}
           </p>
-          <p className="mt-5 break-keep text-sm leading-6 text-white/55">{metric.label}</p>
+          <p className="mt-5 break-keep text-sm leading-6 text-fg-muted">{metric.label}</p>
         </div>
       ))}
     </div>
@@ -137,7 +201,7 @@ export function MetricGrid({ metrics }: { metrics: Metric[] }) {
 
 export function TagText({ children }: { children: string }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1 text-[11px] leading-5 text-white/50">
+    <span className="rounded-full border border-line bg-surface px-3 py-1 text-[11px] leading-5 text-fg-muted">
       {children}
     </span>
   )
@@ -145,8 +209,8 @@ export function TagText({ children }: { children: string }) {
 
 export function Card({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="break-keep text-xl font-normal leading-7 text-white">{title}</h3>
+    <div className="border-t border-line pt-6">
+      <h3 className="break-keep text-xl font-normal leading-7 text-fg">{title}</h3>
       <div className="mt-4">{children}</div>
     </div>
   )
@@ -154,15 +218,15 @@ export function Card({ title, children }: { title: string; children: ReactNode }
 
 export function DiagramCard({ title, nodes }: { title: string; nodes: string[] }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="text-xl font-normal text-white">{title}</h3>
+    <div className="border-t border-line pt-6">
+      <h3 className="text-xl font-normal text-fg">{title}</h3>
       <div className="mt-6 flex flex-wrap items-center gap-3">
         {nodes.map((node, index) => (
           <div key={`${title}-${node}`} className="flex items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-white/70">
+            <span className="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm text-fg-muted">
               {node}
             </span>
-            {index < nodes.length - 1 ? <span className="text-white/25">→</span> : null}
+            {index < nodes.length - 1 ? <span className="text-fg-faint">→</span> : null}
           </div>
         ))}
       </div>
@@ -192,7 +256,7 @@ export function SimpleTable({ headers, rows }: { headers: string[]; rows: string
       </thead>
       <tbody>
         {rows.map((row) => (
-          <tr key={row.join("-")} className="border-t border-white/10">
+          <tr key={row.join("-")} className="border-t border-line">
             {row.map((cell, index) => (
               <TableCell key={cell} strong={index === 0}>
                 {cell}
@@ -207,7 +271,7 @@ export function SimpleTable({ headers, rows }: { headers: string[]; rows: string
 
 export function ResponsiveTable({ children }: { children: ReactNode }) {
   return (
-    <div className="max-w-full overflow-x-auto rounded-lg border border-white/10 bg-white/[0.035]">
+    <div className="max-w-full overflow-x-auto rounded-lg border border-line bg-surface">
       <table className="min-w-[760px] w-full border-collapse text-left">{children}</table>
     </div>
   )
@@ -215,7 +279,7 @@ export function ResponsiveTable({ children }: { children: ReactNode }) {
 
 export function TableHead({ children }: { children: ReactNode }) {
   return (
-    <th className="px-5 py-4 text-[11px] font-normal uppercase tracking-[0.14em] text-white/35">
+    <th className="px-5 py-4 text-[11px] font-normal uppercase tracking-[0.14em] text-fg-faint">
       {children}
     </th>
   )
@@ -233,7 +297,7 @@ export function TableCell({
   return (
     <td
       className={`px-5 py-5 align-top text-sm leading-6 ${
-        strong ? "text-white" : muted ? "text-white/40" : "text-white/60"
+        strong ? "text-fg" : muted ? "text-fg-faint" : "text-fg-muted"
       }`}
     >
       {children}
@@ -243,7 +307,7 @@ export function TableCell({
 
 export function ClosingText({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-8 max-w-3xl break-keep border-l border-white/15 pl-5 text-lg font-normal leading-8 text-white/70">
+    <p className="mt-8 max-w-3xl break-keep border-l border-line-strong pl-5 text-lg font-normal leading-8 text-fg-muted">
       {children}
     </p>
   )
@@ -251,21 +315,21 @@ export function ClosingText({ children }: { children: ReactNode }) {
 
 export function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <p className="break-keep text-xl font-normal leading-7 text-white">{value}</p>
-      <p className="mt-4 text-sm leading-6 text-white/45">{label}</p>
+    <div className="border-t border-line pt-6">
+      <p className="break-keep text-xl font-normal leading-7 text-fg">{value}</p>
+      <p className="mt-4 text-sm leading-6 text-fg-faint">{label}</p>
     </div>
   )
 }
 
 export function QuoteCard({ item }: { item: QuoteItem }) {
   return (
-    <figure className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <figcaption className="text-sm leading-6 text-white/45">
+    <figure className="border-t border-line pt-6">
+      <figcaption className="text-sm leading-6 text-fg-faint">
         {item.store} — {item.meta}
       </figcaption>
       <blockquote className="mt-5">
-        <p className="break-keep text-lg font-normal italic leading-8 text-white/80">
+        <p className="break-keep text-lg font-normal italic leading-8 text-fg">
           &quot;{item.quote}&quot;
         </p>
       </blockquote>
@@ -275,11 +339,11 @@ export function QuoteCard({ item }: { item: QuoteItem }) {
 
 export function BeforeAfterCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="text-xl font-normal text-white">{title}</h3>
+    <div className="border-t border-line pt-6">
+      <h3 className="text-xl font-normal text-fg">{title}</h3>
       <ul className="mt-6 space-y-3">
         {items.map((item) => (
-          <li key={item} className="break-keep text-sm leading-7 text-white/60">
+          <li key={item} className="break-keep text-sm leading-7 text-fg-muted">
             {item}
           </li>
         ))}
@@ -304,25 +368,21 @@ export function DesignBlock({
   researchLink?: { hypothesis: string; findings: string }
 }) {
   return (
-    <section
-      className={`rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8 ${
-        compact ? "" : "mb-8"
-      }`}
-    >
-      <p className="text-[11px] uppercase tracking-[0.18em] text-white/35">{eyebrow}</p>
-      <h3 className="mt-4 break-keep text-xl font-normal leading-tight text-white md:text-2xl">
+    <section className={`border-t border-line pt-6 md:pt-8 ${compact ? "" : "mb-8"}`}>
+      <p className="text-[11px] uppercase tracking-[0.18em] text-fg-faint">{eyebrow}</p>
+      <h3 className="mt-4 break-keep text-xl font-normal leading-tight text-fg md:text-2xl">
         {title}
       </h3>
-      <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-white/55 md:text-base md:leading-8">
+      <p className="mt-5 max-w-3xl break-keep text-sm leading-7 text-fg-muted md:text-base md:leading-8">
         {body}
       </p>
       {children ? <div className="mt-6">{children}</div> : null}
       {researchLink && !compact ? (
-        <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
-          <span className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-white/45">
+        <div className="mt-6 flex items-center gap-3 border-t border-line pt-5">
+          <span className="rounded-full border border-line-strong bg-surface-2 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-fg-faint">
             {researchLink.hypothesis}
           </span>
-          <p className="text-[12px] leading-5 text-white/35">{researchLink.findings}</p>
+          <p className="text-[12px] leading-5 text-fg-faint">{researchLink.findings}</p>
         </div>
       ) : null}
     </section>
@@ -348,12 +408,12 @@ export function ScreenFigure({
 
   return (
     <figure
-      className={`overflow-hidden rounded-lg border border-white/10 bg-white/[0.035] ${
-        wide ? "shadow-card 2xl:-mx-[120px]" : ""
+      className={`overflow-hidden rounded-lg border border-line bg-surface shadow-card ${
+        wide ? "2xl:-mx-[120px]" : ""
       }`}
     >
       <div
-        className={`flex bg-black/30 ${
+        className={`flex bg-surface-2 ${
           mobile ? "justify-center p-4 sm:p-5" : "items-center justify-center p-3"
         }`}
       >
@@ -378,12 +438,12 @@ export function ScreenFigure({
             className="h-auto w-full rounded-md object-contain"
           />
         ) : (
-          <div className="flex min-h-[280px] w-full items-center justify-center rounded-md border border-white/10 bg-white/[0.025] text-sm text-white/35">
+          <div className="flex min-h-[280px] w-full items-center justify-center rounded-md border border-line bg-surface text-sm text-fg-faint">
             Image placeholder
           </div>
         )}
       </div>
-      <figcaption className="border-t border-white/10 px-5 py-4 text-xs leading-6 text-white/45">
+      <figcaption className="border-t border-line px-5 py-4 text-xs leading-6 text-fg-faint">
         {caption}
       </figcaption>
     </figure>
@@ -404,8 +464,8 @@ export function CompactFigure({
   const imageLoading = eager ? "eager" : "lazy"
 
   return (
-    <figure className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.035]">
-      <div className="aspect-[4/3] bg-black/30 p-2">
+    <figure className="overflow-hidden rounded-lg border border-line bg-surface shadow-card">
+      <div className="aspect-[4/3] bg-surface-2 p-2">
         <img
           src={src}
           alt={alt}
@@ -415,7 +475,7 @@ export function CompactFigure({
           className="h-full w-full rounded-md object-contain"
         />
       </div>
-      <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-5 text-white/45">
+      <figcaption className="border-t border-line px-4 py-3 text-xs leading-5 text-fg-faint">
         {caption}
       </figcaption>
     </figure>
@@ -432,12 +492,12 @@ export function ListCard({
   intro?: string
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="break-keep text-xl font-normal text-white">{title}</h3>
-      {intro ? <p className="mt-4 text-sm leading-7 text-white/45">{intro}</p> : null}
+    <div className="border-t border-line pt-6">
+      <h3 className="break-keep text-xl font-normal text-fg">{title}</h3>
+      {intro ? <p className="mt-4 text-sm leading-7 text-fg-faint">{intro}</p> : null}
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
-          <li key={item} className="break-keep text-sm leading-7 text-white/60">
+          <li key={item} className="break-keep text-sm leading-7 text-fg-muted">
             {item}
           </li>
         ))}
@@ -448,13 +508,13 @@ export function ListCard({
 
 export function NumberedList({ title, items }: { title: string; items: readonly string[] }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.035] p-6">
-      <h3 className="text-xl font-normal text-white">{title}</h3>
+    <div className="border-t border-line pt-6">
+      <h3 className="text-xl font-normal text-fg">{title}</h3>
       <ol className="mt-6 space-y-4">
         {items.map((item, index) => (
           <li key={item} className="grid grid-cols-[42px_1fr] gap-4 text-sm leading-7">
-            <span className="text-white/35">{String(index + 1).padStart(2, "0")}</span>
-            <span className="break-keep text-white/60">{item}</span>
+            <span className="text-fg-faint">{String(index + 1).padStart(2, "0")}</span>
+            <span className="break-keep text-fg-muted">{item}</span>
           </li>
         ))}
       </ol>

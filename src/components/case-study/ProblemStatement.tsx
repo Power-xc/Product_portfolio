@@ -13,7 +13,7 @@ export function ProblemStatement({
 }) {
   return (
     <div className="mt-8">
-      <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-white/35">
+      <p className="mb-4 text-[11px] uppercase tracking-[0.16em] text-fg-faint">
         Problem Statement
       </p>
       <div className="grid gap-3 md:grid-cols-4">
