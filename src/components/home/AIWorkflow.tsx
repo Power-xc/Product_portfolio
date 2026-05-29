@@ -10,17 +10,15 @@ export function AIWorkflow() {
           <SectionHeading title="AI는 더 빨리 만들기보다, 더 빨리 검증하기 위한 방식입니다." />
           <div className="space-y-6 break-keep text-base font-normal leading-8 text-[#999] md:text-lg">
             <p>
-              저는 AI를 활용해 리서치 요약, IA 탐색, 와이어프레임, Frontend Draft를
-              빠르게 만듭니다.
+              저는 AI를 활용해 리서치 요약, IA 탐색, 와이어프레임, Frontend Draft를 빠르게 만듭니다.
             </p>
             <p>
-              목적은 결과물을 대신 만드는 것이 아니라, 고객·기획·디자인·개발이 같은
-              화면을 보며 방향성 리스크를 줄이는 것입니다.
+              목적은 결과물을 대신 만드는 것이 아니라, 고객·기획·디자인·개발이 같은 화면을 보며
+              방향성 리스크를 줄이는 것입니다.
             </p>
             <p>
-              동시에 Harness, Memory System 같은 작업 구조를 실험하며 AI의 한계를
-              인지하고, AI가 맡을 영역과 사람이 판단해야 할 영역의 경계를 계속
-              찾아가고 있습니다.
+              동시에 Harness, Memory System 같은 작업 구조를 실험하며 AI의 한계를 인지하고, AI가
+              맡을 영역과 사람이 판단해야 할 영역의 경계를 계속 찾아가고 있습니다.
             </p>
           </div>
         </div>

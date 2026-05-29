@@ -71,15 +71,7 @@ const credentialSections: SectionList[] = [
 const skillGroups: SectionList[] = [
   {
     title: "Design",
-    items: [
-      "Figma",
-      "FigJam",
-      "Design System",
-      "Adobe XD",
-      "Sketch",
-      "Photoshop",
-      "Illustrator",
-    ],
+    items: ["Figma", "FigJam", "Design System", "Adobe XD", "Sketch", "Photoshop", "Illustrator"],
   },
   {
     title: "Development",
@@ -154,13 +146,13 @@ export default function AboutPage() {
               </h1>
               <div className="mt-8 max-w-2xl space-y-5 break-keep text-base font-normal leading-8 text-[#222219] md:text-[17px] md:leading-9">
                 <p>
-                  복잡한 제품과 운영 시스템을 사용자가 이해하고, 판단하고, 행동할 수
-                  있는 구조로 다시 설계하는 Product Designer입니다.
+                  복잡한 제품과 운영 시스템을 사용자가 이해하고, 판단하고, 행동할 수 있는 구조로
+                  다시 설계하는 Product Designer입니다.
                 </p>
                 <p>
-                  AI 제품과 엔터프라이즈 시스템에서 화면의 완성도보다 먼저 문제의
-                  구조, 판단 기준, 업무 흐름을 정리합니다. 필요할 때는 프론트엔드
-                  Draft까지 직접 만들어 팀이 같은 화면으로 논의할 수 있게 합니다.
+                  AI 제품과 엔터프라이즈 시스템에서 화면의 완성도보다 먼저 문제의 구조, 판단 기준,
+                  업무 흐름을 정리합니다. 필요할 때는 프론트엔드 Draft까지 직접 만들어 팀이 같은
+                  화면으로 논의할 수 있게 합니다.
                 </p>
               </div>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -203,19 +195,27 @@ export default function AboutPage() {
               </div>
               <dl className="mt-8 space-y-4">
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Company</dt>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">
+                    Company
+                  </dt>
                   <dd className="break-keep text-[#1A1A15]">솔트웨어㈜</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Team</dt>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">
+                    Team
+                  </dt>
                   <dd className="break-keep text-[#1A1A15]">디자인서비스팀 팀장</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Level</dt>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">
+                    Level
+                  </dt>
                   <dd className="break-keep text-[#1A1A15]">책임매니저 (과장급)</dd>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2 text-sm font-normal leading-6">
-                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">Location</dt>
+                  <dt className="pt-0.5 text-[11px] font-normal uppercase tracking-[0.14em] text-[#525249]">
+                    Location
+                  </dt>
                   <dd className="break-keep text-[#1A1A15]">Uiwang-si, Gyeonggi-do</dd>
                 </div>
               </dl>

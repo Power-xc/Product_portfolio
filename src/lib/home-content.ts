@@ -52,8 +52,7 @@ export const contactEmail = "pkk062300@naver.com"
 export const contactHref = `mailto:${contactEmail}`
 export const phoneDisplay = "요청 시 공유"
 export const githubUrl = "https://github.com/Power-xc"
-export const linkedinUrl =
-  "https://www.linkedin.com/in/%EA%B0%95%EA%B7%BC-%EB%B0%95-b9a97238a/"
+export const linkedinUrl = "https://www.linkedin.com/in/%EA%B0%95%EA%B7%BC-%EB%B0%95-b9a97238a/"
 
 export const navItems: NavItem[] = [
   { label: "Work", href: "/work" },

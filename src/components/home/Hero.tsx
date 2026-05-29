@@ -17,7 +17,8 @@ export function Hero() {
         <div className="mt-8 max-w-none break-keep text-[16px] font-normal leading-8 text-[#999] md:text-[17px] md:leading-9">
           <p>
             <span className="lg:whitespace-nowrap">
-              AX 시대의 UI/UX는 더 빠르게 만드는 것보다, 사용자가 더 잘 판단하고 행동하게 만드는 구조에 가깝다고 생각합니다.
+              AX 시대의 UI/UX는 더 빠르게 만드는 것보다, 사용자가 더 잘 판단하고 행동하게 만드는
+              구조에 가깝다고 생각합니다.
             </span>
             <br />
             <span className="block">

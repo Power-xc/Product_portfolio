@@ -7,11 +7,7 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary"
 }
 
-export function ButtonLink({
-  href,
-  children,
-  variant = "primary",
-}: ButtonLinkProps) {
+export function ButtonLink({ href, children, variant = "primary" }: ButtonLinkProps) {
   const variantClass =
     variant === "primary"
       ? "bg-white text-background hover:bg-[#DADADA] focus-visible:outline-accent"

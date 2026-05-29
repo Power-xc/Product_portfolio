@@ -5,8 +5,7 @@ import { workProjectGroups } from "@/lib/home-content"
 
 export const metadata: Metadata = {
   title: "Work · Kangkeun Park",
-  description:
-    "Featured product design cases focused on AI UX, Enterprise UX, and Product 1.1.",
+  description: "Featured product design cases focused on AI UX, Enterprise UX, and Product 1.1.",
 }
 
 export default function WorkPage() {
@@ -22,8 +21,8 @@ export default function WorkPage() {
             Work Archive
           </h1>
           <p className="mt-6 max-w-2xl break-keep text-base font-normal leading-8 text-[#252520] md:text-lg">
-            AI 제품, 내부 시스템, 엔터프라이즈 플랫폼까지 제품 구조를 정리하고
-            사용자가 판단할 수 있는 화면으로 옮긴 작업들입니다.
+            AI 제품, 내부 시스템, 엔터프라이즈 플랫폼까지 제품 구조를 정리하고 사용자가 판단할 수
+            있는 화면으로 옮긴 작업들입니다.
           </p>
 
           <div className="mt-14 space-y-16 md:mt-20 md:space-y-20">

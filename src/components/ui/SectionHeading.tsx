@@ -4,11 +4,7 @@ type SectionHeadingProps = {
   description?: string
 }
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  description,
-}: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
   return (
     <div className="max-w-3xl">
       {eyebrow ? (

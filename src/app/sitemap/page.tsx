@@ -122,9 +122,7 @@ function SitemapCard({ section }: { section: SitemapSection }) {
         </div>
         <span className="text-sm text-white/30">{section.links.length}</span>
       </div>
-      <p className="mt-5 break-keep text-sm font-normal leading-7 text-white/55">
-        {section.body}
-      </p>
+      <p className="mt-5 break-keep text-sm font-normal leading-7 text-white/55">{section.body}</p>
       <div className="mt-7 divide-y divide-white/10 border-t border-white/10">
         {section.links.map((link) => (
           <Link
@@ -163,8 +161,8 @@ export default function SitemapPage() {
             작업의 구조를 한 번에 확인합니다.
           </h1>
           <p className="mt-8 max-w-2xl break-keep text-base font-normal leading-8 text-[#999] md:text-[17px] md:leading-9">
-            홈의 질문, 케이스스터디, 프로젝트 아카이브, 소개와 연락 경로를 같은
-            기준으로 정리했습니다.
+            홈의 질문, 케이스스터디, 프로젝트 아카이브, 소개와 연락 경로를 같은 기준으로
+            정리했습니다.
           </p>
         </section>
 
